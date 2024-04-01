@@ -22,7 +22,13 @@ export default function Navbar() {
                     <NavLink to="/location" activeclassname={styles.active} >Location</NavLink>
                 </li>
                 <li>
+                    <div className="styles.searchBar">
                     <input type="text" name="" id="" placeholder="Searchbar" activeclassname={styles.active} />
+                    <button>Search</button>
+                    </div>
+                </li>
+                <li>
+                    <button> <NavLink to="/authentication" activeclassname={styles.active} >Login</NavLink></button>
                 </li>
             </ul>
         </nav>
