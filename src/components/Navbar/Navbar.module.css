@@ -1,0 +1,28 @@
+.navbarContainer {
+border: solid 1px black;    
+}
+
+.navbarContainer li.active {
+    background-color: #e83434;
+    font-weight: bold;
+  }
+  /* NOT WORKING REPAIRE IT */
+
+ul {
+    display: flex; 
+    align-items: center;
+    justify-content: space-around; 
+    list-style: none; 
+    font-size: 20px;
+  }
+
+  .oldWorldLogo {
+    width: 150px;
+    height: auto ;
+  }
+
+  .liNavbar {
+    border: solid 1px black;
+  }
+
+  
