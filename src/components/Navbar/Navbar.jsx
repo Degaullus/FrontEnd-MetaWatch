@@ -4,24 +4,24 @@ import styles from "./Navbar.module.css";
 
 export default function Navbar() { 
     return (
-        <nav>
+        <nav className={styles.navbarContainer}>
             <ul>
-                <li>
-                    <NavLink to="/" activeclassname={styles.active} ><img src="public/TheOldWorldLogo.png" alt="logoOldworld" /></NavLink>
+                <li className={styles.liNavbar}>
+                    <NavLink to="/" activeclassname={styles.active} ><img className={styles.oldWorldLogo} src="public/TheOldWorldLogo.png" alt="logoOldworld" /></NavLink>
                 </li>
-                <li>
+                <li className={styles.liNavbar}>
                     <NavLink to="/" activeclassname={styles.active} >Homepage</NavLink>
                 </li>
-                <li>
+                <li className={styles.liNavbar}>
                     <NavLink to="/faction" activeclassname={styles.active} >Faction</NavLink>
                 </li>
-                <li>
+                <li className={styles.liNavbar}>
                     <NavLink to="/format" activeclassname={styles.active} >Format</NavLink>
-                </li>
-                <li>
+                </li >
+                <li className={styles.liNavbar}>
                     <NavLink to="/location" activeclassname={styles.active} >Location</NavLink>
                 </li>
-                <li>
+                <li >
                     <div className="styles.searchBar">
                     <input type="text" name="" id="" placeholder="Searchbar" activeclassname={styles.active} />
                     <button>Search</button>
