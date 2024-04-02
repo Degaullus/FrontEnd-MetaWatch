@@ -8,7 +8,7 @@ import NotFound from './components/NotFound/NotFound';
 import './App.css';
 import React from 'react';
 import { Routes, Route} from 'react-router-dom';
-import { DataContext } from './context/DataContext';
+import APIContextProvider from './context/apiContext';
 
 function App() {
  

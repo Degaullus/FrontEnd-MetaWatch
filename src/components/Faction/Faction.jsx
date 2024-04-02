@@ -1,22 +1,17 @@
 import styles from "./Faction.module.css";
-import { DataContext } from "../../context/DataContext";
-import { useContext } from "react";
+import { useAPI } from "../../context/apiContext";
 
 export default function Faction() { 
 
-const {data} = useContext(DataContext)
+  const { data, isLoading } = useAPI();
+
+// console.log(data.entries)
 
     return (
-        <>
-        
-        <h2>Faction</h2>
-        {data && (
         <div>
-            <h1>
-              {data.Entry1}
-            </h1>
+            <h2>Faction</h2>
+            {/* {!isLoading ? <p>{entries}</p> : <p>Loading...</p>} */}
         </div>
-      )}
-        </>
-    )
+    );
     }
+  
