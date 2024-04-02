@@ -1,5 +1,5 @@
 {
-    entry1: {
+    "Entry1": {
         "Army": "Wood Elves", 
         "Rank": "1st", 
         "Tournament": "Rise of the Dragon", 
@@ -8,15 +8,13 @@
         "Wins": "3",
         "Rounds": "3", 
         "Location": "Briga Novarese, Piemonte Italia",
-        "List": "Characters [881pts]
-        Glade Lord [556pts]:
-        • 1x Glade Lord [556pts]: Asrai Longbow, Hand Weapon, Light Armour, General, Forest Dragon, Full Plate Armour, Serrated Maw, Soporific Breath, Wicked Claws, Spear of Twilight, Talisman Of Protection, Arcane Bodkins, An Annoyance of Netlings, A Befuddlement of Mischiefs
+        "List": 
+        "Characters 881pts Glade Lord 556pts: • 1x Glade Lord 556pts: Asrai Longbow, Hand Weapon, Light Armour, General, Forest Dragon, Full Plate Armour, Serrated Maw, Soporific Breath, Wicked Claws, Spear of Twilight, Talisman Of Protection, Arcane Bodkins, An Annoyance of Netlings, A Befuddlement of Mischiefs
         Treemen Ancients [325pts]:
         • 1x Treemen Ancient [325pts]: Full Plate Armour, Oaken Fists, Strangleroots, Wizard Level 4, Battle Magic
-         
         ## Core [500pts]
         Deepwood Scouts [126pts]:
-        • 8x Deepwood Scout [15pts]: Asrai Longbow, Hand Weapon, Arcane Bodkins
+        • 8x Deepwood Scout [15pts] Asrai Longbow, Hand Weapon, Arcane Bodkins
         • 1x Lord's Bowman [6pts]
         Deepwood Scouts [126pts]:
         • 8x Deepwood Scout [15pts]: Asrai Longbow, Hand Weapon, Hagbane Tips
@@ -36,11 +34,10 @@
          
         ## Rare [215pts]
         Treemen [215pts]:
-        • 1x Treemen [215pts]: Full Plate Armour, Oaken Fists, Strangleroots"
-
+        • 1x Treemen [215pts]: Full Plate Armour, Oaken Fists, Stranglerootss"
     }, 
     
-    entry2: {
+    "Entry2": {
         "Army": "Chaos Dwarfs", 
         "Rank": "2nd",
         "Tournament": "Rise of the Dragon",
@@ -54,15 +51,15 @@
 
         RISE of the DRAGON of THE OLD WORLD
         Marco Parente
-        Chaos Dwarfs - Idid - [2000pts]
+        Chaos Dwarfs  Idid 2000pts
         
-        # Main Force [2000pts]
+         Main Force 2000pts
         
-        ## Characters [782pts]
-        Black Orc Warboss [362pts]:
-        • 1x Black Orc Warboss [362pts]: Full Plate Armour, Hand Weapon, Shield, Wyvern, Heavy Armour, Venomous Tail, Wicked claws, Ogre Blade, Daemonic Familiar
-        Sorcerer-Prophet [420pts]:
-        • 1x Sorcerer-Prophet [420pts]: Hand Weapon, Heavy Armour, General, Lammasu, Hand Weapon, Wizard Level 4, Dark Magic, Armour of Silvered Steel, Lore Familiar, Talisman Of Protection
+         Characters 782pts
+        Black Orc Warboss 362pts:
+         1x Black Orc Warboss [362pts]: Full Plate Armour, Hand Weapon, Shield, Wyvern, Heavy Armour, Venomous Tail, Wicked claws, Ogre Blade, Daemonic Familiar
+        Sorcerer-Prophet [420pts]
+        1x Sorcerer-Prophet [420pts]: Hand Weapon Heavy Armour Genera Lammas Hand WeaponWizard Level 4, Dark Magic, Armour of Silvered Steel Lore Familiar Talisman Of Protection
         
         ## Core [500pts]
         Black Orc Mobs [65pts]:
@@ -82,9 +79,9 @@
         2x Iron Daemon [275pts]: 3x Chaos Dwarf Crew, Hand Weapon
         • 1x Iron Daemon [275pts]: Steam Cannonade
         Uploaded with Best Coast Pairings @RISE of the DRAGON of THE OLD WORLD @2024-02-28T18:16:21+00:00"
-    }
+    },
 
-    entry3: {
+    "Entry3": {
         "Army": "Kingdom Of Bretonnia", 
         "Rank": "3rd",
         "Tournament": "Rise of the Dragon",
@@ -138,7 +135,7 @@
         Uploaded with Best Coast Pairings @RISE of the DRAGON of THE OLD WORLD @2024-03-01T18:47:37+00:00"
     }
 
-    entry4: {
+    "Entry4": {
         "Army": "Wood Elves", 
         "Rank": "1th",
         "Tournament": "Old Grudges 1",
@@ -221,9 +218,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Old Grudges 1 @2024-03-01T11:26:28+00:00"
-    }
+    },
 
-    entry5 : {
+    "Entry5" : {
         "Army": "Empire of Men", 
         "Rank": "2nd",
         "Tournament": "Old Grudges 1",
@@ -232,13 +229,11 @@
         "Wins": "3",
         "Rounds": "3",
         "Format": "1500 pts",
-        "Location": "56 Hoskins Street
-        Mitchell, Australian Capital Territory 2911
-        AU",
+        "Location": "56 Hoskins Street Mitchell, Australian Capital Territory 2911 AU",
         "List": "not submitted yet"
-    }
+    },
 
-    entry6 : {
+    "Entry6" : {
         "Army": "Kingdom Of Bretonnia", 
         "Rank": "3rd",
         "Tournament": "Old Grudges 1",
@@ -247,13 +242,11 @@
         "Wins": "3",
         "Rounds": "3",
         "Format": "1500 pts",
-        "Location": "56 Hoskins Street
-        Mitchell, Australian Capital Territory 2911
-        AU",
+        "Location": "56 Hoskins Street Mitchell, Australian Capital Territory 2911 AU",
         "List": "not submitted yet"
-    }
+    },
 
-    entry7 : {
+    "Entry7" : {
         "Army": "Wood Elves", 
         "Rank": "4th",
         "Tournament": "Old Grudges 1",
@@ -262,13 +255,11 @@
         "Wins": "2",
         "Rounds": "3",
         "Format": "1500 pts",
-        "Location": "56 Hoskins Street
-        Mitchell, Australian Capital Territory 2911
-        AU",
-        "List": "Format inspected: @2024-03-01T12:12:09+00:00
-
-        Old Grudges 1
+        "Location": "56 Hoskins Street Mitchell, Australian Capital Territory 2911 AU",
+        "List": "Format inspected: @2024-03-01T12:12:09+00:00 
+        Old Grudges 1 
         Remi Le Francois
+        
         ===
         Jolt March [1499 pts]
         Warhammer: The Old World, Wood Elf Realms
@@ -343,9 +334,9 @@
         
         ---
         Uploaded with Best Coast Pairings @Old Grudges 1 @2024-03-01T12:12:09+00:00"
-    }
+    },
 
-    entry8 : {
+    "Entry8" : {
         "Army": "Empire of Men", 
         "Rank": "1st",
         "Tournament": "Crown of Command",
@@ -354,9 +345,7 @@
         "Wins": "3",
         "Rounds": "3",
         "Format": "1500 pts",
-        "Location": "4B Korsörvägen
-        Skåne län 217 47
-        Sverige",
+        "Location": "4B Korsörvägen, Skåne län 217 47, Sverige",
         "List": "Format inspected: @2024-02-29T20:19:53+00:00
 
         Crown of Command
@@ -443,9 +432,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Crown of Command @2024-02-29T20:19:53+00:00"
-    }
+    },
 
-    entry9: {
+    "Entry9" : {
         "Army": "Ogre Kingdoms", 
         "Rank": "2rd",
         "Tournament": "Crown of Command",
@@ -513,9 +502,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Crown of Command @2024-02-29T18:57:19+00:00"
-    }
+    },
 
-    entry10: {
+    "Entry10" : {
         "Army": "Empire of Men", 
         "Rank": "3rd", 
         "Tournament": "Crown of Command",
@@ -579,9 +568,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Crown of Command @2024-03-01T19:41:18+00:00"
-    }
+    },
 
-    entry11: {
+    "Entry11" : {
         "Army": "Wood Elves",
         "Rank": "4th",
         "Tournament": "Crown of Command",
@@ -644,9 +633,9 @@
         Veteran
         Uploaded with Best Coast Pairings @Crown of Command @2024-02-26T17:24:44+00:00"
 
-    }
+    },
 
-    entry12: {
+    "Entry12" : {
         "Army": "Lizardmen",
         "Rank": "1st",
         "Tournament": "A Mustering of Arms",
@@ -691,9 +680,9 @@
         Ancient Stegadon [255pts]:
         - 1x Ancient Stegadon [255pts]: 5x Skink Crew, Hand Weapon, Javelin and Shield, Great horns, Engine of the Gods
         Uploaded with Best Coast Pairings @A Mustering Of Arms @2024-02-23T21:17:17+00:00"
-    }
+    },
 
-    entry13: {
+    "Entry13" : {
         "Army": "Warriors of Chaos",
         "Rank": "2nd",
         "Tournament": "A Mustering of Arms",
@@ -797,9 +786,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @A Mustering Of Arms @2024-02-22T17:25:09+00:00"
-     }
+     },
 
-    entry14: {
+    "Entry14" : {
         "Army": "Wood Elves",
         "Rank": "3rd",
         "Tournament": "A Mustering of Arms",
@@ -899,9 +888,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @A Mustering Of Arms @2024-02-24T11:53:42+00:00"
-    }
+    },
 
-    entry15: {
+    "Entry15" : {
         "Army": "Warriors of Chaos",
         "Rank": "4th",
         "Tournament": "A Mustering of Arms",
@@ -930,7 +919,7 @@
         (Hand weapons, Heavy armour, Shields, Mark of Nurgle, Champion, Standard bearer, Musician)
         
         5 Marauder Horsemen [67 pts]
-        (Hand weapons, Throwing Spears, Light armour, Mark of Chaos Undivided, Marauder Horsemaster)
+        (Hand weapons, throwing spears, Light armour, Mark of Chaos Undivided, Marauder Horsemaster)
         
         5 Marauder Horsemen [67 pts]
         (Hand weapons, Throwing Spears, Light armour, Mark of Chaos Undivided, Marauder Horsemaster)
@@ -953,9 +942,9 @@
         
         [https://old-world-builder.com]"
 
-    }
+    },
 
-    entry16: {
+    "Entry16" : {
         "Army": "Orc & Goblin Tribes",
         "Rank": "1st",
         "Tournament": "The Old Wolrd First GT",
@@ -1015,9 +1004,9 @@
         • 1x Doom Diver Catapult [95pts]: Goblin Crew, Hand Weapon, Stone Thrower
         # Main Force
         Uploaded with Best Coast Pairings @The Old World First GT @2024-02-24T19:38:49+00:00"
-    }
+    },
 
-    entry17: {
+    "Entry17" : {
         "Army": "Wood Elves",
         "Rank": "2nd",
         "Tournament": "The Old Wolrd First GT",
@@ -1118,9 +1107,9 @@
         Treeman [215 pts]
         
         Uploaded with Best Coast Pairings @The Old World First GT @2024-02-24T21:16:10+00:00"
-    }
+    },
 
-    entry18: {
+    "Entry18" : {
         "Army": "Tomb Kings of Khemri",
         "Rank": "3rd",
         "Tournament": "The Old Wolrd First GT",
@@ -1214,9 +1203,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @The Old World First GT @2024-02-25T12:20:58+00:00"
-    }
+    },
 
-    entry19: {
+    "Entry19" : {
         "Army": "Orc & Goblin Tribes",
         "Rank": "4th",
         "Tournament": "The Old Wolrd First GT",
@@ -1331,9 +1320,9 @@
         - Colossal fang-filled gob
         - Heavy armour
         Uploaded with Best Coast Pairings @The Old World First GT @2024-02-24T20:35:06+00:00"
-    }
+    },
 
-    entry20: {
+    "Entry20": {
         "Army": "Dwarfen Mountain Holds",   
         "Rank": "1st",
         "Tournament": "The Old Wolrd Tournament @XPG",
@@ -1344,7 +1333,7 @@
         "Format": "2000 pts",
         "Location": "Mississauga, ON CA",
         "List": "Format inspected: @2024-02-25T23:38:18+00:00
-
+        
         The Old World Tournament @ XPG
         Chad Hackman
         ++ Characters [654 pts] ++
@@ -1395,9 +1384,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @The Old World Tournament @ XPG @2024-02-25T23:38:18+00:00"
-    }
+    },
 
-    entry21: {
+    "Entry21" : {
         "Army": "Tomb Kings of Khemri",
         "Rank": "2nd",
         "Tournament": "The Old Wolrd Tournament @XPG",
@@ -1503,9 +1492,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @The Old World Tournament @ XPG @2024-02-26T03:38:10+00:00"
-    }
+    },
 
-    entry22: {
+   "Entry22" : {
         "Army": "Vampire Counts",
         "Rank": "3rd",
         "Tournament": "The Old Wolrd Tournament @XPG",
@@ -1614,9 +1603,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @The Old World Tournament @ XPG @2024-02-29T01:03:53+00:00"
-    }
+    },
 
-    entry23: {
+    "Entry23" : {
         "Army": "Orc & Goblin Tribes",
         "Rank": "4th",
         "Tournament": "The Old Wolrd Tournament @XPG",
@@ -1666,9 +1655,9 @@
         2x Mangler Squigs [95pts]:
         • 1x Mangler Squig [95pts]: Collosal Fang-Filled Gob, Heavy Armour
         Uploaded with Best Coast Pairings @The Old World Tournament @ XPG @2024-02-29T14:45:09+00:00"
-    }
+    },
 
-    entry24: {
+    "Entry24" : {
         "Army": "Kingdom Of Bretonnia",
         "Rank": "1st",
         "Tournament": "Games of Berkeley Old World ",
@@ -1742,9 +1731,9 @@
         - Envenomed Sting
         - Bone Carapace (Counts as Heavy Armour)
         Uploaded with Best Coast Pairings @Games of Berkeley Old World 1000 Points Tournament @2024-02-28T08:54:44+00:00"
-    }
+    },
 
-    entry25: {
+    "Entry25" : {
         "Army": "Empire of Men",
         "Rank": "2nd",
         "Tournament": "Games of Berkeley Old World ",
@@ -1831,9 +1820,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Games of Berkeley Old World 1000 Points Tournament @2024-02-28T02:51:16+00:00"
-    }
+    },
 
-    entry26: {
+    "Entry26" : {
         "Army": "Kingdom Of Bretonnia",
         "Rank": "3rd",
         "Tournament": "Games of Berkeley Old World ",
@@ -1897,9 +1886,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Games of Berkeley Old World 1000 Points Tournament @2024-02-12T16:14:17+00:00"
-    }
+    },
 
-    entry27: {
+    "Entry27" : {
         "Army": "Lizardmen",
         "Rank": "4th",
         "Tournament": "Games of Berkeley Old World ",
@@ -1954,9 +1943,9 @@
         Created with "Old World Builder"
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Games of Berkeley Old World 1000 Points Tournament @2024-02-28T20:52:03+00:00"
-    }
+    },
 
-    entry28: {
+   "Entry28" : {
         "Army": "Warriors of Chaos",
         "Rank": "1st",
         "Tournament": "Return to The Old World",
@@ -2060,9 +2049,9 @@
         - Flaming Breath
         - Regeneration (5+)
         Uploaded with Best Coast Pairings @Return to the Old World @2024-02-24T00:38:18+00:00"
-    }
+    },
 
-    entry29: { 
+    "Entry29" : { 
         "Army": "High Elf Realms",
         "Rank": "2nd",
         "Tournament": "Return to The Old World",
@@ -2110,9 +2099,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Return to the Old World @2024-03-01T07:02:04+00:00"
-    }
+    },
 
-    entry30: {
+    "Entry30" : {
         "army": "Kingdom Of Bretonnia",
         "rank": "3rd",
         "tournament": "Return to The Old World",
@@ -2234,9 +2223,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Return to the Old World @2024-03-02T03:50:07+00:00"
-    }
+    },
 
-    entry31 : {
+    "Entry31": {
         "army": "Tomb Kings of Khemri",
         "rank": "4th",
         "tournament": "Return to The Old World",
@@ -2347,9 +2336,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Return to the Old World @2024-02-24T07:21:24+00:00"
-    }
+    },
 
-    entry32 : {
+    "Entry32" : {
         "army": "Kingdom Of Bretonnia",
         "rank": "1st",
         "tournament": "Border War",
@@ -2433,9 +2422,9 @@
         • 1x Paragon[37pts]: Virtue Discipline, Sword Of The Stout Hearted
         • 1x Standard Bearer[7pts]
         Uploaded with Best Coast Pairings @Border War @2024-03-08T14:51:33+00:00"
-    }
+    },
 
-    entry33 : {
+   "Entry33"  : {
         "army": "Wood Elves",
         "rank": "2nd",
         "tournament": "Border War",
@@ -2482,9 +2471,9 @@
         2x Wild Riders [140pts]:
         • 5x Wild Rider [28pts]: Hand Weapon, Hunting Spear, Light Armour, Steeds of Kornous, Hand Weapon, Shield
         Uploaded with Best Coast Pairings @Border War @2024-03-08T14:40:18+00:00"
-    }
+    },
 
-    entry34 : {
+    "Entry34"  : {
         "army": "Wood Elves",
         "rank": "3rd",
         "tournament": "Border War",
@@ -2566,9 +2555,9 @@
         2x Wild Riders [140pts]:
         • 5x Wild Rider [28pts]: Hand Weapon, Hunting Spear, Light Armour, Steeds of Kornous, Hand Weapon, Shield
         Uploaded with Best Coast Pairings @Border War @2024-03-08T14:31:21+00:00"
-    }
+    },
 
-    entry35 : {
+    "Entry35" : {
         "army": "Empire of Men",
         "rank": "4th",
         "tournament": "Border War",
@@ -2651,9 +2640,9 @@
         Helblaster Volley Guns [120pts]:
         • 1x Helblaster Volley Gun [120pts]: Gun Crew, Hand Weapon, Helblaster Volley Gun
         Uploaded with Best Coast Pairings @Border War @2024-03-08T14:21:49+00:00"
-    }
+    },
 
-    entry36 : {
+   "Entry36" : {
         "army": "High Elf Realms",
         "rank": "1st",
         "tournament": "Gothic Games Canterbury: Return to The Old World",
@@ -2700,9 +2689,9 @@
         Tiranoc Chariot [75pts]:
         • 1x Tiranoc Chariot [75pts]
         Uploaded with Best Coast Pairings @Gothic Games Canterbury: Return to The Old World @2024-03-06T16:11:33+00:00"
-    }
+    },
 
-    entry37 : {
+    "Entry37" : {
         "army": "Kingdom Of Bretonnia",
         "rank": "2nd",
         "tournament": "Gothic Games Canterbury: Return to The Old World",
@@ -2786,9 +2775,9 @@
         - Standard bearer
         
         Uploaded with Best Coast Pairings @Gothic Games Canterbury: Return to The Old World @2024-03-06T21:42:16+00:00"
-    }
+    },
 
-    entry38 : {
+    "Entry38" : {
         "army": "Kingdom Of Bretonnia",
         "rank": "3rd",
         "tournament": "Gothic Games Canterbury: Return to The Old World",
@@ -2874,9 +2863,9 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @Gothic Games Canterbury: Return to The Old World @2024-03-06T18:26:46+00:00"
-    }
+    },
 
-    entry39 : {
+    "Entry39" : {
         "army": "Lizardmen",
         "rank": "4th",
         "tournament": "Gothic Games Canterbury: Return to The Old World",
@@ -2957,9 +2946,9 @@
         - Great horns and giant bow
         - Skink Crew (x5) with hand weapons and Javelins (required)
         Uploaded with Best Coast Pairings @Gothic Games Canterbury: Return to The Old World @2024-03-06T23:59:24+00:00"
-    }   
+    }  , 
     
-    entry40 : {
+    "Entry40" : {
         "army": "Orcs & Goblins Tribes",
         "rank": "1st",
         "tournament": "March Gigabites Cafe Tournament",
@@ -2970,9 +2959,9 @@
         "format": "2000 pts",
         "location": "Marietta, GA USA",
         "list": "not submitted"
-    }
+    },
 
-    entry41 : {
+    "Entry41" : {
         "army": "Warriors of Chaos",    
         "rank": "2nd",
         "tournament": "March Gigabites Cafe Tournament",
@@ -3066,9 +3055,9 @@
         - Heavy armour
         - Shartak
         Uploaded with Best Coast Pairings @March Gigabites cafe tournament @2024-03-08T13:57:30+00:00"
-    }
+    },
 
-    entry42 : {
+    "Entry42" : {
         "army": "Lizardmen",
         "rank": "3rd",
         "tournament": "March Gigabites Cafe Tournament",
@@ -3079,9 +3068,9 @@
         "format": "2000 pts",
         "location": "Marietta, GA USA",
         "list": "Paper list, using Elementalism"
-    }
+    },
 
-    entry43 : {
+    "Entry43" : {
         "army": "Vampire Counts",
         "rank": "4th",
         "tournament": "March Gigabites Cafe Tournament",
@@ -3179,8 +3168,8 @@
         
         [https://old-world-builder.com]
         Uploaded with Best Coast Pairings @March Gigabites cafe tournament @2024-03-08T17:12:23+00:00"
-    }
-
+    },
+}
     
 
 
