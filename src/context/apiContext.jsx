@@ -13,9 +13,9 @@ function APIContextProvider({children}) {
         axios
           .get(API)
           .then(function (response) {
-            setData(response.data.Entries);
+            setData(response.data);
             setIsLoading(false);
-            console.log(response.data.Entries);
+            console.log(response.data);
           })
           .catch((error) => console.log(error));
     }, []);
