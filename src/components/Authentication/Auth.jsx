@@ -33,7 +33,7 @@ export default function Auth({ onAuthenticate, setUser }) {
     setError(null);
     const endpoint = isLogin ? "login" : "signup";
     
-    const response = await fetch(`http://localhost:8080/users/${endpoint}`, {
+    const response = await fetch(`http://localhost:8080/${endpoint}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
