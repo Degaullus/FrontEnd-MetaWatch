@@ -12,7 +12,7 @@ import Format from './components/Format/Format';
 import Homepage from './components/Homepage/Homepage';
 import Location from './components/Location/Location';
 import Navbar from './components/Navbar/Navbar';
-import Authentication from './components/Authentication/Authentication';  
+import Authentication from './components/Authentication/Auth';  
 import NotFound from './components/NotFound/NotFound';
 
 // Every Faction
@@ -47,7 +47,7 @@ function App() {
           <Route path="/faction/factions/chaos" element={<Chaos />}/>
           <Route path="/format" element={<Format />} />
           <Route path="/location" element={<Location />} />
-          <Route path="/authentication" element={<Authentication />} />
+          <Route path="/auth" element={<Authentication />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
     </div>

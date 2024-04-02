@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 // Assuming both stylesheets have similar keys for shared styles, 
 // or consider merging them into one for simplification.
-import styles from "../styles/Auth.module.css"; 
+import styles from "./Auth.module.css"; 
 
 export default function Auth({ onAuthenticate, setUser }) {
   const [isLogin, setIsLogin] = useState(true); // Toggle between login and signup
