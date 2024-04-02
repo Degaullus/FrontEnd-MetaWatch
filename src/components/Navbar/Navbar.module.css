@@ -2,10 +2,6 @@
 border: solid 1px black;    
 }
 
-.navbarContainer li.active {
-    background-color: #e83434;
-    font-weight: bold;
-  }
   /* NOT WORKING REPAIRE IT */
 
 ul {
@@ -25,4 +21,8 @@ ul {
     border: solid 1px black;
   }
 
+.active {
+  background-color: #e83434;
+  font-weight: bold;
+}
   
