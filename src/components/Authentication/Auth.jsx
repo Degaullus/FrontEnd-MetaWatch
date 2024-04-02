@@ -6,7 +6,7 @@ import styles from "./Auth.module.css";
 
 export default function Auth({ onAuthenticate, setUser }) {
   const [isLogin, setIsLogin] = useState(true); // Toggle between login and signup
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -17,14 +17,14 @@ export default function Auth({ onAuthenticate, setUser }) {
       const userData = localStorage.getItem("user");
       if (userData) {
         const userObj = JSON.parse(userData);
-        setStoredUser(userObj.username);
+        setStoredUser(userObj.email);
       }
     }
   }, [isLogin]);
 
   const handleAutoFill = async (e) => {
     e.preventDefault();
-    setUsername(storedUser);
+    setEmail(storedUser);
   };
 
   const handleSubmit = async (e) => {
@@ -36,7 +36,7 @@ export default function Auth({ onAuthenticate, setUser }) {
     const response = await fetch(`http://localhost:8080/${endpoint}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ email, password }),
     });
 
     const data = await response.json();
@@ -44,7 +44,7 @@ export default function Auth({ onAuthenticate, setUser }) {
     if (!response.ok) {
       setIsLoading(false);
       setError(data.error);
-      if (!isLogin) setUsername(""); // Clear username only on signup fail for user convenience
+      if (!isLogin) setEmail(""); 
       setPassword("");
     }
 
@@ -52,7 +52,7 @@ export default function Auth({ onAuthenticate, setUser }) {
       localStorage.setItem("user", JSON.stringify(data));
       setIsLoading(false);
       if (isLogin) {
-        onAuthenticate(username);
+        onAuthenticate(email);
       } else {
         setUser(data);
         alert("User created. Please log in");
@@ -71,12 +71,12 @@ export default function Auth({ onAuthenticate, setUser }) {
       <form className={styles.form} onSubmit={handleSubmit}>
         <h3 className={styles.title}>{isLogin ? "Login" : "Signup"}</h3>
         <div className={styles.inputContainer}>
-          <label className={styles.label}>Username:</label>
+          <label className={styles.label}>Email:</label>
           <input
-            className={`${styles.usernameInput} ${styles.input}`}
+            className={`${styles.emailInput} ${styles.input}`}
             type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           {isLogin && storedUser && <button className={styles.autofill} onClick={handleAutoFill}>Auto-fill</button>}
         </div>
