@@ -15,22 +15,34 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li className={styles.liNavbar}>
-          <NavLink to="/" activeClassName={styles.active}>
+          <NavLink
+            to="/"
+            style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
+          >
             Homepage
           </NavLink>
         </li>
         <li className={styles.liNavbar}>
-          <NavLink to="/faction" activeClassName={styles.active}>
+          <NavLink
+            to="/faction"
+            style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
+          >
             Faction
           </NavLink>
         </li>
         <li className={styles.liNavbar}>
-          <NavLink to="/format" activeClassName={styles.active}>
+          <NavLink
+            to="/format"
+            style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
+          >
             Format
           </NavLink>
         </li>
         <li className={styles.liNavbar}>
-          <NavLink to="/location" activeClassName={styles.active}>
+          <NavLink
+            to="/location"
+            style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
+          >
             Location
           </NavLink>
         </li>
@@ -42,7 +54,10 @@ export default function Navbar() {
         </li>
         <li>
           <button>
-            <NavLink to="/authentication" activeClassName={styles.active}>
+            <NavLink
+              to="/authentication"
+              style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
+            >
               Login
             </NavLink>
           </button>
