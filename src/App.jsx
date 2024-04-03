@@ -12,7 +12,7 @@ import Homepage from "./components/Homepage/Homepage";
 import Location from "./components/Location/Location";
 import Navbar from "./components/Navbar/Navbar";
 import Authentication from "./components/Authentication/Authentication";
-import NotFound from "./components/NotFound/NotFound";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 // Every Faction
 
@@ -57,7 +57,7 @@ function App() {
         <Route path="/format" element={<Format />} />
         <Route path="/location" element={<Location />} />
         <Route path="/authentication" element={<Authentication />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
