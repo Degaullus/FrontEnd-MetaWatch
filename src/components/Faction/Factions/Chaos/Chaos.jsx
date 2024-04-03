@@ -1,15 +1,12 @@
 import styles from "./Chaos.module.css";
 import { useAPI } from "../../../../context/apiContext";
 
+export default function Chaos() {
+  const { data, isLoading } = useAPI();
 
-export default function Chaos() { 
-
-    const { data, isLoading } = useAPI();
-
-
- return (
+  return (
     <>
-    <h2>Welcome to chaos </h2>
+      <h2>Welcome to chaos</h2>
     </>
   );
 }
