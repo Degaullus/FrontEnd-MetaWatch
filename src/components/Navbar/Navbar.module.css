@@ -1,5 +1,6 @@
 .navbarContainer {
-  border: solid 1px black;
+  border: solid 3px black;
+  margin: 1rem;
 }
 
 /* NOT WORKING REPAIRE IT */
@@ -9,19 +10,15 @@
   align-items: center;
   justify-content: space-around;
   list-style: none;
-  font-size: 20px;
+  font-size: 1.5rem;
 }
 
 .oldWorldLogo {
-  width: 150px;
+  width: 200px;
   height: auto;
+  border: 3px solid black;
 }
 
-.liNavbar {
-  border: solid 1px black;
+.liNavbar a {
   text-decoration: none;
-}
-
-.active {
-  background-color: #e83434;
 }
