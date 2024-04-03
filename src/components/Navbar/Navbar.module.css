@@ -1,28 +1,27 @@
 .navbarContainer {
-border: solid 1px black;    
+  border: solid 1px black;
 }
 
-  /* NOT WORKING REPAIRE IT */
+/* NOT WORKING REPAIRE IT */
 
-ul {
-    display: flex; 
-    align-items: center;
-    justify-content: space-around; 
-    list-style: none; 
-    font-size: 20px;
-  }
+.ulNavbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  font-size: 20px;
+}
 
-  .oldWorldLogo {
-    width: 150px;
-    height: auto ;
-  }
+.oldWorldLogo {
+  width: 150px;
+  height: auto;
+}
 
-  .liNavbar {
-    border: solid 1px black;
-  }
+.liNavbar {
+  border: solid 1px black;
+  text-decoration: none;
+}
 
 .active {
   background-color: #e83434;
-  font-weight: bold;
 }
-  
