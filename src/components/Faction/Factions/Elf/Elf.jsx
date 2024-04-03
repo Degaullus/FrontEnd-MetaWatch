@@ -1,11 +1,12 @@
 import styles from "./Elf.module.css";
+import { useAPI } from "../../../../context/apiContext";
 
 export default function Elf() {
-    return (
-        <div className={styles.container}>
-            <h2>Welcome to Elf</h2>
-            <p>Elf is a faction in Warhammer.</p>
-        </div>
-    );
-    };
-    
+  const { data, isLoading } = useAPI();
+
+  return (
+    <>
+      <h2>Welcome to Elf</h2>
+    </>
+  );
+}

@@ -1,3 +1,11 @@
+.buttonContainer {
+  margin: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
 .button {
-    color: brown;
+  padding: 3rem;
+  font-size: 1.5rem;
 }
