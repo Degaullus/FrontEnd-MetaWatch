@@ -15,7 +15,7 @@ function APIContextProvider({children}) {
           .then(function (response) {
             setData(response.data);
             setIsLoading(false);
-            console.log(response.data);
+            // console.log(response.data);
           })
           .catch((error) => console.log(error));
     }, []);
