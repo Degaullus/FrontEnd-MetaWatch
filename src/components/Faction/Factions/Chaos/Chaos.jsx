@@ -39,7 +39,8 @@ export default function Chaos() {
         <ul>
           {filteredData.map((entry, index) => (
             <li key={index} className={styles.card}>
-              
+
+              <p>{entry.format}</p>
               <p>Rank: {entry.rank}</p>
               <p>Tournament: {entry.tournament}</p>
               <p>Date: {entry.date}</p>
