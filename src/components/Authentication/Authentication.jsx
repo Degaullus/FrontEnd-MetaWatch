@@ -34,6 +34,32 @@ export default function Authentication() {
         setPassword("");
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Prevents the page from refreshing
+        const url = `http://localhost:8080/${auth}`; // Determines the endpoint based on the auth state
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log('Success:', data);
+                // Handle success, like redirecting the user or showing a success message
+            } else {
+                throw new Error(data.message || 'An error occurred');
+            }
+        } catch (error) {
+            console.error('Error:', error.message);
+            // Handle the error, e.g., by showing an error message to the user
+        }
+    };
+
     return (
         <>
             <div className={styles.container}>
