@@ -36,15 +36,18 @@ export default function Chaos() {
       {isLoading ? (
         <p>Loading data...</p>
       ) : filteredData?.length > 0 ? (
-        <ul>
+        <div>
           {filteredData.map((entry, index) => (
             <li key={index} className={styles.card}>
-              
-              <p>Rank: {entry.rank}</p>
-              <p>Tournament: {entry.tournament}</p>
-              <p>Date: {entry.date}</p>
-              <p>Players: {entry.players}</p>
-              <p>Location: {entry.location}</p>
+              <p className={styles.daten}>{entry.rank} - </p>
+              <p className={styles.daten}>{entry.format} pts, </p>
+         
+              <p className={styles.daten}>"{entry.tournament}", </p>
+            
+              <p className={styles.daten} style={{fontStyle: 'italic'}}>{entry.date}, </p>
+              {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
+              <p className={styles.daten}> {entry.location.split(' ').slice(-2).join(' ')},</p>
+
               <button onClick={() => handlePopupClick(index)}>
                 Show Army List
               </button>
@@ -58,7 +61,7 @@ export default function Chaos() {
             </li>
           ))}
           
-        </ul>
+        </div>
       ) : (
         <p>No data found containing "Chaos" in the army name.</p>
       )}

@@ -1,8 +1,15 @@
-.card button {
-    /* styles for the button */
-  }
 
-  
+ 
+ .card {
+  display: flex;
+  padding: 10px;
+ } 
+
+ .daten {
+  padding-left  : 5px; 
+  padding-right : 5px; 
+
+ }
   .popup {
     
     position:fixed ; /* Make it fixed to the viewport */
