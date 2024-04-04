@@ -1,15 +1,16 @@
-import styles from "./Chaos.module.css";
-import { useAPI } from "../../../../context/apiContext";
-import React, {useState} from "react"; //usestate for the popup
+import styles from "./FactionSelected.module.css";
+import { useAPI } from "../../context/apiContext";
+import { useState } from "react"; //usestate for the popup
+import { useParams } from "react-router";
 
-export default function Chaos() {
+export default function FactionSelected() {
   const { data, isLoading } = useAPI();
+  console.log(data);
+  const { id } = useParams();
 
   // this is filtering key="chaos"
   const filteredData = data?.entries?.filter(
-    (entry) => entry.army.toLowerCase().indexOf("chaos") !== -1 &&
-    // filter out chaos dwarfs
-    entry.army.toLowerCase().indexOf("chaos dwarf") === -1
+    (entry) => entry.army.indexOf(id.replace("-", " ")) !== -1
   );
 
   // Sort filtered data by date (newest first)
@@ -20,7 +21,9 @@ export default function Chaos() {
   });
 
   // POPUP State variable to track popup visibility for each entry
-  const [showPopup, setShowPopup] = useState(new Array(sortedData?.length).fill(false));
+  const [showPopup, setShowPopup] = useState(
+    new Array(sortedData?.length).fill(false)
+  );
 
   const handlePopupClick = (index) => {
     setShowPopup((prevShowPopup) => {
@@ -32,21 +35,21 @@ export default function Chaos() {
 
   return (
     <>
-      <h2>Welcome to Chaos</h2>
+      <h2>{`Welcome to ${id.replace("-", " ")}`}</h2>
       {isLoading ? (
         <p>Loading data...</p>
       ) : filteredData?.length > 0 ? (
-        <div>
+        <div className={styles.tournamentContainer}>
           {filteredData.map((entry, index) => (
             <li key={index} className={styles.card}>
-              <p className={styles.daten}>{entry.rank} - </p>
-              <p className={styles.daten}>{entry.format} pts, </p>
-         
-              <p className={styles.daten}>"{entry.tournament}", </p>
-            
-              <p className={styles.daten} style={{fontStyle: 'italic'}}>{entry.date}, </p>
+              <p className={styles.daten}>{entry.rank}</p>
+              <p className={styles.daten}>{entry.format} pts </p>
+              <p className={styles.daten}>"{entry.tournament}"</p>
               {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
-              <p className={styles.daten}> {entry.location.split(' ').slice(-2).join(' ')},</p>
+              <p className={styles.daten}> {entry.location}</p>
+              <p className={styles.daten} style={{ fontStyle: "italic" }}>
+                {entry.date}
+              </p>
 
               <button onClick={() => handlePopupClick(index)}>
                 Show Army List
@@ -60,10 +63,9 @@ export default function Chaos() {
               )}
             </li>
           ))}
-          
         </div>
       ) : (
-        <p>No data found containing "Chaos" in the army name.</p>
+        <p>{`No data found containing ${id} in the army name.`}</p>
       )}
     </>
   );
