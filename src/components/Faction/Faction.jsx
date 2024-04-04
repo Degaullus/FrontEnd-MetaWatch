@@ -6,18 +6,18 @@ export default function Faction() {
     "Beastmen",
     "Bretonnia",
     "Chaos",
-    "Chaos-Dwarf",
-    "Dark-Elf",
+    "Chaos-Dwarfs",
+    "Dark-Elves",
     "Dwarf",
     "Elf",
     "Empire",
     "Khemri",
     "Lizardmen",
     "Ogre",
-    "Orcs",
+    "Orc",
     "Skaven",
     "Vampire",
-    "Wood-Elf",
+    "Wood-Elves",
   ];
 
   const navigate = useNavigate();
