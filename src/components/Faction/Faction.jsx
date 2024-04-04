@@ -1,9 +1,7 @@
 import styles from "./Faction.module.css";
-// import { useAPI } from "../../context/apiContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Faction() {
-  // const { data, isLoading } = useAPI();
   const factions = [
     "Beastmen",
     "Bretonnia",

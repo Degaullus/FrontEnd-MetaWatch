@@ -5,10 +5,9 @@ import { useParams } from "react-router";
 
 export default function FactionSelected() {
   const { data, isLoading } = useAPI();
-  console.log(data);
   const { id } = useParams();
 
-  // this is filtering key="chaos"
+  // this is filtering key="faction name"
   const filteredData = data?.entries?.filter(
     (entry) => entry.army.indexOf(id.replace("-", " ")) !== -1
   );
