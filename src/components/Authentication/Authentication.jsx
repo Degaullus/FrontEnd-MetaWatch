@@ -60,10 +60,11 @@ export default function Authentication() {
         }
     };
 
-    return (
-        <>
-            <div className={styles.container}>
-                <h1 className={styles.heading}>{auth}</h1>
+    return (        
+    <>
+        <div className={styles.container}>
+            <h1 className={styles.heading}>{auth}</h1>
+            <form onSubmit={handleSubmit}>
                 <input
                     className={styles.input}
                     type="text"
@@ -78,9 +79,13 @@ export default function Authentication() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                {autoLogin && <button className={styles.buttonAutoLogin} onClick={handleAutoLogin}>Auto Login</button>}
-                <button className={styles.switchButton} onClick={handleAuth}>Switch</button>
-            </div>
-        </>
+                <button type="submit" className={styles.submitButton}>
+                    {auth === "login" ? "Log In" : "Sign Up"}
+                </button>
+            </form>
+            {autoLogin && <button className={styles.buttonAutoLogin} onClick={handleAutoLogin}>Auto Login</button>}
+            <button className={styles.switchButton} onClick={handleAuth}>Switch</button>
+        </div>
+    </>
     );
 }
