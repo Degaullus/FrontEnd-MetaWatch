@@ -10,7 +10,9 @@ export default function Authentication () {
     const handleAuth = () => {
         if (auth === "login") {
             setAuth("signup")
+            console.log("Currently displaying signup")
         } else {
+            console.log("Currently displaying login")
             setAuth("login")
         }
     }
