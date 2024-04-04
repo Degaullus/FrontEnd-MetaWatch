@@ -32,7 +32,7 @@ function AuthContextProvider(props) {
 
     return (
         <AuthContext.Provider value={{token, login, logout}}>
-            {children}  
+            {props.children}  
         </AuthContext.Provider>
     );
 }
