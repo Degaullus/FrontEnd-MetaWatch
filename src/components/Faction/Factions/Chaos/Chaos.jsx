@@ -39,13 +39,13 @@ export default function Chaos() {
         <ul>
           {filteredData.map((entry, index) => (
             <li key={index} className={styles.card}>
-
-              <p>{entry.format}</p>
-              <p>Rank: {entry.rank}</p>
-              <p>Tournament: {entry.tournament}</p>
-              <p>Date: {entry.date}</p>
-              <p>Players: {entry.players}</p>
-              <p>Location: {entry.location}</p>
+              <p className={styles.daten}>{entry.rank}</p>
+              <p className={styles.daten}>{entry.format}</p>
+         
+              <p className={styles.daten}>{entry.tournament}</p>
+              <p className={styles.daten}>{entry.date}</p>
+              
+              <p className={styles.daten}>Location: {entry.location}</p>
               <button onClick={() => handlePopupClick(index)}>
                 Show Army List
               </button>

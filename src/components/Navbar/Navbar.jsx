@@ -9,7 +9,7 @@ export default function Navbar() {
           <NavLink to="/">
             <img
               className={styles.oldWorldLogo}
-              src="public/TheOldWorldLogo.png"
+              src="/TheOldWorldLogo.png"
               alt="logoOldworld"
             />
           </NavLink>

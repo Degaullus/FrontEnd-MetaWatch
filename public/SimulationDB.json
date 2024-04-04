@@ -355,6 +355,7 @@
           "players": "12",
           "wins": "2",
           "rounds": "3",
+          "format":"1500",
           "location": "Altamonte Springs, FL United States",
           "list": "===Chaos 1k [1000 pts]Warhammer: The Old World, Warriors of Chaos===++ Characters [492 pts] ++Chaos Lord [492 pts]- Hand weapon- Full plate armour- Shield- Mark of Chaos Undivided- General- Chaos Dragon- Favour of the Gods- Burning Blade++ Core Units [298 pts] ++10 Chaos Marauders [100 pts]- Flails- Light armour- Shields- Mark of Khorne10 Chaos Warriors [198 pts]- Great weapons- Heavy armour- Shields- Mark of Khorne- Champion- Standard bearer- Musician++ Rare Units [210 pts] ++Chaos Giant [210 pts]- Giant's Club- Scaly Skin (Heavy Armour)---Created with \"Old World Builder\"[https://old-world-builder.com]"
         },
@@ -964,7 +965,7 @@
 
 
 
-        
+
 
             {
                 "army": "Wood Elves",
