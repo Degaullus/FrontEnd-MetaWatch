@@ -48,13 +48,13 @@ export default function Authentication() {
 
             if (response.ok) {
                 console.log('Success:', data);
-                // Handle success, like redirecting the user or showing a success message
+                
             } else {
                 throw new Error(data.message || 'An error occurred');
             }
         } catch (error) {
             console.error('Error:', error.message);
-            // Handle the error, e.g., by showing an error message to the user
+            
         }
     };
 
@@ -81,7 +81,7 @@ export default function Authentication() {
                     {auth === "login" ? "Log In" : "Sign Up"}
                 </button>
             </form>
-            {autoLogin && <button className={styles.buttonAutoLogin} onClick={handleAutoLogin}>Auto Login</button>}
+            {autoLogin === true && auth === "login" && <button className={styles.buttonAutoLogin} onClick={handleAutoLogin}>Auto Login</button>}
             <button className={styles.switchButton} onClick={handleAuth}>Switch</button>
         </div>
     </>
