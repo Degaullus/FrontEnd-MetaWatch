@@ -2,8 +2,11 @@ import styles from "./FactionSelected.module.css";
 import { useAPI } from "../../context/apiContext";
 import { useState } from "react"; //usestate for the popup
 import { useParams } from "react-router";
+import VerticallyCenteredModal from "../Modal/Modal";
+import Button from "react-bootstrap/Button";
 
 export default function FactionSelected() {
+  const [openModalId, setOpenModalId] = useState(null);
   const { data, isLoading } = useAPI();
   const { id } = useParams();
 
@@ -13,24 +16,24 @@ export default function FactionSelected() {
   );
 
   // Sort filtered data by date (newest first)
-  const sortedData = filteredData?.sort((entry1, entry2) => {
+  filteredData?.sort((entry1, entry2) => {
     const date1 = new Date(entry1.date);
     const date2 = new Date(entry2.date);
     return date2 - date1; // Descending order (newest first) (Gemini)
   });
 
   // POPUP State variable to track popup visibility for each entry
-  const [showPopup, setShowPopup] = useState(
-    new Array(sortedData?.length).fill(false)
-  );
+  // const [showPopup, setShowPopup] = useState(
+  //   new Array(sortedData?.length).fill(false)
+  // );
 
-  const handlePopupClick = (index) => {
-    setShowPopup((prevShowPopup) => {
-      const updatedShowPopup = [...prevShowPopup];
-      updatedShowPopup[index] = !prevShowPopup[index];
-      return updatedShowPopup;
-    });
-  };
+  // const handlePopupClick = (index) => {
+  //   setShowPopup((prevShowPopup) => {
+  //     const updatedShowPopup = [...prevShowPopup];
+  //     updatedShowPopup[index] = !prevShowPopup[index];
+  //     return updatedShowPopup;
+  //   });
+  // };
 
   return (
     <>
@@ -41,7 +44,6 @@ export default function FactionSelected() {
         <div className={styles.tournamentContainer}>
           {filteredData.map((entry, index) => (
             <li key={index} className={styles.card}>
-              <p className={styles.daten}>{entry.army}</p>
               <p className={styles.daten}>{entry.rank}</p>
               <p className={styles.daten}>{entry.format} pts </p>
               <p className={styles.daten}>"{entry.tournament}"</p>
@@ -51,16 +53,26 @@ export default function FactionSelected() {
                 {entry.date}
               </p>
 
-              <button onClick={() => handlePopupClick(index)}>
+              <Button variant="primary" onClick={() => setOpenModalId(index)}>
+                Show army list
+              </Button>
+
+              <VerticallyCenteredModal
+                show={openModalId === index}
+                onHide={() => setOpenModalId(null)}
+                list={entry.list}
+              />
+
+              {/* <button onClick={() => handlePopupClick(index)}>
                 Show Army List
               </button>
-              {/* POPUP */}
+
               {showPopup[index] && (
                 <div className={styles.popup}>
                   <pre>{entry.list}</pre>
                   <button onClick={() => handlePopupClick(index)}>Close</button>
                 </div>
-              )}
+              )} */}
             </li>
           ))}
         </div>
