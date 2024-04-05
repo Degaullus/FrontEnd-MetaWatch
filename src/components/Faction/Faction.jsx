@@ -5,11 +5,12 @@ export default function Faction() {
   const factions = [
     "Beastmen",
     "Bretonnia",
-    "Chaos",
+    "Warriors-of-Chaos",
     "Chaos-Dwarfs",
+    "Daemons-of-Chaos",
     "Dark-Elves",
-    "Dwarf",
-    "Elf",
+    "Dwarfen-Mountain-Holds",
+    "High-Elf",
     "Empire",
     "Khemri",
     "Lizardmen",
@@ -17,7 +18,7 @@ export default function Faction() {
     "Orc",
     "Skaven",
     "Vampire",
-    "Wood-Elves",
+    "Wood-Elf",
   ];
 
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ export default function Faction() {
             className={styles.button}
             onClick={() => navigate(`/faction/factions/${faction}`)}
           >
-            {faction.replace("-", " ")}
+            {faction.replaceAll("-", " ")}
           </button>
         ))}
       </div>

@@ -9,7 +9,7 @@ export default function FactionSelected() {
 
   // this is filtering key="faction name"
   const filteredData = data?.entries?.filter(
-    (entry) => entry.army.indexOf(id.replace("-", " ")) !== -1
+    (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
   );
 
   // Sort filtered data by date (newest first)
@@ -34,13 +34,14 @@ export default function FactionSelected() {
 
   return (
     <>
-      <h2>{`Welcome to ${id.replace("-", " ")}`}</h2>
+      <h2>{`Welcome to ${id.replace("-", " ").replace("-", " ")}`}</h2>
       {isLoading ? (
         <p>Loading data...</p>
       ) : filteredData?.length > 0 ? (
         <div className={styles.tournamentContainer}>
           {filteredData.map((entry, index) => (
             <li key={index} className={styles.card}>
+              <p className={styles.daten}>{entry.army}</p>
               <p className={styles.daten}>{entry.rank}</p>
               <p className={styles.daten}>{entry.format} pts </p>
               <p className={styles.daten}>"{entry.tournament}"</p>
