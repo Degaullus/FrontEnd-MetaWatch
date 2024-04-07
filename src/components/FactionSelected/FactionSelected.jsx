@@ -53,7 +53,51 @@ export default function FactionSelected() {
                 {entry.date}
               </p>
 
-              <Button variant="primary" onClick={() => setOpenModalId(index)}>
+              <button
+                type="button"
+                data-bs-toggle="modal"
+                // TODO - Rename "exampleModal" everywhere here to something more suitable
+                data-bs-target={"#exampleModal" + index}
+                onClick={() => setOpenModalId(index)}
+                className="btn btn-primary"
+              >
+                Show army list
+              </button>
+
+              <div
+                className="modal"
+                id={"exampleModal" + index}
+                tabIndex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+                show={(openModalId === index).toString()}
+              >
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body">
+                      <pre>{entry.list}</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* <Button
+                data-toggle="modal"
+                data-target="#exampleModal"
+                variant="primary"
+                onClick={() => setOpenModalId(index)}
+              >
                 Show army list
               </Button>
 
@@ -61,7 +105,8 @@ export default function FactionSelected() {
                 show={openModalId === index}
                 onHide={() => setOpenModalId(null)}
                 list={entry.list}
-              />
+                id="exampleModal"
+              /> */}
 
               {/* <button onClick={() => handlePopupClick(index)}>
                 Show Army List
