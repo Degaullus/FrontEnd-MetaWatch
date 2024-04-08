@@ -4,6 +4,7 @@ import { useState } from "react"; //usestate for the popup
 import { useParams } from "react-router";
 
 export default function FactionSelected() {
+  const [openModalId, setOpenModalId] = useState(null);
   const { data, isLoading } = useAPI();
   const { id } = useParams();
 
@@ -13,24 +14,11 @@ export default function FactionSelected() {
   );
 
   // Sort filtered data by date (newest first)
-  const sortedData = filteredData?.sort((entry1, entry2) => {
+  filteredData?.sort((entry1, entry2) => {
     const date1 = new Date(entry1.date);
     const date2 = new Date(entry2.date);
     return date2 - date1; // Descending order (newest first) (Gemini)
   });
-
-  // POPUP State variable to track popup visibility for each entry
-  const [showPopup, setShowPopup] = useState(
-    new Array(sortedData?.length).fill(false)
-  );
-
-  const handlePopupClick = (index) => {
-    setShowPopup((prevShowPopup) => {
-      const updatedShowPopup = [...prevShowPopup];
-      updatedShowPopup[index] = !prevShowPopup[index];
-      return updatedShowPopup;
-    });
-  };
 
   return (
     <>
@@ -41,7 +29,6 @@ export default function FactionSelected() {
         <div className={styles.tournamentContainer}>
           {filteredData.map((entry, index) => (
             <li key={index} className={styles.card}>
-              <p className={styles.daten}>{entry.army}</p>
               <p className={styles.daten}>{entry.rank}</p>
               <p className={styles.daten}>{entry.format} pts </p>
               <p className={styles.daten}>"{entry.tournament}"</p>
@@ -51,16 +38,48 @@ export default function FactionSelected() {
                 {entry.date}
               </p>
 
-              <button onClick={() => handlePopupClick(index)}>
-                Show Army List
+              <button
+                type="button"
+                data-bs-toggle="modal"
+                // TODO - Rename "exampleModal" everywhere here to something more suitable
+                data-bs-target={"#listModal" + index}
+                onClick={() => setOpenModalId(index)}
+                className="btn btn-primary"
+              >
+                Show army list
               </button>
-              {/* POPUP */}
-              {showPopup[index] && (
-                <div className={styles.popup}>
-                  <pre>{entry.list}</pre>
-                  <button onClick={() => handlePopupClick(index)}>Close</button>
+
+              <div
+                className="modal"
+                id={"listModal" + index}
+                tabIndex="-1"
+                role="dialog"
+                aria-labelledby="listModalLabel"
+                aria-hidden="true"
+                show={(openModalId === index).toString()}
+              >
+                <div
+                  className="modal-dialog"
+                  id={styles.modalDialogId}
+                  role="document"
+                >
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body">
+                      <pre>{entry.list}</pre>
+                    </div>
+                  </div>
                 </div>
-              )}
+              </div>
             </li>
           ))}
         </div>
