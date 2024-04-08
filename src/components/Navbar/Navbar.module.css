@@ -34,6 +34,7 @@
 .hamburger {
   display: none;
   cursor:pointer;
+  padding: 0 2rem;
 }
 
 .ulNavbar.open {
