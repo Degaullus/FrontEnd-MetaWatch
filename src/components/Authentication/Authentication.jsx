@@ -11,7 +11,6 @@ export default function Authentication() {
         const userData = JSON.parse(localStorage.getItem("user"));
         if (userData && userData.email && userData.token) {
             setAutoLogin(true);
-            // console.log("Auto login is possible");
         }
     };
 
@@ -19,7 +18,7 @@ export default function Authentication() {
         const userData = JSON.parse(localStorage.getItem("user"));
         if (userData && userData.email && userData.token) {
             setEmail(userData.email);
-            setPassword(userData.token); // Assuming the password field is metaphorical for token in this context
+            setPassword(userData.token);
         }
     };
 
@@ -42,7 +41,7 @@ export default function Authentication() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email, password, favorites: []}),
             });
             const data = await response.json();
 

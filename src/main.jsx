@@ -11,10 +11,10 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <AuthContextProvider>
+    {/* <AuthContextProvider> */}
       <APIContextProvider>
         <App />
       </APIContextProvider>
-    </AuthContextProvider>
+    {/* </AuthContextProvider> */}
   </BrowserRouter>
 );
