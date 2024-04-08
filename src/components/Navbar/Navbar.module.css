@@ -11,6 +11,7 @@
   justify-content: space-around;
   list-style: none;
   font-size: 1.5rem;
+  list-style: none;
 }
 
 .oldWorldLogo {
@@ -25,6 +26,22 @@
 
 
 .hamburger {
-  display: none;
+  /* display: none; */
   cursor:pointer;
+}
+
+.ulNavbar.open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100%;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: transform 0.5s ease-in-out;
+  opacity: 0.95;
 }
