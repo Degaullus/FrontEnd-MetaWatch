@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className={styles.navbarContainer}>
       <ul className={styles.ulNavbar}>
