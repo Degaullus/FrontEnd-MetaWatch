@@ -12,12 +12,14 @@ export default function Navbar() {
   const toggleMenu = () => {setIsOpen(!isOpen);};
   const closeHamburgerList = () => {setIsOpen(!isOpen)}
 
+  const ulNavBarClassNames = `${styles.ulNavbar} ${isMobile && isOpen ? styles.open : ''}`;
+
   return (
     <nav className={styles.navbarContainer}>
       {device === "mobile" && <div className={styles.hamburger} onClick={toggleMenu}>
         <img src="/hamburger.svg" alt="Menu" />
       </div>}
-      <ul className={`${styles.ulNavbar} ${device === "mobile" && isOpen ? styles.open: ''}`}>
+      <ul className={ulNavBarClassNames}>
         <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink to="/">
             <img
