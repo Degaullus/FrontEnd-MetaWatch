@@ -28,7 +28,7 @@ function App() {
     // Simulate loading for at least 0.5 seconds
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 1000);
 
     return () => clearTimeout(timer);
     }, [location, setIsLoading]);
