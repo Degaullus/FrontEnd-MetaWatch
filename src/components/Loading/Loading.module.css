@@ -10,4 +10,10 @@
   z-index: 1000;
   width: 200px;
   height: 2rem;
+  transition: width 0.6s ease, opacity 0.7s ease;
+}
+
+.heading {
+  font-size: 1rem;
+  font-weight: bold;
 }
