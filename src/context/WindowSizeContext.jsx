@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 
 import useWindowSize from '../hooks/useWindowSize';
 
-const WindowSizeContext = createContext();
+const WindowSizeContext = createContext({ width: undefined, height: undefined });
 
 export const WindowSizeProvider = ({ children }) => {
 
