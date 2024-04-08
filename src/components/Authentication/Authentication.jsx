@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Authentication.module.css";
 
 export default function Authentication() {
@@ -6,6 +7,8 @@ export default function Authentication() {
     const [autoLogin, setAutoLogin] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
 
     const getLocalStorage = () => {
         const userData = JSON.parse(localStorage.getItem("user"));
@@ -47,6 +50,7 @@ export default function Authentication() {
 
             if (response.ok) {
                 console.log('Success:', data);
+                navigate('/');
                 
             } else {
                 throw new Error(data.message || 'An error occurred');
