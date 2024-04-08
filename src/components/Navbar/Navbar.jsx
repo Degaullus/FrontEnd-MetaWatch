@@ -95,7 +95,6 @@ export default function Navbar() {
         <li>
           <button onClick={closeHamburgerList}>
             <NavLink
-              className={styles.navLink}
               to="/authentication"
               style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
             >
