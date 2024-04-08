@@ -22,3 +22,9 @@
 .liNavbar a {
   text-decoration: none;
 }
+
+
+.hamburger {
+  display: none;
+  cursor:pointer;
+}
