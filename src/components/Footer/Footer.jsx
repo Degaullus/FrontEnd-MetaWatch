@@ -1,13 +1,10 @@
-import style from './Footer.module.css';
+import { useWindowSizeContext } from '../../context/WindowSizeContext';
 
 function Footer () {
   return (
-    <footer className={style.container}>
-      <div className={style.footerContent}>
-        <p>&copy; {new Date().getFullYear()} MetaHammer. Some rights reserved.</p>
-        <p>Join our community on <a href="https://www.example.com" className={style.link}>Social Media</a></p>
-      </div>
-    </footer>
+    <div className={style.container}>
+      <h1>Footer</h1>
+    </div>
   );
 }
 
