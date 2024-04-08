@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <nav className={styles.navbarContainer} ref={navbarRef}>
       <div className={styles.logoContainer} onClick = {closeHamburgerList}>
-      <NavLink to="/">
+          <NavLink to="/">
             <img
               className={styles.oldWorldLogo}
               src="/TheOldWorldLogo.png"
