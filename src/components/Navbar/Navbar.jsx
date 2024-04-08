@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
@@ -8,6 +8,23 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { device } = useWindowSizeContext();
   const isMobile = device === "mobile";
+  const navbarRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (navbarRef.current && !navbarRef.current.contains(e.target)) {
+        setIsOpen(!isOpen);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mouseup", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mouseup", handleClickOutside);
+    }
+  }, [isOpen]);
 
   const toggleMenu = () => {setIsOpen(!isOpen);};
   const closeHamburgerList = () => {setIsOpen(!isOpen)}
@@ -15,7 +32,7 @@ export default function Navbar() {
   const ulNavBarClassNames = `${styles.ulNavbar} ${isMobile && isOpen ? styles.open : ''}`;
 
   return (
-    <nav className={styles.navbarContainer}>
+    <nav className={styles.navbarContainer} ref={navbarRef}>
       <div className={styles.logoContainer} onClick = {closeHamburgerList}>
       <NavLink to="/">
             <img
