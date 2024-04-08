@@ -1,0 +1,27 @@
+.container {
+  margin-top: 7rem;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: gray;
+}
+
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.link {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
