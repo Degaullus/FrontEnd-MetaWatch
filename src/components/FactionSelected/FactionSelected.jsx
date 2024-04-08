@@ -2,8 +2,6 @@ import styles from "./FactionSelected.module.css";
 import { useAPI } from "../../context/apiContext";
 import { useState } from "react"; //usestate for the popup
 import { useParams } from "react-router";
-import VerticallyCenteredModal from "../Modal/Modal";
-import Button from "react-bootstrap/Button";
 
 export default function FactionSelected() {
   const [openModalId, setOpenModalId] = useState(null);
