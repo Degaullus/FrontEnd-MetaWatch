@@ -10,6 +10,8 @@ export default function Navbar() {
   const isMobile = device === "mobile";
   const navbarRef = useRef(null);
 
+
+  // Close the hamburger list when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (navbarRef.current && !navbarRef.current.contains(e.target)) {
@@ -26,9 +28,14 @@ export default function Navbar() {
     }
   }, [isOpen]);
 
+
+  // Open and close the hamburger list
   const toggleMenu = () => {setIsOpen(!isOpen);};
+
+  // Close the hamburger list when clicking on a link
   const closeHamburgerList = () => {setIsOpen(!isOpen)}
 
+  // Add the class open to the ulNavbar when the hamburger list is open
   const ulNavBarClassNames = `${styles.ulNavbar} ${isMobile && isOpen ? styles.open : ''}`;
 
   return (
