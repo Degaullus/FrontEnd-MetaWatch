@@ -6,16 +6,18 @@ import { useWindowSizeContext } from "../../context/WindowSizeContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { width } = useWindowSizeContext();
+  const { device } = useWindowSizeContext();
 
-  const isMobile = width < 768;
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className={styles.navbarContainer}>
-      <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
+      {device === "mobile" && <div className={styles.hamburger} onClick={toggleMenu}>
         <img src="/hamburger.svg" alt="Menu" />
-      </div>
-      <ul className={`${styles.ulNavbar} ${isMobile && isOpen ? styles.hidden : ''}`}>
+      </div>}
+      <ul className={`${styles.ulNavbar} ${device === "mobile" && isOpen ? styles.open: ''}`}>
         <li className={styles.liNavbar}>
           <NavLink to="/">
             <img
