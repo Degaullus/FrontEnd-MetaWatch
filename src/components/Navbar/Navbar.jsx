@@ -7,10 +7,10 @@ import { useWindowSizeContext } from "../../context/WindowSizeContext";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { device } = useWindowSizeContext();
+  const isMobile = device === "mobile";
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => {setIsOpen(!isOpen);};
+  const closeHamburgerList = () => {setIsOpen(!isOpen)}
 
   return (
     <nav className={styles.navbarContainer}>
@@ -18,7 +18,7 @@ export default function Navbar() {
         <img src="/hamburger.svg" alt="Menu" />
       </div>}
       <ul className={`${styles.ulNavbar} ${device === "mobile" && isOpen ? styles.open: ''}`}>
-        <li className={styles.liNavbar}>
+        <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink to="/">
             <img
               className={styles.oldWorldLogo}
@@ -27,7 +27,7 @@ export default function Navbar() {
             />
           </NavLink>
         </li>
-        <li className={styles.liNavbar}>
+        <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink
             to="/"
             style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
@@ -35,7 +35,7 @@ export default function Navbar() {
             Homepage
           </NavLink>
         </li>
-        <li className={styles.liNavbar}>
+        <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink
             to="/faction"
             style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
@@ -43,7 +43,7 @@ export default function Navbar() {
             Faction
           </NavLink>
         </li>
-        <li className={styles.liNavbar}>
+        <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink
             to="/format"
             style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
@@ -51,7 +51,7 @@ export default function Navbar() {
             Format
           </NavLink>
         </li>
-        <li className={styles.liNavbar}>
+        <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink
             to="/location"
             style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
@@ -60,13 +60,13 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li>
-          <div className="styles.searchBar">
+          <div className={styles.searchBar} onClick={closeHamburgerList}>
             <input type="text" name="" id="" placeholder="Searchbar" />
             <button>Search</button>
           </div>
         </li>
         <li>
-          <button>
+          <button onClick={closeHamburgerList}>
             <NavLink
               to="/authentication"
               style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
