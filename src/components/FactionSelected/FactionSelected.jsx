@@ -20,19 +20,6 @@ export default function FactionSelected() {
     return date2 - date1; // Descending order (newest first) (Gemini)
   });
 
-  // POPUP State variable to track popup visibility for each entry
-  // const [showPopup, setShowPopup] = useState(
-  //   new Array(sortedData?.length).fill(false)
-  // );
-
-  // const handlePopupClick = (index) => {
-  //   setShowPopup((prevShowPopup) => {
-  //     const updatedShowPopup = [...prevShowPopup];
-  //     updatedShowPopup[index] = !prevShowPopup[index];
-  //     return updatedShowPopup;
-  //   });
-  // };
-
   return (
     <>
       <h2>{`Welcome to ${id.replace("-", " ").replace("-", " ")}`}</h2>
@@ -55,7 +42,7 @@ export default function FactionSelected() {
                 type="button"
                 data-bs-toggle="modal"
                 // TODO - Rename "exampleModal" everywhere here to something more suitable
-                data-bs-target={"#exampleModal" + index}
+                data-bs-target={"#listModal" + index}
                 onClick={() => setOpenModalId(index)}
                 className="btn btn-primary"
               >
@@ -64,14 +51,18 @@ export default function FactionSelected() {
 
               <div
                 className="modal"
-                id={"exampleModal" + index}
+                id={"listModal" + index}
                 tabIndex="-1"
                 role="dialog"
-                aria-labelledby="exampleModalLabel"
+                aria-labelledby="listModalLabel"
                 aria-hidden="true"
                 show={(openModalId === index).toString()}
               >
-                <div className="modal-dialog" role="document">
+                <div
+                  className="modal-dialog"
+                  id={styles.modalDialogId}
+                  role="document"
+                >
                   <div className="modal-content">
                     <div className="modal-header">
                       <button
@@ -89,33 +80,6 @@ export default function FactionSelected() {
                   </div>
                 </div>
               </div>
-
-              {/* <Button
-                data-toggle="modal"
-                data-target="#exampleModal"
-                variant="primary"
-                onClick={() => setOpenModalId(index)}
-              >
-                Show army list
-              </Button>
-
-              <VerticallyCenteredModal
-                show={openModalId === index}
-                onHide={() => setOpenModalId(null)}
-                list={entry.list}
-                id="exampleModal"
-              /> */}
-
-              {/* <button onClick={() => handlePopupClick(index)}>
-                Show Army List
-              </button>
-
-              {showPopup[index] && (
-                <div className={styles.popup}>
-                  <pre>{entry.list}</pre>
-                  <button onClick={() => handlePopupClick(index)}>Close</button>
-                </div>
-              )} */}
             </li>
           ))}
         </div>

@@ -11,4 +11,9 @@
   grid-template-columns: 50px 100px 400px 250px 250px 150px;
   border: 2px solid black;
   padding: 2rem;
+  gap: 50px;
+}
+
+#modalDialogId {
+  max-width: 800px;
 }
