@@ -25,6 +25,7 @@ function App() {
         <Route path="/format" element={<Format />} />
         <Route path="/location" element={<Location />} />
         <Route path="/authentication" element={<Authentication />} />
+        <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
