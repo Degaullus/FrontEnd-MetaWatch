@@ -52,6 +52,7 @@ export default function Navbar() {
       <ul className={ulNavBarClassNames}>
         <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink
+            className={styles.navLink}
             to="/"
             style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
           >
@@ -60,6 +61,7 @@ export default function Navbar() {
         </li>
         <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink
+            className={styles.navLink}
             to="/faction"
             style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
           >
@@ -68,6 +70,7 @@ export default function Navbar() {
         </li>
         <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink
+            className={styles.navLink}
             to="/format"
             style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
           >
@@ -76,6 +79,7 @@ export default function Navbar() {
         </li>
         <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink
+            className={styles.navLink}
             to="/location"
             style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
           >
@@ -91,6 +95,7 @@ export default function Navbar() {
         <li>
           <button onClick={closeHamburgerList}>
             <NavLink
+              className={styles.navLink}
               to="/authentication"
               style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
             >
