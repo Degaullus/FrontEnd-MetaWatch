@@ -1,6 +1,7 @@
 .warp {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
   background: rgb(97, 24, 115);
@@ -13,4 +14,8 @@
 
 .warp h1 {
   color: white;
+}
+
+.image {
+  height: 50%;
 }
