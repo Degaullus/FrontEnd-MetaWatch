@@ -16,19 +16,16 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbarContainer}>
-      {device === "mobile" && <div className={styles.hamburger} onClick={toggleMenu}>
-        <img src="/hamburger.svg" alt="Menu" />
-      </div>}
-      <ul className={ulNavBarClassNames}>
-        <li className={styles.liNavbar} onClick={closeHamburgerList}>
-          <NavLink to="/">
+      <div className={styles.logoContainer} onClick = {closeHamburgerList}>
+      <NavLink to="/">
             <img
               className={styles.oldWorldLogo}
               src="/TheOldWorldLogo.png"
               alt="logoOldworld"
             />
           </NavLink>
-        </li>
+      </div>
+      <ul className={ulNavBarClassNames}>
         <li className={styles.liNavbar} onClick={closeHamburgerList}>
           <NavLink
             to="/"
@@ -78,6 +75,9 @@ export default function Navbar() {
           </button>
         </li>
       </ul>
+      {device === "mobile" && <div className={styles.hamburger} onClick={toggleMenu}>
+        <img src="/hamburger.svg" alt="Menu" />
+      </div>}
     </nav>
   );
 }
