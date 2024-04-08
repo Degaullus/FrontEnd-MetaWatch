@@ -1,3 +1,5 @@
+import { useWindowSizeContext } from "../../context/WindowSizeContext";
+
 function Favorites () {
     return (
         <div>
