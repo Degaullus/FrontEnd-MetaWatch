@@ -2,12 +2,20 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
+import { useWindowSizeContext } from "../../context/WindowSizeContext";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { width } = useWindowSizeContext();
+
+  const isMobile = width < 768;
 
   return (
     <nav className={styles.navbarContainer}>
-      <ul className={styles.ulNavbar}>
+      <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
+        <img src="/hamburger.svg" alt="Menu" />
+      </div>
+      <ul className={`${styles.ulNavbar} ${isMobile && isOpen ? styles.show : ''}`}>
         <li className={styles.liNavbar}>
           <NavLink to="/">
             <img
