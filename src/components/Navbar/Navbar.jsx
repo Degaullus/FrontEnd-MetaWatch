@@ -15,7 +15,7 @@ export default function Navbar() {
       <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
         <img src="/hamburger.svg" alt="Menu" />
       </div>
-      <ul className={`${styles.ulNavbar} ${isMobile && isOpen ? styles.show : ''}`}>
+      <ul className={`${styles.ulNavbar} ${isMobile && isOpen ? styles.hidden : ''}`}>
         <li className={styles.liNavbar}>
           <NavLink to="/">
             <img
