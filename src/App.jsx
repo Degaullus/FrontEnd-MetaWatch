@@ -12,6 +12,8 @@ import Homepage from "./components/Homepage/Homepage";
 import Location from "./components/Location/Location";
 import Navbar from "./components/Navbar/Navbar";
 import Authentication from "./components/Authentication/Authentication";
+import Favorites from "./components/Favorites/Favorites";
+import Footer from "./components/Footer/Footer";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
         <Route path="/authentication" element={<Authentication />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
