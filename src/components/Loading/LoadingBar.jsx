@@ -12,7 +12,7 @@ const LoadingBar = () => {
     if (isLoading) {
       setShow(true);
     } else {
-      timer = setTimeout(() => setShow(false), 500);
+      timer = setTimeout(() => setShow(false), 1000);
     }
     return () => clearTimeout(timer);
   }, [isLoading]);
