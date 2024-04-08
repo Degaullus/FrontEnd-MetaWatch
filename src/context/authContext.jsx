@@ -41,8 +41,6 @@ function AuthContextProvider({ children }) {
     // Optionally, redirect the user to the login page or homepage
   };
 
-  // Optionally, include methods for handling errors or refreshing tokens
-
   return (
     <AuthContext.Provider value={{ token, userDetails, isLoading, error, login, logout }}>
       {!isLoading && children}
