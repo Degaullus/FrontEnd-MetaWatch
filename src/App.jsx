@@ -12,6 +12,7 @@ import Homepage from "./components/Homepage/Homepage";
 import Location from "./components/Location/Location";
 import Navbar from "./components/Navbar/Navbar";
 import Authentication from "./components/Authentication/Authentication";
+import Footer from "./components/Footer/Footer";
 import Favorites from "./components/Favorites/Favorites";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 
@@ -30,6 +31,8 @@ function App() {
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Footer />
+      <Footer />
     </div>
   );
 }
