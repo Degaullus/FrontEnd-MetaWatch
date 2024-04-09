@@ -7,6 +7,21 @@ export default function FactionSelected() {
   const [openModalId, setOpenModalId] = useState(null);
   const { data, isLoading } = useAPI();
   const { id } = useParams();
+  
+  //format Ranks 
+  const formatRank = (rank) => {
+    const suffixes = ["st", "nd", "rd", "th"];
+    const mod10 = rank % 10;
+    const mod100 = rank % 100;
+    // Handle special cases 
+    if (mod100 === 11 || mod100 === 12 || mod100 === 13) {
+      return `${rank}${suffixes[3]}`;
+    }
+   // Remove leading zero (if any)
+   const rankWithoutZero = parseInt(rank.toString().slice(1), 10) || rank; // Handle single-digit ranks
+
+    return `${rankWithoutZero}${suffixes[mod10 - 1]}`;
+  };
 
   // this is filtering key="faction name"
   const filteredData = data?.entries?.filter(
@@ -29,7 +44,7 @@ export default function FactionSelected() {
         <div className={styles.tournamentContainer}>
           {filteredData.map((entry, index) => (
             <li key={index} className={styles.card}>
-              <p className={styles.daten}>{entry.rank}</p>
+              <p className={styles.daten}>{formatRank(entry.rank)}</p>
               <p className={styles.daten}>{entry.format} pts </p>
               <p className={styles.daten}>"{entry.tournament}"</p>
               {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
