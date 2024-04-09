@@ -1,6 +1,10 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 
 const AuthContext = createContext();
+
+export function useAuth () {
+  return useContext(AuthContext);
+}
 
 function AuthContextProvider({ children }) {
   const [token, setToken] = useState(null);
