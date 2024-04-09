@@ -1,12 +1,16 @@
-import { useWindowSizeContext } from "../../context/WindowSizeContext";
+import { useState, useEffect, useContext } from "react";
 
-function Favorites () {
+import { useWindowSizeContext } from "../../context/WindowSizeContext";
+import { AuthContext } from "../../context/authContext";
+
+export default function Favorites () {
+
+    const { favorites } = useContext(AuthContext);
+    
+
+
 
     return (
-        <div>
-            <h1>Favorites</h1>
-        </div>
+        <h1>Favorites</h1>
     );
-}
-
-export default Favorites;
+  }
