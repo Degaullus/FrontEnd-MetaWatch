@@ -11,7 +11,7 @@ export default function Navbar() {
   const isMobile = device === "mobile";
   const navbarRef = useRef(null);
   const navigate = useNavigate();
-  const { token, logout, email } = useContext(AuthContext);
+  const { token, logout, email, favCount } = useContext(AuthContext);
 
   const handleLogout = () => {
     logout();
@@ -24,10 +24,9 @@ export default function Navbar() {
     const handleClickOutside = (e) => {
       if (navbarRef.current && !navbarRef.current.contains(e.target)) {setIsOpen(false)}};
       if (isOpen) {document.addEventListener("mouseup", handleClickOutside)}
-    return () => document.removeEventListener("mouseup", handleClickOutside)
-  }, [isOpen]);
+      return () => document.removeEventListener("mouseup", handleClickOutside)
+    }, [isOpen, favCount]);
 
-  
   
   // Open and close the hamburger list
   const toggleMenu = () => setIsOpen(prevState => !prevState);
@@ -61,9 +60,12 @@ export default function Navbar() {
           <>
             <li className={styles.liNavbar} onClick={handleLogout}>Logout</li>
             <li className={styles.loggedInAs}>logged in as: {email}</li>
+            <li className={styles.liNavbar} onClick={() => handleNavigate("/favorites")}>{favCount}<img className={styles.favoriteImg}src="/favorite.svg" /></li>
           </>
         ) : (
+        <>
           <li className={styles.liNavbar} onClick={() => handleNavigate("/authentication")}>Login</li>
+          </>
         )}
       </ul>
       {isMobile && (<div className={styles.hamburger} onClick={toggleMenu}><img src="/hamburger.svg" alt="Menu" /></div>)}
