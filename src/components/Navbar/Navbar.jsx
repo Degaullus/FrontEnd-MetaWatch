@@ -4,7 +4,6 @@ import styles from "./Navbar.module.css";
 
 import { useWindowSizeContext } from "../../context/WindowSizeContext";
 import { AuthContext } from "../../context/authContext";
-import { useLoading } from "../../context/LoadingContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +12,6 @@ export default function Navbar() {
   const navbarRef = useRef(null);
   const navigate = useNavigate();
   const { token, logout, userDetails } = useContext(AuthContext);
-  const { isLoading, setIsLoading } = useLoading();
 
   const handleLogout = () => {
     logout();
