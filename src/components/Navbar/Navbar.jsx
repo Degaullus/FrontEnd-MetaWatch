@@ -40,7 +40,7 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbarContainer} ref={navbarRef}>
-      <div className={styles.logoContainer} onClick = {closeHamburgerList}>
+      <div className={styles.logoContainer} onClick = {toggleMenu}>
           <NavLink to="/">
             <img
               className={styles.oldWorldLogo}
@@ -50,7 +50,7 @@ export default function Navbar() {
           </NavLink>
       </div>
       <ul className={ulNavBarClassNames}>
-        <li className={styles.liNavbar} onClick={closeHamburgerList}>
+        <li className={styles.liNavbar} onClick={toggleMenu}>
           <NavLink
             className={styles.navLink}
             to="/"
@@ -59,7 +59,7 @@ export default function Navbar() {
             Homepage
           </NavLink>
         </li>
-        <li className={styles.liNavbar} onClick={closeHamburgerList}>
+        <li className={styles.liNavbar} onClick={toggleMenu}>
           <NavLink
             className={styles.navLink}
             to="/faction"
@@ -68,7 +68,7 @@ export default function Navbar() {
             Faction
           </NavLink>
         </li>
-        <li className={styles.liNavbar} onClick={closeHamburgerList}>
+        <li className={styles.liNavbar} onClick={toggleMenu}>
           <NavLink
             className={styles.navLink}
             to="/format"
@@ -77,7 +77,7 @@ export default function Navbar() {
             Format
           </NavLink>
         </li>
-        <li className={styles.liNavbar} onClick={closeHamburgerList}>
+        <li className={styles.liNavbar} onClick={toggleMenu}>
           <NavLink
             className={styles.navLink}
             to="/location"
@@ -87,13 +87,13 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li>
-          <div className={styles.searchBar} onClick={closeHamburgerList}>
+          <div className={styles.searchBar} onClick={toggleMenu}>
             <input type="text" name="" id="" placeholder="Searchbar" />
             <button>Search</button>
           </div>
         </li>
         <li>
-          <button onClick={closeHamburgerList}>
+          <button onClick={toggleMenu}>
             <NavLink
               to="/authentication"
               style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
