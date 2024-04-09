@@ -10,7 +10,6 @@ export const LoadingProvider = ({ children }) => {
 
   return (
     <LoadingContext.Provider value={{ isLoading, setIsLoading }}>
-      {isLoading && <LoadingSpinner />}
       {children}
     </LoadingContext.Provider>
   );
