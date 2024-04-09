@@ -33,7 +33,7 @@ function App() {
     }, 1000);
 
     return () => clearTimeout(timer);
-    }, [location, setIsLoading]);
+  }, [location, setIsLoading]);
 
   return (
     <div>
@@ -50,7 +50,6 @@ function App() {
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-      <Footer />
       <Footer />
     </div>
   );
