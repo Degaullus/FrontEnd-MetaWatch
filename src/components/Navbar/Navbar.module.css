@@ -63,10 +63,11 @@
   }
 }
 
-.authContainer {
-  max-width: 300px;
-}
-
 .loggedInAs {
   font-size: 0.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px; 
+  display: block;
 }
