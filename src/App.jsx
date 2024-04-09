@@ -12,6 +12,7 @@ import Homepage from "./components/Homepage/Homepage";
 import Location from "./components/Location/Location";
 import Navbar from "./components/Navbar/Navbar";
 import Authentication from "./components/Authentication/Authentication";
+import Favorites from "./components/Favorites/Favorites";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
         <Route path="/format" element={<Format />} />
         <Route path="/location" element={<Location />} />
         <Route path="/authentication" element={<Authentication />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
