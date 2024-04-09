@@ -30,7 +30,7 @@ export default function Navbar() {
 
 
   // Open and close the hamburger list
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen(prevState => !prevState);
 
   // Close the hamburger list when clicking on a link
   const closeHamburgerList = () => {setIsOpen(!isOpen)}
