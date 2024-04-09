@@ -11,6 +11,7 @@ export default function Authentication() {
     const [password, setPassword] = useState("");
     const [favorites, setFavorites] = useState([]);
     const navigate = useNavigate();
+    const [error, setError] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
@@ -24,7 +25,7 @@ export default function Authentication() {
             const data = await response.json();
 
             if (response.ok) {
-                login(data.token, { email: data.email, favorites: data.favorites});
+                login(data.token, { email: data.email, favCount: data.favCount, favorites: data.favorites});
                 navigate('/');
                 
             } else {
