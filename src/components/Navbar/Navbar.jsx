@@ -11,7 +11,7 @@ export default function Navbar() {
   const isMobile = device === "mobile";
   const navbarRef = useRef(null);
   const navigate = useNavigate();
-  const { token, logout } = useContext(AuthContext);
+  const { token, logout, userDetails } = useContext(AuthContext);
 
   const handleLogout = () => {
     logout();
@@ -58,7 +58,10 @@ export default function Navbar() {
           </div>
         </li>
         {token ? (
-          <li className={styles.liNavbar} onClick={handleLogout}>Logout</li>
+          <div className={styles.authContainer}>
+            <li className={styles.liNavbar} onClick={handleLogout}>Logout</li>
+            <li className={styles.loggedInAs}>logged in as: {userDetails.email}</li>
+          </div>
         ) : (
           <li className={styles.liNavbar} onClick={() => handleNavigate("/authentication")}>Login</li>
         )}
