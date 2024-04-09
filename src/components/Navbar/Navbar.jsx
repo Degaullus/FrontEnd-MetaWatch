@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 import { useWindowSizeContext } from "../../context/WindowSizeContext";
@@ -9,6 +9,7 @@ export default function Navbar() {
   const { device } = useWindowSizeContext();
   const isMobile = device === "mobile";
   const navbarRef = useRef(null);
+  const navigate = useNavigate();
 
 
   // Close the hamburger list when clicking outside of it
@@ -27,6 +28,11 @@ export default function Navbar() {
       document.removeEventListener("mouseup", handleClickOutside);
     }
   }, [isOpen]);
+
+  const handleNavigate = (path) => {
+    toggleMenu();
+    navigate(path);
+  };
 
 
   // Open and close the hamburger list
