@@ -1,6 +1,10 @@
 .navbarContainer {
+  display: flex;
+  align-items: center;
   border: solid 3px black;
   margin: 1rem;
+  border-radius: 7px;
+  justify-content: space-between;
 }
 
 /* NOT WORKING REPAIRE IT */
@@ -11,6 +15,9 @@
   justify-content: space-around;
   list-style: none;
   font-size: 1.5rem;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  width: 100%;
 }
 
 .oldWorldLogo {
@@ -21,4 +28,50 @@
 
 .liNavbar a {
   text-decoration: none;
+}
+
+
+.hamburger {
+  display: none;
+  cursor:pointer;
+  padding: 0 2rem;
+}
+
+.ulNavbar.open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 33vh;
+  width: 100%;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: transform 0.5s ease-in-out;
+  opacity: 0.95;
+}
+
+.navLink {
+  background-color: rgb(63, 63, 63);
+  padding: 0.1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.navLink:hover {
+  background-color: rgb(0, 0, 0);
+  color: white !important;
+}
+
+@media (max-width: 1024px) {
+
+  .ulNavbar {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
 }

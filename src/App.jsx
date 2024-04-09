@@ -15,6 +15,8 @@ import Location from "./components/Location/Location";
 import Navbar from "./components/Navbar/Navbar";
 import LoadingBar from "./components/Loading/LoadingBar";
 import Authentication from "./components/Authentication/Authentication";
+import Footer from "./components/Footer/Footer";
+import Favorites from "./components/Favorites/Favorites";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
@@ -44,8 +46,12 @@ function App() {
         <Route path="/format" element={<Format />} />
         <Route path="/location" element={<Location />} />
         <Route path="/authentication" element={<Authentication />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Footer />
+      <Footer />
     </div>
   );
 }
