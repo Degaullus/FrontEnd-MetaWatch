@@ -59,9 +59,7 @@ export default function Navbar() {
             <button>Search</button>
           </div>
         </li>
-        <li>
-          <button onClick={() => handleNavigate("/authentication")}>Login</button>
-        </li>
+        <li className={styles.liNavBar} onClick={() => handleNavigate("/authentication")}>Login</li>
       </ul>
       {isMobile && (
         <div className={styles.hamburger} onClick={toggleMenu}>
