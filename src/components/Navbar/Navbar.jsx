@@ -15,7 +15,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (navbarRef.current && !navbarRef.current.contains(e.target)) {
-        setIsOpen(!isOpen);
+        setIsOpen(false);
       }
     };
 
