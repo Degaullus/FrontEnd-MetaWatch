@@ -1,10 +1,13 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { AuthContext } from './authContext'; 
+
 export const favTournamentContext = createContext();
 
 export const useTournaments = () => useContext(favTournamentContext);
 
 export const TournamentProvider = ({ children }) => {
+
+    const backendUrl = 'https://backend-metawatch.onrender.com/';
   
     const [tournaments, setTournaments] = useState([]);
     const { favorites } = useContext(AuthContext); // Access favorites from AuthContext
@@ -31,8 +34,28 @@ export const TournamentProvider = ({ children }) => {
 
     }, [favorites]); // Re-run when favorites change
 
+    const removeFavorite = async (tournamentId) => {
+      // Assuming you have an endpoint to update the user's favorites
+      try {
+          const response = await fetch(`https://backend-metawatch.onrender.com/fav/remove`, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  // Include authorization if your API requires
+              },
+              body: JSON.stringify({ removedFavorite: tournamentId }),
+          });
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.message || "Could not remove favorite");
+          // Update favorites in AuthContext
+          setFavorites(favorites.filter(id => id !== tournamentId));
+      } catch (error) {
+          console.error("Failed to remove favorite:", error);
+      }
+  };
+
     return (
-        <favTournamentContext.Provider value={{ tournaments }}>
+        <favTournamentContext.Provider value={{ tournaments, removeFavorite }}>
             {children}
         </favTournamentContext.Provider>
     );
