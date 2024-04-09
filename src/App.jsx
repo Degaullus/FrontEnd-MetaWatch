@@ -1,7 +1,9 @@
 //General
 
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useLoading } from "./context/LoadingContext";
 
 // Routes
 
@@ -11,14 +13,31 @@ import Format from "./components/Format/Format";
 import Homepage from "./components/Homepage/Homepage";
 import Location from "./components/Location/Location";
 import Navbar from "./components/Navbar/Navbar";
+import LoadingBar from "./components/Loading/LoadingBar";
 import Authentication from "./components/Authentication/Authentication";
 import Footer from "./components/Footer/Footer";
 import Favorites from "./components/Favorites/Favorites";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
+  const location = useLocation();
+  const { setIsLoading } = useLoading();
+
+  useEffect(() => {
+    // Trigger loading state on route change
+    setIsLoading(true);
+
+    // Simulate loading for at least 0.5 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+    }, [location, setIsLoading]);
+
   return (
     <div>
+      <LoadingBar />
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
