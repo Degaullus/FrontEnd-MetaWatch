@@ -72,3 +72,8 @@
   max-width: 150px; 
   display: block;
 }
+
+.favoriteImg {
+  width: 20px;
+  margin: 0 0.4rem 0.3rem;
+}
