@@ -9,7 +9,7 @@ export default function FactionSelected() {
   const { id } = useParams();
 
   // this is filtering key="faction name"
-  const filteredData = data?.entries?.filter(
+  const filteredData = data?.filter(
     (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
   );
 
