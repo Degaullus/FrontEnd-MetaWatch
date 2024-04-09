@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export function useAuth () {
   return useContext(AuthContext);
@@ -10,46 +10,42 @@ function AuthContextProvider({ children }) {
   const [token, setToken] = useState(null);
   const [userDetails, setUserDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    const storedUserDetails = JSON.parse(localStorage.getItem("userDetails"));
-    
-    if (storedToken) {
-      setToken(storedToken);
-      setUserDetails(storedUserDetails || {});
-    }
-    setIsLoading(false);
-  }, []);
-
-  useEffect(() => {
-    if (token) {
-      localStorage.setItem("token", token);
-      localStorage.setItem("userDetails", JSON.stringify(userDetails));
-    } else {
-      localStorage.removeItem("token");
-      localStorage.removeItem("userDetails");
-    }
-  }, [token, userDetails]);
-
-  const login = (newToken, userDetails = {}) => {
+  const login = (newToken, details = {}) => {
     setToken(newToken);
-    setUserDetails(userDetails);
-    setError(null); // Clear any previous errors
-  };
+    setUserDetails(details);
+    localStorage.setItem('token', newToken);
+    localStorage.setItem('userDetails', JSON.stringify(details));
+  }
 
   const logout = () => {
     setToken(null);
     setUserDetails({});
-    // Optionally, redirect the user to the login page or homepage
+    localStorage.clear();
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('userDetails');
   };
 
-  return (
-    <AuthContext.Provider value={{ token, userDetails, isLoading, error, login, logout }}>
-      {!isLoading && children}
-    </AuthContext.Provider>
-  );
+  useEffect (() => {
+    const storedToken = localStorage.getItem('token');
+    const storedUserDetails = JSON.parse(localStorage.getItem('userDetails'));
+
+    if (storedToken && storedUserDetails) {
+      login(storedToken, storedUserDetails);
+    }
+
+    setIsLoading(false);
+  }, []);
+
+
+    const value = { token, userDetails, login,logout};
+
+    return (
+      <AuthContext.Provider value={value}>
+        {!isLoading && children}
+      </AuthContext.Provider>
+    );
+
 }
 
 export default AuthContextProvider;

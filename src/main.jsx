@@ -16,9 +16,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <APIContextProvider>
             <WindowSizeProvider>
              <LoadingProvider>
-      {/* <AuthContextProvider> */}
-               <App />
-      {/* </AuthContextProvider> */}
+              <AuthContextProvider>
+                <App />
+              </AuthContextProvider>
              </LoadingProvider>
           </WindowSizeProvider>
        </APIContextProvider>
