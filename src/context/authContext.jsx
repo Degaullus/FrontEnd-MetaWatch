@@ -8,19 +8,23 @@ export function useAuth () {
 
 function AuthContextProvider({ children }) {
   const [token, setToken] = useState(null);
-  const [userDetails, setUserDetails] = useState({});
+  const [email, setEmail] = useState("");
+  const [favorites, setFavorites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const login = (newToken, details = {}) => {
     setToken(newToken);
-    setUserDetails(details);
+    setEmail(details.email);
+    setFavorites(details.favorites || []);
     localStorage.setItem('token', newToken);
-    localStorage.setItem('userDetails', JSON.stringify(details));
+    localStorage.setItem('email', details.email);
+    localStorage.setItem('favorites', JSON.stringify(details.favorites || []));
   }
 
   const logout = () => {
     setToken(null);
-    setUserDetails({});
+    setEmail("");
+    setFavorites([]);
     localStorage.clear();
     // localStorage.removeItem('token');
     // localStorage.removeItem('userDetails');
@@ -28,17 +32,18 @@ function AuthContextProvider({ children }) {
 
   useEffect (() => {
     const storedToken = localStorage.getItem('token');
-    const storedUserDetails = JSON.parse(localStorage.getItem('userDetails'));
+    const storedEmail = localStorage.getItem('email');
+    const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
 
-    if (storedToken && storedUserDetails) {
-      login(storedToken, storedUserDetails);
+    if (storedToken && storedEmail) {
+      login(storedToken, { email: storedEmail, favorites: storedFavorites });
     }
 
     setIsLoading(false);
   }, []);
 
 
-    const value = { token, userDetails, login,logout};
+    const value = { token, email, favorites, login,logout};
 
     return (
       <AuthContext.Provider value={value}>
