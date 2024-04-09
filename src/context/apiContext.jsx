@@ -4,7 +4,7 @@ import axios from "axios";
 const APIContext = createContext();
 
 function APIContextProvider({ children }) {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchAPI = async () => {
