@@ -7,16 +7,24 @@ function APIContextProvider({ children }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const fetchAPI = async () => {
+    try {
+      const response = await axios.get("https://backend-metawatch.onrender.com/db");
+      if (response.status !== 200) {
+        throw new Error("Network response was not ok");
+      }
+      const responseData = response.data;
+      console.log(responseData);
+      setIsLoading(false); // Set loading to false when data fetching is complete
+      setData(responseData);
+    } catch (error) {
+      console.error("Error fetching Data:", error.message);
+      setIsLoading(false); // In case of error, set loading to false
+    }
+  };
+
   useEffect(() => {
-    const API = "/SimulationDB.json";
-    axios
-      .get(API)
-      .then(function (response) {
-        setData(response.data);
-        setIsLoading(false);
-        // console.log(response.data);
-      })
-      .catch((error) => console.log(error));
+    fetchAPI();
   }, []);
 
   return (
@@ -29,9 +37,5 @@ function APIContextProvider({ children }) {
 export default APIContextProvider;
 
 export function useAPI() {
-  const context = useContext(APIContext);
-  if (context === undefined) {
-    throw new Error("Context must be used within a Provider");
-  }
-  return context;
+  return useContext(APIContext);
 }
