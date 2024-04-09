@@ -61,11 +61,7 @@ export default function Navbar() {
         </li>
         <li className={styles.liNavBar} onClick={() => handleNavigate("/authentication")}>Login</li>
       </ul>
-      {isMobile && (
-        <div className={styles.hamburger} onClick={toggleMenu}>
-          <img src="/hamburger.svg" alt="Menu" />
-        </div>
-      )}
+      {isMobile && (<div className={styles.hamburger} onClick={toggleMenu}><img src="/hamburger.svg" alt="Menu" /></div>)}
     </nav>
   );
 }
