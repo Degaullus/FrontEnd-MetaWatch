@@ -1,8 +1,9 @@
-import { useWindowSizeContext } from '../../context/WindowSizeContext';
+import { useWindowSizeContext } from "../../context/WindowSizeContext";
+import styles from "./Footer.module.css";
 
-function Footer () {
+function Footer() {
   return (
-    <div className={style.container}>
+    <div className={styles.container}>
       <h1>Footer</h1>
     </div>
   );

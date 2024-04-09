@@ -1,21 +1,25 @@
 .warp {
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
-  height: 100vh;
-  background: rgb(97, 24, 115);
-  background: radial-gradient(
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-image: url("warp.jpg");
+  background-position: center;
+  background-size: cover;
+  /* background: rgb(97, 24, 115); */
+  /* background: radial-gradient(
     circle,
     rgba(97, 24, 80, 1) 0%,
     rgba(0, 0, 0, 1) 100%
-  );
+  ); */
 }
 
 .warp h1 {
   color: white;
-}
-
-.image {
-  height: 50%;
+  font-size: 80px;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000,
+    3px 3px 0 #000;
 }
