@@ -1,0 +1,30 @@
+/* Overlay that covers the entire screen */
+.overlay {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7); 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  z-index: 1000; 
+}
+
+
+.loader {
+  width: 64px; 
+  height: 64px;
+  border: 6px solid white;
+  border-top-color: black; 
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+  transition: 0.5s ease;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
