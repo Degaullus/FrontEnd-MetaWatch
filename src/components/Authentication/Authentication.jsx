@@ -9,21 +9,22 @@ export default function Authentication() {
     const [auth, setAuth] = useState("login");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [favorites, setFavorites] = useState([]);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
-        const url = `http://localhost:8080/${auth}`; // Determines the endpoint based on the auth state
+        const url = `http://localhost:8080/${auth}`; 
         try {
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email, password, favorites}),
             });
             const data = await response.json();
 
             if (response.ok) {
-                login(data.token, { email });
+                login(data.token, { email: data.email, favorites: data.favorites});
                 navigate('/');
                 
             } else {
@@ -38,6 +39,7 @@ export default function Authentication() {
         setAuth((prevAuth) => (prevAuth === "login" ? "signup" : "login"));
         setEmail("");
         setPassword("");
+        setFavorites([]);
     };
 
 
