@@ -1,7 +1,7 @@
 //General
 
 import "./App.css";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useLoading } from "./context/LoadingContext";
 
@@ -23,10 +23,7 @@ function App() {
   const { setIsLoading } = useLoading();
 
   useEffect(() => {
-    // Trigger loading state on route change
-    setIsLoading(true);
-
-    // Simulate loading for at least 0.5 seconds
+   setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
