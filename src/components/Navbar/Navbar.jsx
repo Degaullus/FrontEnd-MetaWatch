@@ -58,10 +58,10 @@ export default function Navbar() {
           </div>
         </li>
         {token ? (
-          <div className={styles.authContainer}>
+          <>
             <li className={styles.liNavbar} onClick={handleLogout}>Logout</li>
             <li className={styles.loggedInAs}>logged in as: {userDetails.email}</li>
-          </div>
+          </>
         ) : (
           <li className={styles.liNavbar} onClick={() => handleNavigate("/authentication")}>Login</li>
         )}
