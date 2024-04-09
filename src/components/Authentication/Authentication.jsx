@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Authentication.module.css";
+import { AuthContext } from "../../context/authContext";
+
 
 export default function Authentication() {
     const [auth, setAuth] = useState("login");
     const [autoLogin, setAutoLogin] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const navigate = useNavigate();
 
     const getLocalStorage = () => {
