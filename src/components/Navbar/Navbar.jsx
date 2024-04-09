@@ -32,9 +32,6 @@ export default function Navbar() {
   // Open and close the hamburger list
   const toggleMenu = () => setIsOpen(prevState => !prevState);
 
-  // Close the hamburger list when clicking on a link
-  const closeHamburgerList = () => {setIsOpen(!isOpen)}
-
   // Add the class open to the ulNavbar when the hamburger list is open
   const ulNavBarClassNames = `${styles.ulNavbar} ${isMobile && isOpen ? styles.open : ''}`;
 
