@@ -8,15 +8,19 @@ function APIContextProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const API = "/SimulationDB.json";
-    axios
-      .get(API)
-      .then(function (response) {
-        setData(response.data);
-        setIsLoading(false);
-        // console.log(response.data);
-      })
-      .catch((error) => console.log(error));
+    const fetchData = async () => {
+      const API = await axios.get("https://backend-metawatch.onrender.com/");
+      axios
+        .get(API)
+        .then(function (response) {
+          setData(response.data);
+          setIsLoading(false);
+          // console.log(response.data);
+        })
+        .catch((error) => console.log(error));
+    };
+
+    fetchData();
   }, []);
 
   return (
