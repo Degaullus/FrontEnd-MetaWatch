@@ -6,6 +6,8 @@ import APIContextProvider from "./context/apiContext.jsx";
 import AuthContextProvider from "./context/authContext.jsx";
 import { LoadingProvider} from "./context/LoadingContext.jsx";
 import { WindowSizeProvider } from "./context/WindowSizeContext.jsx";
+import { TournamentProvider } from "./context/favTournamentsContext.jsx";
+
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
@@ -13,14 +15,16 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
+  <AuthContextProvider>
+      <TournamentProvider>
         <APIContextProvider>
-            <WindowSizeProvider>
-             <LoadingProvider>
-              <AuthContextProvider>
+          <WindowSizeProvider>
+            <LoadingProvider>
                 <App />
-              </AuthContextProvider>
-             </LoadingProvider>
+            </LoadingProvider>
           </WindowSizeProvider>
-       </APIContextProvider>
+        </APIContextProvider>
+      </TournamentProvider>
+    </AuthContextProvider>
   </BrowserRouter>
 );

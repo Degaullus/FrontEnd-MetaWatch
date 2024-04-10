@@ -8,19 +8,27 @@ export function useAuth () {
 
 function AuthContextProvider({ children }) {
   const [token, setToken] = useState(null);
-  const [userDetails, setUserDetails] = useState({});
+  const [email, setEmail] = useState("");
+  const [favorites, setFavorites] = useState([]);
+  const [favCount, setFavCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   const login = (newToken, details = {}) => {
     setToken(newToken);
-    setUserDetails(details);
+    setEmail(details.email);
+    setFavCount(details.favCount || 0);
+    setFavorites(details.favorites || []);
     localStorage.setItem('token', newToken);
-    localStorage.setItem('userDetails', JSON.stringify(details));
+    localStorage.setItem('email', details.email);
+    localStorage.setItem('favCount', details.favCount || 0);
+    localStorage.setItem('favorites', JSON.stringify(details.favorites || []));
   }
 
   const logout = () => {
     setToken(null);
-    setUserDetails({});
+    setEmail("");
+    setFavCount(0);
+    setFavorites([]);
     localStorage.clear();
     // localStorage.removeItem('token');
     // localStorage.removeItem('userDetails');
@@ -28,17 +36,18 @@ function AuthContextProvider({ children }) {
 
   useEffect (() => {
     const storedToken = localStorage.getItem('token');
-    const storedUserDetails = JSON.parse(localStorage.getItem('userDetails'));
+    const storedEmail = localStorage.getItem('email');
+    const storedFavCount = parseInt(localStorage.getItem('favCount'), 10);
+    const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
 
-    if (storedToken && storedUserDetails) {
-      login(storedToken, storedUserDetails);
+    if (storedToken && storedEmail) {
+      login(storedToken, { email: storedEmail, favCount: storedFavCount, favorites: storedFavorites });
     }
-
     setIsLoading(false);
-  }, []);
+  }, [favCount]);
 
 
-    const value = { token, userDetails, login,logout};
+    const value = { token, email, favCount, favorites, login,logout};
 
     return (
       <AuthContext.Provider value={value}>
