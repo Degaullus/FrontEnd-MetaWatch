@@ -19,22 +19,23 @@
   transition: all 0.5s ease-in-out;
   overflow: hidden;
   width: 100%;
+  cursor: pointer;
 }
 
 .oldWorldLogo {
   width: 200px;
   height: auto;
   border: 3px solid black;
+  cursor: pointer;
 }
 
 .liNavbar a {
   text-decoration: none;
 }
 
-
 .hamburger {
   display: none;
-  cursor:pointer;
+  cursor: pointer;
   padding: 0 2rem;
 }
 
@@ -55,7 +56,6 @@
 }
 
 @media (max-width: 1024px) {
-
   .ulNavbar {
     display: none;
   }
@@ -69,7 +69,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 150px; 
+  max-width: 150px;
   display: block;
 }
 
@@ -77,3 +77,4 @@
   width: 20px;
   margin: 0 0.4rem 0.3rem;
 }
+
