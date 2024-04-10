@@ -17,7 +17,7 @@ export const TournamentProvider = ({ children }) => {
             try {
                 const fetchedTournaments = await Promise.all(
                     favorites.map(async (id) => {
-                        const response = await fetch(`https://localhost/db/${id}`);
+                        const response = await fetch(`${backendUrl}db/${id}`);
                         if (!response.ok) throw new Error('Could not fetch tournament data');
                         
                         return response.json();
@@ -54,7 +54,7 @@ export const TournamentProvider = ({ children }) => {
           console.error("Failed to remove favorite:", error);
       }
   };
-
+  
     return (
         <favTournamentContext.Provider value={{ tournaments, removeFavorite }}>
             {children}
