@@ -12,10 +12,11 @@ export default function Authentication() {
     const [favorites, setFavorites] = useState([]);
     const navigate = useNavigate();
     const [error, setError] = useState("");
+    const backendUrl = 'https://backend-metawatch.onrender.com/';
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
-        const url = `https://backend-metawatch.onrender.com/${auth}`; 
+        const url = `${backendUrl}${auth}`; 
         try {
             const response = await fetch(url, {
                 method: 'POST',
@@ -23,7 +24,7 @@ export default function Authentication() {
                 body: JSON.stringify({ email, password, favorites}),
             });
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
 
             if (response.ok) {
                 login(data.token, { email: data.email, favCount: data.favCount, favorites: data.favorites});
