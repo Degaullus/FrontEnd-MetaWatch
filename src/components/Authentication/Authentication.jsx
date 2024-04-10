@@ -16,12 +16,12 @@ export default function Authentication() {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
-        const url = `${backendUrl}${auth}`; 
+        const url = `http://localhost:8080/${auth}`; 
         try {
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ email, password, favorites}),
+                body: JSON.stringify({ email, password}),
             });
             const data = await response.json();
             // console.log(data);
@@ -31,11 +31,11 @@ export default function Authentication() {
                 navigate('/');
                 setError("");
             } else {
-                throw new Error(data.message || 'An unexpected error occurred.'); //Backend error message
+                throw new Error(data.message || 'Error sending POST request in authentication component'); //Backend error message
             }
         } catch (error) {
             console.error('Fetch error:', error.message);
-            setError('Failed to communicate with the server.'); // Set a generic error message for fetch errors
+            setError('Failed to communicate with the server from the authentication component.'); // Set a generic error message for fetch errors
         }
     };
 
