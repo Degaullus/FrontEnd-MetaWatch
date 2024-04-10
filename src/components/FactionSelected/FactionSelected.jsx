@@ -1,13 +1,15 @@
 import styles from "./FactionSelected.module.css";
 import { useAPI } from "../../context/apiContext";
-import { useEffect, useState } from "react"; //usestate for the popup
+import { useState } from "react"; //usestate for the popup
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 export default function FactionSelected() {
   const [openModalId, setOpenModalId] = useState(null);
   const { data, isLoading } = useAPI();
   const { id } = useParams();
   const [points, setPoints] = useState(0);
+  const navigate = useNavigate();
 
   //format Ranks
   const formatRank = (rank) => {
@@ -45,6 +47,7 @@ export default function FactionSelected() {
 
   return (
     <>
+      <button onClick={() => navigate(-1)}>All Factions</button>
       <h2>{`Welcome to ${id.replace("-", " ").replace("-", " ")}`}</h2>
       <button onClick={() => setPoints(2250)}>2250 Points</button>
       <button onClick={() => setPoints(2000)}>2000 Points</button>
