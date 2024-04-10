@@ -6,7 +6,7 @@ import { favTournamentContext } from "../../context/favTournamentsContext";
 
 export default function Favorites () {
     const { tournaments, removeFavorite } = useContext(favTournamentContext);
-    // console.log(tournaments); 
+    
 
     return (
         <>
