@@ -33,7 +33,7 @@ export const TournamentProvider = ({ children }) => {
             fetchTournaments();
         }
 
-    }, [favorites]); // Re-run when favorites change
+    }, [favorites]); 
 
     const removeFavorite = async (tournamentId) => {
       // Assuming you have an endpoint to update the user's favorites
