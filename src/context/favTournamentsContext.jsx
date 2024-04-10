@@ -10,15 +10,16 @@ export const TournamentProvider = ({ children }) => {
     const backendUrl = 'https://backend-metawatch.onrender.com/';
   
     const [tournaments, setTournaments] = useState([]);
-    const { favorites } = useContext(AuthContext); // Access favorites from AuthContext
+    const { favorites, setFavorites } = useContext(AuthContext); // Access favorites from AuthContext
 
     useEffect(() => {
         const fetchTournaments = async () => {
             try {
                 const fetchedTournaments = await Promise.all(
                     favorites.map(async (id) => {
-                        const response = await fetch(`http://localhost:8080/db/${id}`);
+                        const response = await fetch(`${backendUrl}db/${id}`);
                         if (!response.ok) throw new Error('Could not fetch tournament data');
+                        
                         return response.json();
                     })
                 );
@@ -37,7 +38,7 @@ export const TournamentProvider = ({ children }) => {
     const removeFavorite = async (tournamentId) => {
       // Assuming you have an endpoint to update the user's favorites
       try {
-          const response = await fetch(`https://backend-metawatch.onrender.com/fav/remove`, {
+          const response = await fetch(`${backendUrl}fav/remove`, {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
