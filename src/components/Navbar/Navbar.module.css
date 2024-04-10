@@ -5,6 +5,7 @@
   margin: 1rem;
   border-radius: 7px;
   justify-content: space-between;
+  height: 80px;
 }
 
 /* NOT WORKING REPAIRE IT */
@@ -71,3 +72,9 @@
   max-width: 150px;
   display: block;
 }
+
+.favoriteImg {
+  width: 20px;
+  margin: 0 0.4rem 0.3rem;
+}
+
