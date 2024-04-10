@@ -1,18 +1,8 @@
-import { useContext } from 'react';
-import { useLoading } from '../../context/LoadingContext';
-
-import styles from './LoadingSpinner.module.css'; 
-
-const LoadingSpinner = () => {
-  const { isLoading } = useLoading();
-
-  const overlayClasses = isLoading ? `${styles.overlay} ${styles.active}` : styles.overlay;
-
+import FadeLoader from "react-spinners/FadeLoader";
+export default function LoadingSpinner() {
   return (
-    <div className={overlayClasses}>
-      <span className={styles.loader}></span>
+    <div>
+      <FadeLoader color="#36d7b7" />
     </div>
   );
-};
-
-export default LoadingSpinner;
+}

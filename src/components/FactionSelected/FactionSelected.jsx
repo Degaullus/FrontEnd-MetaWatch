@@ -1,13 +1,15 @@
 import styles from "./FactionSelected.module.css";
-import { useAPI } from "../../context/apiContext";
-import { useEffect, useState } from "react"; //usestate for the popup
+import { useContext, useEffect, useState } from "react"; //usestate for the popup
 import { useParams } from "react-router";
+import { APIContext } from "../../context/APIContextProvider";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function FactionSelected() {
   const [openModalId, setOpenModalId] = useState(null);
-  const { data, isLoading } = useAPI();
+  const { data, isLoading } = useContext(APIContext);
   const { id } = useParams();
   const [points, setPoints] = useState(0);
+  console.log(isLoading);
 
   //format Ranks
   const formatRank = (rank) => {
@@ -54,7 +56,7 @@ export default function FactionSelected() {
       <button onClick={() => setPoints(1000)}>1000 Points</button>
       <button onClick={() => setPoints(0)}>All tournaments</button>
       {isLoading ? (
-        <p>Loading data...</p>
+        <LoadingSpinner />
       ) : filteredData?.length > 0 ? (
         <div className={styles.tournamentContainer}>
           {filteredData.map((entry, index) => (
@@ -83,7 +85,7 @@ export default function FactionSelected() {
                 role="dialog"
                 aria-labelledby="listModalLabel"
                 aria-hidden="true"
-                show={(openModalId === index).toString()}
+                /*                 show={(openModalId === index).toString()} */
               >
                 <div
                   className="modal-dialog"
