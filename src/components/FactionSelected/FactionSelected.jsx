@@ -10,6 +10,7 @@ export default function FactionSelected() {
   const { id } = useParams();
   const [points, setPoints] = useState(0);
   const navigate = useNavigate();
+  const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
 
   //format Ranks
   const formatRank = (rank) => {
@@ -44,6 +45,15 @@ export default function FactionSelected() {
     const date2 = new Date(entry2.date);
     return date2 - date1; // Descending order (newest first) (Gemini)
   });
+
+  // Function to copy list to clipboard
+  const copyListToClipboard = (list) => {
+    navigator.clipboard.writeText(list);
+    setListCopied(true);
+    setTimeout(() => {
+      setListCopied(false);
+    }, 3000); // Reset copied state after 3 seconds
+  };
 
   return (
     <>
@@ -107,6 +117,15 @@ export default function FactionSelected() {
                     <div className="modal-body">
                       <pre>{entry.list}</pre>
                     </div>
+                    <button
+                      type="button"
+                      onClick={() => copyListToClipboard(entry.list)}
+                      className="btn btn-primary"
+                    >
+                      {listCopied && openModalId === index
+                        ? "Copied!"
+                        : "Copy List"}
+                    </button>
                   </div>
                 </div>
               </div>
