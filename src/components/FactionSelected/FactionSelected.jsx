@@ -126,6 +126,7 @@ export default function FactionSelected() {
                         ? "Copied!"
                         : "Copy List"}
                     </button>
+                    <button>Add to favorites</button>
                   </div>
                 </div>
               </div>
