@@ -46,9 +46,12 @@ export default function FactionSelected() {
   return (
     <>
       <h2>{`Welcome to ${id.replace("-", " ").replace("-", " ")}`}</h2>
+      <button onClick={() => setPoints(2250)}>2250 Points</button>
       <button onClick={() => setPoints(2000)}>2000 Points</button>
       <button onClick={() => setPoints(1750)}>1750 Points</button>
       <button onClick={() => setPoints(1500)}>1500 Points</button>
+      <button onClick={() => setPoints(1250)}>1250 Points</button>
+      <button onClick={() => setPoints(1000)}>1000 Points</button>
       <button onClick={() => setPoints(0)}>All tournaments</button>
       {isLoading ? (
         <p>Loading data...</p>
