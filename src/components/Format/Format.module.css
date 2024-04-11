@@ -1,0 +1,19 @@
+.tournamentContainer {
+  margin: 5rem 10rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 100px 50px 400px 250px 250px 150px;
+  border: 2px solid black;
+  padding: 2rem;
+  gap: 50px;
+}
+
+#modalDialogId {
+  max-width: 800px;
+}

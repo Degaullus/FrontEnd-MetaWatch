@@ -45,7 +45,8 @@ export default function FactionSelected() {
   filteredData?.sort((entry1, entry2) => {
     const date1 = new Date(entry1.date);
     const date2 = new Date(entry2.date);
-    return date2 - date1; // Descending order (newest first)
+    if (date1 > date2) return -1;
+    if (date1 < date2) return 1;
   });
 
   // Function to copy list to clipboard
