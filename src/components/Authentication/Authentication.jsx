@@ -7,7 +7,6 @@ import { AuthContext } from "../../context/authContext";
 export default function Authentication() {
     const { login } = useContext(AuthContext);
     const [auth, setAuth] = useState("login");
-    const [identifier, setIdentifier] = useState("");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -52,7 +51,6 @@ export default function Authentication() {
 
     const handleAuthSwitch = () => {
         setAuth((prevAuth) => (prevAuth === "login" ? "signup" : "login"));
-        setIdentifier("");
         // setUsername("");
         setEmail("");
         setPassword("");
