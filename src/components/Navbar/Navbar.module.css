@@ -97,8 +97,17 @@
   display: block;
 }
 
+.logged {
+  font-size: 0.7rem;
+}
+
+.inas {
+  font-size: 1.2rem;
+}
+
 .favorites {
   margin: 0 auto;
+  font-size: 1.1rem;
 }
 
 .logout {
