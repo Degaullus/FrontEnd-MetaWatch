@@ -7,10 +7,10 @@ import { AuthContext } from "../../context/authContext";
 export default function Authentication() {
     const { login } = useContext(AuthContext);
     const [auth, setAuth] = useState("login");
+    const [identifier, setIdentifier] = useState("");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [favorites, setFavorites] = useState([]);
     const navigate = useNavigate();
     const [error, setError] = useState("");
     const backendUrl = 'https://backend-metawatch.onrender.com/';
@@ -45,7 +45,6 @@ export default function Authentication() {
         setUsername("");
         setEmail("");
         setPassword("");
-        setFavorites([]);
     };
 
 
