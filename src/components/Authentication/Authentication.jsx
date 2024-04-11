@@ -52,7 +52,7 @@ export default function Authentication() {
     <>
         <div className={styles.container}>
             <h1 className={styles.heading}>{auth}</h1>
-            <form onSubmit={handleSubmit}>
+            <form className={styles.form} onSubmit={handleSubmit}>
             <input
                     className={styles.input}
                     type="text"
