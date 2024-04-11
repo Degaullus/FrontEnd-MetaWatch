@@ -42,6 +42,7 @@ export default function Authentication() {
 
     const handleAuthSwitch = () => {
         setAuth((prevAuth) => (prevAuth === "login" ? "signup" : "login"));
+        setUsername("");
         setEmail("");
         setPassword("");
         setFavorites([]);
