@@ -22,7 +22,7 @@ export default function Authentication() {
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ email, password}),
+                body: JSON.stringify({ username, email, password}),
             });
             const data = await response.json();
             // console.log(data);
