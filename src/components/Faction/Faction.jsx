@@ -30,7 +30,7 @@ export default function Faction() {
         {factions.map((faction) => (
           <button
             className={styles.button}
-            onClick={() => navigate(`/faction/factions/${faction}`)}
+            onClick={() => navigate(`/faction/${faction}`)}
           >
             {faction.replaceAll("-", " ")}
           </button>

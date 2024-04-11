@@ -45,7 +45,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/faction" element={<Faction />} />
-            <Route path="/faction/factions/:id" element={<FactionSelected />} />
+            <Route path="/faction/:id" element={<FactionSelected />} />
             <Route path="/format" element={<Format />} />
             <Route path="/authentication" element={<Authentication />} />
             <Route path="/favorites" element={<Favorites />} />
