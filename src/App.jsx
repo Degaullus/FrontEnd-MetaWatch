@@ -17,7 +17,8 @@ import Authentication from "./components/Authentication/Authentication";
 import Footer from "./components/Footer/Footer";
 import Favorites from "./components/Favorites/Favorites";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
-import LoadingSpinner from './components/Loading/LoadingSpinner';
+import LoadingSpinner from "./components/Loading/LoadingSpinner";
+import SearchResult from "./components/SearchBar/SearchResult";
 
 function App() {
   const location = useLocation();
@@ -25,10 +26,10 @@ function App() {
   const [readyToShow, setReadyToShow] = useState(false);
 
   useEffect(() => {
-   setIsLoading(true);
-   setReadyToShow(false);
+    setIsLoading(true);
+    setReadyToShow(false);
 
-   //Simulate loading process
+    //Simulate loading process
     const timer = setTimeout(() => {
       setIsLoading(false);
       setReadyToShow(true);
@@ -40,9 +41,8 @@ function App() {
   return (
     <div>
       <Navbar />
-     {/*  {isLoading && <LoadingSpinner />}
-      {!isLoading && readyToShow && ( */}
-        <>
+
+      <>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/faction" element={<Faction />} />
@@ -53,10 +53,10 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/search/:searchTerm" element="SearchResult" />
         </Routes>
-      <Footer />
+        <Footer />
       </>
-      {/* )} */}
     </div>
   );
 }
