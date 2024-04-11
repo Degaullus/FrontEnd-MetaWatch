@@ -9,6 +9,7 @@ export default function Format() {
   const [points, setPoints] = useState(2000);
   const [listCopied, setListCopied] = useState(false);
   const [displayList, setDisplayList] = useState(false);
+  const [sortList, setSortList] = useState("descDate");
   // console.log(isLoading);
 
   const formatRank = (rank) => {
@@ -53,6 +54,50 @@ export default function Format() {
     return rank1 - rank2;
   });
 
+  if (sortList == "descDate") {
+    filteredData?.sort((entry1, entry2) => {
+      const date1 = new Date(entry1.date);
+      const date2 = new Date(entry2.date);
+      if (date1 > date2) return -1;
+      if (date1 < date2) return 1;
+    });
+  } else if (sortList == "ascDate") {
+    filteredData?.sort((entry1, entry2) => {
+      const date1 = new Date(entry1.date);
+      const date2 = new Date(entry2.date);
+      if (date1 < date2) return -1;
+      if (date1 > date2) return 1;
+    });
+  } else if (sortList == "descRank") {
+    filteredData?.sort((entry1, entry2) => {
+      const rank1 = entry1.rank;
+      const rank2 = entry2.rank;
+      rank1 - rank2;
+      return rank1 - rank2;
+    });
+  } else if (sortList == "ascRank") {
+    filteredData?.sort((entry1, entry2) => {
+      const rank1 = entry1.rank;
+      const rank2 = entry2.rank;
+      rank2 - rank1;
+      return rank2 - rank1;
+    });
+  } else if (sortList == "ascFaction") {
+    filteredData?.sort((entry1, entry2) => {
+      const faction1 = entry1.army;
+      const faction2 = entry2.army;
+      if (faction1 < faction2) return -1;
+      if (faction1 > faction2) return 1;
+    });
+  } else if (sortList == "descFaction") {
+    filteredData?.sort((entry1, entry2) => {
+      const faction1 = entry1.army;
+      const faction2 = entry2.army;
+      if (faction1 > faction2) return -1;
+      if (faction1 < faction2) return 1;
+    });
+  }
+
   const copyListToClipboard = (list) => {
     navigator.clipboard.writeText(list);
     setListCopied(true);
@@ -68,6 +113,49 @@ export default function Format() {
 
   return (
     <>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("ascDate")}
+      >
+        Sort date ASC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("descDate")}
+      >
+        Sort date DESC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("ascRank")}
+      >
+        Sort rank ASC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("descRank")}
+      >
+        Sort rank DESC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("ascFaction")}
+      >
+        Sort faction ASC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("descFaction")}
+      >
+        Sort faction DESC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("descDate")}
+      >
+        Reset sorting
+      </button>
+
       <h2>Format</h2>
 
       <button className="btn btn-primary" onClick={() => buttonActive(2000)}>

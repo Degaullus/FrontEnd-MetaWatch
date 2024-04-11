@@ -10,9 +10,10 @@ export default function FactionSelected() {
   const { data, isLoading } = useContext(APIContext);
   const { id } = useParams();
   const [points, setPoints] = useState(0);
+  const [sortList, setSortList] = useState("descDate");
   const navigate = useNavigate();
   const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
-  console.log(isLoading);
+  // console.log(isLoading);
 
   //format Ranks
   const formatRank = (rank) => {
@@ -41,13 +42,35 @@ export default function FactionSelected() {
             entry.format == points
         );
 
-  // Sort filtered data by date (newest first)
-  filteredData?.sort((entry1, entry2) => {
-    const date1 = new Date(entry1.date);
-    const date2 = new Date(entry2.date);
-    if (date1 > date2) return -1;
-    if (date1 < date2) return 1;
-  });
+  if (sortList == "descDate") {
+    filteredData?.sort((entry1, entry2) => {
+      const date1 = new Date(entry1.date);
+      const date2 = new Date(entry2.date);
+      if (date1 > date2) return -1;
+      if (date1 < date2) return 1;
+    });
+  } else if (sortList == "ascDate") {
+    filteredData?.sort((entry1, entry2) => {
+      const date1 = new Date(entry1.date);
+      const date2 = new Date(entry2.date);
+      if (date1 < date2) return -1;
+      if (date1 > date2) return 1;
+    });
+  } else if (sortList == "descRank") {
+    filteredData?.sort((entry1, entry2) => {
+      const rank1 = entry1.rank;
+      const rank2 = entry2.rank;
+      rank1 - rank2;
+      return rank1 - rank2;
+    });
+  } else if (sortList == "ascRank") {
+    filteredData?.sort((entry1, entry2) => {
+      const rank1 = entry1.rank;
+      const rank2 = entry2.rank;
+      rank2 - rank1;
+      return rank2 - rank1;
+    });
+  }
 
   // Function to copy list to clipboard
   const copyListToClipboard = (list) => {
@@ -60,8 +83,39 @@ export default function FactionSelected() {
 
   return (
     <>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("ascDate")}
+      >
+        Sort date ASC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("descDate")}
+      >
+        Sort date DESC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("ascRank")}
+      >
+        Sort rank ASC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("descRank")}
+      >
+        Sort rank DESC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("descDate")}
+      >
+        Reset sorting
+      </button>
+
       <button className="btn btn-primary" onClick={() => navigate(-1)}>
-        All Factions
+        🠔 Back to all Factions
       </button>
       <h2>{`Welcome to ${id.replace("-", " ").replace("-", " ")}`}</h2>
       <button className="btn btn-primary" onClick={() => setPoints(2250)}>
