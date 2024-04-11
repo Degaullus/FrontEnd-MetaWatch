@@ -1,14 +1,32 @@
+
+
 .navbarContainer {
   display: flex;
   align-items: center;
-  border: solid 3px black;
+  border: solid var(--navbar-border-width) black;
   margin: 1rem;
   border-radius: 7px;
   justify-content: space-between;
-  height: 80px;
+  height: var(--navbar-height);
 }
 
-/* NOT WORKING REPAIRE IT */
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  font-size: 1.5rem;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  width: 100%;
+  cursor: pointer;
+}
+
+.navItem {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
 
 .ulNavbar {
   display: flex;
@@ -29,7 +47,7 @@
   cursor: pointer;
 }
 
-.liNavbar a {
+.navItem a {
   text-decoration: none;
 }
 
@@ -39,7 +57,7 @@
   padding: 0 2rem;
 }
 
-.ulNavbar.open {
+.navContainer.open {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,7 +74,7 @@
 }
 
 @media (max-width: 1024px) {
-  .ulNavbar {
+  .navContainer {
     display: none;
   }
   .hamburger {
@@ -64,13 +82,29 @@
   }
 }
 
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: calc(var(--navbar-height) - 2 * var(--navbar-border-width));
+}
+
 .loggedInAs {
-  font-size: 0.7rem;
+  font-size: 1rem;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px;
   display: block;
+}
+
+.favorites {
+  margin: 0 auto;
+}
+
+.logout {
+  font-size: 0.7rem;
+  cursor: pointer;
+  margin: 0 auto;
 }
 
 .favoriteImg {
