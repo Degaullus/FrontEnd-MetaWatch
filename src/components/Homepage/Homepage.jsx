@@ -13,6 +13,16 @@ export default function Homepage() {
   const format1250k = data?.filter((entry) => entry.format == "1250");
   const format1000k = data?.filter((entry) => entry.format == "1000");
 
+  // Sort filtered data by date (newest first)
+  const dataLastListsPreSlice = data?.sort((entry1, entry2) => {
+    const date1 = new Date(entry1.date);
+    const date2 = new Date(entry2.date);
+    return date2 - date1;
+  });
+  //display last list
+  const lastList = dataLastListsPreSlice?.slice(0, 1);
+  console.log(lastList);
+
   return (
     <div>
       <div>
@@ -25,6 +35,19 @@ export default function Homepage() {
         <p>Format 1500k: {format1500k?.length}</p>
         <p>Format 1250k: {format1250k?.length}</p>
         <p>Format 1000k: {format1000k?.length}</p>
+      </div>
+      <div>
+        <h2>Last turnament result</h2>
+        {lastList?.map((entry) => (
+          <div key={entry._id}>
+            <h3>{entry.tournament}</h3>
+            <p>{entry.date}</p>
+            <p>{entry.army}</p>
+            <p>{entry.format}</p>
+            <p>{entry.rank === 0 ? `${entry.rank}th` : `${entry.rank}st`}</p>
+            <div>{entry.list}</div>
+          </div>
+        ))}
       </div>
       <h1>Welcome to Warhammer Victors!</h1>
       <p>
