@@ -1,16 +1,18 @@
 import styles from "./FactionSelected.module.css";
-import { useAPI } from "../../context/apiContext";
-import { useState } from "react"; //usestate for the popup
+import { useContext, useState } from "react"; //usestate for the popup
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
+import { APIContext } from "../../context/APIContextProvider";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function FactionSelected() {
   const [openModalId, setOpenModalId] = useState(null);
-  const { data, isLoading } = useAPI();
+  const { data, isLoading } = useContext(APIContext);
   const { id } = useParams();
   const [points, setPoints] = useState(0);
   const navigate = useNavigate();
   const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
+  console.log(isLoading);
 
   //format Ranks
   const formatRank = (rank) => {
@@ -83,7 +85,10 @@ export default function FactionSelected() {
         All tournaments
       </button>
       {isLoading ? (
-        <p>Loading data...</p>
+        <div className="loading-container">
+          <p>Loading... (may take up to 50 seconds)</p>
+          <LoadingSpinner />
+        </div>
       ) : filteredData?.length > 0 ? (
         <div className={styles.tournamentContainer}>
           {filteredData.map((entry, index) => (
@@ -112,7 +117,7 @@ export default function FactionSelected() {
                 role="dialog"
                 aria-labelledby="listModalLabel"
                 aria-hidden="true"
-                show={(openModalId === index).toString()}
+                /*                 show={(openModalId === index).toString()} */
               >
                 <div
                   className="modal-dialog"

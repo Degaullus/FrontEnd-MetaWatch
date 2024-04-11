@@ -39,22 +39,22 @@ function App() {
   return (
     <div>
       <Navbar />
-      {isLoading && <LoadingSpinner />}
-      {!isLoading && readyToShow && (
-        <>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/faction" element={<Faction />} />
-            <Route path="/faction/:id" element={<FactionSelected />} />
-            <Route path="/format" element={<Format />} />
-            <Route path="/authentication" element={<Authentication />} />
-            <Route path="/favorites" element={<Favorites />} />
-            <Route path="/error" element={<ErrorPage />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-          <Footer />
-        </>
-      )}
+      {/*  {isLoading && <LoadingSpinner />}
+      {!isLoading && readyToShow && ( */}
+      <>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/faction" element={<Faction />} />
+          <Route path="/faction/:id" element={<FactionSelected />} />
+          <Route path="/format" element={<Format />} />
+          <Route path="/authentication" element={<Authentication />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        <Footer />
+      </>
+      {/* )} */}
     </div>
   );
 }

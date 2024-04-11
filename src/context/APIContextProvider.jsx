@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 
-const APIContext = createContext();
+export const APIContext = createContext();
 
-function APIContextProvider({ children }) {
+export default function APIContextProvider({ children }) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,7 +15,10 @@ function APIContextProvider({ children }) {
       }
       const responseData = response.data;
       console.log(responseData);
-      setIsLoading(false); // Set loading to false when data fetching is complete
+      setTimeout( () => {
+        setIsLoading(false); // Set loading to false when data fetching is complete
+      }, 3000)
+     
       setData(responseData);
     } catch (error) {
       console.error("Error fetching Data:", error.message);
@@ -24,7 +27,8 @@ function APIContextProvider({ children }) {
   };
 
   useEffect(() => {
-    fetchAPI();
+   
+      fetchAPI();
   }, []);
 
   return (
@@ -34,8 +38,3 @@ function APIContextProvider({ children }) {
   );
 }
 
-export default APIContextProvider;
-
-export function useAPI() {
-  return useContext(APIContext);
-}
