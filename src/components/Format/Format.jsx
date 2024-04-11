@@ -86,12 +86,6 @@ export default function Format() {
         Other
       </button>
 
-      <select>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-      </select>
-
       {isLoading ? (
         <div className="loading-container">
           <p>Loading... (may take up to 50 seconds)</p>
@@ -120,6 +114,7 @@ export default function Format() {
                 data-bs-target={"#listModal" + index}
                 onClick={() => setOpenModalId(index)}
                 className="btn btn-primary"
+                disabled={entry.list == "No list submitted"}
               >
                 Show army list
               </button>

@@ -113,6 +113,7 @@ export default function FactionSelected() {
                 data-bs-target={"#listModal" + index}
                 onClick={() => setOpenModalId(index)}
                 className="btn btn-primary"
+                disabled={entry.list == "No list submitted"}
               >
                 Show army list
               </button>
