@@ -40,8 +40,8 @@ function App() {
   return (
     <div>
       <Navbar />
-      {isLoading && <LoadingSpinner />}
-      {!isLoading && readyToShow && (
+     {/*  {isLoading && <LoadingSpinner />}
+      {!isLoading && readyToShow && ( */}
         <>
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -56,7 +56,7 @@ function App() {
         </Routes>
       <Footer />
       </>
-      )}
+      {/* )} */}
     </div>
   );
 }
