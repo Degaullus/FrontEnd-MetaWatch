@@ -94,12 +94,17 @@ export default function FactionSelected() {
         <div className={styles.tournamentContainer}>
           {filteredData.map((entry, index) => (
             <li key={index} className={styles.card}>
-              <p className={styles.daten}>{formatRank(entry.rank)}</p>
-              <p className={styles.daten}>{entry.format} pts </p>
-              <p className={styles.daten}>"{entry.tournament}"</p>
+              <p className={styles.tournamentDetails}>
+                {formatRank(entry.rank)}
+              </p>
+              <p className={styles.tournamentDetails}>{entry.format} pts </p>
+              <p className={styles.tournamentDetails}>"{entry.tournament}"</p>
               {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
-              <p className={styles.daten}> {entry.location}</p>
-              <p className={styles.daten} style={{ fontStyle: "italic" }}>
+              <p className={styles.tournamentDetails}> {entry.location}</p>
+              <p
+                className={styles.tournamentDetails}
+                style={{ fontStyle: "italic" }}
+              >
                 {entry.date}
               </p>
               <button

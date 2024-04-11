@@ -8,10 +8,14 @@
 .card {
   display: grid;
   align-items: center;
-  grid-template-columns: 100px 50px 400px 250px 250px 150px;
+  grid-template-columns: 80px 200px 50px 400px 200px auto 150px;
   border: 2px solid black;
   padding: 2rem;
   gap: 50px;
+}
+
+.tournamentDetails:first-child {
+  font-weight: 1000;
 }
 
 #modalDialogId {
