@@ -57,15 +57,31 @@ export default function FactionSelected() {
 
   return (
     <>
-      <button onClick={() => navigate(-1)}>All Factions</button>
+      <button className="btn btn-primary" onClick={() => navigate(-1)}>
+        All Factions
+      </button>
       <h2>{`Welcome to ${id.replace("-", " ").replace("-", " ")}`}</h2>
-      <button onClick={() => setPoints(2250)}>2250 Points</button>
-      <button onClick={() => setPoints(2000)}>2000 Points</button>
-      <button onClick={() => setPoints(1750)}>1750 Points</button>
-      <button onClick={() => setPoints(1500)}>1500 Points</button>
-      <button onClick={() => setPoints(1250)}>1250 Points</button>
-      <button onClick={() => setPoints(1000)}>1000 Points</button>
-      <button onClick={() => setPoints(0)}>All tournaments</button>
+      <button className="btn btn-primary" onClick={() => setPoints(2250)}>
+        2250 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(2000)}>
+        2000 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(1750)}>
+        1750 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(1500)}>
+        1500 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(1250)}>
+        1250 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(1000)}>
+        1000 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(0)}>
+        All tournaments
+      </button>
       {isLoading ? (
         <p>Loading data...</p>
       ) : filteredData?.length > 0 ? (
