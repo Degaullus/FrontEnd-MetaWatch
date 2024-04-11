@@ -2,10 +2,10 @@ import { useState, useEffect, useContext } from "react";
 import style from "./Favorites.module.css";
 
 import { useWindowSizeContext } from "../../context/WindowSizeContext";
-import { favTournamentContext } from "../../context/favTournamentsContext";
+import { favTournamentContext } from "../../context/tournamentsObjContext";
 
 export default function Favorites () {
-    const { tournaments, removeFavorite } = useContext(favTournamentContext);
+    const { tournaments } = useContext(favTournamentContext);
     
 
     return (
@@ -17,7 +17,7 @@ export default function Favorites () {
                     <div className={style.tournament} key={tournament._id}>
                         <h2 className={style.tournamentH2}>{tournament.army}</h2>
                         <p className={style.tournamentP}>{tournament.list}</p>
-                        <button className={style.tournamentButton} onClick={removeFavorite}>Remove</button>
+                        <button className={style.tournamentButton} >Remove</button>
                     </div>
                 ))
             ) : (
