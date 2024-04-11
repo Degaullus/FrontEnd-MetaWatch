@@ -16,7 +16,7 @@ export default function Authentication() {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
-        const url = `http://localhost:8080/${auth}`; 
+        const url = `${backendUrl}${auth}`; 
         try {
             const response = await fetch(url, {
                 method: 'POST',
