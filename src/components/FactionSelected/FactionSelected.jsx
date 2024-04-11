@@ -9,7 +9,7 @@ export default function FactionSelected() {
   const { data, isLoading } = useContext(APIContext);
   const { id } = useParams();
   const [points, setPoints] = useState(0);
-  console.log(isLoading);
+  /* console.log(isLoading); */
 
   //format Ranks
   const formatRank = (rank) => {
