@@ -56,7 +56,10 @@ export default function FactionSelected() {
       <button onClick={() => setPoints(1000)}>1000 Points</button>
       <button onClick={() => setPoints(0)}>All tournaments</button>
       {isLoading ? (
-        <LoadingSpinner />
+        <div className="loading-container">
+          <p>Loading... (may take up to 50 seconds)</p>
+          <LoadingSpinner />
+        </div>
       ) : filteredData?.length > 0 ? (
         <div className={styles.tournamentContainer}>
           {filteredData.map((entry, index) => (
