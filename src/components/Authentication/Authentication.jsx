@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/authContext";
 export default function Authentication() {
     const { login } = useContext(AuthContext);
     const [auth, setAuth] = useState("login");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [favorites, setFavorites] = useState([]);
@@ -52,6 +53,13 @@ export default function Authentication() {
         <div className={styles.container}>
             <h1 className={styles.heading}>{auth}</h1>
             <form onSubmit={handleSubmit}>
+            <input
+                    className={styles.input}
+                    type="text"
+                    placeholder="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
                 <input
                     className={styles.input}
                     type="text"
