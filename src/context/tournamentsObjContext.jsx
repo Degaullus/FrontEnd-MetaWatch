@@ -22,7 +22,7 @@ export const TournamentProvider = ({ children }) => {
                         return response.json();
                     })
                 );
-                console.log(tournamentObj)
+                // console.log(tournamentObj)
                 setTournament(tournamentObj);
             } catch (error) {
                 console.error("Failed to fetch tournaments: ", error);
