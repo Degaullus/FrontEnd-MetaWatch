@@ -8,17 +8,19 @@ export function useAuth () {
 
 function AuthContextProvider({ children }) {
   const [token, setToken] = useState(null);
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [favorites, setFavorites] = useState([]);
   const [favCount, setFavCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
 
   const login = (newToken, details = {}) => {
     setToken(newToken);
+    setUsername(details.username);
     setEmail(details.email);
     setFavCount(details.favCount || 0);
     setFavorites(details.favorites || []);
     localStorage.setItem('token', newToken);
+    localStorage.setItem('username', details.username);
     localStorage.setItem('email', details.email);
     localStorage.setItem('favCount', details.favCount || 0);
     localStorage.setItem('favorites', JSON.stringify(details.favorites || []));
@@ -26,6 +28,7 @@ function AuthContextProvider({ children }) {
 
   const logout = () => {
     setToken(null);
+    setUsername("");
     setEmail("");
     setFavCount(0);
     setFavorites([]);
@@ -36,22 +39,22 @@ function AuthContextProvider({ children }) {
 
   useEffect (() => {
     const storedToken = localStorage.getItem('token');
+    const storedUsername = localStorage.getItem('username');
     const storedEmail = localStorage.getItem('email');
     const storedFavCount = parseInt(localStorage.getItem('favCount'), 10);
     const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
 
     if (storedToken && storedEmail) {
-      login(storedToken, { email: storedEmail, favCount: storedFavCount, favorites: storedFavorites });
+      login(storedToken, { username: storedUsername, email: storedEmail, favCount: storedFavCount, favorites: storedFavorites });
     }
-    setIsLoading(false);
   }, [favCount]);
 
 
-    const value = { token, email, favCount, favorites, login,logout};
+    const value = { token, username, email, favCount, favorites, login,logout};
 
     return (
       <AuthContext.Provider value={value}>
-        {!isLoading && children}
+        {children}
       </AuthContext.Provider>
     );
 
