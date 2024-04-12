@@ -64,10 +64,7 @@ export default function Navbar() {
         <div className={styles.navItem} onClick={() => handleNavigate("/location")}>
           Location
         </div>
-        <div className={styles.searchBar}>
-          <input type="text" placeholder="Searchbar" />
-          <button>Search</button>
-        </div>
+        
           <SearchBar />
         {token ? (
           <div className={styles.profileContainer}>
