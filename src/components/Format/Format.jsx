@@ -116,66 +116,84 @@ export default function Format() {
 
   return (
     <>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("ascDate")}
-      >
-        Sort date ASC
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("descDate")}
-      >
-        Sort date DESC
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("ascRank")}
-      >
-        Sort rank ASC
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("descRank")}
-      >
-        Sort rank DESC
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("ascFaction")}
-      >
-        Sort faction ASC
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("descFaction")}
-      >
-        Sort faction DESC
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("descDate")}
-      >
-        Reset sorting
-      </button>
+      <div className={styles.header}>
+        <h2>Format</h2>
+      </div>
 
-      <h2>Format</h2>
+      <div className={styles.pointsButtonsContainer}>
+        <button
+          className={styles.pointsButtons}
+          onClick={() => buttonActive(2000)}
+        >
+          2000{" "}
+        </button>
 
-      <button className="btn btn-primary" onClick={() => buttonActive(2000)}>
-        2000{" "}
-      </button>
+        <button
+          className={styles.pointsButtons}
+          onClick={() => buttonActive(1500)}
+        >
+          1500
+        </button>
 
-      <button className="btn btn-primary" onClick={() => buttonActive(1500)}>
-        1500
-      </button>
+        <button
+          className={styles.pointsButtons}
+          onClick={() => buttonActive(1250)}
+        >
+          1250
+        </button>
 
-      <button className="btn btn-primary" onClick={() => buttonActive(1250)}>
-        1250
-      </button>
+        <button
+          className={styles.pointsButtons}
+          onClick={() => buttonActive(0)}
+        >
+          Other
+        </button>
+      </div>
 
-      <button className="btn btn-primary" onClick={() => buttonActive(0)}>
-        Other
-      </button>
+      <div className={styles.sortButtonsContainer}>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("ascDate")}
+        >
+          Date &#129053;
+        </button>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("descDate")}
+        >
+          Date &#129055;
+        </button>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("ascRank")}
+        >
+          Rank &#129053;
+        </button>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("descRank")}
+        >
+          Rank &#129055;
+        </button>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("ascFaction")}
+        >
+          Faction &#129053;
+        </button>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("descFaction")}
+        >
+          Faction &#129055;
+        </button>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("descDate")}
+        >
+          Reset
+        </button>
+      </div>
 
       {isLoading ? (
         <div className="loading-container">
