@@ -26,6 +26,15 @@ function SearchResults() {
 
   console.log('Entries with searchTerm in list:', listsContainingSearchTerm.length);
 
+    // Function to copy list to clipboard
+    const copyListToClipboard = (list) => {
+      navigator.clipboard.writeText(list);
+      setListCopied(true);
+      setTimeout(() => {
+        setListCopied(false);
+      }, 3000); // Reset copied state after 3 seconds
+    };
+
   return (
     <div>
       {isLoading ? (
