@@ -11,14 +11,13 @@ export default function Navbar() {
   const isMobile = device === "mobile";
   const navbarRef = useRef(null);
   const navigate = useNavigate();
-  const { token, logout, email, favCount } = useContext(AuthContext);
+  const { token, logout, username, favCount } = useContext(AuthContext);
 
   const handleLogout = () => {
     logout();
     navigate("/");
   };
 
-  // Close the hamburger list when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (navbarRef.current && !navbarRef.current.contains(e.target)) {
@@ -29,19 +28,17 @@ export default function Navbar() {
       document.addEventListener("mouseup", handleClickOutside);
     }
     return () => document.removeEventListener("mouseup", handleClickOutside);
-  }, [isOpen, favCount]);
 
-  // Open and close the hamburger list
+  }, [isOpen]);
+
   const toggleMenu = () => setIsOpen((prevState) => !prevState);
 
-  // Close the hamburger list and navigate to the path
   const handleNavigate = (path) => {
     toggleMenu();
     navigate(path);
   };
 
-  // Add the class open to the ulNavbar when the hamburger list is open
-  const ulNavBarClassNames = `${styles.ulNavbar} ${
+  const navContainerClassNames = `${styles.navContainer} ${
     isMobile && isOpen ? styles.open : ""
   }`;
 
@@ -54,60 +51,36 @@ export default function Navbar() {
           alt="logoOldworld"
         />
       </div>
-      <ul className={ulNavBarClassNames}>
-        <li className={styles.liNavbar} onClick={() => handleNavigate("/")}>
+      <div className={navContainerClassNames}>
+        <div className={styles.navItem} onClick={() => handleNavigate("/")}>
           Homepage
-        </li>
-        <li
-          className={styles.liNavbar}
-          onClick={() => handleNavigate("/faction")}
-        >
+        </div>
+        <div className={styles.navItem} onClick={() => handleNavigate("/faction")}>
           Faction
-        </li>
-        <li
-          className={styles.liNavbar}
-          onClick={() => handleNavigate("/format")}
-        >
+        </div>
+        <div className={styles.navItem} onClick={() => handleNavigate("/format")}>
           Format
-        </li>
-        <li
-          className={styles.liNavbar}
-          onClick={() => handleNavigate("/location")}
-        >
+        </div>
+        <div className={styles.navItem} onClick={() => handleNavigate("/location")}>
           Location
-        </li>
-        <li>
-          {/* <div className={styles.searchBar}>
-            <input type="text" placeholder="Searchbar" />
-            <button>Search</button>
-          </div> */}
+        </div>
+        <div className={styles.searchBar}>
+          <input type="text" placeholder="Searchbar" />
+          <button>Search</button>
+        </div>
           <SearchBar />
-        </li>
         {token ? (
-          <>
-            <li className={styles.liNavbar} onClick={handleLogout}>
-              Logout
-            </li>
-            <li className={styles.loggedInAs}>logged in as: {email}</li>
-            <li
-              className={styles.liNavbar}
-              onClick={() => handleNavigate("/favorites")}
-            >
-              {favCount}
-              <img className={styles.favoriteImg} src="/favorite.svg" />
-            </li>
-          </>
+          <div className={styles.profileContainer}>
+            <div className={styles.favorites} onClick={() => handleNavigate("/favorites")}>
+              <div className={styles.loggedInAs}><span className={styles.logged}></span><span className={styles.inas}>{username}</span></div>
+              {favCount}<img className={styles.favoriteImg} src="/favorite.svg" />
+            </div>
+            <div className={styles.logout} onClick={handleLogout}>Logout</div>
+          </div>
         ) : (
-          <>
-            <li
-              className={styles.liNavbar}
-              onClick={() => handleNavigate("/authentication")}
-            >
-              Login
-            </li>
-          </>
+          <div className={styles.navItem} onClick={() => handleNavigate("/authentication")}>Login</div>
         )}
-      </ul>
+      </div>
       {isMobile && (
         <div className={styles.hamburger} onClick={toggleMenu}>
           <img src="/hamburger.svg" alt="Menu" />

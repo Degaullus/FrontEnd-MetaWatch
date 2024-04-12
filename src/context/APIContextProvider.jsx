@@ -14,7 +14,7 @@ export default function APIContextProvider({ children }) {
         throw new Error("Network response was not ok");
       }
       const responseData = response.data;
-      console.log(responseData);
+      // console.log(responseData);
       setTimeout( () => {
         setIsLoading(false); // Set loading to false when data fetching is complete
       }, 3000)
