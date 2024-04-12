@@ -29,7 +29,10 @@ export default function Format() {
   const filteredData =
     points === 0
       ? data?.filter(
-          (entry) => entry.format !== "2000" && entry.format !== "1500"
+          (entry) =>
+            entry.format !== "2000" &&
+            entry.format !== "1500" &&
+            entry.format !== "1250"
         )
       : data?.filter((entry) => entry.format === points.toString());
 
