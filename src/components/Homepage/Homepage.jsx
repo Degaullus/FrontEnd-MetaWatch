@@ -27,7 +27,10 @@ export default function Homepage() {
     <div>
       <div>
         <h2>Informations</h2>
-        <p>You have access to {dataleng} winning lists.</p>
+        <p>
+          You have access to {dataleng} winning lists from{" "}
+          {Math.round(dataleng / 4)} tournaments.
+        </p>
         <p>Format 2500k: {format2500k?.length}</p>
         <p>Format 2250k: {format2250k?.length}</p>
         <p>Format 2k: {format2k?.length}</p>
@@ -37,15 +40,15 @@ export default function Homepage() {
         <p>Format 1000k: {format1000k?.length}</p>
       </div>
       <div>
-        <h2>Last turnament result</h2>
+        <h2>Last turnament Winner</h2>
         {lastList?.map((entry) => (
           <div key={entry._id}>
             <h3>{entry.tournament}</h3>
             <p>{entry.date}</p>
             <p>{entry.army}</p>
             <p>{entry.format}</p>
-            <p>{entry.rank === 0 ? `${entry.rank}th` : `${entry.rank}st`}</p>
-            <div>{entry.list}</div>
+            <p>{entry.rank.slice(1)}st</p>
+            <div style={{ whiteSpace: "pre-wrap" }}>{entry.list}</div>
           </div>
         ))}
       </div>
