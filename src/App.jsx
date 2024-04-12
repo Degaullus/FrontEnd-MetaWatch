@@ -17,6 +17,7 @@ import Footer from "./components/Footer/Footer";
 import Favorites from "./components/Favorites/Favorites";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import LoadingSpinner from "./components/Loading/LoadingSpinner";
+import SearchResults from "./components/SearchBar/SearchResults"; // Make sure the path is correct
 
 function App() {
   const location = useLocation();
@@ -39,8 +40,6 @@ function App() {
   return (
     <div>
       <Navbar />
-      {/*  {isLoading && <LoadingSpinner />}
-      {!isLoading && readyToShow && ( */}
       <>
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -50,11 +49,11 @@ function App() {
           <Route path="/authentication" element={<Authentication />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/error" element={<ErrorPage />} />
+          <Route path="/search/:searchTerm" element={<SearchResults />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </>
-      {/* )} */}
     </div>
   );
 }
