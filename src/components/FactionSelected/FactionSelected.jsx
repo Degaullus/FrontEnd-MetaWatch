@@ -1,86 +1,222 @@
 import styles from "./FactionSelected.module.css";
-import { useContext, useState } from "react";
+import { useContext, useState } from "react"; //usestate for the popup
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { APIContext } from "../../context/APIContextProvider";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function FactionSelected() {
   const [openModalId, setOpenModalId] = useState(null);
-  const [selectedTournament, setSelectedTournament] = useState(null);
   const { data, isLoading } = useContext(APIContext);
   const { id } = useParams();
   const [points, setPoints] = useState(0);
+  const [sortList, setSortList] = useState("descDate");
+  const navigate = useNavigate();
+  const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
+  // console.log(isLoading);
 
+  //format Ranks
   const formatRank = (rank) => {
     const suffixes = ["st", "nd", "rd", "th"];
     const mod10 = rank % 10;
     const mod100 = rank % 100;
+    // Handle special cases
     if (mod100 === 11 || mod100 === 12 || mod100 === 13) {
       return `${rank}${suffixes[3]}`;
     }
-    const rankWithoutZero = parseInt(rank.toString().slice(1), 10) || rank;
+    // Remove leading zero (if any)
+    const rankWithoutZero = parseInt(rank.toString().slice(1), 10) || rank; // Handle single-digit ranks
+
     return `${rankWithoutZero}${suffixes[mod10 - 1]}`;
   };
 
-  let filteredData = data?.filter(entry => {
-    const entryPoints = parseInt(entry.format, 10); // Assuming entry.format is a string that can be converted to a number
-    if (selectedTournament) {
-      return entry.tournament === selectedTournament;
-    } else {
-      const armyCondition = entry.army.indexOf(id.replaceAll("-", " ")) !== -1;
-      return points > 0 ? armyCondition && entryPoints === points : armyCondition;
-    }
-  });
-  
+  // this is filtering key="faction name"
+  const filteredData =
+    points == 0
+      ? data?.filter(
+          (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
+        )
+      : data?.filter(
+          (entry) =>
+            entry.army.indexOf(id.replaceAll("-", " ")) !== -1 &&
+            entry.format == points
+        );
 
-  filteredData?.sort((entry1, entry2) => {
-    const date1 = new Date(entry1.date);
-    const date2 = new Date(entry2.date);
-    return date2.getTime() - date1.getTime();
-  });
+  if (sortList == "descDate") {
+    filteredData?.sort((entry1, entry2) => {
+      const date1 = new Date(entry1.date);
+      const date2 = new Date(entry2.date);
+      if (date1 > date2) return -1;
+      if (date1 < date2) return 1;
+    });
+  } else if (sortList == "ascDate") {
+    filteredData?.sort((entry1, entry2) => {
+      const date1 = new Date(entry1.date);
+      const date2 = new Date(entry2.date);
+      if (date1 < date2) return -1;
+      if (date1 > date2) return 1;
+    });
+  } else if (sortList == "descRank") {
+    filteredData?.sort((entry1, entry2) => {
+      const rank1 = entry1.rank;
+      const rank2 = entry2.rank;
+      rank1 - rank2;
+      return rank1 - rank2;
+    });
+  } else if (sortList == "ascRank") {
+    filteredData?.sort((entry1, entry2) => {
+      const rank1 = entry1.rank;
+      const rank2 = entry2.rank;
+      rank2 - rank1;
+      return rank2 - rank1;
+    });
+  }
+
+  // Function to copy list to clipboard
+  const copyListToClipboard = (list) => {
+    navigator.clipboard.writeText(list);
+    setListCopied(true);
+    setTimeout(() => {
+      setListCopied(false);
+    }, 3000); // Reset copied state after 3 seconds
+  };
 
   return (
     <>
-      <h2>{`Welcome to ${id.replace(/-/g, " ")}`}</h2>
-      <div>
-        <button onClick={() => setPoints(2250)}>2250 Points</button>
-        <button onClick={() => setPoints(2000)}>2000 Points</button>
-        <button onClick={() => setPoints(1750)}>1750 Points</button>
-        <button onClick={() => setPoints(1500)}>1500 Points</button>
-        <button onClick={() => setPoints(1250)}>1250 Points</button>
-        <button onClick={() => setPoints(1000)}>1000 Points</button>
-        <button onClick={() => { setPoints(0); setSelectedTournament(null); }}>Reset filters</button>
-      </div>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("ascDate")}
+      >
+        Sort date ASC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("descDate")}
+      >
+        Sort date DESC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("ascRank")}
+      >
+        Sort rank ASC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("descRank")}
+      >
+        Sort rank DESC
+      </button>
+      <button
+        className="btn btn-primary"
+        onClick={() => setSortList("descDate")}
+      >
+        Reset sorting
+      </button>
 
+      <button className="btn btn-primary" onClick={() => navigate(-1)}>
+        🠔 Back to all Factions
+      </button>
+      <h2>{`Welcome to ${id.replace("-", " ").replace("-", " ")}`}</h2>
+      <button className="btn btn-primary" onClick={() => setPoints(2250)}>
+        2250 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(2000)}>
+        2000 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(1750)}>
+        1750 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(1500)}>
+        1500 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(1250)}>
+        1250 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(1000)}>
+        1000 Points
+      </button>
+      <button className="btn btn-primary" onClick={() => setPoints(0)}>
+        All tournaments
+      </button>
       {isLoading ? (
-        <LoadingSpinner />
-      ) : (
-        <>
-          <div className={styles.tournamentContainer}>
-            {filteredData?.length > 0 ? filteredData.map((entry, index) => (
-              <li key={index} className={styles.card}>
-                <p className={styles.daten}>{formatRank(entry.rank)}</p>
-                <p className={styles.daten}>{entry.format} pts</p>
-                <p className={styles.daten} onClick={() => setSelectedTournament(entry.tournament)} style={{cursor: "pointer", textDecoration: "underline"}}>
-                  "{entry.tournament}"
-                </p>
-                <p className={styles.daten}>{entry.location}</p>
-                <p className={styles.daten} style={{ fontStyle: "italic" }}>{entry.date}</p>
-                <button
-                  type="button"
-                  onClick={() => setOpenModalId(index)}
-                  className="btn btn-primary"
+        <div className="loading-container">
+          <p>Loading... (may take up to 50 seconds)</p>
+          <LoadingSpinner />
+        </div>
+      ) : filteredData?.length > 0 ? (
+        <div className={styles.tournamentContainer}>
+          {filteredData.map((entry, index) => (
+            <li key={index} className={styles.card}>
+              <p className={styles.tournamentDetails}>
+                {formatRank(entry.rank)}
+              </p>
+              <p className={styles.tournamentDetails}>{entry.format} pts </p>
+              <p className={styles.tournamentDetails}>"{entry.tournament}"</p>
+              {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
+              <p className={styles.tournamentDetails}> {entry.location}</p>
+              <p
+                className={styles.tournamentDetails}
+                style={{ fontStyle: "italic" }}
+              >
+                {entry.date}
+              </p>
+              <button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target={"#listModal" + index}
+                onClick={() => setOpenModalId(index)}
+                className="btn btn-primary"
+                disabled={entry.list == "No list submitted"}
+              >
+                Show army list
+              </button>
+              <div
+                className="modal"
+                id={"listModal" + index}
+                tabIndex="-1"
+                role="dialog"
+                aria-labelledby="listModalLabel"
+                aria-hidden="true"
+                /*                 show={(openModalId === index).toString()} */
+              >
+                <div
+                  className="modal-dialog"
+                  id={styles.modalDialogId}
+                  role="document"
                 >
-                  Show army list
-                </button>
-              </li>
-            )) : <p>{`No data found with the selected filters.`}</p>}
-          </div>
-        </>
-      )}
-
-      {selectedTournament && (
-        <button onClick={() => setSelectedTournament(null)}>Clear tournament filter</button>
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body">
+                      <pre>{entry.list}</pre>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => copyListToClipboard(entry.list)}
+                      className="btn btn-primary"
+                    >
+                      {listCopied && openModalId === index
+                        ? "Copied!"
+                        : "Copy List"}
+                    </button>
+                    <button>Add to favorites</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </div>
+      ) : (
+        <p>{`No data found containing ${id} in the army name.`}</p>
       )}
     </>
   );

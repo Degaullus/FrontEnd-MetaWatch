@@ -11,7 +11,6 @@ import Faction from "./components/Faction/Faction";
 import FactionSelected from "./components/FactionSelected/FactionSelected";
 import Format from "./components/Format/Format";
 import Homepage from "./components/Homepage/Homepage";
-import Location from "./components/Location/Location";
 import Navbar from "./components/Navbar/Navbar";
 import Authentication from "./components/Authentication/Authentication";
 import Footer from "./components/Footer/Footer";
@@ -41,21 +40,18 @@ function App() {
   return (
     <div>
       <Navbar />
-
       <>
-      <Routes>
-  <Route path="/" element={<Homepage />} />
-  <Route path="/faction" element={<Faction />} />
-  <Route path="/faction/factions/:id" element={<FactionSelected />} />
-  <Route path="/format" element={<Format />} />
-  <Route path="/location" element={<Location />} />
-  <Route path="/authentication" element={<Authentication />} />
-  <Route path="/favorites" element={<Favorites />} />
-  <Route path="/error" element={<ErrorPage />} />
-  <Route path="*" element={<ErrorPage />} />
-  <Route path="/search/:searchTerm" element={<SearchResults />} /> 
-</Routes>
-
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/faction" element={<Faction />} />
+          <Route path="/faction/:id" element={<FactionSelected />} />
+          <Route path="/format" element={<Format />} />
+          <Route path="/authentication" element={<Authentication />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="/search/:searchTerm" element={<SearchResults />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
         <Footer />
       </>
     </div>

@@ -28,7 +28,6 @@ export default function Navbar() {
       document.addEventListener("mouseup", handleClickOutside);
     }
     return () => document.removeEventListener("mouseup", handleClickOutside);
-
   }, [isOpen]);
 
   const toggleMenu = () => setIsOpen((prevState) => !prevState);
@@ -55,27 +54,43 @@ export default function Navbar() {
         <div className={styles.navItem} onClick={() => handleNavigate("/")}>
           Homepage
         </div>
-        <div className={styles.navItem} onClick={() => handleNavigate("/faction")}>
+        <div
+          className={styles.navItem}
+          onClick={() => handleNavigate("/faction")}
+        >
           Faction
         </div>
-        <div className={styles.navItem} onClick={() => handleNavigate("/format")}>
+        <div
+          className={styles.navItem}
+          onClick={() => handleNavigate("/format")}
+        >
           Format
         </div>
-        <div className={styles.navItem} onClick={() => handleNavigate("/location")}>
-          Location
-        </div>
-        
-          <SearchBar />
+        <SearchBar />
         {token ? (
           <div className={styles.profileContainer}>
-            <div className={styles.favorites} onClick={() => handleNavigate("/favorites")}>
-              <div className={styles.loggedInAs}><span className={styles.logged}></span><span className={styles.inas}>{username}</span></div>
-              {favCount}<img className={styles.favoriteImg} src="/favorite.svg" />
+            <div
+              className={styles.favorites}
+              onClick={() => handleNavigate("/favorites")}
+            >
+              <div className={styles.loggedInAs}>
+                <span className={styles.logged}></span>
+                <span className={styles.inas}>{username}</span>
+              </div>
+              {favCount}
+              <img className={styles.favoriteImg} src="/favorite.svg" />
             </div>
-            <div className={styles.logout} onClick={handleLogout}>Logout</div>
+            <div className={styles.logout} onClick={handleLogout}>
+              Logout
+            </div>
           </div>
         ) : (
-          <div className={styles.navItem} onClick={() => handleNavigate("/authentication")}>Login</div>
+          <div
+            className={styles.navItem}
+            onClick={() => handleNavigate("/authentication")}
+          >
+            Login
+          </div>
         )}
       </div>
       {isMobile && (
