@@ -9,16 +9,21 @@ function SearchBar() {
   const searchUpdated = (term) => {
     setSearchTerm(term);
     if (term) {
-      // Check if term is not empty before navigating
       navigate(`/search/${term}`);
     }
   };
 
   return (
     <div>
-      <SearchInput className="search-input" onChange={searchUpdated} />
+      <input 
+        type="text" 
+        className="search-input" 
+        value={searchTerm}
+        onChange={(e) => searchUpdated(e.target.value)}
+      />
     </div>
   );
 }
+
 
 export default SearchBar;

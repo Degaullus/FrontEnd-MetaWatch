@@ -18,7 +18,7 @@ import Footer from "./components/Footer/Footer";
 import Favorites from "./components/Favorites/Favorites";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import LoadingSpinner from "./components/Loading/LoadingSpinner";
-import SearchResult from "./components/SearchBar/SearchResult";
+import SearchResults from "./components/SearchBar/SearchResults"; // Make sure the path is correct
 
 function App() {
   const location = useLocation();
@@ -43,18 +43,19 @@ function App() {
       <Navbar />
 
       <>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/faction" element={<Faction />} />
-          <Route path="/faction/factions/:id" element={<FactionSelected />} />
-          <Route path="/format" element={<Format />} />
-          <Route path="/location" element={<Location />} />
-          <Route path="/authentication" element={<Authentication />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/error" element={<ErrorPage />} />
-          <Route path="*" element={<ErrorPage />} />
-          <Route path="/search/:searchTerm" element="SearchResult" />
-        </Routes>
+      <Routes>
+  <Route path="/" element={<Homepage />} />
+  <Route path="/faction" element={<Faction />} />
+  <Route path="/faction/factions/:id" element={<FactionSelected />} />
+  <Route path="/format" element={<Format />} />
+  <Route path="/location" element={<Location />} />
+  <Route path="/authentication" element={<Authentication />} />
+  <Route path="/favorites" element={<Favorites />} />
+  <Route path="/error" element={<ErrorPage />} />
+  <Route path="*" element={<ErrorPage />} />
+  <Route path="/search/:searchTerm" element={<SearchResults />} /> 
+</Routes>
+
         <Footer />
       </>
     </div>
