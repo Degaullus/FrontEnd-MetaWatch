@@ -1,6 +1,7 @@
 import styles from "./Homepage.module.css";
 import { useContext } from "react";
 import { APIContext } from "../../context/APIContextProvider";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function Homepage() {
   const { data, isLoading } = useContext(APIContext);
@@ -25,33 +26,41 @@ export default function Homepage() {
 
   return (
     <div>
-      <div>
-        <h2>Informations</h2>
-        <p>
-          You have access to {dataleng} winning lists from{" "}
-          {Math.round(dataleng / 4)} tournaments.
-        </p>
-        <p>Format 2500k: {format2500k?.length}</p>
-        <p>Format 2250k: {format2250k?.length}</p>
-        <p>Format 2k: {format2k?.length}</p>
-        <p>Format 1750k: {format1750k?.length}</p>
-        <p>Format 1500k: {format1500k?.length}</p>
-        <p>Format 1250k: {format1250k?.length}</p>
-        <p>Format 1000k: {format1000k?.length}</p>
-      </div>
-      <div>
-        <h2>Last turnament Winner</h2>
-        {lastList?.map((entry) => (
-          <div key={entry._id}>
-            <h3>{entry.tournament}</h3>
-            <p>{entry.date}</p>
-            <p>{entry.army}</p>
-            <p>{entry.format}</p>
-            <p>{entry.rank.slice(1)}st</p>
-            <div style={{ whiteSpace: "pre-wrap" }}>{entry.list}</div>
+      {isLoading ? (
+        <div>
+          <p>Tournament informations loading.. May take up to 50 seconds</p>
+          <LoadingSpinner />
+        </div>
+      ) : (
+        <div>
+          <h2>Informations</h2>
+          <p>
+            You have access to {dataleng} winning lists from{" "}
+            {Math.round(dataleng / 4)} tournaments.
+          </p>
+          <p>Format 2500k: {format2500k?.length}</p>
+          <p>Format 2250k: {format2250k?.length}</p>
+          <p>Format 2k: {format2k?.length}</p>
+          <p>Format 1750k: {format1750k?.length}</p>
+          <p>Format 1500k: {format1500k?.length}</p>
+          <p>Format 1250k: {format1250k?.length}</p>
+          <p>Format 1000k: {format1000k?.length}</p>
+          <div>
+            <h3>Last turnament Winner</h3>
+            {lastList?.map((entry) => (
+              <div key={entry._id}>
+                <h3>{entry.tournament}</h3>
+                <p>{entry.date}</p>
+                <p>{entry.army}</p>
+                <p>{entry.format}</p>
+                <p>{entry.rank.slice(1)}st</p>
+                <div style={{ whiteSpace: "pre-wrap" }}>{entry.list}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      )}
+
       <h1>Welcome to Warhammer Victors!</h1>
       <p>
         <strong>Discover the Champions of Warhammer</strong> across factions,
