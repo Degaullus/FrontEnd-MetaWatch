@@ -26,8 +26,57 @@ export default function Homepage() {
 
   return (
     <div>
-      <h1>Welcome to MetaHammer</h1>
-      <p>
+      <div className={styles.header}>
+        <h1>Welcome to MetaHammer</h1>
+        <p>Hey Nerds, das ist der alpha Test, danke für's Probieren!</p>
+        <p>
+          Die Ladezeit für alle Turnierdaten kann bis zu 50 Sekunden betragen!
+        </p>
+      </div>
+
+      {isLoading ? (
+        <div>
+          <p>Tournament informations loading.. May take up to 50 seconds</p>
+          <LoadingSpinner />
+        </div>
+      ) : (
+        <div>
+          <div className={styles.informationContainer}>
+            <h2>Informations</h2>
+            <p>
+              You have access to {dataleng} winning lists from{" "}
+              {Math.round(dataleng / 4)} tournaments.
+            </p>
+            <p>Format 2500k: {format2500k?.length}</p>
+            <p>Format 2250k: {format2250k?.length}</p>
+            <p>Format 2k: {format2k?.length}</p>
+            <p>Format 1750k: {format1750k?.length}</p>
+            <p>Format 1500k: {format1500k?.length}</p>
+            <p>Format 1250k: {format1250k?.length}</p>
+            <p>Format 1000k: {format1000k?.length}</p>
+          </div>
+
+          {lastList?.map((entry) => (
+            <div className={styles.tournamentContainer} key={entry._id}>
+              <h3>Last tournament winning List</h3>
+              <p>{entry.tournament}</p>
+              <p>{entry.date}</p>
+              <p>{entry.army}</p>
+              <p>{entry.format}</p>
+              <p>{entry.rank.slice(1)}st</p>
+              <div className={styles.list} style={{ whiteSpace: "pre-wrap" }}>
+                {entry.list}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+{
+  /* <p>
         <strong>Discover the Champions of Warhammer</strong> across factions,
         formats, and locations. Warhammer Victors brings you the forefront of
         competitive Warhammer play, featuring the most successful army lists
@@ -70,43 +119,5 @@ export default function Homepage() {
         <strong>up-to-date tournament feeds</strong> and expert analyses.
         Subscribe for the latest in Warhammer competitive play, and let your
         journey to victory begin!
-      </p>
-      {isLoading ? (
-        <div>
-          <p>Tournament informations loading.. May take up to 50 seconds</p>
-          <LoadingSpinner />
-        </div>
-      ) : (
-        <div className={styles.tournamentContainer}>
-          <h2>Informations</h2>
-          <p>
-            You have access to {dataleng} winning lists from{" "}
-            {Math.round(dataleng / 4)} tournaments.
-          </p>
-          <p>Format 2500k: {format2500k?.length}</p>
-          <p>Format 2250k: {format2250k?.length}</p>
-          <p>Format 2k: {format2k?.length}</p>
-          <p>Format 1750k: {format1750k?.length}</p>
-          <p>Format 1500k: {format1500k?.length}</p>
-          <p>Format 1250k: {format1250k?.length}</p>
-          <p>Format 1000k: {format1000k?.length}</p>
-          <div>
-            <h3>Last turnament winning List</h3>
-            {lastList?.map((entry) => (
-              <div key={entry._id}>
-                <p>{entry.tournament}</p>
-                <p>{entry.date}</p>
-                <p>{entry.army}</p>
-                <p>{entry.format}</p>
-                <p>{entry.rank.slice(1)}st</p>
-                <div className={styles.list} style={{ whiteSpace: "pre-wrap" }}>
-                  {entry.list}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
+      </p> */
 }

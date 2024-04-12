@@ -85,7 +85,7 @@ export default function FactionSelected() {
     <>
       <div className={styles.header}>
         <button onClick={() => navigate(-1)}>🠔 Back to all Factions</button>
-        <h2>{`${id.replace("-", " ").replace("-", " ")}s winning lists`}</h2>
+        <h2>{`${id.replace("-", " ").replace("-", " ")} winning lists`}</h2>
       </div>
 
       <div className={styles.pointsButtonsContainer}>
