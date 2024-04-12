@@ -20,6 +20,7 @@ function SearchBar() {
         className="search-input" 
         value={searchTerm}
         onChange={(e) => searchUpdated(e.target.value)}
+        placeholder="Search for Events/Units"
       />
     </div>
   );
