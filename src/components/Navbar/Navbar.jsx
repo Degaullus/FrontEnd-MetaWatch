@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
-
+import SearchBar from "../SearchBar/SearchBar";
 import { useWindowSizeContext } from "../../context/WindowSizeContext";
 import { AuthContext } from "../../context/authContext";
 
@@ -21,11 +21,15 @@ export default function Navbar() {
   // Close the hamburger list when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (e) => {
-
-      if (navbarRef.current && !navbarRef.current.contains(e.target)) {setIsOpen(false)}};
-      if (isOpen) {document.addEventListener("mouseup", handleClickOutside)}
-      return () => document.removeEventListener("mouseup", handleClickOutside)
-    }, [isOpen, favCount]);
+      if (navbarRef.current && !navbarRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener("mouseup", handleClickOutside);
+    }
+    return () => document.removeEventListener("mouseup", handleClickOutside);
+  }, [isOpen, favCount]);
 
   // Open and close the hamburger list
   const toggleMenu = () => setIsOpen((prevState) => !prevState);
@@ -73,23 +77,35 @@ export default function Navbar() {
           Location
         </li>
         <li>
-          <div className={styles.searchBar}>
+          {/* <div className={styles.searchBar}>
             <input type="text" placeholder="Searchbar" />
             <button>Search</button>
-          </div>
+          </div> */}
+          <SearchBar />
         </li>
         {token ? (
           <>
-
-            <li className={styles.liNavbar} onClick={handleLogout}>Logout</li>
+            <li className={styles.liNavbar} onClick={handleLogout}>
+              Logout
+            </li>
             <li className={styles.loggedInAs}>logged in as: {email}</li>
-            <li className={styles.liNavbar} onClick={() => handleNavigate("/favorites")}>{favCount}<img className={styles.favoriteImg}src="/favorite.svg" /></li>
+            <li
+              className={styles.liNavbar}
+              onClick={() => handleNavigate("/favorites")}
+            >
+              {favCount}
+              <img className={styles.favoriteImg} src="/favorite.svg" />
+            </li>
           </>
         ) : (
-        <>
-          <li className={styles.liNavbar} onClick={() => handleNavigate("/authentication")}>Login</li>
+          <>
+            <li
+              className={styles.liNavbar}
+              onClick={() => handleNavigate("/authentication")}
+            >
+              Login
+            </li>
           </>
-
         )}
       </ul>
       {isMobile && (
