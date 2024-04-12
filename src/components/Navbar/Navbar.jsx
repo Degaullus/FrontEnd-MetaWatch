@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
-
+import SearchBar from "../SearchBar/SearchBar";
 import { useWindowSizeContext } from "../../context/WindowSizeContext";
 import { AuthContext } from "../../context/authContext";
 
@@ -24,11 +24,11 @@ export default function Navbar() {
         setIsOpen(false);
       }
     };
-
     if (isOpen) {
       document.addEventListener("mouseup", handleClickOutside);
     }
     return () => document.removeEventListener("mouseup", handleClickOutside);
+
   }, [isOpen]);
 
   const toggleMenu = () => setIsOpen((prevState) => !prevState);
@@ -68,6 +68,7 @@ export default function Navbar() {
           <input type="text" placeholder="Searchbar" />
           <button>Search</button>
         </div>
+          <SearchBar />
         {token ? (
           <div className={styles.profileContainer}>
             <div className={styles.favorites} onClick={() => handleNavigate("/favorites")}>
