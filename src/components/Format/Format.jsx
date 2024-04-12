@@ -155,37 +155,37 @@ export default function Format() {
           className={styles.sortButtons}
           onClick={() => setSortList("ascDate")}
         >
-          Date &#129053;
+          Date ⬇️
         </button>
         <button
           className={styles.sortButtons}
           onClick={() => setSortList("descDate")}
         >
-          Date &#129055;
+          Date ⬆️
         </button>
         <button
           className={styles.sortButtons}
           onClick={() => setSortList("ascRank")}
         >
-          Rank &#129053;
+          Rank ⬇️
         </button>
         <button
           className={styles.sortButtons}
           onClick={() => setSortList("descRank")}
         >
-          Rank &#129055;
+          Rank ⬆️
         </button>
         <button
           className={styles.sortButtons}
           onClick={() => setSortList("ascFaction")}
         >
-          Faction &#129053;
+          Faction ⬇️
         </button>
         <button
           className={styles.sortButtons}
           onClick={() => setSortList("descFaction")}
         >
-          Faction &#129055;
+          Faction ⬆️
         </button>
         <button
           className={styles.sortButtons}
