@@ -83,62 +83,86 @@ export default function FactionSelected() {
 
   return (
     <>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("ascDate")}
-      >
-        Sort date ASC
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("descDate")}
-      >
-        Sort date DESC
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("ascRank")}
-      >
-        Sort rank ASC
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("descRank")}
-      >
-        Sort rank DESC
-      </button>
-      <button
-        className="btn btn-primary"
-        onClick={() => setSortList("descDate")}
-      >
-        Reset sorting
-      </button>
+      <div className={styles.header}>
+        <button onClick={() => navigate(-1)}>🠔 Back to all Factions</button>
+        <h2>{`${id.replace("-", " ").replace("-", " ")}s winning lists`}</h2>
+      </div>
 
-      <button className="btn btn-primary" onClick={() => navigate(-1)}>
-        🠔 Back to all Factions
-      </button>
-      <h2>{`Welcome to ${id.replace("-", " ").replace("-", " ")}`}</h2>
-      <button className="btn btn-primary" onClick={() => setPoints(2250)}>
-        2250 Points
-      </button>
-      <button className="btn btn-primary" onClick={() => setPoints(2000)}>
-        2000 Points
-      </button>
-      <button className="btn btn-primary" onClick={() => setPoints(1750)}>
-        1750 Points
-      </button>
-      <button className="btn btn-primary" onClick={() => setPoints(1500)}>
-        1500 Points
-      </button>
-      <button className="btn btn-primary" onClick={() => setPoints(1250)}>
-        1250 Points
-      </button>
-      <button className="btn btn-primary" onClick={() => setPoints(1000)}>
-        1000 Points
-      </button>
-      <button className="btn btn-primary" onClick={() => setPoints(0)}>
-        All tournaments
-      </button>
+      <div className={styles.pointsButtonsContainer}>
+        <button
+          className={styles.pointsButtons}
+          onClick={() => setPoints(2250)}
+        >
+          2250 Points
+        </button>
+        <button
+          className={styles.pointsButtons}
+          onClick={() => setPoints(2000)}
+        >
+          2000 Points
+        </button>
+        <button
+          className={styles.pointsButtons}
+          onClick={() => setPoints(1750)}
+        >
+          1750 Points
+        </button>
+        <button
+          className={styles.pointsButtons}
+          onClick={() => setPoints(1500)}
+        >
+          1500 Points
+        </button>
+        <button
+          className={styles.pointsButtons}
+          onClick={() => setPoints(1250)}
+        >
+          1250 Points
+        </button>
+        <button
+          className={styles.pointsButtons}
+          onClick={() => setPoints(1000)}
+        >
+          1000 Points
+        </button>
+        <button className={styles.pointsButtons} onClick={() => setPoints(0)}>
+          All tournaments
+        </button>
+      </div>
+
+      <div className={styles.sortButtonsContainer}>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("ascDate")}
+        >
+          Date &#129053;
+        </button>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("descDate")}
+        >
+          Date &#129055;
+        </button>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("descDate")}
+        >
+          Reset
+        </button>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("ascRank")}
+        >
+          Rank &#129053;
+        </button>
+        <button
+          className={styles.sortButtons}
+          onClick={() => setSortList("descRank")}
+        >
+          Rank &#129055;
+        </button>
+      </div>
+
       {isLoading ? (
         <div className="loading-container">
           <p>Loading... (may take up to 50 seconds)</p>
