@@ -205,11 +205,11 @@ export default function Format() {
           {filteredData.map((entry, index) => (
             <li key={index} className={styles.card}>
               <p className={styles.tournamentDetails}>{entry.format} pts </p>
-              <p className={styles.tournamentDetails}>"{entry.army}"</p>
+              <p className={styles.tournamentDetails}>{entry.army}</p>
               <p className={styles.tournamentDetails}>
                 {formatRank(entry.rank)}
               </p>
-              <p className={styles.tournamentDetails}>"{entry.tournament}"</p>
+              <p className={styles.tournamentDetails}>{entry.tournament}</p>
               <p className={styles.tournamentDetails}> {entry.location}</p>
               <p
                 className={styles.tournamentDetails}
