@@ -84,7 +84,7 @@ export default function FactionSelected() {
   return (
     <>
       <div className={styles.header}>
-        <button onClick={() => navigate(-1)}>🠔 Back to all Factions</button>
+        <button onClick={() => navigate(-1)}> ⬅ Back to all Factions</button>
         <h2>{`${id.replace("-", " ").replace("-", " ")} winning lists`}</h2>
       </div>
 
@@ -135,13 +135,13 @@ export default function FactionSelected() {
           className={styles.sortButtons}
           onClick={() => setSortList("ascDate")}
         >
-          Date &#129053;
+          Date ⬆️
         </button>
         <button
           className={styles.sortButtons}
           onClick={() => setSortList("descDate")}
         >
-          Date &#129055;
+          Date ⬇️
         </button>
         <button
           className={styles.sortButtons}
@@ -153,13 +153,13 @@ export default function FactionSelected() {
           className={styles.sortButtons}
           onClick={() => setSortList("ascRank")}
         >
-          Rank &#129053;
+          Rank ⬇️
         </button>
         <button
           className={styles.sortButtons}
           onClick={() => setSortList("descRank")}
         >
-          Rank &#129055;
+          Rank ⬆️
         </button>
       </div>
 
