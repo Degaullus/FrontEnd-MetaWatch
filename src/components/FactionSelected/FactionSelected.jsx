@@ -176,7 +176,7 @@ export default function FactionSelected() {
                 {formatRank(entry.rank)}
               </p>
               <p className={styles.tournamentDetails}>{entry.format} pts </p>
-              <p className={styles.tournamentDetails}>"{entry.tournament}"</p>
+              <p className={styles.tournamentDetails}>{entry.tournament}</p>
               {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
               <p className={styles.tournamentDetails}> {entry.location}</p>
               <p
@@ -232,7 +232,8 @@ export default function FactionSelected() {
                         ? "Copied!"
                         : "Copy List"}
                     </button>
-                    <button>Add to favorites</button>
+                    {/* commented out for test version purpose */}
+                    {/*  <button>Add to favorites</button> */}
                   </div>
                 </div>
               </div>
