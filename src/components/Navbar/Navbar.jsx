@@ -43,6 +43,11 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbarContainer} ref={navbarRef}>
+            {isMobile && (
+        <div className={styles.hamburger} onClick={toggleMenu}>
+          <img src="/hamburger.svg" alt="Menu" />
+        </div>
+      )}
       <div className={styles.logoContainer} onClick={() => handleNavigate("/")}>
         <img
           className={styles.oldWorldLogo}
@@ -67,36 +72,40 @@ export default function Navbar() {
           Format
         </div>
         <SearchBar />
+        </div>
         {token ? (
           <div className={styles.profileContainer}>
-            <div
-              className={styles.favorites}
-              onClick={() => handleNavigate("/favorites")}
-            >
+            <div className={styles.favorites} onClick={() => handleNavigate("/favorites")}>
               <div className={styles.loggedInAs}>
                 <span className={styles.logged}></span>
                 <span className={styles.inas}>{username}</span>
               </div>
-              {favCount}
-              <img className={styles.favoriteImg} src="/favorite.svg" />
+              <div className={styles.favCount}>
+                {favCount}
+                <img className={styles.favoriteImg} src="/favorite.svg" alt="Favorites" />
+              </div>
             </div>
-            <div className={styles.logout} onClick={handleLogout}>
-              Logout
-            </div>
+            {!isMobile && (
+              <div className={styles.logout} onClick={handleLogout}>Logout</div>
+            )}
           </div>
         ) : (
-          <div
-            className={styles.navItem}
-            onClick={() => handleNavigate("/authentication")}
-          >
-            Login
-          </div>
+          !isMobile ? (
+            <div className={styles.loginContainer} onClick={() => handleNavigate("/authentication")}>
+              Login
+            </div>
+          ) : (
+            <div className={styles.loginContainer} onClick={() => handleNavigate("/authentication")}>
+              <img className={styles.profileImg} src="/profile.svg" alt="Profile" />
+            </div>
+          )
         )}
-      </div>
       {isMobile && (
-        <div className={styles.hamburger} onClick={toggleMenu}>
-          <img src="/hamburger.svg" alt="Menu" />
+        <>
+        <div className={styles.searchContainer} onClick={toggleMenu}>
+          <img className={styles.searchIcon} src="/search.svg" alt="Search" />
         </div>
+        </>
       )}
     </nav>
   );
