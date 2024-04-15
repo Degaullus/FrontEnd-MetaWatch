@@ -12,4 +12,15 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Domine", serif;
+  overflow-x: hidden;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+:root {
+  --background-color: #046d96;
+  --terciary-color: #fbca1b;
 }
