@@ -1,27 +1,113 @@
+.headerBackground {
+  background-image: url("bgyellow.png");
+  background-position: center;
+  background-size: cover;
+}
+
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 5rem 0 5rem 0;
+}
+
+.header h1 {
+  color: rgba(4,94,116,255);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+}
+
+.informationBackground {
+  background-image: url("bgblue.png");
+  background-position: center;
+  background-size: cover;
 }
 
 .informationContainer {
-  padding: 2rem;
-  margin: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  border: 1px solid black;
+}
+
+.informationContainer h2 {
+  color: rgb(155,131,90);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+}
+
+.informationContainer p {
+  color: white;
+}
+
+.tournamentBackground {
+  background-image: url("bgyellow.png");
+  background-position: center;
+  background-size: cover;
 }
 
 .tournamentContainer {
-  padding: 2rem;
-  margin: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  border: 1px solid black;
+}
+
+.tournamentContainer h3 {
+  color: rgba(4,94,116,255);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+}
+
+.divider1 {
+  background-image: url("divider1.png");
+  background-size: cover;
+  height: 1vh;
+}
+
+.divider2 {
+background-image: url("divider2.png");
+background-size: cover;
+height: 10vh
+}
+
+
+@media only screen and (max-width: 600px) {
+  .header {
+    min-height: 45vh;
+    margin: 0.5rem 3rem 0 3rem;
+  }
+  .header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .header p {
+    padding: 0.5rem 0;
+    text-align: center;
+    font-weight: 600;
+  }
+  .informationContainer {
+    min-height: 50vh;
+    margin: 0.5rem 3rem 0 3rem;
+    text-align: center;
+  }
+  .informationContainer h2 {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+  }
+  .tournamentContainer {
+    min-height: 220vh;
+    margin: 0 3.7rem;
+  }
+  .tournamentContainer h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 0.5rem 0 3rem 0;
+  }
+  .tournamentContainer p {
+    font-weight: 600;
+    text-align: center;
+  }
+  .list {
+    font-weight: 600;
+    margin-top: 2rem;
+  }
 }
