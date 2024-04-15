@@ -29,8 +29,9 @@ body {
 }
 
 .buttonSubmit {
-  --color: white;
-  --background-color: #046d96;
-  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --transition: 0.3s ease-in-out;
+  color: white;
+  background-color: #046d96;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
