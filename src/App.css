@@ -1,24 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap");
 
+@font-face {
+  font-family: 'GermaniaVersalien';
+  src: url('../GermaniaVersalien.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Domine", serif;
-}
-
-body {
-  --heading-font-size: 2.5rem;
-  --sub-heading-font-size: 1.5rem;
-  --text-font-size: 1rem;
-  --primary-color: #29627a;
-  --secondary-color: #604800;
-  --accent-color: #f00;
-  --background-color: #f4f4f4;
-  --foreground-color: #fff;
-  --border-radius: 0.25rem;
-  --border-width: 0.1rem;
-  --border-color: #ddd;
-  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --transition: 0.3s ease-in-out;
 }
