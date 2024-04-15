@@ -3,10 +3,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
 }
 
 .heading {
+  font-family: 'GermaniaVersalien';
   font-size: 2rem;
   margin: 1rem 0 2rem;
 }
@@ -34,8 +34,8 @@
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
-  color: white;
+  background-color: composes --background-color from buttonSubmit;
+  color: composes from buttonSubmit;
   cursor: pointer;
 }
 
