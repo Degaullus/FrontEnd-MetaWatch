@@ -313,6 +313,8 @@ export default function FactionSelected() {
                         type="button"
                         onClick={() => copyListToClipboard(entry.list)}
                         className="btn btn-primary"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
                       >
                         {listCopied && openModalId === index
                           ? "Copied!"
@@ -328,6 +330,8 @@ export default function FactionSelected() {
                           e.stopPropagation();
                           setOpenModalId(null);
                         }}
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
                       >
                         Save to Favorites
                       </button>

@@ -45,7 +45,6 @@ export default function Faction() {
           </button>
         ))}
       </div>
-      <div className={styles.divider3}></div>
       <div className={styles.divider1}></div>
     </div>
   );

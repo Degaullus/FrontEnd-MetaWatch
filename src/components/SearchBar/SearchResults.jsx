@@ -1,6 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { APIContext } from "../../context/APIContext";
+import { AuthContext } from "../../context/AuthContext";
+
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import SearchInput, { createFilter } from "react-search-input";
 import styles from "./SearchResults.module.css";
@@ -12,6 +14,9 @@ function SearchResults() {
   const { data, isLoading } = useContext(APIContext);
   const [openModalId, setOpenModalId] = useState(null);
   const [listCopied, setListCopied] = useState(false);
+  const { token } = useContext(AuthContext);
+  const [flag, setFlag] = useState(false);
+  const deployedAPI = "https://backend-metawatch.onrender.com";
 
   // Make sure data is lowercased if necessary or trimmed
   const searchTermNormalized = searchTerm.trim().toLowerCase();
@@ -33,13 +38,33 @@ function SearchResults() {
     listsContainingSearchTerm.length
   );
 
-  // Function to copy list to clipboard
+  // Function to copy list to clipboard and close modal
   const copyListToClipboard = (list) => {
     navigator.clipboard.writeText(list);
     setListCopied(true);
     setTimeout(() => {
       setListCopied(false);
+      setOpenModalId(null); // Close modal after copy
     }, 3000); // Reset copied state after 3 seconds
+  };
+
+  // Function to save to favorites and close modal
+  const handleSaveToFavs = async (id) => {
+    try {
+      const res = await fetch(`${deployedAPI}/fav/add/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+      setFlag(!flag);
+      setOpenModalId(null); // Close modal after saving to favorites
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -120,12 +145,25 @@ function SearchResults() {
                           type="button"
                           onClick={() => copyListToClipboard(entry.list)}
                           className="btn btn-primary"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
                         >
                           {listCopied && openModalId === index
                             ? "Copied!"
                             : "Copy List"}
                         </button>
-                        <button>Add to favorites</button>
+                        <button
+                          type="button"
+                          className="btn btn-primary"
+                          onClick={(e) => {
+                            handleSaveToFavs(entry._id);
+                            e.stopPropagation();
+                          }}
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          Save to Favorites
+                        </button>{" "}
                       </div>
                     </div>
                   </div>
