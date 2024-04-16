@@ -33,13 +33,14 @@
 
 }
 
-@media (min-width: 600px) {
+@media (min-width: 601px) {
 
   .hamburger {
     display: none;
   }
   .navContainer {
     display: flex; 
+    justify-content: space-between;
     font-size: 1.5rem;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
@@ -97,6 +98,7 @@
 .navItem {
   padding: 10px 20px;
   cursor: pointer;
+  color: white;
 }
 
 .logoContainer {
