@@ -1,37 +1,190 @@
-.resultBackground {
+.tournamentContainer {
+  margin: 1rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+
+.tournamentContainerBg {
+  background-image: url("/bgblue.png");
+  background-size: contain;
+}
+
+.loadingContainer {
+  background-image: url("/bgyellow.png");
+  background-position: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  color: black;
+  padding: 1rem;
+  gap: 5px;
+  background-image: url("/bgyellow.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.tournamentInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tournamentName {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.tournamentButton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tournamentTitle {
+  font-size: 1.5rem;
+}
+
+.pointsButtonsContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem;
+}
+
+.pointsButtons {
+  font-size: 2rem;
+  height: fit-content;
+  width: fit-content;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  /*   margin: 5rem; */
+}
+
+.header button {
+  width: 13rem;
+}
+
+.header h2 {
+  margin: auto; /* Center horizontally */
+  font-size: 3rem;
+}
+
+.sortButtonsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin: 5rem;
+}
+
+.sortButtons {
+  height: 4.5rem;
+  width: 5rem;
+  padding: 1rem;
+}
+
+#modalDialogId {
+  max-width: 800px;
+}
+
+button:hover {
+  background-color: grey;
+}
+
+.divider1 {
+  background-image: url("/divider1.png");
+  background-size: cover;
+  height: 1vh;
+}
+
+.divider2 {
+  background-image: url("/divider2.png");
+  background-size: cover;
+  height: 10vh;
+}
+
+.topBackground {
   background-image: url("/bgblue.png");
   background-position: center;
   background-size: cover;
 }
 
 @media only screen and (max-width: 600px) {
-  .searchSummary {
-    color: rgb(255, 255, 255);
-    font-family: "Anton", sans-serif;
-    font-size: 1.5rem;
-    padding-bottom: 1rem;
-  }
-
-  .card {
-    background-image: url("/bgyellow.png");
-    border-radius: 10px;
-    border: black 1px solid;
-    margin: 0.2rem;
-  }
-
-  .containerInfo {
+  .pointsButtonsContainer {
+    /*    border: 2px solid red; */
     display: flex;
-
-    font-size: 1.1rem;
-    font-weight: bold;
+    justify-content: space-around;
+    margin: 0rem;
   }
 
-  .subInfos {
-    padding: 0.2rem;
-    font-size: 1.1rem;
-  }
-
-  .subEntry {
+  .pointsButtons {
+    /*  border: 2px solid yellow; */
+    font-size: 1rem;
+    border-radius: 10px;
+    background-color: #f9ca33;
+    border: 1px solid black;
+    height: 5.5rem;
+    width: 5.5rem;
+    padding: 1rem;
     margin: 0.1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header {
+    /*     border: 2px solid green; */
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+  }
+
+  .header button {
+    width: 15rem;
+    height: 5rem;
+    border-radius: 10px;
+    background-color: #f9ca33;
+    border: 1px solid black;
+    margin: 0.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header h2 {
+    /*  border: 2px solid blue; */
+    margin: auto; /* Center horizontally */
+    font-size: 3rem;
+    color: white;
+  }
+
+  .sortButtonsContainer {
+    /*   border: 2px solid purple; */
+    display: flex;
+    justify-content: center;
+    gap: 0.1rem;
+    margin: 0rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+  .sortButtons {
+    height: 3.3rem;
+    width: 3.3rem;
+    padding: 0rem;
+    border-radius: 10px;
+    background-color: #f9ca33;
+    border: black solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: smaller;
   }
 }
