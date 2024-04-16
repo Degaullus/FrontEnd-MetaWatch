@@ -15,6 +15,7 @@ export default function Authentication() {
     const [token, setToken] = useState(localStorage.getItem('token') || null);
     const backendURL = 'https://backend-metawatch.onrender.com/';
     const localURL = 'http://localhost:8080/';
+    const [userId, setUserId] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,8 +40,10 @@ export default function Authentication() {
         const data = await response.json();
         console.log('Response:', response)
         if (response.ok) {
-            // console.log('data ok:', data);
+            console.log('data ok:', data);
             localStorage.setItem('token', data.token);
+            localStorage.setItem('userId', data.userId);
+            setUserId(data.userId);
             setToken(data.token);
             navigate('/');
             setError("");
