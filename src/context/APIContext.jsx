@@ -6,13 +6,13 @@ export const APIContext = createContext();
 export default function APIContextProvider({ children }) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
-  const localAPI = "http://localhost:8080";
+  /* 
+  const localAPI = "http://localhost:8080"; */
   const deployedAPI = "https://backend-metawatch.onrender.com";
 
   const fetchAPI = async () => {
     try {
-      const response = await axios.get(`${localAPI}/db`);
+      const response = await axios.get(`${deployedAPI}/db`);
       if (response.status !== 200) {
         throw new Error("Network response was not ok");
       }
