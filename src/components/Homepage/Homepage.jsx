@@ -35,13 +35,14 @@ export default function Homepage() {
             easy access to tournament lists
           </p>
           <p>
-          <u>Faction :</u> Quick access to factions' winnings lists for a faction meta
+            <u>Faction :</u> Quick access to factions' winnings lists for a
+            faction meta
           </p>
           <p>
-          <u>Format :</u> Deep dive into global meta results
+            <u>Format :</u> Deep dive into global meta results
           </p>
           <p>
-          <u>Search :</u> Search for events or units in winning lists 
+            <u>Search :</u> Search for events or units in winning lists
           </p>
         </div>
       </div>
@@ -63,13 +64,15 @@ export default function Homepage() {
                 You have access to {dataleng} winning lists from{" "}
                 {Math.round(dataleng / 4)} tournaments.
               </p>
-              <p>Format 2500k: {format2500k?.length}</p>
-              <p>Format 2250k: {format2250k?.length}</p>
-              <p>Format 2000k: {format2000k?.length}</p>
-              <p>Format 1750k: {format1750k?.length}</p>
-              <p>Format 1500k: {format1500k?.length}</p>
-              <p>Format 1250k: {format1250k?.length}</p>
-              <p>Format 1000k: {format1000k?.length}</p>
+              <div className={styles.informationContainerP}>
+                <p>Format 1000k:  {format1000k?.length}</p>
+                <p>Format 1250k:  {format1250k?.length}</p>
+                <p>Format 1500k:  {format1500k?.length}</p>
+                <p>Format 1750k:  {format1750k?.length}</p>
+                <p>Format 2000k:  {format2000k?.length}</p>
+                <p>Format 2250k:  {format2250k?.length}</p>
+                <p>Format 2500k:  {format2500k?.length}</p>
+              </div>
             </div>
             <div className={styles.divider1}></div>
           </div>
@@ -78,11 +81,21 @@ export default function Homepage() {
             <div className={styles.tournamentBackground}>
               <div className={styles.tournamentContainer} key={entry._id}>
                 <h3>Most recent tournament winning list</h3>
-                <p><strong>{entry.tournament}</strong></p>
-                <p><strong>{entry.date}</strong></p>
-                <p><strong>{entry.army}</strong></p>
-                <p><strong>{entry.format} pts.</strong></p>
-                <p><strong>{entry.rank.slice(1)}st rank</strong></p>
+                <p>
+                  <strong>{entry.tournament}</strong>
+                </p>
+                <p>
+                  <strong>{entry.date}</strong>
+                </p>
+                <p>
+                  <strong>{entry.army}</strong>
+                </p>
+                <p>
+                  <strong>{entry.format} pts.</strong>
+                </p>
+                <p>
+                  <strong>{entry.rank.slice(1)}st rank</strong>
+                </p>
                 <div className={styles.list} style={{ whiteSpace: "pre-wrap" }}>
                   {entry.list}
                 </div>

@@ -12,9 +12,7 @@
 }
 
 .header h1 {
-  color: rgba(4,94,116,255);
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: black;
+  color: rgba(4, 94, 116, 255);
 }
 
 .informationBackground {
@@ -30,9 +28,7 @@
 }
 
 .informationContainer h2 {
-  color: rgb(155,131,90);
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: black;
+  color: rgb(155, 131, 90);
 }
 
 .informationContainer p {
@@ -52,9 +48,7 @@
 }
 
 .tournamentContainer h3 {
-  color: rgba(4,94,116,255);
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: black;
+  color: rgba(4, 94, 116, 255);
 }
 
 .divider1 {
@@ -64,34 +58,44 @@
 }
 
 .divider2 {
-background-image: url("divider2.png");
-background-size: cover;
-height: 10vh
+  background-image: url("divider2.png");
+  background-size: cover;
+  height: 10vh;
 }
-
 
 @media only screen and (max-width: 600px) {
   .header {
     min-height: 45vh;
-    margin: 0.5rem 3rem 0 3rem;
+    margin: 0.5rem 1.5rem 0 1.5rem;
   }
   .header h1 {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
     margin-bottom: 0.5rem;
   }
   .header p {
     padding: 0.5rem 0;
     text-align: center;
     font-weight: 600;
+    font-size: 1.25rem;
   }
   .informationContainer {
     min-height: 50vh;
-    margin: 0.5rem 3rem 0 3rem;
+    margin: 0.5rem 1.5rem 2rem 1.5rem;
     text-align: center;
   }
   .informationContainer h2 {
-    margin-top: 1rem;
-    font-size: 1.8rem;
+    margin: 1rem 0 2rem 0;
+    font-size: 3rem;
+  }
+  .informationContainer > p {
+    font-size: 1.5rem;
+    margin: 0 2rem 2rem 2rem;
+  }
+  .informationContainerP {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
   }
   .tournamentContainer {
     min-height: 220vh;
