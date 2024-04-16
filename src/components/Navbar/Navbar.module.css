@@ -1,3 +1,4 @@
+
 .navbarContainer {
   display: flex;
   align-items: center;
@@ -70,15 +71,6 @@
   opacity: 0.95;
 }
 
-@media (max-width: 1024px) {
-  .navContainer {
-    display: none;
-  }
-  .hamburger {
-    display: block;
-  }
-}
-
 .profileContainer {
   display: flex;
   flex-direction: column;
@@ -116,4 +108,14 @@
 .favoriteImg {
   width: 20px;
   margin: 0 0.4rem 0.3rem;
+}
+
+
+@media (max-width: 600px) {
+  .navContainer {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
 }

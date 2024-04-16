@@ -1,5 +1,5 @@
 import styles from "./FactionSelected.module.css";
-import { useContext, useState } from "react"; //usestate for the popup
+import { useContext, useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { APIContext } from "../../context/APIContextProvider";
@@ -12,7 +12,7 @@ export default function FactionSelected() {
   const [points, setPoints] = useState(0);
   const [sortList, setSortList] = useState("descDate");
   const navigate = useNavigate();
-  const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
+  const [listCopied, setListCopied] = useState(false);
   // console.log(isLoading);
 
   //format Ranks
@@ -30,17 +30,41 @@ export default function FactionSelected() {
     return `${rankWithoutZero}${suffixes[mod10 - 1]}`;
   };
 
-  // this is filtering key="faction name"
-  const filteredData =
-    points == 0
-      ? data?.filter(
-          (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
-        )
-      : data?.filter(
-          (entry) =>
-            entry.army.indexOf(id.replaceAll("-", " ")) !== -1 &&
-            entry.format == points
-        );
+  // Original filtering when all formats had their own button
+  // const filteredData =
+  //   points == 0
+  //     ? data?.filter(
+  //         (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
+  //       )
+  //     : data?.filter(
+  //         (entry) =>
+  //           entry.army.indexOf(id.replaceAll("-", " ")) !== -1 &&
+  //           entry.format == points
+  //       );
+
+let filteredData = data?.filter(
+  (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
+);
+
+
+  if (points == 0) {
+    filteredData = data?.filter(
+      (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
+    );
+  } else if (points == 50) {
+    filteredData = data?.filter(
+      (entry) =>
+        entry.format !== "2000" &&
+        entry.format !== "1500" &&
+        entry.format !== "1250"
+    );
+  } else {
+    filteredData = data?.filter(
+      (entry) =>
+        entry.army.indexOf(id.replaceAll("-", " ")) !== -1 &&
+        entry.format == points
+    );
+  }
 
   if (sortList == "descDate") {
     filteredData?.sort((entry1, entry2) => {
@@ -91,21 +115,9 @@ export default function FactionSelected() {
       <div className={styles.pointsButtonsContainer}>
         <button
           className={styles.pointsButtons}
-          onClick={() => setPoints(2250)}
-        >
-          2250 Points
-        </button>
-        <button
-          className={styles.pointsButtons}
           onClick={() => setPoints(2000)}
         >
           2000 Points
-        </button>
-        <button
-          className={styles.pointsButtons}
-          onClick={() => setPoints(1750)}
-        >
-          1750 Points
         </button>
         <button
           className={styles.pointsButtons}
@@ -119,11 +131,8 @@ export default function FactionSelected() {
         >
           1250 Points
         </button>
-        <button
-          className={styles.pointsButtons}
-          onClick={() => setPoints(1000)}
-        >
-          1000 Points
+        <button className={styles.pointsButtons} onClick={() => setPoints(50)}>
+          Other
         </button>
         <button className={styles.pointsButtons} onClick={() => setPoints(0)}>
           All tournaments
