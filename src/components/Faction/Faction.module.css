@@ -39,7 +39,16 @@
   background-image: url("/divider3.png");
   background-size: contain;
   height: 1vh;
-  margin: 2rem 0;
+}
+
+.emblem {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.emblemImg {
+  margin: 0 auto;
+  height: 250px;
 }
 
 @media only screen and (max-width: 600px) {
