@@ -22,7 +22,7 @@ export default function Homepage() {
   });
   //display last list
   const lastList = dataLastListsPreSlice?.slice(0, 1);
-  console.log(lastList);
+  // console.log(lastList);
 
   return (
     <div>

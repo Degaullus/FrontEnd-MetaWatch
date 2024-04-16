@@ -1,24 +1,72 @@
+@media (max-width: 600px) {
+  .navContainer {
+    display: none;
+  }
+  .hamburgerContainer {
+    display: flex;
+    order: 3;
+  }
+  .profileContainer {
+    display: block;
+  }
+  .navbarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .essentials {
+    width: 80%;
+  }
+}
+
+@media (min-width: 601px) {
+
+  .hamburger {
+    display: none;
+  }
+  .navContainer {
+    display: flex; 
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    width: 60%;
+    cursor: pointer;
+    color: white;
+    height: 100%;
+    align-items: center;
+  }
+
+  .logoContainer {
+    width: 100%;
+  }
+}
+
+.essentials {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.mobileDivs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 
 .navbarContainer {
   display: flex;
   align-items: center;
-  border: solid var(--navbar-border-width) black;
-  margin: 1rem;
-  border-radius: 7px;
+  overflow: hidden;
   justify-content: space-between;
   height: var(--navbar-height);
+  transition: 0.3s ease-in-out;
+  background-color: black;
 }
 
-.navContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  list-style: none;
-  font-size: 1.5rem;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
-  width: 100%;
-  cursor: pointer;
+.navContainer:hover div:not(:hover) {
+  filter: blur(0.8px);
 }
 
 .navItem {
@@ -26,33 +74,30 @@
   cursor: pointer;
 }
 
-.ulNavbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  list-style: none;
-  font-size: 1.5rem;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
+.logoContainer {
+  height: 90%;
   width: 100%;
-  cursor: pointer;
+  order: 1;
 }
 
-.oldWorldLogo {
-  width: 200px;
-  height: auto;
-  border: 3px solid black;
+.logoImg {
   cursor: pointer;
+  height: 100%;
 }
 
-.navItem a {
-  text-decoration: none;
+.hamburgerContainer {
+  order: 0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 20%;
+  filter: invert(100%);
+  height: 100%;
 }
 
-.hamburger {
-  display: none;
-  cursor: pointer;
-  padding: 0 2rem;
+.hamburgerImg {
+  height: 60%;
+  width: 60%;
 }
 
 .navContainer.open {
@@ -60,62 +105,80 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 33vh;
+  height: 30vh;
   width: 100%;
-  background-color: #a5a1a1;
+  background-color: black;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
   transition: transform 0.5s ease-in-out;
-  opacity: 0.95;
+  opacity: 0.85;
+  color: white;
+}
+
+.searchBarContainer {
+  border-radius: 3px;
 }
 
 .profileContainer {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0.2rem 1.4rem;
-  height: calc(var(--navbar-height) - 2 * var(--navbar-border-width));
-}
-
-.loggedInAs {
-  font-size: 1rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  display: block;
-}
-
-.logged {
-  font-size: 0.7rem;
-}
-
-.inas {
-  font-size: 1.2rem;
+  width: 20%;
+  height: 100%;
+  justify-content: center;
 }
 
 .favorites {
   margin: 0 auto;
   font-size: 1.1rem;
+  overflow-y: hidden;
+  filter: invert(100%);
 }
 
 .logout {
+  filter: invert(100%);
   font-size: 0.7rem;
   cursor: pointer;
   margin: 0 auto;
+  overflow-y: hidden;
+
+}
+
+.favCountContainer {
+  height: 30px;
 }
 
 .favoriteImg {
   width: 20px;
   margin: 0 0.4rem 0.3rem;
+  filter: invert(100%);
 }
 
 
-@media (max-width: 600px) {
-  .navContainer {
-    display: none;
-  }
-  .hamburger {
-    display: block;
-  }
+.profileImg {
+  /* height: 50%; */
+  right: 0;
+  margin-right: 0;
+  filter: invert(100%);
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-right: 3rem;
+  margin-left: auto;
+  width: 150px;
+  overflow: hidden;
+  margin-right: 0;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.searchIcon {
+  cursor: pointer;
+  height: calc(var(--navbar-height));
+  color: white;
+  padding: 0.8rem 1rem;
 }
