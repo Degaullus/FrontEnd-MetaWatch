@@ -21,12 +21,6 @@
   background-size: cover;
 }
 
-.informationContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .informationContainer h2 {
   color: rgb(155, 131, 90);
 }
@@ -89,6 +83,9 @@
     min-height: 50vh;
     margin: 0.5rem 1.5rem 2rem 1.5rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .informationContainer h2 {
     margin: 1rem 0 1.5rem 0;
@@ -127,6 +124,89 @@
   .list {
     font-weight: 600;
     margin-top: 2rem;
+    text-align: center;
+  }
+}
+
+
+@media only screen and (min-width: 601px) {
+    
+  .header {
+    min-height: 60vh; 
+  }
+
+  .header h1 {
+    font-size: 8rem;
+    padding: 1.5rem;
+  }
+
+  .header > p {
+    padding: 1rem 0; 
+    font-size: 2.5rem;
+  }
+
+  .headerP {
+    font-size: 2rem; 
+    padding: 1rem 0; 
+    text-align: center;
+  }
+
+  .informationContainer {
+    min-height: 60vh; 
+    margin: 1rem 2rem 3rem 2rem; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .informationContainer h2 {
+    margin: 2rem 0 2rem 0; 
+    font-size: 8rem; 
+    padding: 1.5rem;
+  }
+
+  .informationContainer > p {
+    font-size: 4rem; 
+    margin-bottom: 2rem; 
+  }
+
+  .informationContainerP {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 50vw;
+    font-size: 2.5rem;
+    gap: 5rem;
+    margin-top: 4rem;
+  }
+
+  .tournamentContainer {
+    min-height: 310vh; 
+  }
+
+  .tournamentContainer h3 {
+    font-size: 7rem; 
+    padding: 2rem; 
+    margin: 3rem;
+  }
+
+  .tournamentContainer p {
+    font-size: 3rem; 
+    text-align: center;
+    width: 25vw;
+    border-bottom: 1px solid black;
+    padding-bottom: 2rem;
+  }
+
+  .tournamentContainer p:nth-child(6n) {
+    border-bottom: none;
+  }
+
+  .list {
+    margin-top: 3rem; 
+    font-size: 2rem; 
     text-align: center;
   }
 }
