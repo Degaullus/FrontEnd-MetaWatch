@@ -2,6 +2,8 @@ import styles from "./Format.module.css";
 import { useContext, useState } from "react";
 import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Format() {
   const [openModalId, setOpenModalId] = useState(null);
@@ -114,84 +116,124 @@ export default function Format() {
 
   return (
     <>
-      <div className={styles.header}>
-        <h2>Format</h2>
+      <div className={styles.bigBackground}>
+        <div className={styles.divider1}></div>
+        <div className={styles.header}>
+          <h2>Format</h2>
+        </div>
+
+        <div className={styles.pointsButtonsContainer}>
+          <button
+            className={styles.pointsButtons}
+            onClick={() => buttonActive(2000)}
+          >
+            2000{" "}
+          </button>
+
+          <button
+            className={styles.pointsButtons}
+            onClick={() => buttonActive(1500)}
+          >
+            1500
+          </button>
+
+          <button
+            className={styles.pointsButtons}
+            onClick={() => buttonActive(1250)}
+          >
+            1250
+          </button>
+
+          <button
+            className={styles.pointsButtons}
+            onClick={() => buttonActive(0)}
+          >
+            Other
+          </button>
+        </div>
+
+        <div className={styles.sortButtonsContainer}>
+          <span
+            className={styles.sortButtons}
+            onClick={() => setSortList("ascDate")}
+          >
+            Date
+            <span className="margin2">
+              {" "}
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                style={{ color: "#ffffff" }}
+              />
+            </span>
+          </span>
+          <span
+            className={styles.sortButtons}
+            onClick={() => setSortList("descDate")}
+          >
+            Date{" "}
+            <span className="margin2">
+              {" "}
+              <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
+            </span>
+          </span>
+          <span
+            className={styles.sortButtons}
+            onClick={() => setSortList("ascRank")}
+          >
+            Rank{" "}
+            <span className="margin2">
+              {" "}
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                style={{ color: "#ffffff" }}
+              />
+            </span>
+          </span>
+          <span
+            className={styles.sortButtons}
+            onClick={() => setSortList("descRank")}
+          >
+            Rank{" "}
+            <span className="margin2">
+              {" "}
+              <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
+            </span>
+          </span>
+          <span
+            className={styles.sortButtons}
+            onClick={() => setSortList("ascFaction")}
+          >
+            Faction{" "}
+            <span className="margin2">
+              {" "}
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                style={{ color: "#ffffff" }}
+              />
+            </span>
+          </span>
+          <span
+            className={styles.sortButtons}
+            onClick={() => setSortList("descFaction")}
+          >
+            Faction{" "}
+            <span className="margin2">
+              {" "}
+              <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
+            </span>
+          </span>
+        </div>
+
+        <div className={styles.forReset}>
+          <span
+            className={styles.reset}
+            onClick={() => setSortList("descDate")}
+          >
+            Reset
+          </span>
+        </div>
       </div>
-
-      <div className={styles.pointsButtonsContainer}>
-        <button
-          className={styles.pointsButtons}
-          onClick={() => buttonActive(2000)}
-        >
-          2000{" "}
-        </button>
-
-        <button
-          className={styles.pointsButtons}
-          onClick={() => buttonActive(1500)}
-        >
-          1500
-        </button>
-
-        <button
-          className={styles.pointsButtons}
-          onClick={() => buttonActive(1250)}
-        >
-          1250
-        </button>
-
-        <button
-          className={styles.pointsButtons}
-          onClick={() => buttonActive(0)}
-        >
-          Other
-        </button>
-      </div>
-
-      <div className={styles.sortButtonsContainer}>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("ascDate")}
-        >
-          Date ⬇️
-        </button>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("descDate")}
-        >
-          Date ⬆️
-        </button>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("ascRank")}
-        >
-          Rank ⬇️
-        </button>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("descRank")}
-        >
-          Rank ⬆️
-        </button>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("ascFaction")}
-        >
-          Faction ⬇️
-        </button>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("descFaction")}
-        >
-          Faction ⬆️
-        </button>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("descDate")}
-        >
-          Reset
-        </button>
-      </div>
+      <div className={styles.divider1}></div>
 
       {isLoading ? (
         <div className="loading-container">
@@ -285,7 +327,11 @@ export default function Format() {
           <div className={styles.divider1}></div>
         </div>
       ) : (
-        <p>Please select a format!</p>
+        <div className={styles.lastP}>
+          {" "}
+          <p>Please select a format!</p>
+          <div className={styles.divider1}></div>
+        </div>
       )}
     </>
   );

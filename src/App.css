@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bitter:ital,wght@0,100..900;1,100..900&display=swap");
 
 @font-face {
-  font-family: 'GermaniaVersalien';
-  src: url('../GermaniaVersalien.ttf');
+  font-family: "GermaniaVersalien";
+  src: url("../GermaniaVersalien.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -15,12 +15,18 @@
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-font-family: "Anton", sans-serif;
-padding: 1rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Anton", sans-serif;
+  padding: 1rem;
 }
 
-p, button {
+p,
+button {
   font-family: "Bitter", serif;
   overflow-x: hidden;
 }
@@ -33,4 +39,16 @@ html {
 :root {
   --background-color: #046d96;
   --terciary-color: #fbca1b;
+}
+
+.margin2 {
+  margin: 0.2rem;
+}
+
+.loading-container {
+  background-image: url("/bgblue.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-size: 1.5rem;
 }
