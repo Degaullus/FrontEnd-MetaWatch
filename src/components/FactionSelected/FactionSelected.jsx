@@ -159,7 +159,7 @@ export default function FactionSelected() {
             Other
           </button>
           <button className={styles.pointsButtons} onClick={() => setPoints(0)}>
-            All tournaments
+            All results
           </button>
         </div>
 
@@ -227,9 +227,7 @@ export default function FactionSelected() {
                   <p className={styles.tournamentTitle}>{entry.tournament}</p>
                   {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
                   <div className={styles.tournamentLocation}>
-                    
-                    <p style={{ fontStyle: "italic" }}> {entry.location}
-                    </p>
+                    <p style={{ fontStyle: "italic" }}> {entry.location}</p>
                   </div>
                 </div>
                 <div className={styles.tournamentButton}>
