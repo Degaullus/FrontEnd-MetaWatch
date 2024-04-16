@@ -9,13 +9,10 @@
   }
   .profileContainer {
     display: flex;
-    flex-basis: 100%;
-    border: 3px solid yellow;
-  }
-  .navbarContainer {
-    display: flex;
-    justify-content: center;
+    /* flex-basis: 20%; */
     align-items: center;
+    justify-content: center;
+    border: 3px solid khaki
   }
 
   .essentials {
@@ -23,9 +20,15 @@
   }
 
   .logoContainer {
-    flex-basis: 50%;
-    height: 90%;
-    margin-right: 10%;
+    flex-basis: 100%;
+    height: 100%;
+  }
+
+  .loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
 }
@@ -40,7 +43,7 @@
     font-size: 1.5rem;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
-    width: 60%;
+    flex-basis: 60%;
     cursor: pointer;
     color: white;
     height: 100%;
@@ -49,7 +52,8 @@
 
   .logoContainer {
     width: 100%;
-      height: 90%;
+    height: 90%;
+    padding-left: 3rem;
   }
   .hamburgerContainer {
     display: none;
@@ -58,7 +62,12 @@
   .profileContainer {
     width: 20%;
   }
+}
 
+.usernameContainer {
+  border: 3px solid lightgreen;
+  overflow-y: hidden;
+  color: white;
 }
 
 .essentials {
@@ -85,8 +94,6 @@
   background-color: black;
 }
 
-
-
 .navItem {
   padding: 10px 20px;
   cursor: pointer;
@@ -95,7 +102,6 @@
 .logoContainer {
   display: flex;
   justify-content: center;
-
   width: 100%;
   order: 1;
 }
@@ -122,13 +128,12 @@
 
 .navContainer.open {
   display: flex;
-  font-family: "Anton", sans-serif;
+  width: 100%;
   font-size: 1.5rem;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   height: 50vh;
-  width: 100%;
   background-color: black;
   position: fixed;
   top: 0;
@@ -139,6 +144,10 @@
   color: white;
 }
 
+.navContainer {
+  font-family: "Anton", sans-serif;
+}
+
 .searchBarContainer {
   border-radius: 3px;
 }
@@ -146,40 +155,47 @@
 .profileContainer {
   display: flex;
   flex-direction: column;
-
   height: 100%;
-  justify-content: center;
+  justify-content: stretch;
+  align-items: stretch;
 }
 
 .favorites {
-  margin: 0 auto;
-  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
   overflow-y: hidden;
-  filter: invert(100%);
+  border: 3px solid lightpink; 
+  width: 100%;
 }
 
-.logout {
-  filter: invert(100%);
+favorites > div {
+  height: 100%;
+}
+
+.logoutContainer {
+  display: flex;
+  align-items: center;
   font-size: 0.7rem;
   cursor: pointer;
-  margin: 0 auto;
   overflow-y: hidden;
-
+  border: 3px solid lightblue;
+  width: 100%;
+  color: white;
 }
 
 .favCountContainer {
-  height: 30px;
+  border: 3px solid lightcoral;
+  color: white;
+  overflow-y: hidden;
 }
 
 .favoriteImg {
-  width: 20px;
+  max-width: 20px;
   margin: 0 0.4rem 0.3rem;
-  filter: invert(100%);
 }
 
 
 .profileImg {
-  /* height: 50%; */
   right: 0;
   margin-right: 0;
   filter: invert(100%);
@@ -187,13 +203,13 @@
 
 .loginContainer {
   display: flex;
+  align-items: center;
   justify-content: center;
   position: relative;
-  margin-right: 3rem;
   margin-left: auto;
-  width: 150px;
+  flex-basis: 100%;
   overflow: hidden;
-  margin-right: 0;
+  margin-right: 3rem;
   color: white;
   font-size: 1.5rem;
 }
