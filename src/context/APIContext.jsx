@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
 export const APIContext = createContext();
@@ -7,18 +7,20 @@ export default function APIContextProvider({ children }) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const localAPI = "http://localhost:8080";
+  const deployedAPI = "https://backend-metawatch.onrender.com";
+
   const fetchAPI = async () => {
     try {
-      const response = await axios.get("https://backend-metawatch.onrender.com/db");
+      const response = await axios.get(`${localAPI}/db`);
       if (response.status !== 200) {
         throw new Error("Network response was not ok");
       }
       const responseData = response.data;
-      // console.log(responseData);
-      setTimeout( () => {
+      setTimeout(() => {
         setIsLoading(false); // Set loading to false when data fetching is complete
-      }, 3000)
-     
+      }, 3000);
+
       setData(responseData);
     } catch (error) {
       console.error("Error fetching Data:", error.message);
@@ -27,8 +29,7 @@ export default function APIContextProvider({ children }) {
   };
 
   useEffect(() => {
-   
-      fetchAPI();
+    fetchAPI();
   }, []);
 
   return (
@@ -37,4 +38,3 @@ export default function APIContextProvider({ children }) {
     </APIContext.Provider>
   );
 }
-

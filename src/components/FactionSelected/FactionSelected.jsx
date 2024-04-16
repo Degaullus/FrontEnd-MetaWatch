@@ -2,8 +2,9 @@ import styles from "./FactionSelected.module.css";
 import { useContext, useState } from "react"; //usestate for the popup
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
-import { APIContext } from "../../context/APIContextProvider";
+import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function FactionSelected() {
   const [openModalId, setOpenModalId] = useState(null);
@@ -13,7 +14,10 @@ export default function FactionSelected() {
   const [sortList, setSortList] = useState("descDate");
   const navigate = useNavigate();
   const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
-  // console.log(isLoading);
+  const { token } = useContext(AuthContext);
+
+  const localAPI = "http://localhost:8080";
+  // const deployedAPI = "https://backend-metawatch.onrender.com";
 
   //format Ranks
   const formatRank = (rank) => {
@@ -79,6 +83,22 @@ export default function FactionSelected() {
     setTimeout(() => {
       setListCopied(false);
     }, 3000); // Reset copied state after 3 seconds
+  };
+
+  const handleSaveToFavs = async (id) => {
+    try {
+      const res = await fetch(`${localAPI}/fav/add/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -170,75 +190,90 @@ export default function FactionSelected() {
         </div>
       ) : filteredData?.length > 0 ? (
         <div className={styles.tournamentContainer}>
-          {filteredData.map((entry, index) => (
-            <li key={index} className={styles.card}>
-              <p className={styles.tournamentDetails}>
-                {formatRank(entry.rank)}
-              </p>
-              <p className={styles.tournamentDetails}>{entry.format} pts </p>
-              <p className={styles.tournamentDetails}>{entry.tournament}</p>
-              {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
-              <p className={styles.tournamentDetails}> {entry.location}</p>
-              <p
-                className={styles.tournamentDetails}
-                style={{ fontStyle: "italic" }}
-              >
-                {entry.date}
-              </p>
-              <button
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target={"#listModal" + index}
-                onClick={() => setOpenModalId(index)}
-                className="btn btn-primary"
-                disabled={entry.list == "No list submitted"}
-              >
-                Show army list
-              </button>
-              <div
-                className="modal"
-                id={"listModal" + index}
-                tabIndex="-1"
-                role="dialog"
-                aria-labelledby="listModalLabel"
-                aria-hidden="true"
-                /*                 show={(openModalId === index).toString()} */
-              >
-                <div
-                  className="modal-dialog"
-                  id={styles.modalDialogId}
-                  role="document"
+          {filteredData.map((entry, index) => {
+            console.log(entry);
+            return (
+              <li key={index} className={styles.card}>
+                <p className={styles.tournamentDetails}>
+                  {formatRank(entry.rank)}
+                </p>
+                <p className={styles.tournamentDetails}>{entry.format} pts </p>
+                <p className={styles.tournamentDetails}>{entry.tournament}</p>
+                {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
+                <p className={styles.tournamentDetails}> {entry.location}</p>
+                <p
+                  className={styles.tournamentDetails}
+                  style={{ fontStyle: "italic" }}
                 >
-                  <div className="modal-content">
-                    <div className="modal-header">
+                  {entry.date}
+                </p>
+                <button
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target={"#listModal" + index}
+                  onClick={() => setOpenModalId(index)}
+                  className="btn btn-primary"
+                  disabled={entry.list == "No list submitted"}
+                >
+                  Show army list
+                </button>
+                <div
+                  className="modal"
+                  id={"listModal" + index}
+                  tabIndex="-1"
+                  role="dialog"
+                  aria-labelledby="listModalLabel"
+                  aria-hidden="true"
+                  /*                 show={(openModalId === index).toString()} */
+                >
+                  <div
+                    className="modal-dialog"
+                    id={styles.modalDialogId}
+                    role="document"
+                  >
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <button
+                          type="button"
+                          className="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div className="modal-body">
+                        <pre>{entry.list}</pre>
+                      </div>
                       <button
                         type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
+                        onClick={() => copyListToClipboard(entry.list)}
+                        className="btn btn-primary"
                       >
-                        <span aria-hidden="true">&times;</span>
+                        {listCopied && openModalId === index
+                          ? "Copied!"
+                          : "Copy List"}
                       </button>
+                      <br />
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={(e) => {
+                          handleSaveToFavs(entry._id);
+                          e.stopPropagation();
+                          setOpenModalId(null);
+                        }}
+                      >
+                        Save to Favorites
+                      </button>
+                      {/* commented out for test version purpose */}
+                      {/*  <button>Add to favorites</button> */}
                     </div>
-                    <div className="modal-body">
-                      <pre>{entry.list}</pre>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => copyListToClipboard(entry.list)}
-                      className="btn btn-primary"
-                    >
-                      {listCopied && openModalId === index
-                        ? "Copied!"
-                        : "Copy List"}
-                    </button>
-                    {/* commented out for test version purpose */}
-                    {/*  <button>Add to favorites</button> */}
                   </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </div>
       ) : (
         <p>{`No data found containing ${id} in the army name.`}</p>

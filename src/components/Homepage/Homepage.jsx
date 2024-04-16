@@ -1,6 +1,6 @@
 import styles from "./Homepage.module.css";
 import { useContext } from "react";
-import { APIContext } from "../../context/APIContextProvider";
+import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function Homepage() {
@@ -22,8 +22,6 @@ export default function Homepage() {
   });
   //display last list
   const lastList = dataLastListsPreSlice?.slice(0, 1);
-  console.log(lastList);
-
   return (
     <div>
       <div className={styles.header}>
@@ -36,13 +34,13 @@ export default function Homepage() {
 
       {isLoading ? (
         <div>
-          <p>Tournament informations loading.. May take up to 50 seconds</p>
+          <p>Tournament information loading.. May take up to 50 seconds</p>
           <LoadingSpinner />
         </div>
       ) : (
         <div>
           <div className={styles.informationContainer}>
-            <h2>Informations</h2>
+            <h2>Information</h2>
             <p>
               You have access to {dataleng} winning lists from{" "}
               {Math.round(dataleng / 4)} tournaments.

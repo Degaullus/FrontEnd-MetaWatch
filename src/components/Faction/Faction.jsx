@@ -31,6 +31,7 @@ export default function Faction() {
           <button
             className={styles.button}
             onClick={() => navigate(`/faction/${faction}`)}
+            key={faction}
           >
             {faction.replaceAll("-", " ")}
           </button>

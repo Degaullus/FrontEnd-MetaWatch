@@ -1,41 +1,22 @@
-//General
-
 import "./App.css";
-import { useState, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
-import { useLoading } from "./context/LoadingContext";
-
+import { useContext } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { AuthContext } from "./context/AuthContext";
 // Routes
-
 import Faction from "./components/Faction/Faction";
 import FactionSelected from "./components/FactionSelected/FactionSelected";
 import Format from "./components/Format/Format";
 import Homepage from "./components/Homepage/Homepage";
 import Navbar from "./components/Navbar/Navbar";
-import Authentication from "./components/Authentication/Authentication";
 import Footer from "./components/Footer/Footer";
 import Favorites from "./components/Favorites/Favorites";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
-import LoadingSpinner from "./components/Loading/LoadingSpinner";
-import SearchResults from "./components/SearchBar/SearchResults"; // Make sure the path is correct
+import SearchResults from "./components/SearchBar/SearchResults";
+import Login from "./components/Authentication/Login";
+import Signup from "./components/Authentication/Signup";
 
 function App() {
-  const location = useLocation();
-  const { isLoading, setIsLoading } = useLoading();
-  const [readyToShow, setReadyToShow] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setReadyToShow(false);
-
-    //Simulate loading process
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      setReadyToShow(true);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [location, setIsLoading]);
+  const { token } = useContext(AuthContext);
 
   return (
     <div>
@@ -46,7 +27,14 @@ function App() {
           <Route path="/faction" element={<Faction />} />
           <Route path="/faction/:id" element={<FactionSelected />} />
           <Route path="/format" element={<Format />} />
-          <Route path="/authentication" element={<Authentication />} />
+          <Route
+            path="/login"
+            element={token ? <Navigate to="/" /> : <Login />}
+          />
+          <Route
+            path="/signup"
+            element={token ? <Navigate to="/" /> : <Signup />}
+          />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/search/:searchTerm" element={<SearchResults />} />
