@@ -41,7 +41,7 @@
   .navContainer {
     display: flex; 
     justify-content: space-between;
-    font-size: 1.5rem;
+    font-size: 2rem;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
     flex-basis: 60%;
@@ -49,6 +49,10 @@
     color: white;
     height: 100%;
     align-items: center;
+  }
+
+  .navbarContainer input {
+    font-size: 1.5rem;
   }
 
   .logoContainer {
@@ -61,7 +65,7 @@
   }
 
   .profileContainer {
-    width: 20%;
+    width: 10%;
   }
 }
 
