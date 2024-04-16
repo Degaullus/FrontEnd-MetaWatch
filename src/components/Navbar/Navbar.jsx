@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import { useWindowSizeContext } from "../../context/WindowSizeContext";
-import { AuthContext } from "../../context/authContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,12 +10,13 @@ export default function Navbar() {
   const isMobile = device === "mobile";
   const navbarRef = useRef(null);
   const navigate = useNavigate();
-  const { token, logout, username, favCount } = useContext(AuthContext);
+  const [token, setToken] = useState(localStorage.getItem('token') || null);
 
   const handleLogout = () => {
-    logout();
-    navigate("/");
-  };
+    setToken(null);
+    localStorage.removeItem('token');
+    navigate('/login');
+};
 
   useEffect(() => {
     const handleClickOutside = (e) => {
