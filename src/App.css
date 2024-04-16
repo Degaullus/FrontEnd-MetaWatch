@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
 
+@font-face {
+  font-family: 'GermaniaVersalien';
+  src: url('../GermaniaVersalien.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,5 +24,15 @@ padding: 1rem;
 
 p, button {
   font-family: "Bitter", serif;
+  overflow-x: hidden;
 }
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+:root {
+  --background-color: #046d96;
+  --terciary-color: #fbca1b;
+}
