@@ -1,8 +1,37 @@
-.card {
-  border: black 1px solid;
-  margin: 0.2rem;
+.resultBackground {
+  background-image: url("bgblue.png");
+  background-position: center;
+  background-size: cover;
 }
 
-.containerInfo {
-  display: flex;
+@media only screen and (max-width: 600px) {
+  .searchSummary {
+    color: rgb(255, 255, 255);
+    font-family: "Anton", sans-serif;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .card {
+    background-image: url("bgyellow.png");
+    border-radius: 10px;
+    border: black 1px solid;
+    margin: 0.2rem;
+  }
+
+  .containerInfo {
+    display: flex;
+
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .subInfos {
+    padding: 0.2rem;
+    font-size: 1.1rem;
+  }
+
+  .subEntry {
+    margin: 0.1rem;
+  }
 }
