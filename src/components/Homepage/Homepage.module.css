@@ -128,11 +128,9 @@
   }
 }
 
-
 @media only screen and (min-width: 601px) {
-    
   .header {
-    min-height: 60vh; 
+    min-height: 90vh;
   }
 
   .header h1 {
@@ -141,34 +139,40 @@
   }
 
   .header > p {
-    padding: 1rem 0; 
+    padding: 1rem 0;
     font-size: 2.5rem;
-  }
-
-  .headerP {
-    font-size: 2rem; 
-    padding: 1rem 0; 
+    margin: 0 15rem;
     text-align: center;
   }
 
+  .headerP {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    padding: 1rem 0;
+    text-align: center;
+    gap: 2rem;
+  }
+
   .informationContainer {
-    min-height: 60vh; 
-    margin: 1rem 2rem 3rem 2rem; 
+    min-height: 130vh;
+    margin: 1rem 2rem 3rem 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 25rem;
   }
 
   .informationContainer h2 {
-    margin: 2rem 0 2rem 0; 
-    font-size: 8rem; 
+    margin: 2rem 0 2rem 0;
+    font-size: 8rem;
     padding: 1.5rem;
   }
 
   .informationContainer > p {
-    font-size: 4rem; 
-    margin-bottom: 2rem; 
+    font-size: 4rem;
+    margin-bottom: 2rem;
   }
 
   .informationContainerP {
@@ -183,17 +187,17 @@
   }
 
   .tournamentContainer {
-    min-height: 310vh; 
+    min-height: 310vh;
+    margin: 0 12rem;
   }
 
   .tournamentContainer h3 {
-    font-size: 7rem; 
-    padding: 2rem; 
-    margin: 3rem;
+    font-size: 7rem;
+    padding: 2rem;
   }
 
   .tournamentContainer p {
-    font-size: 3rem; 
+    font-size: 3rem;
     text-align: center;
     width: 25vw;
     border-bottom: 1px solid black;
@@ -205,8 +209,8 @@
   }
 
   .list {
-    margin-top: 3rem; 
-    font-size: 2rem; 
+    margin-top: 3rem;
+    font-size: 2rem;
     text-align: center;
   }
 }
