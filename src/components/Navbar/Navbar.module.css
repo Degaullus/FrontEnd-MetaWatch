@@ -6,12 +6,13 @@
     display: flex;
     order: 3;
     flex-basis: 30%;
-    border: 3px solid aqua; /* red */
   }
   .profileContainer {
     display: flex;
-    flex-basis: 20%;
-    border: 3px solid slateblue;
+    /* flex-basis: 20%; */
+    align-items: center;
+    justify-content: center;
+    border: 3px solid khaki
   }
 
   .essentials {
@@ -27,9 +28,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid yellow;
     width: 100%;
-    height: 100%;
   }
 
 }
@@ -54,8 +53,7 @@
   .logoContainer {
     width: 100%;
     height: 90%;
-    border: 3px solid aqua;
-    padding-left: 5rem;
+    padding-left: 3rem;
   }
   .hamburgerContainer {
     display: none;
@@ -68,6 +66,7 @@
 
 .usernameContainer {
   border: 3px solid lightgreen;
+  overflow-y: hidden;
   color: white;
 }
 
@@ -103,7 +102,6 @@
 .logoContainer {
   display: flex;
   justify-content: center;
-
   width: 100%;
   order: 1;
 }
@@ -158,16 +156,20 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: center;
+  justify-content: stretch;
+  align-items: stretch;
 }
 
 .favorites {
-  margin: 0 auto;
-  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
   overflow-y: hidden;
   border: 3px solid lightpink; 
-  height: 100%;
   width: 100%;
+}
+
+favorites > div {
+  height: 100%;
 }
 
 .logoutContainer {
@@ -177,15 +179,14 @@
   cursor: pointer;
   overflow-y: hidden;
   border: 3px solid lightblue;
-  height: 34%;
   width: 100%;
   color: white;
 }
 
 .favCountContainer {
-  min-height: 30px;
   border: 3px solid lightcoral;
   color: white;
+  overflow-y: hidden;
 }
 
 .favoriteImg {
@@ -195,7 +196,6 @@
 
 
 .profileImg {
-  /* height: 50%; */
   right: 0;
   margin-right: 0;
   filter: invert(100%);
@@ -203,13 +203,13 @@
 
 .loginContainer {
   display: flex;
+  align-items: center;
   justify-content: center;
   position: relative;
-  margin-right: 3rem;
   margin-left: auto;
   flex-basis: 100%;
   overflow: hidden;
-  margin-right: 0;
+  margin-right: 3rem;
   color: white;
   font-size: 1.5rem;
 }
