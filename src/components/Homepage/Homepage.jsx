@@ -34,17 +34,24 @@ export default function Homepage() {
             We empower you to become a better Warhammer player by providing an
             easy access to tournament lists
           </p>
-          <p>
-            <u>Faction :</u> Quick access to factions' winnings lists for a
-            faction meta
-          </p>
-          <p>
-            <u>Format :</u> Deep dive into global meta results
-          </p>
-          <p>
-            <u>Search :</u> Search for events or units in winning lists
-          </p>
+          <div className={styles.headerP}>
+            <p>
+              <u>Faction :</u> <br />
+              Quick access to factions' winnings lists for a faction meta
+            </p>
+            <p>
+              <u>Format :</u> <br />
+              Deep dive into global meta results
+            </p>
+            <p>
+              <u>Search :</u> <br />
+              Search for events or units in winning lists
+            </p>
+          </div>
         </div>
+        <div className={styles.divider1}></div>
+        <div className={styles.divider2}></div>
+        <div className={styles.divider1}></div>
       </div>
 
       {isLoading ? (
@@ -54,9 +61,6 @@ export default function Homepage() {
         </div>
       ) : (
         <div>
-          <div className={styles.divider1}></div>
-          <div className={styles.divider2}></div>
-          <div className={styles.divider1}></div>
           <div className={styles.informationBackground}>
             <div className={styles.informationContainer}>
               <h2>Information</h2>
@@ -65,13 +69,34 @@ export default function Homepage() {
                 {Math.round(dataleng / 4)} tournaments.
               </p>
               <div className={styles.informationContainerP}>
-                <p>Format 1000k:  {format1000k?.length}</p>
-                <p>Format 1250k:  {format1250k?.length}</p>
-                <p>Format 1500k:  {format1500k?.length}</p>
-                <p>Format 1750k:  {format1750k?.length}</p>
-                <p>Format 2000k:  {format2000k?.length}</p>
-                <p>Format 2250k:  {format2250k?.length}</p>
-                <p>Format 2500k:  {format2500k?.length}</p>
+                <p>
+                  Format 1000: <br />
+                  {format1000k?.length}
+                </p>
+                <p>
+                  Format 1250: <br />
+                  {format1250k?.length}
+                </p>
+                <p>
+                  Format 1500: <br />
+                  {format1500k?.length}
+                </p>
+                <p>
+                  Format 1750: <br />
+                  {format1750k?.length}
+                </p>
+                <p>
+                  Format 2000: <br />
+                  {format2000k?.length}
+                </p>
+                <p>
+                  Format 2250: <br />
+                  {format2250k?.length}
+                </p>
+                <p>
+                  Format 2500: <br />
+                  {format2500k?.length}
+                </p>
               </div>
             </div>
             <div className={styles.divider1}></div>
