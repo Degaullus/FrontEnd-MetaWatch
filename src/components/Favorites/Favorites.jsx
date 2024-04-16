@@ -10,8 +10,8 @@ export default function Favorites() {
   const { decodedToken } = useJwt(token);
   const [flag, setFlag] = useState(false);
 
-  const localAPI = "http://localhost:8080";
-  // const deployedAPI = "https://backend-metawatch.onrender.com";
+  // const localAPI = "http://localhost:8080";
+  const deployedAPI = "https://backend-metawatch.onrender.com";
 
   useEffect(() => {
     const fetchFavoriteLists = async (listIds) => {
@@ -20,7 +20,7 @@ export default function Favorites() {
         const requests = listIds.map(async (id) => {
           console.log(id);
           try {
-            const response = await fetch(`${localAPI}/db/${id}`, {
+            const response = await fetch(`${deployedAPI}/db/${id}`, {
               headers: { Authorization: `Bearer ${token}` },
             });
             return await response.json();
@@ -43,7 +43,7 @@ export default function Favorites() {
 
     const getUserFavorites = async (userId) => {
       try {
-        const res = await fetch(`${localAPI}/users/${userId}`, {
+        const res = await fetch(`${deployedAPI}/users/${userId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -66,7 +66,7 @@ export default function Favorites() {
 
   const handleRemoveFavorite = async (id) => {
     try {
-      const res = await fetch(`${localAPI}/fav/rem/${id}`, {
+      const res = await fetch(`${deployedAPI}/fav/rem/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

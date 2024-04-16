@@ -15,7 +15,7 @@ export default function Authentication() {
   const localBackend = "http://localhost:8080/";
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = `${localBackend}${auth}`;
+    const url = `${backendUrl}${auth}`;
 
     let payload;
     if (auth === "login") {
