@@ -1,21 +1,53 @@
 .tournamentContainer {
-  margin: 5rem 5rem;
+  margin: 1rem 1.5rem;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 2rem;
+  gap: 1rem;
+}
+
+.tournamentContainerBg {
+  background-image: url("/bgblue.png");
+  background-size: contain;
+}
+
+.loadingContainer {
+  background-image: url("/bgyellow.png");
+  background-position: center;
+  background-size: cover;
 }
 
 .card {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 50px 100px 400px 250px 250px 150px;
-  border: 2px solid black;
-  padding: 2rem;
-  gap: 50px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  color: black;
+  padding: 1rem;
+  gap: 5px;
+  background-image: url("/bgyellow.png");
+  background-position: center;
+  background-size: cover;
 }
 
-.tournamentDetails:first-child {
-  font-weight: 1000;
+.tournamentInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tournamentName {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  
+}
+
+.tournamentButton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tournamentTitle {
+  font-size: 1.5rem;
 }
 
 .pointsButtonsContainer {
@@ -64,4 +96,25 @@
 
 button:hover {
   background-color: grey;
+}
+
+.divider1 {
+  background-image: url("/divider1.png");
+  background-size: cover;
+  height: 1vh;
+}
+
+.divider2 {
+  background-image: url("/divider2.png");
+  background-size: cover;
+  height: 10vh;
+}
+
+.topBackground {
+  background-image: url("/bgblue.png");
+  background-position: center;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 600px) {
 }

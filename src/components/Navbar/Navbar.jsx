@@ -21,53 +21,39 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (navbarRef.current && !navbarRef.current.contains(e.target)) {
+      if (isOpen && navbarRef.current && !navbarRef.current.contains(e.target)) {
         setIsOpen(false);
       }
     };
-    if (isOpen) {
       document.addEventListener("mouseup", handleClickOutside);
-    }
     return () => document.removeEventListener("mouseup", handleClickOutside);
   }, [isOpen]);
 
   const toggleMenu = () => setIsOpen((prevState) => !prevState);
 
   const handleNavigate = (path) => {
-    toggleMenu();
+    setIsOpen(false);
     navigate(path);
   };
 
-  const navContainerClassNames = `${styles.navContainer} ${
-    isMobile && isOpen ? styles.open : ""
-  }`;
-
   return (
     <nav className={styles.navbarContainer} ref={navbarRef}>
-      <div className={styles.logoContainer} onClick={() => handleNavigate("/")}>
-        <img
-          className={styles.oldWorldLogo}
-          src="/TheOldWorldLogo.png"
-          alt="logoOldworld"
-        />
+      <div className={styles.essentials}>
+        <div className={styles.logoContainer} onClick={() => handleNavigate("/")}>
+          <img className={styles.logoImg} src="/emblem.svg"alt="logoOldworld"/>
+        </div>
+        <div className={styles.hamburgerContainer} onClick={toggleMenu}>
+          <img className={styles.hamburgerImg} src="/hamburger.svg" alt="Menu" />
+        </div>
       </div>
-      <div className={navContainerClassNames}>
-        <div className={styles.navItem} onClick={() => handleNavigate("/")}>
-          Homepage
-        </div>
-        <div
-          className={styles.navItem}
-          onClick={() => handleNavigate("/faction")}
-        >
-          Faction
-        </div>
-        <div
-          className={styles.navItem}
-          onClick={() => handleNavigate("/format")}
-        >
-          Format
-        </div>
-        <SearchBar />
+
+      <div className={`${styles.navContainer} ${ isOpen ? styles.open : ""}`}>
+        <div className={styles.navItem} onClick={() => handleNavigate("/")}>Homepage</div>
+        <div className={styles.navItem} onClick={() => handleNavigate("/faction")}>Faction</div>
+        <div className={styles.navItem} onClick={() => handleNavigate("/format")}>Format</div>
+        <div className={styles.searchBarContainer}><SearchBar /></div>
+      </div>
+      <div className={styles.profileContainer}>
         {token ? (
           <div className={styles.profileContainer}>
             <div
@@ -83,6 +69,9 @@ export default function Navbar() {
             <div className={styles.logout} onClick={handleLogout}>
               Logout
             </div>
+          ) : (
+            <div className={styles.loginContainer} onClick={() => handleNavigate("/authentication")}>Login</div>
+          ) }
           </div>
         ) : (
           <>

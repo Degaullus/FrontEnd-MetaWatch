@@ -1,27 +1,132 @@
+.headerBackground {
+  background-image: url("/bgyellow.png");
+  background-position: center;
+  background-size: cover;
+}
+
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 5rem 0 5rem 0;
+}
+
+.header h1 {
+  color: rgba(4, 94, 116, 255);
+}
+
+.informationBackground {
+  background-image: url("/bgblue.png");
+  background-position: center;
+  background-size: cover;
 }
 
 .informationContainer {
-  padding: 2rem;
-  margin: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  border: 1px solid black;
+}
+
+.informationContainer h2 {
+  color: rgb(155, 131, 90);
+}
+
+.informationContainer p {
+  color: white;
+}
+
+.tournamentBackground {
+  background-image: url("/bgyellow.png");
+  background-position: center;
+  background-size: cover;
 }
 
 .tournamentContainer {
-  padding: 2rem;
-  margin: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  border: 1px solid black;
+}
+
+.tournamentContainer h3 {
+  color: rgba(4, 94, 116, 255);
+}
+
+.divider1 {
+  background-image: url("/divider1.png");
+  background-size: cover;
+  height: 1vh;
+}
+
+.divider2 {
+  background-image: url("/divider2.png");
+  background-size: cover;
+  height: 10vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    min-height: 45vh;
+    margin: 1rem 0.5rem;
+  }
+  .header h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  .header > p {
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  .headerP {
+    font-size: 1, 25rem;
+    font-weight: 500;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    text-align: center;
+  }
+  .informationContainer {
+    min-height: 50vh;
+    margin: 0.5rem 1.5rem 2rem 1.5rem;
+    text-align: center;
+  }
+  .informationContainer h2 {
+    margin: 1rem 0 1.5rem 0;
+    font-size: 4.5rem;
+  }
+  .informationContainer > p {
+    font-size: 2rem;
+    margin: 0 1.5rem 2rem 1.5rem;
+  }
+  .informationContainerP {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0.5rem 2rem;
+    gap: 20px;
+  }
+  .tournamentContainer {
+    min-height: 240vh;
+  }
+  .tournamentContainer h3 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0.5rem 1rem 3rem 1rem;
+  }
+  .tournamentContainer p {
+    margin: 1rem 4rem 0rem 4rem;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 1.5rem;
+    width: 50vw;
+  }
+  .tournamentContainer p:nth-child(6n) {
+    border-bottom: none;
+  }
+  .list {
+    font-weight: 600;
+    margin-top: 2rem;
+    text-align: center;
+  }
 }

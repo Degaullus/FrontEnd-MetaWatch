@@ -1,9 +1,10 @@
 import FadeLoader from "react-spinners/FadeLoader";
-export default function LoadingSpinner() {
+import styles from "./LoadingSpinner.module.css"
 
+export default function LoadingSpinner() {
   return (
-    <div>
-      <FadeLoader color="#36d7b7" />
+    <div className={styles.loader}>
+      <FadeLoader color="black" />
     </div>
   );
 }

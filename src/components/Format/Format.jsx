@@ -40,11 +40,9 @@ export default function Format() {
     const date1 = new Date(entry1.date);
     const date2 = new Date(entry2.date);
 
-    // Primary sorting criterion: date (newest first)
     if (date1 > date2) return -1;
     if (date1 < date2) return 1;
 
-    // Secondary sorting criterion: rank (1st to 4th)
     const rankOrder = {
       "1st": 1,
       "2nd": 2,

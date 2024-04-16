@@ -8,7 +8,7 @@ export default function Homepage() {
   const dataleng = data?.length;
   const format2500k = data?.filter((entry) => entry.format == "2500");
   const format2250k = data?.filter((entry) => entry.format == "2250");
-  const format2k = data?.filter((entry) => entry.format == "2000");
+  const format2000k = data?.filter((entry) => entry.format == "2000");
   const format1750k = data?.filter((entry) => entry.format == "1750");
   const format1500k = data?.filter((entry) => entry.format == "1500");
   const format1250k = data?.filter((entry) => entry.format == "1250");
@@ -22,14 +22,35 @@ export default function Homepage() {
   });
   //display last list
   const lastList = dataLastListsPreSlice?.slice(0, 1);
+  
   return (
     <div>
-      <div className={styles.header}>
-        <h1>Welcome to MetaHammer</h1>
-        <p>Hey Nerds, das ist der alpha Test, danke für's Probieren!</p>
-        <p>
-          Die Ladezeit für alle Turnierdaten kann bis zu 50 Sekunden betragen!
-        </p>
+      <div className={styles.divider1}></div>
+      <div className={styles.headerBackground}>
+        <div className={styles.header}>
+          <h1>Welcome to MetaHammer</h1>
+          <p>
+            We empower you to become a better Warhammer player by providing an
+            easy access to tournament lists
+          </p>
+          <div className={styles.headerP}>
+            <p>
+              <u>Faction :</u> <br />
+              Quick access to factions' winnings lists for a faction meta
+            </p>
+            <p>
+              <u>Format :</u> <br />
+              Deep dive into global meta results
+            </p>
+            <p>
+              <u>Search :</u> <br />
+              Search for events or units in winning lists
+            </p>
+          </div>
+        </div>
+        <div className={styles.divider1}></div>
+        <div className={styles.divider2}></div>
+        <div className={styles.divider1}></div>
       </div>
 
       {isLoading ? (
@@ -39,34 +60,73 @@ export default function Homepage() {
         </div>
       ) : (
         <div>
-          <div className={styles.informationContainer}>
-            <h2>Information</h2>
-            <p>
-              You have access to {dataleng} winning lists from{" "}
-              {Math.round(dataleng / 4)} tournaments.
-            </p>
-            <p>Format 2500k: {format2500k?.length}</p>
-            <p>Format 2250k: {format2250k?.length}</p>
-            <p>Format 2k: {format2k?.length}</p>
-            <p>Format 1750k: {format1750k?.length}</p>
-            <p>Format 1500k: {format1500k?.length}</p>
-            <p>Format 1250k: {format1250k?.length}</p>
-            <p>Format 1000k: {format1000k?.length}</p>
+          <div className={styles.informationBackground}>
+            <div className={styles.informationContainer}>
+              <h2>Information</h2>
+              <p>
+                You have access to {dataleng} winning lists from{" "}
+                {Math.round(dataleng / 4)} tournaments.
+              </p>
+              <div className={styles.informationContainerP}>
+                <p>
+                  Format 1000: <br />
+                  {format1000k?.length}
+                </p>
+                <p>
+                  Format 1250: <br />
+                  {format1250k?.length}
+                </p>
+                <p>
+                  Format 1500: <br />
+                  {format1500k?.length}
+                </p>
+                <p>
+                  Format 1750: <br />
+                  {format1750k?.length}
+                </p>
+                <p>
+                  Format 2000: <br />
+                  {format2000k?.length}
+                </p>
+                <p>
+                  Format 2250: <br />
+                  {format2250k?.length}
+                </p>
+                <p>
+                  Format 2500: <br />
+                  {format2500k?.length}
+                </p>
+              </div>
+            </div>
+            <div className={styles.divider1}></div>
           </div>
 
           {lastList?.map((entry) => (
-            <div className={styles.tournamentContainer} key={entry._id}>
-              <h3>Last tournament winning List</h3>
-              <p>{entry.tournament}</p>
-              <p>{entry.date}</p>
-              <p>{entry.army}</p>
-              <p>{entry.format}</p>
-              <p>{entry.rank.slice(1)}st</p>
-              <div className={styles.list} style={{ whiteSpace: "pre-wrap" }}>
-                {entry.list}
+            <div className={styles.tournamentBackground}>
+              <div className={styles.tournamentContainer} key={entry._id}>
+                <h3>Most recent tournament winning list</h3>
+                <p>
+                  <strong>{entry.tournament}</strong>
+                </p>
+                <p>
+                  <strong>{entry.date}</strong>
+                </p>
+                <p>
+                  <strong>{entry.army}</strong>
+                </p>
+                <p>
+                  <strong>{entry.format} pts.</strong>
+                </p>
+                <p>
+                  <strong>{entry.rank.slice(1)}st rank</strong>
+                </p>
+                <div className={styles.list} style={{ whiteSpace: "pre-wrap" }}>
+                  {entry.list}
+                </div>
               </div>
             </div>
           ))}
+          <div className={styles.divider1}></div>
         </div>
       )}
     </div>
