@@ -5,17 +5,13 @@
   .hamburgerContainer {
     display: flex;
     order: 3;
-    flex-basis: 30%;
+    flex-basis: 40%;
+    border: 3px solid aqua; /* red */
   }
   .profileContainer {
     display: flex;
-    flex-basis: 100%;
-    border: 3px solid yellow;
-  }
-  .navbarContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-basis: 20%;
+    border: 3px solid slateblue;
   }
 
   .essentials {
@@ -23,9 +19,18 @@
   }
 
   .logoContainer {
-    flex-basis: 50%;
-    height: 90%;
-    margin-right: 10%;
+    flex-basis: 60%;
+    height: 100%;
+    
+  }
+
+  .loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid yellow;
+    width: 100%;
+    height: 100%;
   }
 
 }
@@ -40,7 +45,7 @@
     font-size: 1.5rem;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
-    width: 60%;
+    flex-basis: 60%;
     cursor: pointer;
     color: white;
     height: 100%;
@@ -49,7 +54,9 @@
 
   .logoContainer {
     width: 100%;
-      height: 90%;
+    height: 90%;
+    border: 3px solid aqua;
+    padding-left: 5rem;
   }
   .hamburgerContainer {
     display: none;
@@ -58,7 +65,11 @@
   .profileContainer {
     width: 20%;
   }
+}
 
+.usernameContainer {
+  border: 3px solid lightgreen;
+  color: white;
 }
 
 .essentials {
@@ -84,8 +95,6 @@
   transition: 0.3s ease-in-out;
   background-color: black;
 }
-
-
 
 .navItem {
   padding: 10px 20px;
@@ -122,13 +131,12 @@
 
 .navContainer.open {
   display: flex;
-  font-family: "Anton", sans-serif;
+  width: 100%;
   font-size: 1.5rem;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   height: 50vh;
-  width: 100%;
   background-color: black;
   position: fixed;
   top: 0;
@@ -139,6 +147,10 @@
   color: white;
 }
 
+.navContainer {
+  font-family: "Anton", sans-serif;
+}
+
 .searchBarContainer {
   border-radius: 3px;
 }
@@ -146,7 +158,6 @@
 .profileContainer {
   display: flex;
   flex-direction: column;
-
   height: 100%;
   justify-content: center;
 }
@@ -155,26 +166,32 @@
   margin: 0 auto;
   font-size: 1.1rem;
   overflow-y: hidden;
-  filter: invert(100%);
+  border: 3px solid lightpink; /* dark green */
+  height: 100%;
+  width: 100%;
 }
 
-.logout {
-  filter: invert(100%);
+.logoutContainer {
+  display: flex;
+  align-items: center;
   font-size: 0.7rem;
   cursor: pointer;
-  margin: 0 auto;
   overflow-y: hidden;
-
+  border: 3px solid lightblue;
+  height: 34%;
+  width: 100%;
+  color: white;
 }
 
 .favCountContainer {
-  height: 30px;
+  min-height: 30px;
+  border: 3px solid lightcoral;
+  color: white;
 }
 
 .favoriteImg {
-  width: 20px;
+  max-width: 20px;
   margin: 0 0.4rem 0.3rem;
-  filter: invert(100%);
 }
 
 
