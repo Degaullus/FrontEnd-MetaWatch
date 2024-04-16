@@ -20,7 +20,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (navbarRef.current && !navbarRef.current.contains(e.target)) {
+      if (isOpen && navbarRef.current && !navbarRef.current.contains(e.target)) {
         setIsOpen(false);
       }
     };
@@ -33,80 +33,48 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen((prevState) => !prevState);
 
   const handleNavigate = (path) => {
-    toggleMenu();
+    setIsOpen(false);
     navigate(path);
   };
 
-  const navContainerClassNames = `${styles.navContainer} ${
-    isMobile && isOpen ? styles.open : ""
-  }`;
-
   return (
     <nav className={styles.navbarContainer} ref={navbarRef}>
-            {isMobile && (
-        <div className={styles.hamburger} onClick={toggleMenu}>
-          <img src="/hamburger.svg" alt="Menu" />
+      <div className={styles.essentials}>
+        <div className={styles.logoContainer} onClick={() => handleNavigate("/")}>
+          <img className={styles.logoImg} src="/TheOldWorldLogo.png"alt="logoOldworld"/>
+        </div>
+        {isMobile && (
+        <div className={styles.hamburgerContainer} onClick={toggleMenu}>
+          <img className={styles.hamburgerImg} src="/hamburger.svg" alt="Menu" />
         </div>
       )}
-      <div className={styles.logoContainer} onClick={() => handleNavigate("/")}>
-        <img
-          className={styles.oldWorldLogo}
-          src="/TheOldWorldLogo.png"
-          alt="logoOldworld"
-        />
       </div>
-      <div className={navContainerClassNames}>
-        <div className={styles.navItem} onClick={() => handleNavigate("/")}>
-          Homepage
-        </div>
-        <div
-          className={styles.navItem}
-          onClick={() => handleNavigate("/faction")}
-        >
-          Faction
-        </div>
-        <div
-          className={styles.navItem}
-          onClick={() => handleNavigate("/format")}
-        >
-          Format
-        </div>
+
+      <div className={`${styles.navContainer} ${isMobile && isOpen ? styles.open : ""}`}>
+        <div className={styles.navItem} onClick={() => handleNavigate("/")}>Homepage</div>
+        <div className={styles.navItem} onClick={() => handleNavigate("/faction")}>Faction</div>
+        <div className={styles.navItem} onClick={() => handleNavigate("/format")}>Format</div>
         <div className={styles.searchBarContainer}><SearchBar /></div>
-        </div>
+      </div>
         {token ? (
           <div className={styles.profileContainer}>
             <div className={styles.favorites} onClick={() => handleNavigate("/favorites")}>
-              <div className={styles.loggedInAs}>
-                <span className={styles.logged}></span>
-                <span className={styles.inas}>{username}</span>
-              </div>
-              <div className={styles.favCount}>
-                {favCount}
+              <div className={styles.usernameContainer}>{username}</div>
+              <div className={styles.favCountContainer}>{favCount}
                 <img className={styles.favoriteImg} src="/favorite.svg" alt="Favorites" />
               </div>
             </div>
             {!isMobile && (
-              <div className={styles.logout} onClick={handleLogout}>Logout</div>
-            )}
+            <div className={styles.logout} onClick={handleLogout}>Logout</div>)}
           </div>
-        ) : (
-          !isMobile ? (
-            <div className={styles.loginContainer} onClick={() => handleNavigate("/authentication")}>
-              Login
-            </div>
+        ) : (!isMobile ? (
+            <div className={styles.loginContainer} onClick={() => handleNavigate("/authentication")}>Login</div>
           ) : (
             <div className={styles.profileContainer} onClick={() => handleNavigate("/authentication")}>
               <img className={styles.profileImg} src="/profile.svg" alt="Profile" />
             </div>
           )
         )}
-      {isMobile && (
-        <>
-        <div className={styles.searchContainer} onClick={toggleMenu}>
-          <img className={styles.searchIcon} src="/search.svg" alt="Search" />
-        </div>
-        </>
-      )}
     </nav>
   );
 }
