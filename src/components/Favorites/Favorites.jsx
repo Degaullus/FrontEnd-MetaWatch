@@ -8,6 +8,7 @@ export default function Favorites() {
   const [loading, setLoading] = useState(false);
   const { token } = useContext(AuthContext);
   const { decodedToken } = useJwt(token);
+  const [flag, setFlag] = useState(false);
 
   const localAPI = "http://localhost:8080";
   // const deployedAPI = "https://backend-metawatch.onrender.com";
@@ -58,9 +59,27 @@ export default function Favorites() {
     if (token && decodedToken?._id) {
       getUserFavorites(decodedToken._id);
     }
-  }, [token, decodedToken?._id]);
+  }, [token, decodedToken?._id, flag]);
 
   console.log(favorites);
+  console.log(token);
+
+  const handleRemoveFavorite = async (id) => {
+    try {
+      const res = await fetch(`${localAPI}/fav/rem/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+      setFlag(!flag);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -70,7 +89,15 @@ export default function Favorites() {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            favorites.map((list) => <div key={list._id}>{list.army}</div>)
+            favorites.map((list) => (
+              <div key={list._id}>
+                <div className={style.listHeader}>{list.army}</div>
+                <div className={style.listBody}>{list.list}</div>
+                <button onClick={() => handleRemoveFavorite(list._id)}>
+                  Remove
+                </button>
+              </div>
+            ))
           )}
         </div>
       </div>
