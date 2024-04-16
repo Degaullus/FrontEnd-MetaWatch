@@ -2,17 +2,57 @@
   .navContainer {
     display: none;
   }
-  .hamburger {
-    display: block;
+  .hamburgerContainer {
+    display: flex;
+    order: 3;
   }
   .profileContainer {
     display: block;
   }
-
-  .navContainer.open * {
-    color: var(--terciary-color);
-    font-size: 1.9rem;
+  .navbarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  .essentials {
+    width: 80%;
+  }
+}
+
+@media (min-width: 601px) {
+
+  .hamburger {
+    display: none;
+  }
+  .navContainer {
+    display: flex; 
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    width: 60%;
+    cursor: pointer;
+    color: white;
+    height: 100%;
+    align-items: center;
+  }
+
+  .logoContainer {
+    width: 100%;
+  }
+}
+
+.essentials {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.mobileDivs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .navbarContainer {
@@ -29,38 +69,35 @@
   filter: blur(0.8px);
 }
 
-.navContainer {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
-  width: 100%;
-  cursor: pointer;
-  color: white;
-}
-
 .navItem {
   padding: 10px 20px;
   cursor: pointer;
 }
 
 .logoContainer {
-  width: 250px;
-  height: calc(var(--navbar-height) - 2 * var(--navbar-border-width));
+  height: 90%;
+  width: 100%;
+  order: 1;
 }
 
-
-.oldWorldLogo {
+.logoImg {
   cursor: pointer;
-  height: calc(var(--navbar-height) - 2 * var(--navbar-border-width))
+  height: 100%;
 }
 
-.hamburger {
-  display: none;
+.hamburgerContainer {
+  order: 0;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 0 2rem;
+  width: 20%;
   filter: invert(100%);
+  height: 100%;
+}
+
+.hamburgerImg {
+  height: 60%;
+  width: 60%;
 }
 
 .navContainer.open {
@@ -70,13 +107,14 @@
   justify-content: space-around;
   height: 30vh;
   width: 100%;
-  background-image: url('bgblue.png');
+  background-color: black;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
   transition: transform 0.5s ease-in-out;
   opacity: 0.85;
+  color: white;
 }
 
 .searchBarContainer {
@@ -86,25 +124,9 @@
 .profileContainer {
   display: flex;
   flex-direction: column;
-  width: 10%;
-  margin-right: 0;
-}
-
-.loggedInAs {
-  font-size: 1rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  display: block;
-}
-
-.logged {
-  font-size: 0.7rem;
-}
-
-.inas {
-  color: white;
-  filter: invert(100%);
-  font-size: 1.2rem;
+  width: 20%;
+  height: 100%;
+  justify-content: center;
 }
 
 .favorites {
@@ -123,7 +145,7 @@
 
 }
 
-.favCount {
+.favCountContainer {
   height: 30px;
 }
 
@@ -152,12 +174,6 @@
   margin-right: 0;
   color: white;
   font-size: 1.5rem;
-}
-
-.searchContainer {
-  height: calc(var(--navbar-height));
-  margin-right: 0.7rem;
-  border: 3px solid red;
 }
 
 .searchIcon {
