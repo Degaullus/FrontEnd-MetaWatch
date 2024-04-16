@@ -2,8 +2,9 @@ import styles from "./FactionSelected.module.css";
 import { useContext, useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
-import { APIContext } from "../../context/APIContextProvider";
+import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function FactionSelected() {
   const [openModalId, setOpenModalId] = useState(null);
@@ -12,8 +13,12 @@ export default function FactionSelected() {
   const [points, setPoints] = useState(0);
   const [sortList, setSortList] = useState("descDate");
   const navigate = useNavigate();
-  const [listCopied, setListCopied] = useState(false);
-  // console.log(isLoading);
+  const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
+  const { token } = useContext(AuthContext);
+
+  const localAPI = "http://localhost:8080";
+  // const deployedAPI = "https://backend-metawatch.onrender.com";
+
 
   //format Ranks
   const formatRank = (rank) => {
@@ -102,6 +107,22 @@ export default function FactionSelected() {
     setTimeout(() => {
       setListCopied(false);
     }, 3000); // Reset copied state after 3 seconds
+  };
+
+  const handleSaveToFavs = async (id) => {
+    try {
+      const res = await fetch(`${localAPI}/fav/add/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -262,6 +283,20 @@ export default function FactionSelected() {
                           ? "Copied!"
                           : "Copy List"}
                       </button>
+                      
+                      <br />
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={(e) => {
+                          handleSaveToFavs(entry._id);
+                          e.stopPropagation();
+                          setOpenModalId(null);
+                        }}
+                      >
+                        Save to Favorites
+                      </button>
+                      
                       {/* commented out for test version purpose */}
                       {/*  <button>Add to favorites</button> */}
                     </div>

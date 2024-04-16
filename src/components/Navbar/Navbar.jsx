@@ -2,13 +2,17 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../context/AuthContext";
+import { useJwt } from "react-jwt";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const isMobile = false;
   const navbarRef = useRef(null);
   const navigate = useNavigate();
-  const { token, logout, username, favCount } = useContext(AuthContext);
+  const { token, logout } = useContext(AuthContext);
+
+  const { decodedToken } = useJwt(token);
 
   const handleLogout = () => {
     logout();
@@ -51,17 +55,46 @@ export default function Navbar() {
       </div>
       <div className={styles.profileContainer}>
         {token ? (
-            <div className={styles.favorites} onClick={() => handleNavigate("/favorites")}>
-              <div className={styles.usernameContainer}>{username}</div>
-              <div className={styles.favCountContainer}>{favCount}
-                <img className={styles.favoriteImg} src="/favorite.svg" alt="Favorites" />
+          <div className={styles.profileContainer}>
+            <div
+              className={styles.favorites}
+              onClick={() => handleNavigate("/favorites")}
+            >
+              <div className={styles.loggedInAs}>
+                <span className={styles.logged}></span>
+                <span className={styles.inas}>{decodedToken?.username}</span>
               </div>
-              <div className={styles.logoutContainer} onClick={handleLogout}>Logout</div>)
+              <img className={styles.favoriteImg} src="/favorite.svg" />
+            </div>
+            <div className={styles.logout} onClick={handleLogout}>
+              Logout
             </div>
           ) : (
             <div className={styles.loginContainer} onClick={() => handleNavigate("/authentication")}>Login</div>
           ) }
           </div>
+        ) : (
+          <>
+            <div
+              className={styles.navItem}
+              onClick={() => handleNavigate("/login")}
+            >
+              Login
+            </div>
+            <div
+              className={styles.navItem}
+              onClick={() => handleNavigate("/signup")}
+            >
+              Signup
+            </div>
+          </>
+        )}
+      </div>
+      {isMobile && (
+        <div className={styles.hamburger} onClick={toggleMenu}>
+          <img src="/hamburger.svg" alt="Menu" />
+        </div>
+      )}
     </nav>
   );
 }

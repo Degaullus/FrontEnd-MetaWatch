@@ -1,6 +1,6 @@
 import styles from "./Format.module.css";
 import { useContext, useState } from "react";
-import { APIContext } from "../../context/APIContextProvider";
+import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function Format() {
