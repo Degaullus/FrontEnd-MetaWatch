@@ -1,29 +1,31 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Authentication.module.css";
-import { AuthContext } from "../../context/authContext";
 
 
 export default function Authentication() {
-    const { login } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
     const [auth, setAuth] = useState("login");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const navigate = useNavigate();
     const [error, setError] = useState("");
-    const backendUrl = 'https://backend-metawatch.onrender.com/';
+    const [token, setToken] = useState(localStorage.getItem('token') || null);
+    const backendURL = 'https://backend-metawatch.onrender.com/';
+    const localURL = 'http://localhost:8080/';
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const url = `${backendUrl}${auth}`;
+        const url = `${localURL}${auth}`;
 
         let payload;
         if (auth === "login") {
             payload = username
                 ? { username, password }
                 : { email, password };
-        } else { // For signup, both are required
+        } else { 
             payload = { username, email, password };
         }
 
@@ -35,14 +37,22 @@ export default function Authentication() {
             body: JSON.stringify(payload),
         });
         const data = await response.json();
-
+        console.log('Response:', response)
         if (response.ok) {
-            login(data.token, { username: data.username, email: data.email, favCount: data.favCount, favorites: data.favorites});
+            // console.log('data ok:', data);
+            localStorage.setItem('token', data.token);
+            setToken(data.token);
             navigate('/');
             setError("");
         } else {
             throw new Error(data.message || 'Error sending POST request in authentication component');
         }
+        if (!response.ok) {
+            const errorText = data.message || 'Authentication failed.';
+            setError(errorText);
+            console.error('Authentication error:', errorText);
+        }
+
     } catch (error) {
         console.error('Fetch error:', error.message);
         setError('Failed to communicate with the server from the authentication component.');
