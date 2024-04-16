@@ -1,28 +1,86 @@
 .container {
-  position: absolute;
+  margin: 0;
+  background-color: #000000; /* Dark theme footer */
+  color: #f0f0f0; /* Light text for contrast */
+  text-align: center;
+  font-family: "Arial", sans-serif;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  justify-content: space-evenly;
+  padding-top: 1rem;
+  gap: 1rem; /* Adequate spacing between sections */
+}
+
+.containerTop {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem; /* Spacing between sections */
+}
+
+.containerLow {
+  text-align: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 1rem 0;
-  border-top: 1px solid #e0e0e0;
-  background-color: gray;
-  width: 100%;
-  height: 15rem;
 }
 
 .footerIcons {
   display: flex;
-  gap: 0.7rem;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Adequate spacing between icons */
 }
-
 
 .icon {
-  font-size: 2rem;
-  color: white;
-  height: 2rem;
+  width: auto; /* Larger icons for better accessibility */
+  height: 40px;
+  transition: transform 0.3s ease-in-out;
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  border-radius: 50%; /* Circular icons for a modern look */
+  margin-bottom: 1rem; /* Spacing between icons */
 }
 
-.footerIcons:hover img:not(:hover) {
-  filter: blur(0.5px);
+.icon:hover {
+  transform: scale(1.1); /* Slight scale on hover for interaction */
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: rebeccapurple; /* Maintains color consistency */
+}
+
+h6 {
+  font-size: 0.75rem;
+  color: #ccc; /* Slightly lighter text for the smaller font */
+}
+.footerSection p {
+  color: #ccc; /* Light gray for legibility on darker backgrounds */
+  font-size: 0.75rem; /* Smaller text size for footer details */
+  margin: 0; /* Remove default margin for cleaner alignment */
+}
+
+.footerSection {
+  text-align: center;
+}
+
+.footerSectionLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+.footerSectionCont {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footerSectionLinks a {
+  color: white; /* Light gray for legibility on darker backgrounds */
+  margin: 0; /* Remove default margin for cleaner alignment */
 }
