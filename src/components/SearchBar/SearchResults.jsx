@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import { APIContext } from "../../context/APIContextProvider";
+import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import SearchInput, { createFilter } from "react-search-input";
 import styles from "./SearchResults.module.css";

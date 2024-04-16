@@ -1,4 +1,3 @@
-import { useWindowSizeContext } from "../../context/WindowSizeContext";
 import styles from "./Footer.module.css";
 
 function Footer() {

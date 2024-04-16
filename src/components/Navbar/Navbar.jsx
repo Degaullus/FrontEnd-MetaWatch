@@ -2,16 +2,17 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
-import { useWindowSizeContext } from "../../context/WindowSizeContext";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../context/AuthContext";
+import { useJwt } from "react-jwt";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { device } = useWindowSizeContext();
-  const isMobile = device === "mobile";
+  const isMobile = false;
   const navbarRef = useRef(null);
   const navigate = useNavigate();
-  const { token, logout, username, favCount } = useContext(AuthContext);
+  const { token, logout } = useContext(AuthContext);
+
+  const { decodedToken } = useJwt(token);
 
   const handleLogout = () => {
     logout();
@@ -75,9 +76,8 @@ export default function Navbar() {
             >
               <div className={styles.loggedInAs}>
                 <span className={styles.logged}></span>
-                <span className={styles.inas}>{username}</span>
+                <span className={styles.inas}>{decodedToken?.username}</span>
               </div>
-              {favCount}
               <img className={styles.favoriteImg} src="/favorite.svg" />
             </div>
             <div className={styles.logout} onClick={handleLogout}>
@@ -85,12 +85,20 @@ export default function Navbar() {
             </div>
           </div>
         ) : (
-          <div
-            className={styles.navItem}
-            onClick={() => handleNavigate("/authentication")}
-          >
-            Login
-          </div>
+          <>
+            <div
+              className={styles.navItem}
+              onClick={() => handleNavigate("/login")}
+            >
+              Login
+            </div>
+            <div
+              className={styles.navItem}
+              onClick={() => handleNavigate("/signup")}
+            >
+              Signup
+            </div>
+          </>
         )}
       </div>
       {isMobile && (
