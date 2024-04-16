@@ -30,6 +30,9 @@ export default function Faction() {
       <h2>Choose your Faction</h2>
       </div>
       <div className={styles.divider1}></div>
+      <div className={styles.emblem}>
+        <img className={styles.emblemImg} src="/emblem.svg" alt="MetaHammerLogo" />
+      </div>
       <div className={styles.divider3}></div>
       <div className={styles.buttonContainer}>
         {factions.map((faction) => (

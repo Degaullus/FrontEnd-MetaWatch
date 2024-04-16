@@ -106,69 +106,76 @@ export default function FactionSelected() {
 
   return (
     <>
-      <div className={styles.header}>
-        <button onClick={() => navigate(-1)}> ⬅ Back to all Factions</button>
-        <h2>{`${id.replace("-", " ").replace("-", " ")} winning lists`}</h2>
-      </div>
+      <div className={styles.divider1}></div>
+      <div className={styles.topBackground}>
+        <div className={styles.header}>
+          <button onClick={() => navigate(-1)}> ⬅ Back to all Factions</button>
+          <h2>{`${id.replace("-", " ").replace("-", " ")} winning lists`}</h2>
+        </div>
 
-      <div className={styles.pointsButtonsContainer}>
-        <button
-          className={styles.pointsButtons}
-          onClick={() => setPoints(2000)}
-        >
-          2000 Points
-        </button>
-        <button
-          className={styles.pointsButtons}
-          onClick={() => setPoints(1500)}
-        >
-          1500 Points
-        </button>
-        <button
-          className={styles.pointsButtons}
-          onClick={() => setPoints(1250)}
-        >
-          1250 Points
-        </button>
-        <button className={styles.pointsButtons} onClick={() => setPoints(50)}>
-          Other
-        </button>
-        <button className={styles.pointsButtons} onClick={() => setPoints(0)}>
-          All tournaments
-        </button>
-      </div>
+        <div className={styles.pointsButtonsContainer}>
+          <button
+            className={styles.pointsButtons}
+            onClick={() => setPoints(2000)}
+          >
+            2000 Points
+          </button>
+          <button
+            className={styles.pointsButtons}
+            onClick={() => setPoints(1500)}
+          >
+            1500 Points
+          </button>
+          <button
+            className={styles.pointsButtons}
+            onClick={() => setPoints(1250)}
+          >
+            1250 Points
+          </button>
+          <button
+            className={styles.pointsButtons}
+            onClick={() => setPoints(50)}
+          >
+            Other
+          </button>
+          <button className={styles.pointsButtons} onClick={() => setPoints(0)}>
+            All tournaments
+          </button>
+        </div>
 
-      <div className={styles.sortButtonsContainer}>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("ascDate")}
-        >
-          Date ⬆️
-        </button>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("descDate")}
-        >
-          Date ⬇️
-        </button>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("descDate")}
-        >
-          Reset
-        </button>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("ascRank")}
-        >
-          Rank ⬇️
-        </button>
-        <button
-          className={styles.sortButtons}
-          onClick={() => setSortList("descRank")}
-        >
-          Rank ⬆️
-        </button>
+        <div className={styles.sortButtonsContainer}>
+          <button
+            className={styles.sortButtons}
+            onClick={() => setSortList("ascDate")}
+          >
+            Date ⬆️
+          </button>
+          <button
+            className={styles.sortButtons}
+            onClick={() => setSortList("descDate")}
+          >
+            Date ⬇️
+          </button>
+          <button
+            className={styles.sortButtons}
+            onClick={() => setSortList("descDate")}
+          >
+            Reset
+          </button>
+          <button
+            className={styles.sortButtons}
+            onClick={() => setSortList("ascRank")}
+          >
+            Rank ⬇️
+          </button>
+          <button
+            className={styles.sortButtons}
+            onClick={() => setSortList("descRank")}
+          >
+            Rank ⬆️
+          </button>
+        </div>
+        <div className={styles.divider1}></div>
       </div>
 
       {isLoading ? (
@@ -181,29 +188,43 @@ export default function FactionSelected() {
           <div className={styles.tournamentContainer}>
             {filteredData.map((entry, index) => (
               <li key={index} className={styles.card}>
-                <p className={styles.tournamentDetails}>
-                  {formatRank(entry.rank)}
-                </p>
-                <p className={styles.tournamentDetails}>{entry.format} pts </p>
-                <p className={styles.tournamentDetails}>{entry.tournament}</p>
-                {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
-                <p className={styles.tournamentDetails}> {entry.location}</p>
-                <p
-                  className={styles.tournamentDetails}
-                  style={{ fontStyle: "italic" }}
-                >
-                  {entry.date}
-                </p>
-                <button
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target={"#listModal" + index}
-                  onClick={() => setOpenModalId(index)}
-                  className="btn btn-primary"
-                  disabled={entry.list == "No list submitted"}
-                >
-                  Show army list
-                </button>
+                <div className={styles.tournamentInfo}>
+                  <div className={styles.tournamentName}>
+                    <p className={styles.tournamentDetails}>
+                      {formatRank(entry.rank)}
+                    </p>
+                    <p className={styles.tournamentDetails}>
+                      {entry.format} pts{" "}
+                    </p>
+                    <p
+                      className={styles.tournamentDetails}
+                      style={{ fontStyle: "italic" }}
+                    >
+                      {entry.date}
+                    </p>
+                  </div>
+
+                  <p className={styles.tournamentTitle}>{entry.tournament}</p>
+                  {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
+                  <div className={styles.tournamentLocation}>
+                    
+                    <p style={{ fontStyle: "italic" }}> {entry.location}
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.tournamentButton}>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target={"#listModal" + index}
+                    onClick={() => setOpenModalId(index)}
+                    className="btn btn-primary"
+                    disabled={entry.list == "No list submitted"}
+                  >
+                    Show army list
+                  </button>
+                </div>
+
                 <div
                   className="modal"
                   id={"listModal" + index}
@@ -249,6 +270,7 @@ export default function FactionSelected() {
               </li>
             ))}
           </div>
+          <div className={styles.divider1}></div>
         </div>
       ) : (
         <p>{`No data found containing ${id} in the army name.`}</p>
