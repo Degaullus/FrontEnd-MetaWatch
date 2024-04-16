@@ -1,3 +1,16 @@
+.factionHeadline {
+  background-image: url("bgyellow.png");
+  background-position: center;
+  background-size: cover;
+  color: rgba(4, 94, 116, 255);
+}
+
+.factionBackground {
+  background-image: url("bgblue.png");
+  background-position: center;
+  background-size: cover;
+}
+
 .buttonContainer {
   margin: 5rem;
   display: grid;
@@ -8,4 +21,53 @@
 .button {
   padding: 3rem;
   font-size: 1.5rem;
+}
+
+.divider1 {
+  background-image: url("divider1.png");
+  background-size: cover;
+  height: 1vh;
+}
+
+.divider2 {
+  background-image: url("divider2.png");
+  background-size: cover;
+  height: 10vh;
+}
+
+.divider3 {
+  background-image: url("divider3.png");
+  background-size: contain;
+  height: 1vh;
+  margin: 2rem 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .factionHeadline h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+  }
+  .buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    margin: 2rem 1rem;
+    gap: 1.5rem;
+  }
+  .button {
+    background-image: url("bgyellow.png");
+    background-position: center;
+    background-size: cover;
+    padding: 2rem;
+    height: 100%;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(228, 195, 137);
+    border: 1px solid white;
+    border-radius: 8px;
+    text-align: center;
+  }
 }
