@@ -36,7 +36,7 @@
 }
 
 .tournamentBackground {
-  background-image: url("bgyellow.png");
+  background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
 }
@@ -52,13 +52,13 @@
 }
 
 .divider1 {
-  background-image: url("divider1.png");
+  background-image: url("/divider1.png");
   background-size: cover;
   height: 1vh;
 }
 
 .divider2 {
-  background-image: url("divider2.png");
+  background-image: url("/divider2.png");
   background-size: cover;
   height: 10vh;
 }
@@ -66,7 +66,7 @@
 @media only screen and (max-width: 600px) {
   .header {
     min-height: 45vh;
-    margin: 1rem 0.5rem
+    margin: 1rem 0.5rem;
   }
   .header h1 {
     font-size: 4rem;
@@ -80,7 +80,7 @@
     font-size: 1.5rem;
   }
   .headerP {
-    font-size: 1,25rem;
+    font-size: 1, 25rem;
     font-weight: 500;
     padding: 0.5rem 2rem 0.5rem 2rem;
     text-align: center;

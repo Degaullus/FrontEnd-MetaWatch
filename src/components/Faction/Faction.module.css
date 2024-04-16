@@ -1,12 +1,12 @@
 .factionHeadline {
-  background-image: url("bgyellow.png");
+  background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
   color: rgba(4, 94, 116, 255);
 }
 
 .factionBackground {
-  background-image: url("bgblue.png");
+  background-image: url("/bgblue.png");
   background-position: center;
   background-size: cover;
 }
@@ -24,19 +24,19 @@
 }
 
 .divider1 {
-  background-image: url("divider1.png");
+  background-image: url("/divider1.png");
   background-size: cover;
   height: 1vh;
 }
 
 .divider2 {
-  background-image: url("divider2.png");
+  background-image: url("/divider2.png");
   background-size: cover;
   height: 10vh;
 }
 
 .divider3 {
-  background-image: url("divider3.png");
+  background-image: url("/divider3.png");
   background-size: contain;
   height: 1vh;
   margin: 2rem 0;
@@ -56,7 +56,7 @@
     gap: 1.5rem;
   }
   .button {
-    background-image: url("bgyellow.png");
+    background-image: url("/bgyellow.png");
     background-position: center;
     background-size: cover;
     padding: 2rem;

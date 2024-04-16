@@ -5,6 +5,17 @@
   gap: 2rem;
 }
 
+.tournamentContainerBg {
+  background-image: url("/bgblue.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.loadingContainer {
+  background-image: url("/bgyellow.png");
+  background-position: center;
+  background-size: cover;
+}
 .card {
   display: grid;
   align-items: center;
@@ -15,6 +26,7 @@
 }
 
 .tournamentDetails:first-child {
+  /* rank */
   font-weight: 1000;
 }
 
@@ -64,4 +76,7 @@
 
 button:hover {
   background-color: grey;
+}
+
+@media only screen and (max-width: 600px) {
 }

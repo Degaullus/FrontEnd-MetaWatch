@@ -42,10 +42,9 @@ export default function FactionSelected() {
   //           entry.format == points
   //       );
 
-let filteredData = data?.filter(
-  (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
-);
-
+  let filteredData = data?.filter(
+    (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
+  );
 
   if (points == 0) {
     filteredData = data?.filter(
@@ -173,81 +172,83 @@ let filteredData = data?.filter(
       </div>
 
       {isLoading ? (
-        <div className="loading-container">
+        <div className={styles.loadingContainer}>
           <p>Loading... (may take up to 50 seconds)</p>
           <LoadingSpinner />
         </div>
       ) : filteredData?.length > 0 ? (
-        <div className={styles.tournamentContainer}>
-          {filteredData.map((entry, index) => (
-            <li key={index} className={styles.card}>
-              <p className={styles.tournamentDetails}>
-                {formatRank(entry.rank)}
-              </p>
-              <p className={styles.tournamentDetails}>{entry.format} pts </p>
-              <p className={styles.tournamentDetails}>{entry.tournament}</p>
-              {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
-              <p className={styles.tournamentDetails}> {entry.location}</p>
-              <p
-                className={styles.tournamentDetails}
-                style={{ fontStyle: "italic" }}
-              >
-                {entry.date}
-              </p>
-              <button
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target={"#listModal" + index}
-                onClick={() => setOpenModalId(index)}
-                className="btn btn-primary"
-                disabled={entry.list == "No list submitted"}
-              >
-                Show army list
-              </button>
-              <div
-                className="modal"
-                id={"listModal" + index}
-                tabIndex="-1"
-                role="dialog"
-                aria-labelledby="listModalLabel"
-                aria-hidden="true"
-                /*                 show={(openModalId === index).toString()} */
-              >
-                <div
-                  className="modal-dialog"
-                  id={styles.modalDialogId}
-                  role="document"
+        <div className={styles.tournamentContainerBg}>
+          <div className={styles.tournamentContainer}>
+            {filteredData.map((entry, index) => (
+              <li key={index} className={styles.card}>
+                <p className={styles.tournamentDetails}>
+                  {formatRank(entry.rank)}
+                </p>
+                <p className={styles.tournamentDetails}>{entry.format} pts </p>
+                <p className={styles.tournamentDetails}>{entry.tournament}</p>
+                {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
+                <p className={styles.tournamentDetails}> {entry.location}</p>
+                <p
+                  className={styles.tournamentDetails}
+                  style={{ fontStyle: "italic" }}
                 >
-                  <div className="modal-content">
-                    <div className="modal-header">
+                  {entry.date}
+                </p>
+                <button
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target={"#listModal" + index}
+                  onClick={() => setOpenModalId(index)}
+                  className="btn btn-primary"
+                  disabled={entry.list == "No list submitted"}
+                >
+                  Show army list
+                </button>
+                <div
+                  className="modal"
+                  id={"listModal" + index}
+                  tabIndex="-1"
+                  role="dialog"
+                  aria-labelledby="listModalLabel"
+                  aria-hidden="true"
+                  /*                 show={(openModalId === index).toString()} */
+                >
+                  <div
+                    className="modal-dialog"
+                    id={styles.modalDialogId}
+                    role="document"
+                  >
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <button
+                          type="button"
+                          className="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div className="modal-body">
+                        <pre>{entry.list}</pre>
+                      </div>
                       <button
                         type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
+                        onClick={() => copyListToClipboard(entry.list)}
+                        className="btn btn-primary"
                       >
-                        <span aria-hidden="true">&times;</span>
+                        {listCopied && openModalId === index
+                          ? "Copied!"
+                          : "Copy List"}
                       </button>
+                      {/* commented out for test version purpose */}
+                      {/*  <button>Add to favorites</button> */}
                     </div>
-                    <div className="modal-body">
-                      <pre>{entry.list}</pre>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => copyListToClipboard(entry.list)}
-                      className="btn btn-primary"
-                    >
-                      {listCopied && openModalId === index
-                        ? "Copied!"
-                        : "Copy List"}
-                    </button>
-                    {/* commented out for test version purpose */}
-                    {/*  <button>Add to favorites</button> */}
                   </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            ))}
+          </div>
         </div>
       ) : (
         <p>{`No data found containing ${id} in the army name.`}</p>
