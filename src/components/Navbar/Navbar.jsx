@@ -71,7 +71,7 @@ export default function Navbar() {
         >
           Format
         </div>
-        <SearchBar />
+        <div className={styles.searchBarContainer}><SearchBar /></div>
         </div>
         {token ? (
           <div className={styles.profileContainer}>
@@ -95,7 +95,7 @@ export default function Navbar() {
               Login
             </div>
           ) : (
-            <div className={styles.loginContainer} onClick={() => handleNavigate("/authentication")}>
+            <div className={styles.profileContainer} onClick={() => handleNavigate("/authentication")}>
               <img className={styles.profileImg} src="/profile.svg" alt="Profile" />
             </div>
           )
