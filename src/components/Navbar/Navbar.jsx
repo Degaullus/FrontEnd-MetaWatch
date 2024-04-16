@@ -19,6 +19,7 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    
     const handleClickOutside = (e) => {
       if (isOpen && navbarRef.current && !navbarRef.current.contains(e.target)) {
         setIsOpen(false);
@@ -41,13 +42,11 @@ export default function Navbar() {
     <nav className={styles.navbarContainer} ref={navbarRef}>
       <div className={styles.essentials}>
         <div className={styles.logoContainer} onClick={() => handleNavigate("/")}>
-          <img className={styles.logoImg} src="/TheOldWorldLogo.png"alt="logoOldworld"/>
+          <img className={styles.logoImg} src="/emblem.svg"alt="logoOldworld"/>
         </div>
-        {isMobile && (
         <div className={styles.hamburgerContainer} onClick={toggleMenu}>
           <img className={styles.hamburgerImg} src="/hamburger.svg" alt="Menu" />
         </div>
-      )}
       </div>
 
       <div className={`${styles.navContainer} ${isMobile && isOpen ? styles.open : ""}`}>
