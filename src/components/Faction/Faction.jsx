@@ -24,8 +24,12 @@ export default function Faction() {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <h2>Faction</h2>
+    <div className={styles.factionBackground}>
+      <div className={styles.divider1}></div>
+      <div className={styles.factionHeadline}>
+      <h2>Choose your Faction</h2>
+      </div>
+      <div className={styles.divider1}></div>
       <div className={styles.buttonContainer}>
         {factions.map((faction) => (
           <button
@@ -36,6 +40,7 @@ export default function Faction() {
           </button>
         ))}
       </div>
+      <div className={styles.divider1}></div>
     </div>
   );
 }
