@@ -13,7 +13,6 @@
 .loadingContainer {
   background-image: url("/bgyellow.png");
   background-position: center;
-  background-size: cover;
 }
 
 .card {
