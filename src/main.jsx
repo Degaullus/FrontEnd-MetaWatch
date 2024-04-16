@@ -3,10 +3,8 @@ import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import APIContextProvider from "./context/APIContextProvider.jsx";
-import AuthContextProvider from "./context/authContext.jsx";
 import { LoadingProvider} from "./context/LoadingContext.jsx";
 import { WindowSizeProvider } from "./context/WindowSizeContext.jsx";
-import { TournamentProvider } from "./context/tournamentsObjContext.jsx";
 import { ActionsProvider } from "./context/ActionsContext.jsx";
 
 // Bootstrap CSS
@@ -16,9 +14,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-  <AuthContextProvider>
       <ActionsProvider>
-        <TournamentProvider>
           <APIContextProvider>
             <WindowSizeProvider>
               <LoadingProvider>
@@ -26,8 +22,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               </LoadingProvider>
             </WindowSizeProvider>
           </APIContextProvider>
-        </TournamentProvider>
       </ActionsProvider>
-    </AuthContextProvider>
   </BrowserRouter>
 );
