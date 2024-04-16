@@ -113,6 +113,17 @@
   color: black;
 }
 
+.lastP {
+  background-image: url("/bgblue.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-size: 1.2rem;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media only screen and (max-width: 600px) {
   .pointsButtonsContainer {
     /*     border: 2px solid red; */

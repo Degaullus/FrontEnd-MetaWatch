@@ -327,7 +327,11 @@ export default function Format() {
           <div className={styles.divider1}></div>
         </div>
       ) : (
-        <p>Please select a format!</p>
+        <div className={styles.lastP}>
+          {" "}
+          <p>Please select a format!</p>
+          <div className={styles.divider1}></div>
+        </div>
       )}
     </>
   );
