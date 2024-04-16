@@ -16,9 +16,8 @@ export default function FactionSelected() {
   const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
   const { token } = useContext(AuthContext);
 
-  const localAPI = "http://localhost:8080";
-  // const deployedAPI = "https://backend-metawatch.onrender.com";
-
+  // const localAPI = "http://localhost:8080";
+  const deployedAPI = "https://backend-metawatch.onrender.com";
 
   //format Ranks
   const formatRank = (rank) => {
@@ -111,7 +110,7 @@ export default function FactionSelected() {
 
   const handleSaveToFavs = async (id) => {
     try {
-      const res = await fetch(`${localAPI}/fav/add/${id}`, {
+      const res = await fetch(`${deployedAPI}/fav/add/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

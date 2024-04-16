@@ -54,7 +54,7 @@ export default function Navbar() {
         <div className={styles.searchBarContainer}><SearchBar /></div>
       </div>
       <div className={styles.profileContainer}>
-        {token ? (
+      {token ? (
           <div className={styles.profileContainer}>
             <div
               className={styles.favorites}
@@ -69,9 +69,6 @@ export default function Navbar() {
             <div className={styles.logout} onClick={handleLogout}>
               Logout
             </div>
-          ) : (
-            <div className={styles.loginContainer} onClick={() => handleNavigate("/authentication")}>Login</div>
-          ) }
           </div>
         ) : (
           <>
