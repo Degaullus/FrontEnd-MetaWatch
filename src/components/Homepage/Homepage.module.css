@@ -1,5 +1,5 @@
 .headerBackground {
-  background-image: url("bgyellow.png");
+  background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
 }
@@ -16,7 +16,7 @@
 }
 
 .informationBackground {
-  background-image: url("bgblue.png");
+  background-image: url("/bgblue.png");
   background-position: center;
   background-size: cover;
 }
