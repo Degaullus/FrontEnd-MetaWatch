@@ -111,6 +111,11 @@
   padding: 10px 20px;
   cursor: pointer;
   color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.navItem:hover {
+  text-decoration: underline;
 }
 
 .logoContainer {
