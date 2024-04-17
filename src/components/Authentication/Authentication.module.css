@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('/bgyellow.png');
+  background-image: url('/bgblue.png');
   font-family: 'Anton';
 }
 
@@ -11,6 +11,7 @@
   font-family: "Anton";
   font-size: 2rem;
   margin: 3.8rem 0 1rem;
+  color: white;
 }
 
 .form {
@@ -18,19 +19,40 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 60%;
   gap: 0.7rem;
   margin: 2.3rem 0;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+@media (min-width: 601px) {
+  .form {
+    width: 20%;
+  }
+}
+
+.form:after {
+  transform: scaleX(0);
+}
+
+.form:after:hover {
+  transform: scaleX(1);
 }
 
 .input {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  color: black;
 }
 
 .input:hover {
   border: 1px solid #007bff;
+}
+
+.label {
+  font-size: 1.2rem;
 }
 
 .submitButton {
@@ -38,7 +60,14 @@
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
-  color: rgb(235, 235, 147);
+  color: black;
   letter-spacing: 1.5px;
-  background-image: url('/bgblue.png');
+  background-color: #f9ca33;
+  transition: 0.5s ease-in-out;
+}
+
+
+.submitButton:hover {
+  filter: invert(1);
+  opacity: 0.8;
 }
