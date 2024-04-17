@@ -109,7 +109,7 @@ function SearchResults() {
                   <div className={styles.subInfos}>
                     <div className={styles.leftSide}>
                       <p className={styles.subEntry}>{entry.tournament}</p>
-                      <p>{entry.location}</p>
+                      <p className={styles.location}>{entry.location}</p>
                     </div>
                     <div className={styles.rightSide}>
                       {" "}
