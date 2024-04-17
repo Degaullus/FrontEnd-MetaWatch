@@ -8,14 +8,18 @@
   --shadow: rgba(0, 0, 0, 0.1);
 }
 
+.resultBackground {
+  background-image: url('/bgyellowbig.png')
+}
+
 .searchSummary {
-  background-image: url("/bgyellow.png");
   background-size: cover;
   background-position: center;
   font-family: Anton;
   font-size: 1.8rem;
   color: black;
   padding: 0.4rem;
+  height: auto;
 }
 
 .tournamentContainerBg {
@@ -31,7 +35,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   color: white;
   padding: 1rem;
   gap: 5px;
@@ -80,7 +84,7 @@
 }
 
 .card {
-  border: 1px solid var(--border-color);
+  /* border: 1px solid var(--border-color); */
   background-color: var(--background-card);
   padding: 1.5rem;
   box-shadow: 0 2px 5px var(--shadow);
