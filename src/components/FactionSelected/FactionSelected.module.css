@@ -88,6 +88,10 @@
   padding: 1rem;
 }
 
+.activeSortButtons {
+  text-decoration: underline;
+}
+
 #modalDialogId {
   max-width: 800px;
 }
