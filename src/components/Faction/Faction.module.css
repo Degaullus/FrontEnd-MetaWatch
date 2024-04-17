@@ -63,11 +63,11 @@
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   margin: 2rem 20rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 1.5rem;
   gap: 1.5rem;
   align-content: center;
 }
+
 .button {
   background-image: url("/bgyellow.png");
   background-position: center;
