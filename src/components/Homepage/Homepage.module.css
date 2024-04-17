@@ -191,19 +191,21 @@
   }
 
   .tournamentContainer {
-    min-height: 310vh;
+    min-height: 470vh;
     margin: 0 12rem;
+    text-align: center;
   }
 
   .tournamentContainer h3 {
     font-size: 7rem;
     padding: 2rem;
+    margin: 3rem 0;
   }
 
   .tournamentContainer p {
     font-size: 3rem;
     text-align: center;
-    width: 25vw;
+    width: 30vw;
     border-bottom: 1px solid black;
     padding-bottom: 2rem;
   }

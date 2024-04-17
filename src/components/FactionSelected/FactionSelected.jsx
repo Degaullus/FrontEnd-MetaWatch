@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import { AuthContext } from "../../context/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function FactionSelected() {
   const [openModalId, setOpenModalId] = useState(null);
@@ -137,75 +139,108 @@ export default function FactionSelected() {
   return (
     <>
       <div className={styles.divider1}></div>
-      <div className={styles.topBackground}>
-        <div className={styles.header}>
-          <button onClick={() => navigate(-1)}> ⬅ Back to all Factions</button>
-          <h2>{`${id.replace("-", " ").replace("-", " ")} winning lists`}</h2>
-        </div>
+      <div className={styles.bigBackround}>
+        <div className={styles.topBackground}>
+          <div className={styles.header}>
+            <button onClick={() => navigate(-1)}> ⬅ Back</button>
+            <h2>{`${id.replace("-", " ").replace("-", " ")}`}</h2>
+          </div>
 
-        <div className={styles.pointsButtonsContainer}>
-          <button
-            className={styles.pointsButtons}
-            onClick={() => setPoints(2000)}
-          >
-            2000 Points
-          </button>
-          <button
-            className={styles.pointsButtons}
-            onClick={() => setPoints(1500)}
-          >
-            1500 Points
-          </button>
-          <button
-            className={styles.pointsButtons}
-            onClick={() => setPoints(1250)}
-          >
-            1250 Points
-          </button>
-          <button
-            className={styles.pointsButtons}
-            onClick={() => setPoints(50)}
-          >
-            Other
-          </button>
-          <button className={styles.pointsButtons} onClick={() => setPoints(0)}>
-            All results
-          </button>
-        </div>
+          <div className={styles.pointsButtonsContainer}>
+            <button
+              className={styles.pointsButtons}
+              onClick={() => setPoints(2000)}
+            >
+              2000 Points
+            </button>
+            <button
+              className={styles.pointsButtons}
+              onClick={() => setPoints(1500)}
+            >
+              1500 Points
+            </button>
+            <button
+              className={styles.pointsButtons}
+              onClick={() => setPoints(1250)}
+            >
+              1250 Points
+            </button>
+            <button
+              className={styles.pointsButtons}
+              onClick={() => setPoints(50)}
+            >
+              Other
+            </button>
+            <button
+              className={styles.pointsButtons}
+              onClick={() => setPoints(0)}
+            >
+              All results
+            </button>
+          </div>
 
-        <div className={styles.sortButtonsContainer}>
-          <button
-            className={styles.sortButtons}
-            onClick={() => setSortList("ascDate")}
-          >
-            Date ⬆️
-          </button>
-          <button
-            className={styles.sortButtons}
-            onClick={() => setSortList("descDate")}
-          >
-            Date ⬇️
-          </button>
-          <button
-            className={styles.sortButtons}
-            onClick={() => setSortList("descDate")}
-          >
-            Reset
-          </button>
-          <button
-            className={styles.sortButtons}
-            onClick={() => setSortList("ascRank")}
-          >
-            Rank ⬇️
-          </button>
-          <button
-            className={styles.sortButtons}
-            onClick={() => setSortList("descRank")}
-          >
-            Rank ⬆️
-          </button>
+          <div className={styles.sortButtonsContainer}>
+            <span
+              className={styles.sortButtons}
+              onClick={() => setSortList("ascDate")}
+            >
+              Date{" "}
+              <span className="margin2">
+                {" "}
+                <FontAwesomeIcon
+                  icon={faArrowUp}
+                  style={{ color: "#ffffff" }}
+                />
+              </span>
+            </span>
+            <span
+              className={styles.sortButtons}
+              onClick={() => setSortList("descDate")}
+            >
+              Date{" "}
+              <span className="margin2">
+                {" "}
+                <FontAwesomeIcon
+                  icon={faArrowDown}
+                  style={{ color: "#ffffff" }}
+                />
+              </span>
+            </span>
+            <span
+              className={styles.reset}
+              onClick={() => setSortList("descDate")}
+            >
+              Reset
+            </span>
+            <span
+              className={styles.sortButtons}
+              onClick={() => setSortList("ascRank")}
+            >
+              Rank
+              <span className="margin2">
+                {" "}
+                <FontAwesomeIcon
+                  icon={faArrowDown}
+                  style={{ color: "#ffffff" }}
+                />
+              </span>
+            </span>
+            <span
+              className={styles.sortButtons}
+              onClick={() => setSortList("descRank")}
+            >
+              Rank{" "}
+              <span className="margin2">
+                {" "}
+                <FontAwesomeIcon
+                  icon={faArrowUp}
+                  style={{ color: "#ffffff" }}
+                />
+              </span>
+            </span>
+          </div>
+          <div className={styles.divider1}></div>
         </div>
-        <div className={styles.divider1}></div>
       </div>
 
       {isLoading ? (
