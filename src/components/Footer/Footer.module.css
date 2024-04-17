@@ -53,8 +53,9 @@
 @media (max-width: 600px) {
   .containerTop,
   .containerLow {
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
+    height: fit-content;
   }
 
   .footerSectionLinks,
@@ -62,6 +63,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: fit-content;
   }
 
   .footerSectionLinks a {
@@ -69,7 +71,8 @@
   }
 
   .footerSection p {
-    font-size: 0.6rem; /* Reduced font size on smaller screens */
+    font-size: 0.2rem; /* Reduced font size on smaller screens */
+    height: fit-content;
   }
 
   .icon {
@@ -85,4 +88,10 @@ a {
 h6 {
   font-size: 0.75rem;
   color: #ccc; /* Slightly lighter text for the smaller font */
+}
+
+@media (max-width: 400px) {
+  .contactP {
+    font-size: 10px; /* Smaller font size on smaller screens */
+  }
 }

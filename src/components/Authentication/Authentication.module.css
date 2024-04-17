@@ -27,10 +27,37 @@
   border: 1px solid white;
   border-radius: 5px;
 }
+.topBackground {
+  background-image: url("/bgblue.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 70vh;
+  height: auto;
+  padding: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 @media (min-width: 601px) {
   .form {
     width: 20%;
+  }
+
+  .topBackground {
+    background-image: url("/bgblue.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+    width: auto;
+    padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }
 
@@ -71,18 +98,4 @@
 .submitButton:hover {
   filter: invert(1);
   opacity: 0.8;
-}
-
-.topBackground {
-  background-image: url("/bgblue.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 70vh;
-  height: auto;
-  padding: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
