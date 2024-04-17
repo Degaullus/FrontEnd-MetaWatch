@@ -12,6 +12,10 @@
   min-height: 30;
 }
 
+.container a {
+  text-decoration: none;
+}
+
 .containerTop,
 .containerLow {
   display: flex;
