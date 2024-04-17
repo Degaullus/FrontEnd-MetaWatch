@@ -1,10 +1,12 @@
 .container {
+  padding: 6vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url("/bgblue.png");
   font-family: "Anton";
+  height: auto;
 }
 
 .heading {
@@ -76,4 +78,11 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 70vh;
+  height: auto;
+  padding: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
