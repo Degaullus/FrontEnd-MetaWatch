@@ -30,21 +30,22 @@ export default function Homepage() {
         <div className={styles.header}>
           <h1>Welcome to MetaHammer</h1>
           <p>
-            We empower you to become a better Warhammer player by providing an
-            easy access to tournament lists
+            We empower you to become a better Warhammer player by providing easy
+            access to tournament lists.
           </p>
           <div className={styles.headerP}>
             <p>
               <u>Faction :</u> <br />
-              Quick access to factions' winnings lists for a faction meta
+              Faction: Quickly access winning lists tailored to each faction's
+              meta.
             </p>
             <p>
               <u>Format :</u> <br />
-              Deep dive into global meta results
+              Format: Delve deeply into global meta results.
             </p>
             <p>
               <u>Search :</u> <br />
-              Search for events or units in winning lists
+              Search: Easily find specific events or units within winning lists
             </p>
           </div>
         </div>
