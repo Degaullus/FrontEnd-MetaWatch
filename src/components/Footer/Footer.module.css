@@ -11,17 +11,11 @@
   gap: 1rem; /* Adequate spacing between sections */
 }
 
-.containerTop {
+.containerTop,
+.containerLow {
   display: flex;
   justify-content: space-around;
   gap: 1rem; /* Spacing between sections */
-}
-
-.containerLow {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .footerIcons {
@@ -32,7 +26,7 @@
 }
 
 .icon {
-  width: auto; /* Larger icons for better accessibility */
+  width: auto; /* Adapt width automatically */
   height: 40px;
   transition: transform 0.3s ease-in-out;
   background-color: #f0f0f0;
@@ -46,41 +40,42 @@
   cursor: pointer;
 }
 
+.footerSectionLinks a {
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .containerTop,
+  .containerLow {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footerSectionLinks,
+  .footerSectionCont {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerSectionLinks a {
+    color: white;
+  }
+
+  .footerSection p {
+    font-size: 0.6rem; /* Reduced font size on smaller screens */
+  }
+
+  .icon {
+    height: 30px; /* Smaller icons on smaller screens */
+  }
+}
+
 a {
   text-decoration: none;
-  color: rebeccapurple; /* Maintains color consistency */
+  color: white; /* Maintains color consistency */
 }
 
 h6 {
   font-size: 0.75rem;
   color: #ccc; /* Slightly lighter text for the smaller font */
-}
-.footerSection p {
-  color: #ccc; /* Light gray for legibility on darker backgrounds */
-  font-size: 0.75rem; /* Smaller text size for footer details */
-  margin: 0; /* Remove default margin for cleaner alignment */
-}
-
-.footerSection {
-  text-align: center;
-}
-
-.footerSectionLinks {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  align-items: center;
-}
-
-.footerSectionCont {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footerSectionLinks a {
-  color: white; /* Light gray for legibility on darker backgrounds */
-  margin: 0; /* Remove default margin for cleaner alignment */
 }

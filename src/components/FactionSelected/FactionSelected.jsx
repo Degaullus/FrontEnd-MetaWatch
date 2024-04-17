@@ -119,8 +119,18 @@ export default function FactionSelected() {
       });
       const data = await res.json();
       console.log(data);
+
+      // Check if the operation was successful based on response status or data
+      if (res.ok) {
+        alert("Item has been added to your favorites.");
+      } else {
+        alert("Failed to add the item to favorites. Please try again.");
+      }
     } catch (error) {
       console.log(error);
+      alert(
+        "Error adding item to favorites. Check your connection and try again."
+      );
     }
   };
 
