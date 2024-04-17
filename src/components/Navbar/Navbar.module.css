@@ -1,3 +1,9 @@
+.searchBarContainer {
+  border-radius: 3px;
+  font-family: Bitter;
+  font-size: 0.8rem;
+}
+
 @media (max-width: 600px) {
   .navContainer {
     display: none;
@@ -12,7 +18,7 @@
     /* flex-basis: 20%; */
     align-items: center;
     justify-content: center;
-    border: 3px solid khaki
+    border: 3px solid khaki;
   }
 
   .essentials {
@@ -30,18 +36,18 @@
     align-items: center;
     width: 100%;
   }
-
 }
 
 @media (min-width: 601px) {
-
   .hamburger {
     display: none;
   }
   .navContainer {
-    display: flex; 
-    justify-content: space-between;
+    display: flex;
     font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
     flex-basis: 60%;
@@ -49,6 +55,10 @@
     color: white;
     height: 100%;
     align-items: center;
+  }
+
+  .navbarContainer input {
+    font-size: 1.5rem;
   }
 
   .logoContainer {
@@ -61,7 +71,7 @@
   }
 
   .profileContainer {
-    width: 20%;
+    width: 10%;
   }
 }
 
@@ -152,6 +162,8 @@
 
 .searchBarContainer {
   border-radius: 3px;
+  font-family: Bitter;
+  font-size: 1.3rem;
 }
 
 .profileContainer {
@@ -166,7 +178,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
-  border: 3px solid lightpink; 
+  border: 3px solid lightpink;
   width: 100%;
 }
 
@@ -195,7 +207,6 @@ favorites > div {
   max-width: 20px;
   margin: 0 0.4rem 0.3rem;
 }
-
 
 .profileImg {
   right: 0;
