@@ -34,6 +34,14 @@
   height: 1vh;
 } */
 
+.forReset {
+  /* border: red solid 1px; */
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  margin-bottom: 1rem;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -74,6 +82,20 @@
   display: flex;
   justify-content: space-between;
   font-weight: 600;
+}
+
+.SelectFormatDiv {
+  height: 30vh;
+  background-image: url("/bgblue.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding-top: 0.6rem;
 }
 
 /* selector */
@@ -197,9 +219,6 @@
 }
 
 .lastP {
-  background-image: url("/bgblue.png");
-  background-size: cover;
-  background-position: center;
   color: white;
   font-size: 1.8rem;
   justify-content: center;
@@ -207,7 +226,6 @@
   flex-direction: column;
   align-items: center;
   margin: auto;
-  padding-top: 0.6rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -310,9 +328,10 @@
     display: flex;
     justify-content: center;
     margin: 1rem;
+    margin-bottom: 5rem;
   }
 
   .card {
-    margin: 0 1rem
+    margin: 0 1rem;
   }
 }

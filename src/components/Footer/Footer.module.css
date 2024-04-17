@@ -1,5 +1,5 @@
 .container {
-  margin: 0;
+  margin: auto;
   background-color: #000000; /* Dark theme footer */
   color: #f0f0f0; /* Light text for contrast */
   text-align: center;
@@ -9,6 +9,7 @@
   flex-direction: column;
   padding-top: 1rem;
   gap: 1rem; /* Adequate spacing between sections */
+  height: 25vh;
 }
 
 .containerTop,

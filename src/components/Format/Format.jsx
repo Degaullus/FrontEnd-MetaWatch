@@ -117,7 +117,7 @@ export default function Format() {
     setPoints(points);
     setDisplayList(true);
   };
-  
+
   const handleSortButtonClick = (sortType) => {
     setSortList(sortType);
     setActiveSortButton(sortType);
@@ -180,7 +180,7 @@ export default function Format() {
           </button>
 
           <button
-            className={styles.pointsButtons} 
+            className={styles.pointsButtons}
             onClick={() => buttonActive(0)}
           >
             Other
@@ -188,33 +188,47 @@ export default function Format() {
         </div>
 
         <div className={styles.sortButtonsContainer}>
-        <span
-          className={`${styles.sortButtons} ${activeSortButton === "ascDate" ? styles.activeSortButtons : ''}`}
-          onClick={() => handleSortButtonClick("ascDate")}
-        >
-          Date <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
-        </span>
-        <span
-          className={`${styles.sortButtons} ${activeSortButton === "descDate" ? styles.activeSortButtons : ''}`}
-          onClick={() => handleSortButtonClick("descDate")}
-        >
-          Date <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
-        </span>
-
-        <span
-          className={`${styles.sortButtons} ${activeSortButton === "ascRank" ? styles.activeSortButtons : ''}`}
-          onClick={() => handleSortButtonClick("ascRank")}
-        >
-          Rank <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
-        </span>
-        <span
-          className={`${styles.sortButtons} ${activeSortButton === "descRank" ? styles.activeSortButtons : ''}`}
-          onClick={() => handleSortButtonClick("descRank")}
-        >
-          Rank <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
-        </span>
           <span
-            className={`${styles.sortButtons} ${activeSortButton === "ascFaction" ? styles.activeSortButtons : ''}`}
+            className={`${styles.sortButtons} ${
+              activeSortButton === "ascDate" ? styles.activeSortButtons : ""
+            }`}
+            onClick={() => handleSortButtonClick("ascDate")}
+          >
+            Date{" "}
+            <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
+          </span>
+          <span
+            className={`${styles.sortButtons} ${
+              activeSortButton === "descDate" ? styles.activeSortButtons : ""
+            }`}
+            onClick={() => handleSortButtonClick("descDate")}
+          >
+            Date{" "}
+            <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
+          </span>
+
+          <span
+            className={`${styles.sortButtons} ${
+              activeSortButton === "ascRank" ? styles.activeSortButtons : ""
+            }`}
+            onClick={() => handleSortButtonClick("ascRank")}
+          >
+            Rank{" "}
+            <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
+          </span>
+          <span
+            className={`${styles.sortButtons} ${
+              activeSortButton === "descRank" ? styles.activeSortButtons : ""
+            }`}
+            onClick={() => handleSortButtonClick("descRank")}
+          >
+            Rank{" "}
+            <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
+          </span>
+          <span
+            className={`${styles.sortButtons} ${
+              activeSortButton === "ascFaction" ? styles.activeSortButtons : ""
+            }`}
             onClick={() => handleSortButtonClick("ascFaction")}
           >
             Faction{" "}
@@ -227,7 +241,9 @@ export default function Format() {
             </span>
           </span>
           <span
-            className={`${styles.sortButtons} ${activeSortButton === "descFaction" ? styles.activeSortButtons : ''}`}
+            className={`${styles.sortButtons} ${
+              activeSortButton === "descFaction" ? styles.activeSortButtons : ""
+            }`}
             onClick={() => handleSortButtonClick("descFaction")}
           >
             Faction{" "}
@@ -250,7 +266,7 @@ export default function Format() {
       <div className={styles.divider1}></div>
 
       {isLoading ? (
-        <div className="loading-container">
+        <div className={styles.SelectFormatDiv}>
           <p>Loading... (may take up to 50 seconds)</p>
           <LoadingSpinner />
         </div>
@@ -354,7 +370,7 @@ export default function Format() {
       ) : (
         <div>
           {" "}
-          <div>
+          <div className={styles.SelectFormatDiv}>
             <p className={styles.lastP}>Please select a format!</p>
           </div>
           <div className={styles.divider1}></div>
