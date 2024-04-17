@@ -26,6 +26,7 @@
   background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
+  border-radius: 10px;
   margin-left: 15rem;
   margin-right: 15rem;
 }

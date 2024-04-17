@@ -5,10 +5,19 @@
 }
 
 .header {
+  /* border: red solid 2px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.headerLeft {
+  /* border: blue solid 2px; */
+}
+
+.headerRight {
+  /*   border: yellow solid 2px; */
 }
 
 .header h1 {
@@ -24,10 +33,35 @@
 
 .informationContainer h2 {
   color: rgb(155, 131, 90);
+  font-size: 40px;
 }
 
 .informationContainer p {
   color: white;
+}
+
+.informationContainer {
+  min-height: 50vh;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.informationContainerP {
+  /*   border: blueviolet solid 3px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Aligns items to the start and end of the container */
+  margin: 0.5rem 2rem;
+  gap: 10px;
+  align-items: center;
+}
+
+.informationContainerP > * {
+  flex-basis: calc(50% - 5px); /* 50% width minus half the gap */
 }
 
 .tournamentBackground {
@@ -58,6 +92,13 @@
   height: 10vh;
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
+  text-align: center; /* Centers text within each column */
+}
+
 @media only screen and (max-width: 600px) {
   .header {
     min-height: 45vh;
@@ -81,16 +122,18 @@
     text-align: center;
   }
   .informationContainer {
+    border: 6px solide white;
     min-height: 50vh;
     margin: 0.5rem 1.5rem 2rem 1.5rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
   .informationContainer h2 {
     margin: 1rem 0 1.5rem 0;
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
   .informationContainer > p {
     font-size: 2rem;
@@ -101,7 +144,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin: 0.5rem 2rem;
-    gap: 20px;
+    gap: 10px;
   }
   .tournamentContainer {
     min-height: 240vh;
@@ -125,95 +168,6 @@
   .list {
     font-weight: 600;
     margin-top: 2rem;
-    text-align: center;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .header {
-    min-height: 90vh;
-  }
-
-  .header h1 {
-    font-size: 8rem;
-    padding: 1.5rem;
-  }
-
-  .header > p {
-    padding: 1rem 0;
-    font-size: 2.5rem;
-    margin: 0 15rem;
-    text-align: center;
-  }
-
-  .headerP {
-    display: flex;
-    flex-direction: column;
-    font-size: 2rem;
-    padding: 1rem 0;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .informationContainer {
-    min-height: 130vh;
-    margin: 1rem 2rem 3rem 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 25rem;
-  }
-
-  .informationContainer h2 {
-    margin: 2rem 0 2rem 0;
-    font-size: 8rem;
-    padding: 1.5rem;
-  }
-
-  .informationContainer > p {
-    font-size: 4rem;
-    margin-bottom: 2rem;
-  }
-
-  .informationContainerP {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 50vw;
-    font-size: 2.5rem;
-    gap: 5rem;
-    margin-top: 4rem;
-  }
-
-  .tournamentContainer {
-    min-height: 470vh;
-    margin: 0 12rem;
-    text-align: center;
-  }
-
-  .tournamentContainer h3 {
-    font-size: 7rem;
-    padding: 2rem;
-    margin: 3rem 0;
-  }
-
-  .tournamentContainer p {
-    font-size: 3rem;
-    text-align: center;
-    width: 30vw;
-    border-bottom: 1px solid black;
-    padding-bottom: 2rem;
-  }
-
-  .tournamentContainer p:nth-child(6n) {
-    border-bottom: none;
-  }
-
-  .list {
-    margin-top: 3rem;
-    font-size: 2rem;
     text-align: center;
   }
 }
