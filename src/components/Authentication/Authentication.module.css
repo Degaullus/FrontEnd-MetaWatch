@@ -3,6 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url('/bgyellow.png');
+  font-family: 'Anton';
 }
 
 .heading {
@@ -36,20 +38,7 @@
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
-  background-color: var(--background-color);
-}
-
-.submitButton:hover,
-.switchButton:hover {
-  background-color: #0056b3;
-}
-
-.switchButton {
-  padding: 0.5rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bffc5;
-  color: white;
-  cursor: pointer;
-  margin: 3.5rem 0 0.5rem;
+  color: rgb(235, 235, 147);
+  letter-spacing: 1.5px;
+  background-image: url('/bgblue.png');
 }
