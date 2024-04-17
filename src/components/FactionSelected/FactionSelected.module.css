@@ -115,6 +115,10 @@
   padding-top: 1rem;
 }
 
+.sortButtonsContainer span:hover {
+  cursor: pointer;
+}
+
 .sortButtons {
   height: 3.3rem;
   width: 3.3rem;
@@ -158,6 +162,8 @@
 button:hover {
   background-color: grey;
 }
+
+
 
 .divider1 {
   background-image: url("/divider1.png");

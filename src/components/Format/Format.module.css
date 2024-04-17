@@ -20,8 +20,8 @@
 .tournamentContainerBg {
   background-image: url("/bgyellow.png");
   background-size: contain;
-  /*   padding-left: 15rem;
-  padding-right: 15rem; */
+    padding-left: 10rem;
+  padding-right: 10rem;
 }
 /* 
 .divider2 {
@@ -47,6 +47,7 @@
   background-position: center;
   background-size: cover;
   color: white;
+  margin: 0.5rem 2rem
 }
 
 .tournamentInfo {
@@ -140,6 +141,10 @@
   margin: 0rem;
   padding-bottom: 0rem;
   padding-top: 0rem;
+}
+
+.sortButtonsContainer span:hover {
+  cursor: pointer;
 }
 
 .sortButtons {
