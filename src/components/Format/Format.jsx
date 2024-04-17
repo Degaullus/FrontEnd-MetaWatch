@@ -213,7 +213,7 @@ export default function Format() {
         <div className={styles.forReset}>
           <span
             className={styles.reset}
-            onClick={() => setSortList("descDate")}
+            onClick={() => handleSortButtonClick("descDate")}
           >
             Reset
           </span>
