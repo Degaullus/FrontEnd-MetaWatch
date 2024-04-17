@@ -23,6 +23,7 @@ h5,
 h6 {
   font-family: "Anton", sans-serif;
   padding: 1rem;
+  text-shadow: 2px 2px 5px black;
 }
 
 p,

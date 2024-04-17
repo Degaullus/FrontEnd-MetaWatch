@@ -1,10 +1,12 @@
 .container {
+  padding: 6vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('/bgblue.png');
-  font-family: 'Anton';
+  background-image: url("/bgblue.png");
+  font-family: "Anton";
+  height: auto;
 }
 
 .heading {
@@ -66,8 +68,21 @@
   transition: 0.5s ease-in-out;
 }
 
-
 .submitButton:hover {
   filter: invert(1);
   opacity: 0.8;
+}
+
+.topBackground {
+  background-image: url("/bgblue.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 70vh;
+  height: auto;
+  padding: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

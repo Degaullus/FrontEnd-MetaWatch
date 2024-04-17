@@ -28,8 +28,16 @@ export default function Homepage() {
       <div className={styles.divider1}></div>
       <div className={styles.headerBackground}>
         <div className={styles.header}>
-          <h1>Welcome to MetaHammer</h1>
-          <div className={styles.headerLeft}>
+          <h1>
+            Welcome to
+            <br />
+            MetaHammer
+          </h1>
+          <p>
+            We empower you to become a better Warhammer player by providing easy
+            access to tournament lists.
+          </p>
+          <div className={styles.headerP}>
             <p>
               We empower you to become a better Warhammer player by providing
               easy access to tournament lists.

@@ -17,9 +17,15 @@ export default function FactionSelected() {
   const navigate = useNavigate();
   const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
   const { token } = useContext(AuthContext);
+  const [activeSortButton, setActiveSortButton] = useState(null);
 
   // const localAPI = "http://localhost:8080";
   const deployedAPI = "https://backend-metawatch.onrender.com";
+
+  const handleSortButtonClick = (sortType) => {
+    setSortList(sortType);
+    setActiveSortButton(sortType);
+  };
 
   //format Ranks
   const formatRank = (rank) => {
@@ -179,66 +185,40 @@ export default function FactionSelected() {
             </button>
           </div>
 
-          <div className={styles.sortButtonsContainer}>
-            <span
-              className={styles.sortButtons}
-              onClick={() => setSortList("ascDate")}
-            >
-              Date{" "}
-              <span className="margin2">
-                {" "}
-                <FontAwesomeIcon
-                  icon={faArrowUp}
-                  style={{ color: "#ffffff" }}
-                />
-              </span>
-            </span>
-            <span
-              className={styles.sortButtons}
-              onClick={() => setSortList("descDate")}
-            >
-              Date{" "}
-              <span className="margin2">
-                {" "}
-                <FontAwesomeIcon
-                  icon={faArrowDown}
-                  style={{ color: "#ffffff" }}
-                />
-              </span>
-            </span>
-            <span
-              className={styles.reset}
-              onClick={() => setSortList("descDate")}
-            >
-              Reset
-            </span>
-            <span
-              className={styles.sortButtons}
-              onClick={() => setSortList("ascRank")}
-            >
-              Rank
-              <span className="margin2">
-                {" "}
-                <FontAwesomeIcon
-                  icon={faArrowDown}
-                  style={{ color: "#ffffff" }}
-                />
-              </span>
-            </span>
-            <span
-              className={styles.sortButtons}
-              onClick={() => setSortList("descRank")}
-            >
-              Rank{" "}
-              <span className="margin2">
-                {" "}
-                <FontAwesomeIcon
-                  icon={faArrowUp}
-                  style={{ color: "#ffffff" }}
-                />
-              </span>
-            </span>
-          </div>
+          <div>
+      <div className={styles.sortButtonsContainer}>
+        <span
+          className={`${styles.sortButtons} ${activeSortButton === "ascDate" ? styles.activeSortButtons : ''}`}
+          onClick={() => handleSortButtonClick("ascDate")}
+        >
+          Date <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
+        </span>
+        <span
+          className={`${styles.sortButtons} ${activeSortButton === "descDate" ? styles.activeSortButtons : ''}`}
+          onClick={() => handleSortButtonClick("descDate")}
+        >
+          Date <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
+        </span>
+        <span
+          className={styles.reset}
+          onClick={() => handleSortButtonClick("descDate")}
+        >
+          Reset
+        </span>
+        <span
+          className={`${styles.sortButtons} ${activeSortButton === "ascRank" ? styles.activeSortButtons : ''}`}
+          onClick={() => handleSortButtonClick("ascRank")}
+        >
+          Rank <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
+        </span>
+        <span
+          className={`${styles.sortButtons} ${activeSortButton === "descRank" ? styles.activeSortButtons : ''}`}
+          onClick={() => handleSortButtonClick("descRank")}
+        >
+          Rank <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
+        </span>
+      </div>
+    </div>
           <div className={styles.divider1}></div>
         </div>
       </div>

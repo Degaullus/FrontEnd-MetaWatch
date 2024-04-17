@@ -18,10 +18,8 @@
 }
 
 .tournamentContainerBg {
-  background-image: url("/bgyellow.png");
+  background-image: url("/bgyellowbig.png");
   background-size: contain;
-  /*   padding-left: 15rem;
-  padding-right: 15rem; */
 }
 /* 
 .divider2 {
@@ -36,6 +34,14 @@
   height: 1vh;
 } */
 
+.forReset {
+  /* border: red solid 1px; */
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  margin-bottom: 1rem;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -48,6 +54,9 @@
   background-size: cover;
   color: white;
   border-radius: 10px;
+  margin: 0.5rem 2rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
 }
 
 .tournamentInfo {
@@ -76,6 +85,20 @@
   font-weight: 600;
 }
 
+.SelectFormatDiv {
+  height: 30vh;
+  background-image: url("/bgblue.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding-top: 0.6rem;
+}
+
 /* selector */
 .pointsButtonsContainer {
   /*   border: 2px solid red; */
@@ -100,6 +123,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.activePointsButtons {
+  background-color: gray;
 }
 
 .header {
@@ -139,6 +166,10 @@
   padding-top: 0rem;
 }
 
+.sortButtonsContainer span:hover {
+  cursor: pointer;
+}
+
 .sortButtons {
   height: 3.3rem;
   width: 6rem;
@@ -170,6 +201,15 @@
   font-weight: bold;
   border: black solid 1px;
   margin: auto;
+  cursor: pointer;
+}
+
+.activeSortButtons {
+  text-decoration: underline;
+}
+
+.activeSortButtons {
+  text-decoration: underline;
 }
 
 #modalDialogId {
@@ -181,9 +221,6 @@
 }
 
 .lastP {
-  background-image: url("/bgblue.png");
-  background-size: cover;
-  background-position: center;
   color: white;
   font-size: 1.8rem;
   justify-content: center;
@@ -191,7 +228,6 @@
   flex-direction: column;
   align-items: center;
   margin: auto;
-  padding-top: 0.6rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -267,7 +303,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     color: white;
     font-weight: bold;
   }
@@ -295,5 +331,10 @@
     display: flex;
     justify-content: center;
     margin: 1rem;
+    margin-bottom: 5rem;
+  }
+
+  .card {
+    margin: 0 1rem;
   }
 }

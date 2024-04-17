@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import styles from "./Authentication.module.css";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -17,11 +18,14 @@ export default function Signup() {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("https://backend-metawatch.onrender.com/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password, username }),
-    });
+    const response = await fetch(
+      "https://backend-metawatch.onrender.com/signup",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, username }),
+      }
+    );
 
     const data = await response.json();
 
@@ -38,7 +42,10 @@ export default function Signup() {
   };
 
   return isLoading ? (
-    "Loading..."
+    <div className={styles.topBackground}>
+      <p>Loading... (may take up to 50 seconds)</p>
+      <LoadingSpinner />
+    </div>
   ) : (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
