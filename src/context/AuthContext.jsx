@@ -7,7 +7,7 @@ export default function AuthContextProvider(props) {
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
-    console.log("storedToken", storedToken);
+    // console.log("storedToken", storedToken);
     if (!storedToken) {
       setToken(storedToken);
     }

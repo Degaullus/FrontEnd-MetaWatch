@@ -42,7 +42,7 @@ export default function Login() {
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <h1 className={styles.heading}>Log in</h1>
-        <label>email: </label>
+        <label className={styles.label}>email: </label>
         <input
           className={styles.input}
           type="email"
@@ -50,7 +50,7 @@ export default function Login() {
           value={email}
         />
 
-        <label>password: </label>
+        <label className={styles.label}>password: </label>
         <input
           className={styles.input}
           type="password"

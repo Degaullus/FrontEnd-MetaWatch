@@ -18,7 +18,7 @@ export default function Favorites() {
       try {
         setLoading(true);
         const requests = listIds.map(async (id) => {
-          console.log(id);
+          // console.log(id);
           try {
             const response = await fetch(`${deployedAPI}/db/${id}`, {
               headers: { Authorization: `Bearer ${token}` },
@@ -61,8 +61,8 @@ export default function Favorites() {
     }
   }, [token, decodedToken?._id, flag]);
 
-  console.log(favorites);
-  console.log(token);
+  // console.log(favorites);
+  // console.log(token);
 
   const handleRemoveFavorite = async (id) => {
     try {
@@ -74,7 +74,7 @@ export default function Favorites() {
         },
       });
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       setFlag(!flag);
     } catch (error) {
       console.log(error);
@@ -83,17 +83,17 @@ export default function Favorites() {
 
   return (
     <>
-      <h1>Saved Tournaments</h1>
-      <div className={style.favoritesContainer}>
-        <div>
+      <div className={style.container}>
+      <h1>Favorite Lists</h1>
+        <div className={style.favoritesContainer}>
           {loading ? (
             <p>Loading...</p>
           ) : (
             favorites.map((list) => (
-              <div key={list._id}>
+              <div key={list._id} className={style.favorite}>
                 <div className={style.listHeader}>{list.army}</div>
                 <div className={style.listBody}>{list.list}</div>
-                <button onClick={() => handleRemoveFavorite(list._id)}>
+                <button className={style.button} onClick={() => handleRemoveFavorite(list._id)}>
                   Remove
                 </button>
               </div>

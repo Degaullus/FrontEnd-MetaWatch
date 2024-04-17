@@ -1,21 +1,44 @@
-.favoritesContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.tournament {
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  max-width: 600px;
+.container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  background-image: url('bgblue.png');
+  background-size: cover;
+  color: white;
 }
 
-.tournament:hover {
-  box-shadow: 0 0 10px 0 #ccc;
-  border: 1px solid #000;
+.favoritesContainer {
+  margin: 3 5rem;
+}
+
+.listHeader{
+  font-family: 'Anton';
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.listBody {
+  margin: 1rem 2rem;
+  white-space: pre-wrap;
+}
+
+.button {
+  background-color: #f9ca33;
+  border-radius: 2px;
+  font-size: 'Anton';
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  opacity: 0.8;
+}
+
+.button:hover {
+  filter: invert(1);
 }
