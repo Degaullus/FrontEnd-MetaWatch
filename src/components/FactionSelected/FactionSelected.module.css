@@ -20,7 +20,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  /*  border: 1px solid black; */
   color: black;
   padding: 1rem;
   gap: 5px;
@@ -30,14 +30,14 @@
 }
 
 .tournamentInfo {
-  border: solid 1px;
+  /*   border: solid 1px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .tournamentName {
-  border: #f9f6ee solid 3px;
+  /*   border: #f9f6ee solid 3px; */
   display: flex;
   justify-content: space-between;
   font-weight: 600;
@@ -49,12 +49,12 @@
 }
 
 .tournamentTitle {
-  border: red solid 2px;
+  /*   border: red solid 2px; */
   font-size: 1.8rem;
 }
 /* selector */
 .pointsButtonsContainer {
-  border: 2px solid red;
+  /*   border: 2px solid red; */
   display: flex;
   justify-content: space-around;
   padding-left: 15rem;
@@ -63,7 +63,7 @@
 }
 
 .pointsButtons {
-  border: 2px solid yellow;
+  /*   border: 2px solid yellow; */
   font-size: 1rem;
   border-radius: 10px;
   background-color: #f9ca33;
@@ -79,7 +79,7 @@
 }
 
 .header {
-  border: 2px solid green;
+  /*  border: 2px solid green; */
   display: flex;
   align-items: center;
   gap: 1.8rem;
@@ -99,14 +99,14 @@
 }
 
 .header h2 {
-  border: 2px solid blue;
+  /*   border: 2px solid blue; */
   margin-left: 40rem; /* Center horizontally */
   font-size: 3rem;
   color: white;
 }
 
 .sortButtonsContainer {
-  border: 2px solid purple;
+  /*  border: 2px solid purple; */
   display: flex;
   justify-content: center;
   gap: 0.5rem;
@@ -184,6 +184,7 @@ button:hover {
   .pointsButtonsContainer {
     /*    border: 2px solid red; */
     display: flex;
+    padding: 0rem;
     justify-content: space-around;
     margin: 0rem;
   }
@@ -212,8 +213,8 @@ button:hover {
   }
 
   .header button {
-    width: 5rem;
-    height: 2rem;
+    width: 8rem;
+    height: 4rem;
     border-radius: 10px;
     background-color: #f9ca33;
     border: 1px solid black;
@@ -226,7 +227,7 @@ button:hover {
 
   .header h2 {
     /*  border: 2px solid blue; */
-    margin: auto; /* Center horizontally */
+    margin-left: 3rem; /* Center horizontally */
     font-size: 3rem;
     color: white;
   }
