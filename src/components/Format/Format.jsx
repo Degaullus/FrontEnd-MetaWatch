@@ -2,6 +2,7 @@ import styles from "./Format.module.css";
 import { useContext, useState } from "react";
 import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Format() {
   const [openModalId, setOpenModalId] = useState(null);
@@ -10,6 +11,8 @@ export default function Format() {
   const [listCopied, setListCopied] = useState(false);
   const [displayList, setDisplayList] = useState(false);
   const [sortList, setSortList] = useState("descDate");
+  const { token } = useContext(AuthContext);
+
   // console.log(isLoading);
 
   const formatRank = (rank) => {
@@ -110,6 +113,22 @@ export default function Format() {
   const buttonActive = (points) => {
     setPoints(points);
     setDisplayList(true);
+  };
+
+  const handleSaveToFavs = async (id) => {
+    try {
+      const res = await fetch(`${deployedAPI}/fav/add/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -274,8 +293,19 @@ export default function Format() {
                           ? "Copied!"
                           : "Copy List"}
                       </button>
-                      {/* commented out for test version purpose */}
-                      {/*  <button>Add to favorites</button> */}
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={(e) => {
+                          handleSaveToFavs(entry._id);
+                          e.stopPropagation();
+                          setOpenModalId(null);
+                        }}
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        Save to Favorites
+                      </button>
                     </div>
                   </div>
                 </div>
