@@ -1,8 +1,11 @@
-.tournamentContainer {
-  margin: 1rem 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1rem;
+/* Root variables for consistent styling */
+:root {
+  --background-card: #ffffff;
+  --text-color: #333;
+  --border-color: #ccc;
+  --button-primary: #007bff;
+  --button-secondary: #ffc107;
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
 .searchSummary {
@@ -69,60 +72,53 @@
   height: fit-content;
   width: fit-content;
   padding: 1rem;
+  background-color: #f0f0f0;
 }
 
-.header {
-  display: flex;
-  /*   margin: 5rem; */
+.card {
+  border: 1px solid var(--border-color);
+  background-color: var(--background-card);
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px var(--shadow);
+  border-radius: 8px;
+  margin: 0.5rem; /* Provides space around each card */
 }
 
-.header button {
-  width: 13rem;
+.tournamentDetails,
+.subEntry,
+p {
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
 }
 
-.header h2 {
-  margin: auto; /* Center horizontally */
-  font-size: 3rem;
-}
-
-.sortButtonsContainer {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  margin: 5rem;
-}
-
-.sortButtons {
-  height: 4.5rem;
-  width: 5rem;
-  padding: 1rem;
-}
-
-#modalDialogId {
-  max-width: 800px;
+/* Buttons styling */
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: var(--button-primary);
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: grey;
+  background-color: var(--button-secondary);
+  cursor: pointer;
 }
 
-.divider1 {
-  background-image: url("/divider1.png");
-  background-size: cover;
-  height: 1vh;
+/* Modal content adjustments for better styling */
+.modal-content {
+  padding: 1rem;
+  background-color: var(--background-card);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px var(--shadow);
 }
 
-.divider2 {
-  background-image: url("/divider2.png");
-  background-size: cover;
-  height: 10vh;
+.modal-header,
+.modal-body {
+  padding: 0.5rem;
 }
 
-.topBackground {
-  background-image: url("/bgblue.png");
-  background-position: center;
-  background-size: cover;
-}
 
 @media only screen and (max-width: 600px) {
   .pointsButtonsContainer {
@@ -197,4 +193,5 @@ button:hover {
     justify-content: center;
     font-size: smaller;
   }
+
 }
