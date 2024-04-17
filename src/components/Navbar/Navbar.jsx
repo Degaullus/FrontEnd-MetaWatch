@@ -62,7 +62,7 @@ export default function Navbar() {
             >
               <div className={styles.loggedInAs}>
                 <span className={styles.logged}></span>
-                <span className={styles.inas}>{decodedToken?.username}</span>
+                <div className={styles.inas}>{decodedToken?.username}</div>
               </div>
             </div>
             <div className={styles.logout} onClick={handleLogout}>
