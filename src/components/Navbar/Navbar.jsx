@@ -55,7 +55,7 @@ export default function Navbar() {
       </div>
       <div className={styles.profileContainer}>
       {token ? (
-          <div className={styles.profileContainer}>
+        <>
             <div
               className={styles.favorites}
               onClick={() => handleNavigate("/favorites")}
@@ -64,12 +64,11 @@ export default function Navbar() {
                 <span className={styles.logged}></span>
                 <span className={styles.inas}>{decodedToken?.username}</span>
               </div>
-              <img className={styles.favoriteImg} src="/favorite.svg" />
             </div>
             <div className={styles.logout} onClick={handleLogout}>
               Logout
             </div>
-          </div>
+          </>
         ) : (
           <>
             <div
