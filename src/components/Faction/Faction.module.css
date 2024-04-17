@@ -51,6 +51,44 @@
   height: 250px;
 }
 
+/* desktop */
+
+.factionHeadline h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+}
+.buttonContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  margin: 2rem 20rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  gap: 1.5rem;
+  align-content: center;
+}
+.button {
+  background-image: url("/bgyellow.png");
+  background-position: center;
+  background-size: cover;
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  background-color: rgb(228, 195, 137);
+  border: 1px solid black;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.button:hover {
+  transform: scale(1.1); /* Increase size by 10% */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
 @media only screen and (max-width: 600px) {
   .factionHeadline h2 {
     display: flex;
