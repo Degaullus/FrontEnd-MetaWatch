@@ -23,7 +23,7 @@
 }
 
 .button {
-  background-color: rgba(250, 246, 117, 0.672);
+  background-color: #f9ca33;
   border-radius: 2px;
   font-size: 'Anton';
   border: none;
@@ -36,6 +36,7 @@
   margin: 4px 2px;
   cursor: pointer;
   transition: 0.5s ease-in-out;
+  opacity: 0.8;
 }
 
 .button:hover {
