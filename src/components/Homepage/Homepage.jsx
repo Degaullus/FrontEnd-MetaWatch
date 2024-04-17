@@ -44,7 +44,7 @@ export default function Homepage() {
                 <b>Faction :</b>
               </u>{" "}
               <br />
-              Faction: Quickly access winning lists tailored to each faction's
+              Quickly access winning lists tailored to each faction's
               meta.
             </p>
             <p>
@@ -52,14 +52,14 @@ export default function Homepage() {
                 <b>Format :</b>
               </u>{" "}
               <br />
-              Format: Delve deeply into global meta results.
+              Delve deeply into global meta results.
             </p>
             <p>
               <u>
                 <b>Search :</b>
               </u>{" "}
               <br />
-              Search: Easily find specific events or units within winning lists
+              Easily find specific events or units within winning lists
             </p>
           </div>
           <div className={styles.headerRight}></div>
