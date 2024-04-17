@@ -190,7 +190,7 @@
   cursor: pointer;
 }
 
-.logout:hover {
+.logout:hover, .logout:active {
   opacity: 0.8;
 }
 
