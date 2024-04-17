@@ -152,7 +152,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 50vh;
+  height: calc(100px + 7rem);
   background-color: black;
   position: fixed;
   top: 0;
