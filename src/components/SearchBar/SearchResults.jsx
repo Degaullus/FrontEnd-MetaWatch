@@ -85,7 +85,7 @@ function SearchResults() {
             {listsContainingSearchTerm.length > 0 ? (
               <div className={styles.searchSummary}>
                 Unit found in the following {listsContainingSearchTerm.length}{" "}
-                lists:
+                lists
               </div>
             ) : (
               <div className={styles.searchSummary}>
