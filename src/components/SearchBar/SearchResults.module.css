@@ -37,6 +37,10 @@
   background-size: cover;
 }
 
+.containerInfo {
+  display: flex;
+}
+
 .tournamentInfo {
   display: flex;
   flex-direction: column;
@@ -122,6 +126,11 @@ button:hover {
   background-image: url("/bgblue.png");
   background-position: center;
   background-size: cover;
+}
+
+.location,
+.subEntry {
+  opacity: 0.9;
 }
 
 @media only screen and (max-width: 600px) {
