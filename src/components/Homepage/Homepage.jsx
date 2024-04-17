@@ -29,25 +29,39 @@ export default function Homepage() {
       <div className={styles.headerBackground}>
         <div className={styles.header}>
           <h1>Welcome to MetaHammer</h1>
-          <p>
-            We empower you to become a better Warhammer player by providing easy
-            access to tournament lists.
-          </p>
-          <div className={styles.headerP}>
+          <div className={styles.headerLeft}>
             <p>
-              <u>Faction :</u> <br />
-              Faction: Quickly access winning lists tailored to each faction's
-              meta.
+              We empower you to become a better Warhammer player by providing
+              easy access to tournament lists.
             </p>
-            <p>
-              <u>Format :</u> <br />
-              Format: Delve deeply into global meta results.
-            </p>
-            <p>
-              <u>Search :</u> <br />
-              Search: Easily find specific events or units within winning lists
-            </p>
+            <div className={styles.headerP}>
+              <p>
+                <u>
+                  {" "}
+                  <b>Faction :</b>
+                </u>{" "}
+                <br />
+                Faction: Quickly access winning lists tailored to each faction's
+                meta.
+              </p>
+              <p>
+                <u>
+                  <b>Format :</b>
+                </u>{" "}
+                <br />
+                Format: Delve deeply into global meta results.
+              </p>
+              <p>
+                <u>
+                  <b>Search :</b>
+                </u>{" "}
+                <br />
+                Search: Easily find specific events or units within winning
+                lists
+              </p>
+            </div>
           </div>
+          <div className={styles.headerRight}></div>
         </div>
         <div className={styles.divider1}></div>
         <div className={styles.divider2}></div>
