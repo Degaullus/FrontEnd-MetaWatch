@@ -1,3 +1,9 @@
+.searchBarContainer {
+  border-radius: 3px;
+  font-family: Bitter;
+  font-size: 0.8rem;
+}
+
 @media (max-width: 600px) {
   .navContainer {
     display: none;
@@ -157,7 +163,7 @@
 .searchBarContainer {
   border-radius: 3px;
   font-family: Bitter;
-  font-size: 0.8rem;
+  font-size: 1.3rem;
 }
 
 .profileContainer {

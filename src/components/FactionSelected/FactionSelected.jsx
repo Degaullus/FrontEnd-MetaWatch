@@ -132,11 +132,8 @@ export default function FactionSelected() {
       <div className={styles.bigBackround}>
         <div className={styles.topBackground}>
           <div className={styles.header}>
-            <button onClick={() => navigate(-1)}>
-              {" "}
-              ⬅ Back to all Factions
-            </button>
-            <h2>{`${id.replace("-", " ").replace("-", " ")} winning lists`}</h2>
+            <button onClick={() => navigate(-1)}> ⬅ Back</button>
+            <h2>{`${id.replace("-", " ").replace("-", " ")}`}</h2>
           </div>
 
           <div className={styles.pointsButtonsContainer}>
