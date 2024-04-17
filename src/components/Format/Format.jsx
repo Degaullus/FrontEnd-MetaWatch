@@ -13,6 +13,7 @@ export default function Format() {
   const [displayList, setDisplayList] = useState(false);
   const [sortList, setSortList] = useState("descDate");
   const [activeSortButton, setActiveSortButton] = useState(null);
+  const [activePointsButton, setActivePointsButton] = useState(2000);
   // console.log(isLoading);
 
   const formatRank = (rank) => {
@@ -110,11 +111,10 @@ export default function Format() {
     }, 3000);
   };
 
-  const buttonActive = (points) => {
-    setPoints(points);
-    setDisplayList(true);
+  const handlePointsButtonClick = (pointsValue) => {
+    setPoints(pointsValue);
+    setActivePointsButton(pointsValue);
   };
-
   
   const handleSortButtonClick = (sortType) => {
     setSortList(sortType);
@@ -131,29 +131,29 @@ export default function Format() {
 
         <div className={styles.pointsButtonsContainer}>
           <button
-            className={styles.pointsButtons}
-            onClick={() => buttonActive(2000)}
+            className={`${styles.pointsButtons} ${activePointsButton === 2000 ? styles.activePointsButtons : ''}`}
+            onClick={() => handlePointsButtonClick(2000)}
           >
             2000{" "}
           </button>
 
           <button
-            className={styles.pointsButtons}
-            onClick={() => buttonActive(1500)}
+            className={`${styles.pointsButtons} ${activePointsButton === 1500 ? styles.activePointsButtons : ''}`}
+            onClick={() => handlePointsButtonClick(1500)}
           >
             1500
           </button>
 
           <button
-            className={styles.pointsButtons}
-            onClick={() => buttonActive(1250)}
+            className={`${styles.pointsButtons} ${activePointsButton === 1250 ? styles.activePointsButtons : ''}`}
+            onClick={() => handlePointsButtonClick(1250)}
           >
             1250
           </button>
 
           <button
-            className={styles.pointsButtons}
-            onClick={() => buttonActive(0)}
+            className={`${styles.pointsButtons} ${activePointsButton === 0 ? styles.activePointsButtons : ''}`}
+            onClick={() => handlePointsButtonClick(0)}
           >
             Other
           </button>

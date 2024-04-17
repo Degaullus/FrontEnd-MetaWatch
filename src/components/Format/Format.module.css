@@ -86,7 +86,9 @@
   font-size: 3rem;
 }
 
-.pointsButtons
+.activePointsButtons {
+  background-color: gray;
+}
 
 .header {
   display: flex;
