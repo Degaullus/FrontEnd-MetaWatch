@@ -24,7 +24,7 @@ function SearchResults() {
     ? data.filter(createFilter(searchTermNormalized, KEYS_TO_FILTERS))
     : [];
 
-  console.log("Filtered Data:", filteredSearchedData);
+  // console.log("Filtered Data:", filteredSearchedData);
 
   // Ensure you check for the normalized searchTerm
   const listsContainingSearchTerm = filteredSearchedData.filter((entry) => {
@@ -33,10 +33,10 @@ function SearchResults() {
     );
   });
 
-  console.log(
-    "Entries with searchTerm in list:",
-    listsContainingSearchTerm.length
-  );
+  // console.log(
+  //   "Entries with searchTerm in list:",
+  //   listsContainingSearchTerm.length
+  // );
 
   // Function to copy list to clipboard and close modal
   const copyListToClipboard = (list) => {
