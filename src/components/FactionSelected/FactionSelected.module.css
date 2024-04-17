@@ -8,8 +8,7 @@
 .tournamentContainerBg {
   background-image: url("/bgblue.png");
   background-size: contain;
-  padding-left: 15rem;
-  padding-right: 15rem;
+
 }
 
 .loadingContainer {
@@ -27,6 +26,8 @@
   background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
+  margin-left: 15rem;
+  margin-right: 15rem;
 }
 
 .tournamentInfo {
@@ -282,5 +283,8 @@ button:hover {
     color: #266075;
     font-weight: bold;
     border: black solid 1px;
+  }
+  .card {
+    margin: 0 1rem
   }
 }
