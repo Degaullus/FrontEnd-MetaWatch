@@ -55,7 +55,7 @@ export default function Homepage() {
       </div>
 
       {isLoading ? (
-        <div>
+        <div className="loading-container">
           <p>Tournament information loading.. May take up to 50 seconds</p>
           <LoadingSpinner />
         </div>
