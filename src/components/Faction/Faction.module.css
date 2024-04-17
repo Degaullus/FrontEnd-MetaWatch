@@ -85,7 +85,7 @@
 }
 
 .button:hover {
-  transform: scale(1.1); /* Increase size by 10% */
+  transform: scale(1.03); /* Increase size by 10% */
   transition: transform 0.3s ease-in-out; /* Smooth transition */
 }
 
