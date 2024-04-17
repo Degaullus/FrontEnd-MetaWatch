@@ -19,7 +19,7 @@
   font-size: 1.8rem;
   color: black;
   padding: 0.4rem;
-  height: auto;
+  line-height: 32px;
 }
 
 .tournamentContainerBg {
@@ -42,6 +42,10 @@
   background-image: url("/bgblue.png");
   background-position: center;
   background-size: cover;
+}
+
+.card pre {
+  color: black;
 }
 
 .containerInfo {
@@ -127,7 +131,6 @@ button:hover {
   padding: 0.5rem;
 }
 
-
 .location,
 .subEntry {
   opacity: 0.9;
@@ -208,3 +211,4 @@ button:hover {
   }
 
 }
+
