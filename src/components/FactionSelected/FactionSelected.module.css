@@ -8,8 +8,7 @@
 .tournamentContainerBg {
   background-image: url("/bgblue.png");
   background-size: contain;
-  padding-left: 15rem;
-  padding-right: 15rem;
+
 }
 
 .loadingContainer {
@@ -27,6 +26,8 @@
   background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
+  margin-left: 15rem;
+  margin-right: 15rem;
 }
 
 .tournamentInfo {
@@ -115,6 +116,10 @@
   padding-top: 1rem;
 }
 
+.sortButtonsContainer span:hover {
+  cursor: pointer;
+}
+
 .sortButtons {
   height: 3.3rem;
   width: 3.3rem;
@@ -147,6 +152,10 @@
   border: black solid 1px;
 }
 
+.activeSortButtons {
+  text-decoration: underline;
+}
+
 #modalDialogId {
   max-width: 800px;
 }
@@ -154,6 +163,8 @@
 button:hover {
   background-color: grey;
 }
+
+
 
 .divider1 {
   background-image: url("/divider1.png");
@@ -272,5 +283,8 @@ button:hover {
     color: #266075;
     font-weight: bold;
     border: black solid 1px;
+  }
+  .card {
+    margin: 0 1rem
   }
 }
