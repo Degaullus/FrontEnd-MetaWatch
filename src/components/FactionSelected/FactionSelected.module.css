@@ -6,7 +6,7 @@
 }
 
 .tournamentContainerBg {
-  background-image: url("/bgblue.png");
+  background-image: url("/bgbluebig.png");
   background-size: contain;
 
 }
@@ -150,6 +150,7 @@
   color: #266075;
   font-weight: bold;
   border: black solid 1px;
+  cursor: pointer;
 }
 
 .activeSortButtons {

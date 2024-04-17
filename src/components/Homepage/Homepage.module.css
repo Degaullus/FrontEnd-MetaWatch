@@ -14,9 +14,6 @@
 .header h1 {
   color: rgba(4, 94, 116, 255);
   text-align: center;
-
-  /* test */
-  text-shadow: 2px 2px 5px black;
 }
 
 .informationBackground {
