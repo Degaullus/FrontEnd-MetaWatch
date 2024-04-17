@@ -2,6 +2,7 @@ import styles from "./Format.module.css";
 import { useContext, useState } from "react";
 import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
+import { AuthContext } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,6 +15,8 @@ export default function Format() {
   const [sortList, setSortList] = useState("descDate");
   const [activeSortButton, setActiveSortButton] = useState(null);
   const [activePointsButton, setActivePointsButton] = useState(2000);
+  const { token } = useContext(AuthContext);
+
   // console.log(isLoading);
 
   const formatRank = (rank) => {
@@ -119,6 +122,32 @@ export default function Format() {
   const handleSortButtonClick = (sortType) => {
     setSortList(sortType);
     setActiveSortButton(sortType);
+  };
+
+  const handleSaveToFavs = async (id) => {
+    try {
+      const res = await fetch(`${deployedAPI}/fav/add/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+
+      // Check if the operation was successful based on response status or data
+      if (res.ok) {
+        alert("Item has been added to your favorites.");
+      } else {
+        alert("Failed to add the item to favorites. Please try again.");
+      }
+    } catch (error) {
+      console.log(error);
+      alert(
+        "Error adding item to favorites. Check your connection and try again."
+      );
+    }
   };
 
   return (
@@ -302,8 +331,19 @@ export default function Format() {
                           ? "Copied!"
                           : "Copy List"}
                       </button>
-                      {/* commented out for test version purpose */}
-                      {/*  <button>Add to favorites</button> */}
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={(e) => {
+                          handleSaveToFavs(entry._id);
+                          e.stopPropagation();
+                          setOpenModalId(null);
+                        }}
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        Save to Favorites
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -313,9 +353,11 @@ export default function Format() {
           <div className={styles.divider1}></div>
         </div>
       ) : (
-        <div className={styles.lastP}>
+        <div>
           {" "}
-          <p>Please select a format!</p>
+          <div>
+            <p className={styles.lastP}>Please select a format!</p>
+          </div>
           <div className={styles.divider1}></div>
         </div>
       )}

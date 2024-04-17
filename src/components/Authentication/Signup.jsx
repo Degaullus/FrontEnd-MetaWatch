@@ -43,7 +43,7 @@ export default function Signup() {
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <h1 className={styles.heading}>Signup</h1>
-        <label>username: </label>
+        <label className={styles.label}>username: </label>
         <input
           className={styles.input}
           type="text"
@@ -51,7 +51,7 @@ export default function Signup() {
           value={username}
         />
 
-        <label>email: </label>
+        <label className={styles.label}>email: </label>
         <input
           className={styles.input}
           type="email"
@@ -59,7 +59,7 @@ export default function Signup() {
           value={email}
         />
 
-        <label>password: </label>
+        <label className={styles.label}>password: </label>
         <input
           className={styles.input}
           type="password"

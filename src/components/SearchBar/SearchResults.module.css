@@ -5,6 +5,16 @@
   gap: 1rem;
 }
 
+.searchSummary {
+  background-image: url("/bgblue.png");
+  background-size: contain;
+  background-position: center;
+  font-family: Anton;
+  font-size: 1.8rem;
+  color: white;
+  padding: 0.4rem;
+}
+
 .tournamentContainerBg {
   background-image: url("/bgblue.png");
   background-size: contain;
@@ -123,7 +133,7 @@ button:hover {
   }
 
   .pointsButtons {
-    /*  border: 2px solid yellow; */
+    border: 2px solid yellow;
     font-size: 1rem;
     border-radius: 10px;
     background-color: #f9ca33;
