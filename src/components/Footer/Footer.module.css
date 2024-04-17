@@ -9,7 +9,7 @@
   flex-direction: column;
   padding-top: 1rem;
   gap: 1rem; /* Adequate spacing between sections */
-  height: 25vh;
+  min-height: 30;
 }
 
 .containerTop,

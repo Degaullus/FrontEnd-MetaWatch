@@ -11,13 +11,6 @@
   background-size: cover;
 }
 
-.buttonContainer {
-  margin: 5rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-}
-
 .button {
   padding: 3rem;
   font-size: 1.5rem;
@@ -60,14 +53,14 @@
 }
 
 .buttonContainer {
-  display: flex;
-  flex-wrap: wrap; /* Allow buttons to wrap to the next line */
   justify-content: center;
   align-items: center;
-  margin: 2rem 20rem;
+  margin: 2rem 10rem;
   padding: 1.5rem;
   gap: 1.5rem;
-  max-width: 600px; /* Set a maximum width for the container */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
 }
 
 .button {
@@ -83,7 +76,6 @@
   border: 1px solid black;
   border-radius: 8px;
   text-align: center;
-  width: calc(33.33% - 1rem);
 }
 
 .button:hover {

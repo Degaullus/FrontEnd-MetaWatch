@@ -99,6 +99,13 @@
   text-align: center; /* Centers text within each column */
 }
 
+.headerP {
+  font-size: 1, 25rem;
+  font-weight: 500;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  text-align: center;
+}
+
 @media only screen and (max-width: 600px) {
   .header {
     min-height: 45vh;
