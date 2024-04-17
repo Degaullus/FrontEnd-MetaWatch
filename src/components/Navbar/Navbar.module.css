@@ -123,6 +123,11 @@
   transition: 0.3s ease-in-out;
 }
 
+.navContainer.open .navItem {
+  padding: 0;
+  margin: 0;
+}
+
 .navItem:hover {
   text-decoration: underline;
 }
@@ -161,7 +166,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: calc(100px + 7rem);
+  height: calc(110px + 3rem);
   background-color: black;
   position: fixed;
   top: 0;
