@@ -9,6 +9,16 @@
 
 .favoritesContainer {
   margin: 3 5rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.favorite {
+  border: solid 1px white;
+  max-height: fit-content;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .listHeader {
