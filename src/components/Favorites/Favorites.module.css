@@ -52,3 +52,10 @@
 .button:hover {
   filter: invert(1);
 }
+
+@media only screen and (max-width: 850px) {
+  .favoritesContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
