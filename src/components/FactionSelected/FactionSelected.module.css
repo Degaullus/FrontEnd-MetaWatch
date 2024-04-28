@@ -196,6 +196,7 @@ button:hover {
   background-image: url("/divider1.png");
   background-size: cover;
   height: 1vh;
+  padding-bottom: 0.5rem;
 }
 
 .divider2 {
@@ -216,6 +217,13 @@ button:hover {
     background-size: contain;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
+  }
+
+  .tournamentContainer {
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
   }
 
   .pointsButtonsContainer {
@@ -311,6 +319,9 @@ button:hover {
     border: black solid 1px;
   }
   .card {
-    margin: 0 1rem;
+    /*     border: solid 1px red; 
+ */
+    margin: 0.1rem;
+    padding: 0.5rem;
   }
 }

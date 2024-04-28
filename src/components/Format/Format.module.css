@@ -266,6 +266,13 @@
     margin: 0rem;
   }
 
+  .tournamentContainer {
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.1rem;
+  }
+
   .pointsButtons {
     /*   border: 2px solid yellow; */
     font-size: 1.5rem;
@@ -286,7 +293,7 @@
     /*   border: 2px solid green; */
     display: flex;
     align-items: center;
-    gap: 1.8rem;
+    gap: 0.5rem;
   }
 
   .header button {
@@ -358,10 +365,11 @@
     display: flex;
     justify-content: center;
     margin: 1rem;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
   }
 
   .card {
-    margin: 0 1rem;
+    margin: 0.2rem;
+    padding: 0.4rem;
   }
 }
