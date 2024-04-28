@@ -63,9 +63,31 @@
   margin: 0rem;
 }
 
+/* ICONS */
+
 .playersIcon {
-  height: 1.5rem;
+  height: 1.4rem;
   margin-right: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.locationIcon {
+  height: 1.3rem;
+  margin-right: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.calenderIcon {
+  height: 1.4rem;
+  margin-right: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.cupIcon {
+  height: 1.4rem;
+  margin-right: 1rem;
+  color: black;
+  margin-bottom: 0.2rem;
 }
 
 .pointsButtons {
