@@ -130,14 +130,14 @@ export default function FactionSelected() {
 
       // Check if the operation was successful based on response status or data
       if (res.ok) {
-        alert("Item has been added to your favorites.");
+        alert("List has been saved to your favorites.");
       } else {
-        alert("Failed to add the item to favorites. Please try again.");
+        alert("Please login to save lists to favorites.");
       }
     } catch (error) {
       console.log(error);
       alert(
-        "Error adding item to favorites. Check your connection and try again."
+        "Error adding list to favorites. Check your connection and try again."
       );
     }
   };
@@ -186,39 +186,67 @@ export default function FactionSelected() {
           </div>
 
           <div>
-      <div className={styles.sortButtonsContainer}>
-        <span
-          className={`${styles.sortButtons} ${activeSortButton === "ascDate" ? styles.activeSortButtons : ''}`}
-          onClick={() => handleSortButtonClick("ascDate")}
-        >
-          Date <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
-        </span>
-        <span
-          className={`${styles.sortButtons} ${activeSortButton === "descDate" ? styles.activeSortButtons : ''}`}
-          onClick={() => handleSortButtonClick("descDate")}
-        >
-          Date <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
-        </span>
-        <span
-          className={styles.reset}
-          onClick={() => handleSortButtonClick("descDate")}
-        >
-          Reset
-        </span>
-        <span
-          className={`${styles.sortButtons} ${activeSortButton === "ascRank" ? styles.activeSortButtons : ''}`}
-          onClick={() => handleSortButtonClick("ascRank")}
-        >
-          Rank <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
-        </span>
-        <span
-          className={`${styles.sortButtons} ${activeSortButton === "descRank" ? styles.activeSortButtons : ''}`}
-          onClick={() => handleSortButtonClick("descRank")}
-        >
-          Rank <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
-        </span>
-      </div>
-    </div>
+            <div className={styles.sortButtonsContainer}>
+              <span
+                className={`${styles.sortButtons} ${
+                  activeSortButton === "ascDate" ? styles.activeSortButtons : ""
+                }`}
+                onClick={() => handleSortButtonClick("ascDate")}
+              >
+                Date{" "}
+                <FontAwesomeIcon
+                  icon={faArrowUp}
+                  style={{ color: "#ffffff" }}
+                />
+              </span>
+              <span
+                className={`${styles.sortButtons} ${
+                  activeSortButton === "descDate"
+                    ? styles.activeSortButtons
+                    : ""
+                }`}
+                onClick={() => handleSortButtonClick("descDate")}
+              >
+                Date{" "}
+                <FontAwesomeIcon
+                  icon={faArrowDown}
+                  style={{ color: "#ffffff" }}
+                />
+              </span>
+              <span
+                className={styles.reset}
+                onClick={() => handleSortButtonClick("descDate")}
+              >
+                Reset
+              </span>
+              <span
+                className={`${styles.sortButtons} ${
+                  activeSortButton === "ascRank" ? styles.activeSortButtons : ""
+                }`}
+                onClick={() => handleSortButtonClick("ascRank")}
+              >
+                Rank{" "}
+                <FontAwesomeIcon
+                  icon={faArrowDown}
+                  style={{ color: "#ffffff" }}
+                />
+              </span>
+              <span
+                className={`${styles.sortButtons} ${
+                  activeSortButton === "descRank"
+                    ? styles.activeSortButtons
+                    : ""
+                }`}
+                onClick={() => handleSortButtonClick("descRank")}
+              >
+                Rank{" "}
+                <FontAwesomeIcon
+                  icon={faArrowUp}
+                  style={{ color: "#ffffff" }}
+                />
+              </span>
+            </div>
+          </div>
           <div className={styles.divider1}></div>
         </div>
       </div>
@@ -236,23 +264,49 @@ export default function FactionSelected() {
                 <div className={styles.tournamentInfo}>
                   <div className={styles.tournamentName}>
                     <p className={styles.tournamentDetails}>
+                      <img
+                        className={styles.cupIcon}
+                        src="/cupIcon.svg"
+                        alt="cupIcon"
+                      />
                       {formatRank(entry.rank)}
                     </p>
                     <p className={styles.tournamentDetails}>
                       {entry.format} pts{" "}
                     </p>
-                    <p
-                      className={styles.tournamentDetails}
-                      style={{ fontStyle: "italic" }}
-                    >
-                      {entry.date}
+                    <p>
+                      <img
+                        src="../public/playersIcon.svg"
+                        alt="playersIcon"
+                        className={styles.playersIcon}
+                      />
+                      {entry.players}
+                    </p>
+                    <p>
+                      Wins : {entry.wins}/{entry.rounds}
                     </p>
                   </div>
 
                   <p className={styles.tournamentTitle}>{entry.tournament}</p>
                   {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
                   <div className={styles.tournamentLocation}>
-                    <p style={{ fontStyle: "italic" }}> {entry.location}</p>
+                    <p style={{ fontStyle: "italic" }}>
+                      {" "}
+                      <img
+                        className={styles.locationIcon}
+                        src="/locationIcon.svg"
+                        alt="locationIcon"
+                      />
+                      {entry.location}
+                    </p>
+                    <p>
+                      <img
+                        className={styles.calenderIcon}
+                        src="/calenderIcon.svg"
+                        alt="calenderIcon"
+                      />
+                      {entry.date}
+                    </p>
                   </div>
                 </div>
                 <div className={styles.tournamentButton}>

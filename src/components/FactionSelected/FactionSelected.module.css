@@ -8,7 +8,6 @@
 .tournamentContainerBg {
   background-image: url("/bgbluebig.png");
   background-size: contain;
-
 }
 
 .loadingContainer {
@@ -62,6 +61,33 @@
   padding-left: 15rem;
   padding-right: 15rem;
   margin: 0rem;
+}
+
+/* ICONS */
+
+.playersIcon {
+  height: 1.4rem;
+  margin-right: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.locationIcon {
+  height: 1.3rem;
+  margin-right: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.calenderIcon {
+  height: 1.4rem;
+  margin-right: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.cupIcon {
+  height: 1.4rem;
+  margin-right: 1rem;
+  color: black;
+  margin-bottom: 0.2rem;
 }
 
 .pointsButtons {
@@ -166,12 +192,11 @@ button:hover {
   background-color: grey;
 }
 
-
-
 .divider1 {
   background-image: url("/divider1.png");
   background-size: cover;
   height: 1vh;
+  padding-bottom: 0.5rem;
 }
 
 .divider2 {
@@ -192,6 +217,18 @@ button:hover {
     background-size: contain;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
+  }
+
+  .tournamentContainer {
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .tournamentTitle {
+    /*   border: red solid 2px; */
+    font-size: 1.4rem;
   }
 
   .pointsButtonsContainer {
@@ -222,7 +259,7 @@ button:hover {
     /*     border: 2px solid green; */
     display: flex;
     align-items: center;
-    gap: 1.8rem;
+    gap: 0.5rem;
   }
 
   .header button {
@@ -287,6 +324,9 @@ button:hover {
     border: black solid 1px;
   }
   .card {
-    margin: 0 1rem
+    /*     border: solid 1px red; 
+ */
+    margin: 0.1rem;
+    padding: 0.5rem;
   }
 }
