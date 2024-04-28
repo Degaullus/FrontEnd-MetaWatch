@@ -76,6 +76,8 @@
   border: 1px solid black;
   border-radius: 8px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .button:hover {
