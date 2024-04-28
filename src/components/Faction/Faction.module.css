@@ -67,17 +67,30 @@
   background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
-  padding: 2rem;
-  height: 12rem;
+  padding: 0rem;
+  height: 13rem;
   font-size: 1.5rem;
   font-weight: bold;
   color: black;
-  background-color: rgb(228, 195, 137);
   border: 1px solid black;
   border-radius: 8px;
-  text-align: center;
+}
+
+.insideButton {
   display: flex;
   flex-direction: column;
+
+  align-items: center;
+}
+
+.factionImage {
+  border: 2px solid green;
+  height: 100px;
+}
+
+.factionName {
+  border: 2px solid red;
+  font-size: 1.5rem;
 }
 
 .button:hover {
