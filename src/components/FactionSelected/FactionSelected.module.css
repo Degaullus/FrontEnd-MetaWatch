@@ -246,7 +246,7 @@ button:hover {
     /*     border: 2px solid green; */
     display: flex;
     align-items: center;
-    gap: 1.8rem;
+    gap: 0.5rem;
   }
 
   .header button {
