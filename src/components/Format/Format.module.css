@@ -86,6 +86,32 @@
   font-weight: 600;
 }
 
+/* ICONS */
+
+.playersIcon {
+  height: 1.4rem;
+  margin-right: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.locationIcon {
+  height: 1.3rem;
+  margin-right: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.calenderIcon {
+  height: 1.4rem;
+  margin-right: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.cupIcon {
+  height: 1.4rem;
+  margin-right: 1rem;
+  margin-bottom: 0.2rem;
+}
+
 .SelectFormatDiv {
   height: 30vh;
   background-image: url("/bgblue.png");

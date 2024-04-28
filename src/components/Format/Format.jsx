@@ -278,14 +278,23 @@ export default function Format() {
                 <div className={styles.tournamentInfo}>
                   <div className={styles.tournamentName}>
                     <p className={styles.tournamentDetails}>
+                      <img
+                        className={styles.cupIcon}
+                        src="/cupIcon.svg"
+                        alt="cupicon"
+                      />
                       {formatRank(entry.rank)}
                     </p>
-
-                    <p
-                      className={styles.tournamentDetails}
-                      style={{ fontStyle: "italic" }}
-                    >
-                      {entry.date}
+                    <p>
+                      <img
+                        src="../public/playersIcon.svg"
+                        alt="playersIcon"
+                        className={styles.playersIcon}
+                      />
+                      {entry.players}
+                    </p>
+                    <p>
+                      Wins : {entry.wins}/{entry.rounds}
                     </p>
                   </div>
                   <p className={styles.tournamentArmy}>{entry.army}</p>
@@ -293,7 +302,22 @@ export default function Format() {
                   <p className={styles.tournamentTitle}>{entry.tournament}</p>
                   {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
                   <div className={styles.tournamentLocation}>
-                    <p style={{ fontStyle: "italic" }}> {entry.location}</p>
+                    <p style={{ fontStyle: "italic" }}>
+                      <img
+                        className={styles.locationIcon}
+                        src="/locationIcon.svg"
+                        alt="locationIcon"
+                      />
+                      {entry.location}
+                    </p>
+                    <p>
+                      <img
+                        className={styles.calenderIcon}
+                        src="/calenderIcon.svg"
+                        alt="calenderIcon"
+                      />{" "}
+                      {entry.date}
+                    </p>
                   </div>
                 </div>
                 <div className={styles.tournamentButton}>
