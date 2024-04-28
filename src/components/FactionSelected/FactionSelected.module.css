@@ -226,6 +226,11 @@ button:hover {
     margin-bottom: 0.1rem;
   }
 
+  .tournamentTitle {
+    /*   border: red solid 2px; */
+    font-size: 1.4rem;
+  }
+
   .pointsButtonsContainer {
     /*    border: 2px solid red; */
     display: flex;

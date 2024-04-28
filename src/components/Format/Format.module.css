@@ -266,6 +266,11 @@
     margin: 0rem;
   }
 
+  .tournamentTitle {
+    /*   border: red solid 2px; */
+    font-size: 1.4rem;
+  }
+
   .tournamentContainer {
     margin-left: 0.2rem;
     margin-right: 0.2rem;
