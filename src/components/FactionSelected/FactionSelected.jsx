@@ -274,16 +274,17 @@ export default function FactionSelected() {
                     <p className={styles.tournamentDetails}>
                       {entry.format} pts{" "}
                     </p>
+
+                    <p>
+                      Wins : {entry.wins}/{entry.rounds}
+                    </p>
                     <p>
                       <img
-                        src="../public/playersIcon.svg"
+                        src="/playersIcon.svg"
                         alt="playersIcon"
                         className={styles.playersIcon}
                       />
                       {entry.players}
-                    </p>
-                    <p>
-                      Wins : {entry.wins}/{entry.rounds}
                     </p>
                   </div>
 
