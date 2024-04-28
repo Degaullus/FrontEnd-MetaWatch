@@ -8,7 +8,6 @@
 .tournamentContainerBg {
   background-image: url("/bgbluebig.png");
   background-size: contain;
-
 }
 
 .loadingContainer {
@@ -62,6 +61,11 @@
   padding-left: 15rem;
   padding-right: 15rem;
   margin: 0rem;
+}
+
+.playersIcon {
+  height: 1.5rem;
+  margin-right: 1rem;
 }
 
 .pointsButtons {
@@ -165,8 +169,6 @@
 button:hover {
   background-color: grey;
 }
-
-
 
 .divider1 {
   background-image: url("/divider1.png");
@@ -287,6 +289,6 @@ button:hover {
     border: black solid 1px;
   }
   .card {
-    margin: 0 1rem
+    margin: 0 1rem;
   }
 }
