@@ -84,12 +84,12 @@
 }
 
 .factionImage {
-  border: 2px solid green;
+  border: 2px green;
   height: 100px;
 }
 
 .factionName {
-  border: 2px solid red;
+  border: 2px red;
   font-size: 1.5rem;
 }
 
@@ -125,5 +125,15 @@
     border: 1px solid black;
     border-radius: 8px;
     text-align: center;
+  }
+
+  .factionImage {
+    border: 2px green;
+    height: 80px;
+  }
+
+  .factionName {
+    border: 2px red;
+    font-size: 1rem;
   }
 }
