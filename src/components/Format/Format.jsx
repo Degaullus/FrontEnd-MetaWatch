@@ -17,6 +17,13 @@ export default function Format() {
   const { token } = useContext(AuthContext);
 
   // console.log(isLoading);
+  useEffect(() => {
+    const modalBackdrop = document.querySelector(".modal-backdrop");
+    if (modalBackdrop) {
+      modalBackdrop.remove();
+      window.location.reload();
+    }
+  }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
 
   const formatRank = (rank) => {
     const suffixes = ["st", "nd", "rd", "th"];
@@ -28,14 +35,6 @@ export default function Format() {
     }
 
     const rankWithoutZero = parseInt(rank.toString().slice(1), 10) || rank;
-
-    useEffect(() => {
-      const modalBackdrop = document.querySelector(".modal-backdrop");
-      if (modalBackdrop) {
-        modalBackdrop.remove();
-        window.location.reload();
-      }
-    }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
 
     return `${rankWithoutZero}${suffixes[mod10 - 1]}`;
   };
