@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Authentication.module.css";
 import { AuthContext } from "../../context/AuthContext";
@@ -13,6 +13,14 @@ export default function Authentication() {
   const [error, setError] = useState("");
   const backendUrl = "https://backend-metawatch.onrender.com/";
   const localBackend = "http://localhost:8080/";
+  useEffect(() => {
+    const modalBackdrop = document.querySelector(".modal-backdrop");
+    if (modalBackdrop) {
+      modalBackdrop.remove();
+      window.location.reload();
+    }
+  }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = `${backendUrl}${auth}`;

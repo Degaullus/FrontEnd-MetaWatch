@@ -1,5 +1,5 @@
 import styles from "./Format.module.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import { AuthContext } from "../../context/AuthContext";
@@ -28,6 +28,14 @@ export default function Format() {
     }
 
     const rankWithoutZero = parseInt(rank.toString().slice(1), 10) || rank;
+
+    useEffect(() => {
+      const modalBackdrop = document.querySelector(".modal-backdrop");
+      if (modalBackdrop) {
+        modalBackdrop.remove();
+        window.location.reload();
+      }
+    }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
 
     return `${rankWithoutZero}${suffixes[mod10 - 1]}`;
   };

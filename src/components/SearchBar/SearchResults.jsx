@@ -18,6 +18,14 @@ function SearchResults() {
   const [flag, setFlag] = useState(false);
   const deployedAPI = "https://backend-metawatch.onrender.com";
 
+  useEffect(() => {
+    const modalBackdrop = document.querySelector(".modal-backdrop");
+    if (modalBackdrop) {
+      modalBackdrop.remove();
+      window.location.reload();
+    }
+  }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
+
   // Make sure data is lowercased if necessary or trimmed
   const searchTermNormalized = searchTerm.trim().toLowerCase();
   const filteredSearchedData = data
