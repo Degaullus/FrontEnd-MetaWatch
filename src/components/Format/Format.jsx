@@ -1,5 +1,5 @@
 import styles from "./Format.module.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import { AuthContext } from "../../context/AuthContext";
@@ -17,6 +17,13 @@ export default function Format() {
   const { token } = useContext(AuthContext);
 
   // console.log(isLoading);
+  useEffect(() => {
+    const modalBackdrop = document.querySelector(".modal-backdrop");
+    if (modalBackdrop) {
+      modalBackdrop.remove();
+      window.location.reload();
+    }
+  }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
 
   const formatRank = (rank) => {
     const suffixes = ["st", "nd", "rd", "th"];

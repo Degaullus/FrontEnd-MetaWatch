@@ -1,5 +1,6 @@
 import styles from "./Faction.module.css";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const factions = [
   { name: "Beastmen", image: "/factionsIcons/beastMen.jpg" },
@@ -31,6 +32,14 @@ const factions = [
 
 export default function Faction() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const modalBackdrop = document.querySelector(".modal-backdrop");
+    if (modalBackdrop) {
+      modalBackdrop.remove();
+      window.location.reload();
+    }
+  }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
 
   return (
     <div className={styles.factionBackground}>
