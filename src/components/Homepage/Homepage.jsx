@@ -44,8 +44,7 @@ export default function Homepage() {
                 <b>Faction :</b>
               </u>{" "}
               <br />
-              Quickly access winning lists tailored to each faction's
-              meta.
+              Quickly access winning lists tailored to each faction's meta.
             </p>
             <p>
               <u>
@@ -71,7 +70,6 @@ export default function Homepage() {
 
       {isLoading ? (
         <div className="loading-container">
-          <p>Tournament information loading.. May take up to 50 seconds</p>
           <LoadingSpinner />
         </div>
       ) : (
