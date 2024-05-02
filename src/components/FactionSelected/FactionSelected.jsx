@@ -28,6 +28,12 @@ export default function FactionSelected() {
     }
   }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
 
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  }, []);
+
   // const localAPI = "http://localhost:8080";
   const deployedAPI = "https://backend-metawatch.onrender.com";
 
@@ -325,7 +331,7 @@ export default function FactionSelected() {
                     data-bs-toggle="modal"
                     data-bs-target={"#listModal" + index}
                     onClick={() => setOpenModalId(index)}
-                    className="btn btn-primary"
+                    className="btn btn-dark btn-lg"
                     disabled={entry.list == "No list submitted"}
                   >
                     Show army list
@@ -358,12 +364,12 @@ export default function FactionSelected() {
                         </button>
                       </div>
                       <div className="modal-body">
-                        <pre>{entry.list}</pre>
+                        <pre style={{ fontSize: "1.1rem" }}>{entry.list}</pre>
                       </div>
                       <button
                         type="button"
                         onClick={() => copyListToClipboard(entry.list)}
-                        className="btn btn-primary"
+                        className="btn btn-dark btn-lg"
                         data-bs-dismiss="modal"
                         aria-label="Close"
                       >
@@ -375,7 +381,7 @@ export default function FactionSelected() {
                       <br />
                       <button
                         type="button"
-                        className="btn btn-primary"
+                        className="btn btn-dark btn-lg"
                         onClick={(e) => {
                           handleSaveToFavs(entry._id);
                           e.stopPropagation();

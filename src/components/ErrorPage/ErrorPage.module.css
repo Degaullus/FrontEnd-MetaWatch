@@ -6,7 +6,7 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  background-image: url("warp.jpg");
+  background-image: url("./warp.jpg");
   background-position: center;
   background-size: cover;
   /* background: rgb(97, 24, 115); */
