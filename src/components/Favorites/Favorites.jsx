@@ -14,6 +14,14 @@ export default function Favorites() {
   const deployedAPI = "https://backend-metawatch.onrender.com";
 
   useEffect(() => {
+    const modalBackdrop = document.querySelector(".modal-backdrop");
+    if (modalBackdrop) {
+      modalBackdrop.remove();
+      window.location.reload();
+    }
+  }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
+
+  useEffect(() => {
     const fetchFavoriteLists = async (listIds) => {
       try {
         setLoading(true);
@@ -84,7 +92,7 @@ export default function Favorites() {
   return (
     <>
       <div className={style.container}>
-      <h1>Favorite Lists</h1>
+        <h1>Favorite Lists</h1>
         <div className={style.favoritesContainer}>
           {loading ? (
             <p>Loading...</p>
@@ -93,7 +101,10 @@ export default function Favorites() {
               <div key={list._id} className={style.favorite}>
                 <div className={style.listHeader}>{list.army}</div>
                 <div className={style.listBody}>{list.list}</div>
-                <button className={style.button} onClick={() => handleRemoveFavorite(list._id)}>
+                <button
+                  className={style.button}
+                  onClick={() => handleRemoveFavorite(list._id)}
+                >
                   Remove
                 </button>
               </div>

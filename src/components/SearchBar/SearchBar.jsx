@@ -15,9 +15,9 @@ function SearchBar() {
 
   return (
     <div>
-      <input 
-        type="text" 
-        className="search-input" 
+      <input
+        type="text"
+        className="search-input"
         value={searchTerm}
         onChange={(e) => searchUpdated(e.target.value)}
         placeholder="Search for Events/Units"
@@ -25,6 +25,5 @@ function SearchBar() {
     </div>
   );
 }
-
 
 export default SearchBar;

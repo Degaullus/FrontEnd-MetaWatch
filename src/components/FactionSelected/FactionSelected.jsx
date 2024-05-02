@@ -1,23 +1,32 @@
-import styles from "./FactionSelected.module.css";
 import { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import { AuthContext } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import styles from "./FactionSelected.module.css";
 
 export default function FactionSelected() {
   const [openModalId, setOpenModalId] = useState(null);
   const { data, isLoading } = useContext(APIContext);
   const { id } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [points, setPoints] = useState(0);
   const [sortList, setSortList] = useState("descDate");
-  const navigate = useNavigate();
   const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
   const { token } = useContext(AuthContext);
   const [activeSortButton, setActiveSortButton] = useState(null);
+
+  useEffect(() => {
+    const modalBackdrop = document.querySelector(".modal-backdrop");
+    if (modalBackdrop) {
+      modalBackdrop.remove();
+      window.location.reload();
+    }
+  }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
 
   useEffect(() => {
     setTimeout(() => {
@@ -383,9 +392,6 @@ export default function FactionSelected() {
                       >
                         Save to Favorites
                       </button>
-
-                      {/* commented out for test version purpose */}
-                      {/*  <button>Add to favorites</button> */}
                     </div>
                   </div>
                 </div>

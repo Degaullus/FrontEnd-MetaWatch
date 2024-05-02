@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import styles from "./Authentication.module.css";
 import LoadingSpinner from "../Loading/LoadingSpinner";
@@ -11,6 +11,14 @@ export default function Signup() {
   const [isLoading, setIsLoading] = useState(false);
 
   const { login, token } = useContext(AuthContext);
+
+  useEffect(() => {
+    const modalBackdrop = document.querySelector(".modal-backdrop");
+    if (modalBackdrop) {
+      modalBackdrop.remove();
+      window.location.reload();
+    }
+  }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
 
   const handleSubmit = async (e) => {
     e.preventDefault();
