@@ -12,14 +12,6 @@
   justify-content: center;
 }
 
-.headerLeft {
-  /* border: blue solid 2px; */
-}
-
-.headerRight {
-  /*   border: yellow solid 2px; */
-}
-
 .header h1 {
   color: rgba(4, 94, 116, 255);
   text-align: center;

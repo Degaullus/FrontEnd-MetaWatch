@@ -188,6 +188,10 @@
   max-width: 800px;
 }
 
+pre {
+  font-weight: 600;
+}
+
 button:hover {
   background-color: grey;
 }

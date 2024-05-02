@@ -1,5 +1,5 @@
 import styles from "./FactionSelected.module.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { APIContext } from "../../context/APIContext";
@@ -18,6 +18,12 @@ export default function FactionSelected() {
   const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
   const { token } = useContext(AuthContext);
   const [activeSortButton, setActiveSortButton] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  }, []);
 
   // const localAPI = "http://localhost:8080";
   const deployedAPI = "https://backend-metawatch.onrender.com";
@@ -316,7 +322,7 @@ export default function FactionSelected() {
                     data-bs-toggle="modal"
                     data-bs-target={"#listModal" + index}
                     onClick={() => setOpenModalId(index)}
-                    className="btn btn-primary"
+                    className="btn btn-dark btn-lg"
                     disabled={entry.list == "No list submitted"}
                   >
                     Show army list
@@ -349,12 +355,12 @@ export default function FactionSelected() {
                         </button>
                       </div>
                       <div className="modal-body">
-                        <pre>{entry.list}</pre>
+                        <pre style={{ fontSize: "1.1rem" }}>{entry.list}</pre>
                       </div>
                       <button
                         type="button"
                         onClick={() => copyListToClipboard(entry.list)}
-                        className="btn btn-primary"
+                        className="btn btn-dark btn-lg"
                         data-bs-dismiss="modal"
                         aria-label="Close"
                       >
@@ -366,7 +372,7 @@ export default function FactionSelected() {
                       <br />
                       <button
                         type="button"
-                        className="btn btn-primary"
+                        className="btn btn-dark btn-lg"
                         onClick={(e) => {
                           handleSaveToFavs(entry._id);
                           e.stopPropagation();
