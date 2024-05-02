@@ -45,7 +45,7 @@ export default function Homepage() {
             We empower you to become a better Warhammer player by providing easy
             access to tournament lists.
           </p>
-          <div className={styles.headerP}>
+          <div className={styles.headerList}>
             <p>
               <u>
                 {" "}
@@ -77,7 +77,7 @@ export default function Homepage() {
       </div>
 
       {isLoading ? (
-        <div className="loading-container">
+        <div className={styles.loadingContainer}>
           <LoadingSpinner />
         </div>
       ) : (
@@ -89,7 +89,7 @@ export default function Homepage() {
                 You have access to {dataleng} winning lists from{" "}
                 {Math.round(dataleng / 4)} tournaments.
               </p>
-              <div className={styles.informationContainerP}>
+              <div className={styles.informationContainerFormat}>
                 <p>
                   <u>
                     Format 1000: <br />
@@ -158,7 +158,10 @@ export default function Homepage() {
                 <p>
                   <strong>{entry.rank.slice(1)}st rank</strong>
                 </p>
-                <div className={styles.list} style={{ whiteSpace: "pre-wrap" }}>
+                <div
+                  className={styles.tournamentContainerList}
+                  style={{ whiteSpace: "pre-wrap" }}
+                >
                   {entry.list}
                 </div>
               </div>

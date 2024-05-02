@@ -239,7 +239,7 @@ export default function Format() {
             onClick={() => handleSortButtonClick("ascFaction")}
           >
             Faction{" "}
-            <span className="margin2">
+            <span style={{ margin: "0.2rem" }}>
               {" "}
               <FontAwesomeIcon
                 icon={faArrowDown}
@@ -254,7 +254,7 @@ export default function Format() {
             onClick={() => handleSortButtonClick("descFaction")}
           >
             Faction{" "}
-            <span className="margin2">
+            <span style={{ margin: "0.2rem" }}>
               {" "}
               <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
             </span>

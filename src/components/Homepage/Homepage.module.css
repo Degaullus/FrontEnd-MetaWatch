@@ -1,3 +1,34 @@
+/* General */
+
+/* Loading Container */
+
+.loadingContainer {
+  background-image: url("/bgblue.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* Divider */
+
+.divider1 {
+  background-image: url("/divider1.png");
+  background-size: cover;
+  height: 1vh;
+}
+
+.divider2 {
+  background-image: url("/divider2.png");
+  background-size: cover;
+  height: 10vh;
+}
+
+/* Desktop */
+
+/* Section 1
+    -> Welcome to MetaHammer */
+
 .headerBackground {
   background-image: url("/bgyellow.png");
   background-position: center;
@@ -5,7 +36,6 @@
 }
 
 .header {
-  /* border: red solid 2px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,9 +43,19 @@
 }
 
 .header h1 {
-  color: rgba(4, 94, 116, 255);
+  color: rgb(7, 98, 123);
   text-align: center;
 }
+
+.headerList {
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  text-align: center;
+}
+
+/* Section 2
+    -> Information */
 
 .informationBackground {
   background-image: url("/bgblue.png");
@@ -23,8 +63,18 @@
   background-size: cover;
 }
 
+.informationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  margin: auto;
+  text-align: center;
+}
+
 .informationContainer h2 {
-  color: rgb(155, 131, 90);
+  color: rgb(232, 203, 144);
   font-size: 40px;
 }
 
@@ -32,29 +82,21 @@
   color: white;
 }
 
-.informationContainer {
-  min-height: 50vh;
-  margin: auto;
-  text-align: center;
+.informationContainerFormat {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-}
-
-.informationContainerP {
-  /*   border: blueviolet solid 3px; */
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Aligns items to the start and end of the container */
   margin: 0.5rem 2rem;
   gap: 10px;
   align-items: center;
 }
 
-.informationContainerP > * {
-  flex-basis: calc(50% - 5px); /* 50% width minus half the gap */
+.informationContainerFormat > * {
+  flex-basis: calc(50% - 5px);
 }
+
+/* Section 3
+    -> Most recent tournament winning list */
 
 .tournamentBackground {
   background-image: url("/bgyellowbig.png");
@@ -69,90 +111,80 @@
 }
 
 .tournamentContainer h3 {
-  color: rgba(4, 94, 116, 255);
+  color: rgb(7, 98, 123);
 }
 
-.divider1 {
-  background-image: url("/divider1.png");
-  background-size: cover;
-  height: 1vh;
-}
-
-.divider2 {
-  background-image: url("/divider2.png");
-  background-size: cover;
-  height: 10vh;
-}
-
-.list {
+.tournamentContainerList {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers content horizontally */
-  text-align: center; /* Centers text within each column */
-}
-
-.headerP {
-  font-size: 1, 25rem;
-  font-weight: 500;
-  padding: 0.5rem 2rem 0.5rem 2rem;
+  align-items: center;
   text-align: center;
 }
 
+/* Mobile */
+
 @media only screen and (max-width: 600px) {
+  /* Section 1
+    -> Welcome to MetaHammer */
+
   .header {
     min-height: 45vh;
     margin: 1rem 0.5rem;
   }
+
   .header h1 {
     font-size: 4rem;
     margin-bottom: 0.5rem;
-    text-align: center;
   }
+
   .header > p {
     padding: 0.5rem 1.5rem;
     text-align: center;
     font-weight: 600;
     font-size: 1.5rem;
   }
-  .headerP {
-    font-size: 1, 25rem;
-    font-weight: 500;
+
+  .headerList {
+    font-size: 1.25rem;
     padding: 0.5rem 2rem 0.5rem 2rem;
-    text-align: center;
   }
+
+  /* Section 2
+    -> Information */
+
   .informationContainer {
-    border: 6px solide white;
     min-height: 50vh;
     margin: 0.5rem 1.5rem 2rem 1.5rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
+
   .informationContainer h2 {
     margin: 1rem 0 1.5rem 0;
     font-size: 3.5rem;
   }
+
   .informationContainer > p {
     font-size: 2rem;
     margin: 0 1.5rem 2rem 1.5rem;
   }
-  .informationContainerP {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+
+  .informationContainerFormat {
     margin: 0.5rem 2rem;
     gap: 10px;
   }
+
+  /* Section 3
+    -> Most recent tournament winning list */
+
   .tournamentContainer {
     min-height: 240vh;
   }
+
   .tournamentContainer h3 {
     font-size: 3rem;
     text-align: center;
     margin: 0.5rem 1rem 3rem 1rem;
   }
+
   .tournamentContainer p {
     margin: 1rem 4rem 0rem 4rem;
     font-weight: 600;
@@ -161,10 +193,12 @@
     padding-bottom: 1.5rem;
     width: 50vw;
   }
+
   .tournamentContainer p:nth-child(6n) {
     border-bottom: none;
   }
-  .list {
+
+  .tournamentContainerList {
     font-weight: 600;
     margin-top: 2rem;
     text-align: center;
