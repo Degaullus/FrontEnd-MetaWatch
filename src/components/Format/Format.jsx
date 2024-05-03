@@ -158,7 +158,7 @@ export default function Format() {
 
   return (
     <>
-      <div className={styles.bigBackground}>
+      <div className={styles.headerBackground}>
         <div className={styles.divider1}></div>
         <div className={styles.header}>
           <h2>Format</h2>
@@ -239,7 +239,7 @@ export default function Format() {
             onClick={() => handleSortButtonClick("ascFaction")}
           >
             Faction{" "}
-            <span className="margin2">
+            <span style={{ margin: "0.2rem" }}>
               {" "}
               <FontAwesomeIcon
                 icon={faArrowDown}
@@ -254,16 +254,16 @@ export default function Format() {
             onClick={() => handleSortButtonClick("descFaction")}
           >
             Faction{" "}
-            <span className="margin2">
+            <span style={{ margin: "0.2rem" }}>
               {" "}
               <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
             </span>
           </span>
         </div>
 
-        <div className={styles.forReset}>
+        <div className={styles.resetContainer}>
           <span
-            className={styles.reset}
+            className={styles.resetButton}
             onClick={() => handleSortButtonClick("descDate")}
           >
             Reset
@@ -273,15 +273,14 @@ export default function Format() {
       <div className={styles.divider1}></div>
 
       {isLoading ? (
-        <div className={styles.SelectFormatDiv}>
-          <p>Loading... (may take up to 50 seconds)</p>
+        <div className={styles.loadingContainer}>
           <LoadingSpinner />
         </div>
       ) : displayList ? (
         <div className={styles.tournamentContainerBg}>
           <div className={styles.tournamentContainer}>
             {filteredData.map((entry, index) => (
-              <li key={index} className={styles.card}>
+              <li key={index} className={styles.tournamentCards}>
                 <div className={styles.tournamentInfo}>
                   <div className={styles.tournamentName}>
                     <p className={styles.tournamentDetails}>
@@ -334,7 +333,7 @@ export default function Format() {
                     data-bs-toggle="modal"
                     data-bs-target={"#listModal" + index}
                     onClick={() => setOpenModalId(index)}
-                    className="btn btn-dark btn-lg"
+                    className="btn btn-dark"
                     disabled={entry.list == "No list submitted"}
                   >
                     Show army list
@@ -402,8 +401,8 @@ export default function Format() {
       ) : (
         <div>
           {" "}
-          <div className={styles.SelectFormatDiv}>
-            <p className={styles.lastP}>Please select a format!</p>
+          <div className={styles.selectFormatDiv}>
+            <p className={styles.selectFormatText}>Please select a format!</p>
           </div>
           <div className={styles.divider1}></div>
         </div>

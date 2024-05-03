@@ -49,21 +49,17 @@ export default function Faction() {
       </div>
       <div className={styles.divider1}></div>
       <div className={styles.emblem}>
-        <img
-          className={styles.emblemImg}
-          src="/emblem.svg"
-          alt="MetaHammerLogo"
-        />
+        <img src="/emblem.svg" alt="MetaHammerLogo" />
       </div>
       <div className={styles.divider3}></div>
       <div className={styles.buttonContainer}>
         {factions.map((faction) => (
           <button
-            className={styles.button}
+            className={styles.factionButtons}
             onClick={() => navigate(`/faction/${faction.name}`)}
             key={faction.name} /* here looks like a problem */
           >
-            <div className={styles.insideButton}>
+            <div>
               <div className={styles.factionName}> {faction.name}</div>
               <img
                 className={styles.factionImage}

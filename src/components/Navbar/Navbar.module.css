@@ -35,7 +35,6 @@
     align-items: center;
     width: 100%;
   }
-
 }
 
 @media (min-width: 601px) {
@@ -109,7 +108,7 @@
   align-items: center;
   overflow: hidden;
   justify-content: space-between;
-  height: var(--navbar-height);
+  height: 110px;
   transition: 0.3s ease-in-out;
   background-color: black;
   color: white;
@@ -195,7 +194,8 @@
   cursor: pointer;
 }
 
-.logout:hover, .logout:active {
+.logout:hover,
+.logout:active {
   opacity: 0.8;
 }
 

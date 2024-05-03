@@ -1,20 +1,6 @@
-.factionHeadline {
-  background-image: url("/bgyellow.png");
-  background-position: center;
-  background-size: cover;
-  color: rgba(4, 94, 116, 255);
-}
+/* General */
 
-.factionBackground {
-  background-image: url("/bgblue.png");
-  background-position: center;
-  background-size: cover;
-}
-
-.button {
-  padding: 3rem;
-  font-size: 1.5rem;
-}
+/* Divider */
 
 .divider1 {
   background-image: url("/divider1.png");
@@ -34,17 +20,24 @@
   height: 1vh;
 }
 
-.emblem {
-  display: flex;
-  margin-top: 2rem;
+/* Desktop */
+
+/* Section 1
+    -> Choose your Faction */
+
+.factionBackground {
+  background-image: url("/bgblue.png");
+  background-position: center;
+  background-size: cover;
 }
 
-.emblemImg {
-  margin: 0 auto;
-  height: 250px;
+.factionHeadline {
+  background-image: url("/bgyellow.png");
+  background-position: center;
+  background-size: cover;
+  color: rgb(7, 98, 123);
+  text-align: center;
 }
-
-/* desktop */
 
 .factionHeadline h2 {
   display: flex;
@@ -52,18 +45,27 @@
   font-size: 3rem;
 }
 
-.buttonContainer {
+.emblem {
+  display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 2rem 10rem;
-  padding: 1.5rem;
-  gap: 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  margin: 1rem;
+  height: 250px;
 }
 
-.button {
+/* Section 2
+    -> Faction Buttons */
+
+.buttonContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 10rem;
+  padding: 1.5rem;
+  gap: 2rem;
+}
+
+.factionButtons {
   background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
@@ -76,16 +78,9 @@
   border-radius: 8px;
 }
 
-.insideButton {
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-}
-
-.factionImage {
-  border: 2px green;
-  height: 100px;
+.factionButtons:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease-in-out;
 }
 
 .factionName {
@@ -93,47 +88,37 @@
   font-size: 1.5rem;
 }
 
-.button:hover {
-  transform: scale(1.03); /* Increase size by 10% */
-  transition: transform 0.3s ease-in-out; /* Smooth transition */
+.factionImage {
+  height: 120px;
+  padding-top: 1rem;
 }
 
+/* Mobile */
+
 @media only screen and (max-width: 600px) {
-  .factionHeadline h2 {
-    display: flex;
-    justify-content: center;
-    font-size: 3rem;
-  }
+  /* Section 2
+    -> Faction Buttons */
+
   .buttonContainer {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
     margin: 2rem 1rem;
     gap: 1.5rem;
   }
-  .button {
-    background-image: url("/bgyellow.png");
-    background-position: center;
-    background-size: cover;
-    padding: 2rem;
+
+  .factionButtons {
     height: 100%;
     width: 100%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: black;
-    background-color: rgb(228, 195, 137);
-    border: 1px solid black;
-    border-radius: 8px;
     text-align: center;
-  }
-
-  .factionImage {
-    border: 2px green;
-    height: 80px;
+    padding: 1rem;
+    line-height: 1rem;
   }
 
   .factionName {
-    border: 2px red;
     font-size: 1rem;
+  }
+
+  .factionImage {
+    height: 70px;
+    padding-top: 0.5rem;
   }
 }

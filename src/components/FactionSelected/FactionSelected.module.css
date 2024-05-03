@@ -1,24 +1,148 @@
-.tournamentContainer {
-  margin: 1rem 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1rem;
-}
+/* General */
 
-.tournamentContainerBg {
-  background-image: url("/bgbluebig.png");
-  background-size: contain;
-}
+/* Loading Container */
 
 .loadingContainer {
   background-image: url("/bgyellow.png");
   background-position: center;
 }
 
-.card {
+/* Divider */
+
+.divider1 {
+  background-image: url("/divider1.png");
+  background-size: cover;
+  height: 1vh;
+  padding-bottom: 0.5rem;
+}
+
+.divider2 {
+  background-image: url("/divider2.png");
+  background-size: cover;
+  height: 10vh;
+}
+
+/* Desktop */
+
+/* Section 1
+-> "Faction Name" and Buttons */
+
+.headerBackground {
+  background-image: url("/bgblue.png");
+  background-position: contain;
+  background-size: cover;
+}
+
+.headerFlex {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.headerBack {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 8rem;
+  height: 4rem;
+  border-radius: 10px;
+  background-color: #cfa723;
+  border: 1px solid black;
+  margin: 0.5rem;
+  font-weight: bold;
+}
+
+.headerHeadline {
+  font-size: 3rem;
+  color: white;
+}
+
+.pointsButtonsContainer {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 15rem;
+  padding-right: 15rem;
+  margin: 0rem;
+}
+
+.pointsButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: #cfa723;
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 0.1rem;
+  font-weight: bold;
+}
+
+.sortButtonsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.sortButtonsContainer span:hover {
+  cursor: pointer;
+}
+
+.sortButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.3rem;
+  width: 3.3rem;
+  padding: 0rem;
+  font-size: smaller;
+  color: white;
+  font-weight: bold;
+}
+
+.resetButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.3rem;
+  width: 3.3rem;
+  padding: 0rem;
+  border-radius: 10px;
+  background-color: #e3ded2;
+  font-size: smaller;
+  color: rgb(7, 98, 123);
+  font-weight: bold;
+  border: black solid 1px;
+  cursor: pointer;
+}
+
+.activeSortButtons {
+  text-decoration: underline;
+}
+
+/* Section 2
+-> Faction Cards */
+
+.tournamentContainerBg {
+  background-image: url("/bgbluebig.png");
+  background-size: contain;
+}
+
+.tournamentContainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  margin: 1rem 1.5rem;
+  gap: 1rem;
+}
+
+.factionCards {
   display: flex;
   flex-direction: column;
-  /*  border: 1px solid black; */
   color: black;
   padding: 1rem;
   gap: 5px;
@@ -30,37 +154,25 @@
   margin-right: 15rem;
 }
 
-.tournamentInfo {
-  /*   border: solid 1px; */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .tournamentName {
-  /*   border: #f9f6ee solid 3px; */
   display: flex;
   justify-content: space-between;
   font-weight: 600;
 }
 
-.tournamentButton {
+.tournamentInfo {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .tournamentTitle {
-  /*   border: red solid 2px; */
   font-size: 1.8rem;
 }
-/* selector */
-.pointsButtonsContainer {
-  /*   border: 2px solid red; */
+
+.tournamentButton {
   display: flex;
-  justify-content: space-around;
-  padding-left: 15rem;
-  padding-right: 15rem;
-  margin: 0rem;
+  justify-content: flex-end;
 }
 
 /* ICONS */
@@ -90,99 +202,7 @@
   margin-bottom: 0.2rem;
 }
 
-.pointsButtons {
-  /*   border: 2px solid yellow; */
-  font-size: 1rem;
-  border-radius: 10px;
-  background-color: #f9cb33c0;
-  border: 1px solid black;
-  height: 5.5rem;
-  width: 5.5rem;
-  padding: 1rem;
-  margin: 0.1rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header {
-  /*  border: 2px solid green; */
-  display: flex;
-  align-items: center;
-  gap: 1.8rem;
-}
-
-.header button {
-  width: 8rem;
-  height: 4rem;
-  border-radius: 10px;
-  background-color: #f9cb33c0;
-  border: 1px solid black;
-  margin: 0.5rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header h2 {
-  /*   border: 2px solid blue; */
-  margin-left: 40rem; /* Center horizontally */
-  font-size: 3rem;
-  color: white;
-}
-
-.sortButtonsContainer {
-  /*  border: 2px solid purple; */
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 0rem;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-}
-
-.sortButtonsContainer span:hover {
-  cursor: pointer;
-}
-
-.sortButtons {
-  height: 3.3rem;
-  width: 3.3rem;
-  padding: 0rem;
-  /*  border-radius: 10px;
-  background-color: #f9ca33; */
-  /*   border: black solid 1px; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: smaller;
-  color: white;
-  font-weight: bold;
-}
-
-.reset {
-  border: 1px solid white;
-  height: 3.3rem;
-  width: 3.3rem;
-  padding: 0rem;
-  border-radius: 10px;
-  background-color: #f9f6ee;
-  /*   border: black solid 1px; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: smaller;
-  color: #266075;
-  font-weight: bold;
-  border: black solid 1px;
-  cursor: pointer;
-}
-
-.activeSortButtons {
-  text-decoration: underline;
-}
+/* Modal */
 
 #modalDialogId {
   max-width: 800px;
@@ -192,33 +212,29 @@ pre {
   font-weight: 600;
 }
 
-button:hover {
-  background-color: grey;
-}
-
-.divider1 {
-  background-image: url("/divider1.png");
-  background-size: cover;
-  height: 1vh;
-  padding-bottom: 0.5rem;
-}
-
-.divider2 {
-  background-image: url("/divider2.png");
-  background-size: cover;
-  height: 10vh;
-}
-
-.topBackground {
-  background-image: url("/bgblue.png");
-  background-position: center;
-  background-size: cover;
-}
+/* Mobile */
 
 @media only screen and (max-width: 600px) {
+  /* Section 1
+  -> "Faction Name" and Buttons */
+
+  .headerBack {
+    width: auto;
+    height: auto;
+  }
+
+  .headerHeadline {
+    font-size: 2rem;
+  }
+
+  .pointsButtonsContainer {
+    padding: 0rem;
+  }
+
+  /* Section 2
+-> Faction Cards */
+
   .tournamentContainerBg {
-    background-image: url("/bgblue.png");
-    background-size: contain;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
   }
@@ -231,105 +247,10 @@ button:hover {
   }
 
   .tournamentTitle {
-    /*   border: red solid 2px; */
     font-size: 1.4rem;
   }
 
-  .pointsButtonsContainer {
-    /*    border: 2px solid red; */
-    display: flex;
-    padding: 0rem;
-    justify-content: space-around;
-    margin: 0rem;
-  }
-
-  .pointsButtons {
-    /*  border: 2px solid yellow; */
-    font-size: 1rem;
-    border-radius: 10px;
-    background-color: #f9ca33;
-    border: 1px solid black;
-    height: 5.5rem;
-    width: 5.5rem;
-    padding: 1rem;
-    margin: 0.1rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .header {
-    /*     border: 2px solid green; */
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .header button {
-    width: 8rem;
-    height: 4rem;
-    border-radius: 10px;
-    background-color: #f9ca33;
-    border: 1px solid black;
-    margin: 0.5rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .header h2 {
-    /*  border: 2px solid blue; */
-    margin-left: 3rem; /* Center horizontally */
-    font-size: 3rem;
-    color: white;
-  }
-
-  .sortButtonsContainer {
-    /*   border: 2px solid purple; */
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 0rem;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-  }
-
-  .sortButtons {
-    height: 3.3rem;
-    width: 3.3rem;
-    padding: 0rem;
-    /*  border-radius: 10px;
-    background-color: #f9ca33; */
-    /*   border: black solid 1px; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: smaller;
-    color: white;
-    font-weight: bold;
-  }
-
-  .reset {
-    border: 1px solid white;
-    height: 3.3rem;
-    width: 3.3rem;
-    padding: 0rem;
-    border-radius: 10px;
-    background-color: #f9f6ee;
-    /*   border: black solid 1px; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: smaller;
-    color: #266075;
-    font-weight: bold;
-    border: black solid 1px;
-  }
-  .card {
-    /*     border: solid 1px red; 
- */
+  .factionCards {
     margin: 0.1rem;
     padding: 0.5rem;
   }
