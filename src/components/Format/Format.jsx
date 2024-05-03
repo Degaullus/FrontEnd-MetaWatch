@@ -333,7 +333,7 @@ export default function Format() {
                     data-bs-toggle="modal"
                     data-bs-target={"#listModal" + index}
                     onClick={() => setOpenModalId(index)}
-                    className="btn btn-dark"
+                    className="btn btn-dark btn-right"
                     disabled={entry.list == "No list submitted"}
                   >
                     Show army list
@@ -371,7 +371,7 @@ export default function Format() {
                       <button
                         type="button"
                         onClick={() => copyListToClipboard(entry.list)}
-                        className="btn btn-dark btn-lg"
+                        className="btn btn-dark"
                       >
                         {listCopied && openModalId === index
                           ? "Copied!"
@@ -379,7 +379,7 @@ export default function Format() {
                       </button>
                       <button
                         type="button"
-                        className="btn btn-dark btn-lg"
+                        className="btn btn-dark"
                         onClick={(e) => {
                           handleSaveToFavs(entry._id);
                           e.stopPropagation();

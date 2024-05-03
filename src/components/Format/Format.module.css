@@ -25,8 +25,8 @@
 
 .headerBackground {
   background-image: url("/bgblue.png");
-  background-size: cover;
   background-position: center;
+  background-size: cover;
 }
 
 .header {
@@ -108,7 +108,7 @@
   width: 3.3rem;
   padding: 0rem;
   border-radius: 10px;
-  background-color: #e3ded2;
+  background-color: white;
   font-size: smaller;
   color: rgb(7, 98, 123);
   font-weight: bold;
@@ -161,11 +161,11 @@
 }
 
 .tournamentCards {
+  display: flex;
+  flex-direction: column;
   background-image: url("/bgblue.png");
   background-position: center;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
   border: 1px solid black;
   color: black;
   padding: 1rem;

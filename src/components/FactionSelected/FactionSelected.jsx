@@ -160,7 +160,7 @@ export default function FactionSelected() {
   return (
     <>
       <div className={styles.divider1}></div>
-      <div className={styles.bigBackround}>
+      <div>
         <div className={styles.headerBackground}>
           <div className={styles.headerFlex}>
             <button className={styles.headerBack} onClick={() => navigate(-1)}>
@@ -336,7 +336,7 @@ export default function FactionSelected() {
                     data-bs-toggle="modal"
                     data-bs-target={"#listModal" + index}
                     onClick={() => setOpenModalId(index)}
-                    className="btn btn-dark"
+                    className="btn btn-dark btn-right"
                     disabled={entry.list == "No list submitted"}
                   >
                     Show army list
@@ -374,7 +374,7 @@ export default function FactionSelected() {
                       <button
                         type="button"
                         onClick={() => copyListToClipboard(entry.list)}
-                        className="btn btn-dark btn-lg"
+                        className="btn btn-dark"
                         data-bs-dismiss="modal"
                         aria-label="Close"
                       >
@@ -382,11 +382,9 @@ export default function FactionSelected() {
                           ? "Copied!"
                           : "Copy List"}
                       </button>
-
-                      <br />
                       <button
                         type="button"
-                        className="btn btn-dark btn-lg"
+                        className="btn btn-dark"
                         onClick={(e) => {
                           handleSaveToFavs(entry._id);
                           e.stopPropagation();

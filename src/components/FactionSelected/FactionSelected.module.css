@@ -29,7 +29,7 @@
 
 .headerBackground {
   background-image: url("/bgblue.png");
-  background-position: contain;
+  background-position: center;
   background-size: cover;
 }
 
@@ -113,7 +113,7 @@
   width: 3.3rem;
   padding: 0rem;
   border-radius: 10px;
-  background-color: #e3ded2;
+  background-color: white;
   font-size: smaller;
   color: rgb(7, 98, 123);
   font-weight: bold;
@@ -143,12 +143,12 @@
 .factionCards {
   display: flex;
   flex-direction: column;
-  color: black;
-  padding: 1rem;
-  gap: 5px;
   background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
+  color: black;
+  padding: 1rem;
+  gap: 5px;
   border-radius: 10px;
   margin-left: 15rem;
   margin-right: 15rem;
