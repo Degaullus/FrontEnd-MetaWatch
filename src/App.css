@@ -37,6 +37,22 @@ button {
 
 /* Modal */
 
+.modal {
+  overscroll-behavior: contain;
+}
+
 .modal-content {
   background-image: url("/bgyellowbig.png");
+}
+
+/* Buttons */
+
+.btn-lg {
+  margin: 0 10rem 0.75rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .btn-lg {
+    margin: 0 5rem 0.75rem;
+  }
 }
