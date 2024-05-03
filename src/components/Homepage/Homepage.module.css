@@ -114,11 +114,26 @@
   color: rgb(7, 98, 123);
 }
 
+.tournamentContainer p {
+  margin: 1rem 0 1rem 0;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 2rem;
+  width: 35vw;
+}
+
+.tournamentContainer p:nth-child(6n) {
+  border-bottom: none;
+  margin-bottom: 2rem;
+}
+
 .tournamentContainerList {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  font-weight: 600;
 }
 
 /* Mobile */
@@ -187,20 +202,11 @@
 
   .tournamentContainer p {
     margin: 1rem 4rem 0rem 4rem;
-    font-weight: 600;
-    text-align: center;
-    border-bottom: 1px solid black;
     padding-bottom: 1.5rem;
     width: 50vw;
   }
 
-  .tournamentContainer p:nth-child(6n) {
-    border-bottom: none;
-  }
-
   .tournamentContainerList {
-    font-weight: 600;
     margin-top: 2rem;
-    text-align: center;
   }
 }

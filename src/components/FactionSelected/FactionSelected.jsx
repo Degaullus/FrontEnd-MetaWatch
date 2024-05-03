@@ -161,10 +161,15 @@ export default function FactionSelected() {
     <>
       <div className={styles.divider1}></div>
       <div className={styles.bigBackround}>
-        <div className={styles.topBackground}>
-          <div className={styles.header}>
-            <button onClick={() => navigate(-1)}> ⬅ Back</button>
-            <h2>{`${id.replace("-", " ").replace("-", " ")}`}</h2>
+        <div className={styles.headerBackground}>
+          <div className={styles.headerFlex}>
+            <button className={styles.headerBack} onClick={() => navigate(-1)}>
+              {" "}
+              ⬅ Back
+            </button>
+            <h2 className={styles.headerHeadline}>{`${id
+              .replace("-", " ")
+              .replace("-", " ")}`}</h2>
           </div>
 
           <div className={styles.pointsButtonsContainer}>
@@ -229,7 +234,7 @@ export default function FactionSelected() {
                 />
               </span>
               <span
-                className={styles.reset}
+                className={styles.resetButton}
                 onClick={() => handleSortButtonClick("descDate")}
               >
                 Reset
@@ -275,7 +280,7 @@ export default function FactionSelected() {
         <div className={styles.tournamentContainerBg}>
           <div className={styles.tournamentContainer}>
             {filteredData.map((entry, index) => (
-              <li key={index} className={styles.card}>
+              <li key={index} className={styles.factionCards}>
                 <div className={styles.tournamentInfo}>
                   <div className={styles.tournamentName}>
                     <p className={styles.tournamentDetails}>
@@ -331,7 +336,7 @@ export default function FactionSelected() {
                     data-bs-toggle="modal"
                     data-bs-target={"#listModal" + index}
                     onClick={() => setOpenModalId(index)}
-                    className="btn btn-dark btn-lg"
+                    className="btn btn-dark"
                     disabled={entry.list == "No list submitted"}
                   >
                     Show army list
@@ -364,7 +369,7 @@ export default function FactionSelected() {
                         </button>
                       </div>
                       <div className="modal-body">
-                        <pre style={{ fontSize: "1.1rem" }}>{entry.list}</pre>
+                        <pre>{entry.list}</pre>
                       </div>
                       <button
                         type="button"
