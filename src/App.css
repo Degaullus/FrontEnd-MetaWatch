@@ -48,11 +48,11 @@ button {
 /* Buttons */
 
 .btn-lg {
-  margin: 0 10rem 0.75rem;
+  margin: 0 10rem 0.5rem;
 }
 
 @media only screen and (max-width: 600px) {
   .btn-lg {
-    margin: 0 5rem 0.75rem;
+    margin: 0 5rem 0.5rem;
   }
 }
