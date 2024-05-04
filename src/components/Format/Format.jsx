@@ -54,64 +54,15 @@ export default function Format() {
     const date1 = new Date(entry1.date);
     const date2 = new Date(entry2.date);
 
-    if (date1 > date2) return -1;
-    if (date1 < date2) return 1;
-
-    const rankOrder = {
-      "1st": 1,
-      "2nd": 2,
-      "3rd": 3,
-      "4th": 4,
-    };
-    const rank1 = rankOrder[entry1.rank];
-    const rank2 = rankOrder[entry2.rank];
-
-    return rank1 - rank2;
+    if (sortList === "descDate") return date2 - date1;
+    if (sortList === "ascDate") return date1 - date2;
+    if (sortList === "descRank") return entry1.rank - entry2.rank;
+    if (sortList === "ascRank") return entry2.rank - entry1.rank;
+    if (sortList === "ascFaction")
+      return entry1.army.localeCompare(entry2.army);
+    if (sortList === "descFaction")
+      return entry2.army.localeCompare(entry1.army);
   });
-
-  if (sortList == "descDate") {
-    filteredData?.sort((entry1, entry2) => {
-      const date1 = new Date(entry1.date);
-      const date2 = new Date(entry2.date);
-      if (date1 > date2) return -1;
-      if (date1 < date2) return 1;
-    });
-  } else if (sortList == "ascDate") {
-    filteredData?.sort((entry1, entry2) => {
-      const date1 = new Date(entry1.date);
-      const date2 = new Date(entry2.date);
-      if (date1 < date2) return -1;
-      if (date1 > date2) return 1;
-    });
-  } else if (sortList == "descRank") {
-    filteredData?.sort((entry1, entry2) => {
-      const rank1 = entry1.rank;
-      const rank2 = entry2.rank;
-      rank1 - rank2;
-      return rank1 - rank2;
-    });
-  } else if (sortList == "ascRank") {
-    filteredData?.sort((entry1, entry2) => {
-      const rank1 = entry1.rank;
-      const rank2 = entry2.rank;
-      rank2 - rank1;
-      return rank2 - rank1;
-    });
-  } else if (sortList == "ascFaction") {
-    filteredData?.sort((entry1, entry2) => {
-      const faction1 = entry1.army;
-      const faction2 = entry2.army;
-      if (faction1 < faction2) return -1;
-      if (faction1 > faction2) return 1;
-    });
-  } else if (sortList == "descFaction") {
-    filteredData?.sort((entry1, entry2) => {
-      const faction1 = entry1.army;
-      const faction2 = entry2.army;
-      if (faction1 > faction2) return -1;
-      if (faction1 < faction2) return 1;
-    });
-  }
 
   const handleSortButtonClick = (sortType) => {
     setSortList(sortType);
@@ -124,15 +75,15 @@ export default function Format() {
   if (filteredData?.length < 10) {
     slicedData = filteredData;
   } else {
-    slicedData = filteredData?.slice(selectedIndex, selectedIndex + 10);
+    slicedData = filteredData?.slice(selectedIndex, selectedIndex + 15);
   }
 
   const nextButton = () => {
-    setSelectedIndex(selectedIndex + 9);
+    setSelectedIndex(selectedIndex + 15);
   };
 
   const backButton = () => {
-    setSelectedIndex(selectedIndex - 9);
+    setSelectedIndex(selectedIndex - 15);
   };
 
   const copyListToClipboard = (list) => {
@@ -159,9 +110,6 @@ export default function Format() {
         },
       });
       const data = await res.json();
-      console.log(data);
-
-      // Check if the operation was successful based on response status or data
       if (res.ok) {
         alert("Item has been added to your favorites.");
       } else {

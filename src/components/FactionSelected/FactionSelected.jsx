@@ -47,33 +47,24 @@ export default function FactionSelected() {
     return `${rankWithoutZero}${suffixes[mod10 - 1]}`;
   };
 
-  let filteredData = data?.filter(
-    (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
-  );
-
   const handlePointsButtonClick = (points) => {
     setPoints(points);
     setSelectedIndex(0);
   };
 
-  if (points == 0) {
-    filteredData = data?.filter(
-      (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
-    );
-  } else if (points == 50) {
-    filteredData = data?.filter(
-      (entry) =>
+  let filteredData = data?.filter((entry) => {
+    const formattedId = id.replaceAll("-", " ");
+    if (points === 0) return entry.army.indexOf(formattedId) !== -1;
+    if (points === 50) {
+      return (
+        entry.army.indexOf(formattedId) !== -1 &&
         entry.format !== "2000" &&
         entry.format !== "1500" &&
         entry.format !== "1250"
-    );
-  } else {
-    filteredData = data?.filter(
-      (entry) =>
-        entry.army.indexOf(id.replaceAll("-", " ")) !== -1 &&
-        entry.format == points
-    );
-  }
+      );
+    }
+    return entry.army.indexOf(formattedId) !== -1 && entry.format == points;
+  });
 
   const handleSortButtonClick = (sortType) => {
     setSortList(sortType);
@@ -81,50 +72,29 @@ export default function FactionSelected() {
     setSelectedIndex(0);
   };
 
-  if (sortList == "descDate") {
-    filteredData?.sort((entry1, entry2) => {
-      const date1 = new Date(entry1.date);
-      const date2 = new Date(entry2.date);
-      if (date1 > date2) return -1;
-      if (date1 < date2) return 1;
-    });
-  } else if (sortList == "ascDate") {
-    filteredData?.sort((entry1, entry2) => {
-      const date1 = new Date(entry1.date);
-      const date2 = new Date(entry2.date);
-      if (date1 < date2) return -1;
-      if (date1 > date2) return 1;
-    });
-  } else if (sortList == "descRank") {
-    filteredData?.sort((entry1, entry2) => {
-      const rank1 = entry1.rank;
-      const rank2 = entry2.rank;
-      rank1 - rank2;
-      return rank1 - rank2;
-    });
-  } else if (sortList == "ascRank") {
-    filteredData?.sort((entry1, entry2) => {
-      const rank1 = entry1.rank;
-      const rank2 = entry2.rank;
-      rank2 - rank1;
-      return rank2 - rank1;
-    });
-  }
+  filteredData?.sort((entry1, entry2) => {
+    const date1 = new Date(entry1.date);
+    const date2 = new Date(entry2.date);
+    if (sortList === "descDate") return date2 - date1;
+    if (sortList === "ascDate") return date1 - date2;
+    if (sortList === "descRank") return entry1.rank - entry2.rank;
+    if (sortList === "ascRank") return entry2.rank - entry1.rank;
+  });
 
   let slicedData;
 
   if (filteredData?.length < 10) {
     slicedData = filteredData;
   } else {
-    slicedData = filteredData?.slice(selectedIndex, selectedIndex + 10);
+    slicedData = filteredData?.slice(selectedIndex, selectedIndex + 15);
   }
 
   const nextButton = () => {
-    setSelectedIndex(selectedIndex + 9);
+    setSelectedIndex(selectedIndex + 15);
   };
 
   const backButton = () => {
-    setSelectedIndex(selectedIndex - 9);
+    setSelectedIndex(selectedIndex - 15);
   };
 
   const copyListToClipboard = (list) => {
