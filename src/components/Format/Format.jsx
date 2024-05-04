@@ -244,11 +244,18 @@ export default function Format() {
         </div>
       ) : displayList ? (
         <div className={styles.tournamentContainerBg}>
-          <div className={styles.pageButtonsTop}>
-            <button onClick={() => backButton()} disabled={selectedIndex == 0}>
+          <div className={styles.pageButtonsTop} id={styles.pageButtonsTop}>
+            <button
+              type="button"
+              className="btn btn-dark"
+              onClick={() => backButton()}
+              disabled={selectedIndex == 0}
+            >
               Previous Page
             </button>
             <button
+              type="button"
+              className="btn btn-dark"
               onClick={() => nextButton()}
               disabled={selectedIndex + 10 > filteredData.length}
             >
@@ -374,12 +381,16 @@ export default function Format() {
             ))}
             <div className={styles.pageButtonsBottom}>
               <button
+                type="button"
+                className="btn btn-dark"
                 onClick={() => backButton()}
                 disabled={selectedIndex == 0}
               >
                 Previous Page
               </button>
               <button
+                type="button"
+                className="btn btn-dark"
                 onClick={() => nextButton()}
                 disabled={selectedIndex + 10 > filteredData.length}
               >

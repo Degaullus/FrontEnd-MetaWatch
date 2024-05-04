@@ -43,9 +43,8 @@
 
 .pointsButtonsContainer {
   display: flex;
-  justify-content: space-around;
-  padding-left: 20rem;
-  padding-right: 20rem;
+  justify-content: center;
+  gap: 2rem;
   margin: 0rem;
 }
 
@@ -54,10 +53,9 @@
   border-radius: 10px;
   background-color: #cfa723;
   border: 1px solid black;
-  height: 5.5rem;
-  width: 5.5rem;
+  height: 5rem;
+  width: 5rem;
   padding: 1rem;
-  margin: 0.1rem;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -154,8 +152,9 @@
 
 .tournamentContainer {
   margin: 1rem 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
   height: 100%;
 }
@@ -173,8 +172,7 @@
   color: white;
   border-radius: 10px;
   margin: 0.5rem 2rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
+  width: 70%;
 }
 
 .tournamentName {
@@ -206,25 +204,25 @@
 .pageButtonsTop {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 1.5rem 0;
+  gap: 2rem;
 }
 
 .pageButtonsTop button {
-  border-radius: 10px;
-  background-color: black;
+  margin: 0;
+  width: 11%;
 }
 
 .pageButtonsBottom {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin: 1rem 0 1.5rem 0;
+  gap: 2rem;
 }
 
 .pageButtonsBottom button {
-  border-radius: 10px;
-  background-color: black;
+  margin: 0;
+  width: 11%;
 }
 
 /* ICONS */
@@ -274,7 +272,7 @@
   }
 
   .pointsButtonsContainer {
-    padding: 0rem;
+    gap: 1rem;
   }
 
   .pointsButtons {
@@ -295,6 +293,17 @@
   .resetButton {
     height: 3rem;
     width: 3rem;
+  }
+
+  .tournamentCards {
+    margin: 0.1rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .pageButtonsBottom button,
+  .pageButtonsTop button {
+    width: auto;
   }
 
   /* Section 3

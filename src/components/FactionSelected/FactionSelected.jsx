@@ -251,10 +251,17 @@ export default function FactionSelected() {
       ) : slicedData?.length > 0 ? (
         <div className={styles.tournamentContainerBg}>
           <div className={styles.pageButtonsTop}>
-            <button onClick={() => backButton()} disabled={selectedIndex == 0}>
+            <button
+              type="button"
+              className="btn btn-dark"
+              onClick={() => backButton()}
+              disabled={selectedIndex == 0}
+            >
               Previous Page
             </button>
             <button
+              type="button"
+              className="btn btn-dark"
               onClick={() => nextButton()}
               disabled={selectedIndex + 10 > filteredData.length}
             >
@@ -381,20 +388,24 @@ export default function FactionSelected() {
                 </div>
               </li>
             ))}
-            <div className={styles.pageButtonsBottom}>
-              <button
-                onClick={() => backButton()}
-                disabled={selectedIndex == 0}
-              >
-                Previous Page
-              </button>
-              <button
-                onClick={() => nextButton()}
-                disabled={selectedIndex + 10 > filteredData.length}
-              >
-                Next Page
-              </button>
-            </div>
+          </div>
+          <div className={styles.pageButtonsBottom}>
+            <button
+              type="button"
+              className="btn btn-dark"
+              onClick={() => backButton()}
+              disabled={selectedIndex == 0}
+            >
+              Previous Page
+            </button>
+            <button
+              type="button"
+              className="btn btn-dark"
+              onClick={() => nextButton()}
+              disabled={selectedIndex + 10 > filteredData.length}
+            >
+              Next Page
+            </button>
           </div>
           <div className={styles.divider1}></div>
         </div>
