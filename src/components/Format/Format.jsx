@@ -15,6 +15,7 @@ export default function Format() {
   const [sortList, setSortList] = useState("descDate");
   const [activeSortButton, setActiveSortButton] = useState(null);
   const { token } = useContext(AuthContext);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   // console.log(isLoading);
   useEffect(() => {
@@ -112,6 +113,28 @@ export default function Format() {
     });
   }
 
+  const handleSortButtonClick = (sortType) => {
+    setSortList(sortType);
+    setActiveSortButton(sortType);
+    setSelectedIndex(0);
+  };
+
+  let slicedData;
+
+  if (filteredData?.length < 10) {
+    slicedData = filteredData;
+  } else {
+    slicedData = filteredData?.slice(selectedIndex, selectedIndex + 10);
+  }
+
+  const nextButton = () => {
+    setSelectedIndex(selectedIndex + 9);
+  };
+
+  const backButton = () => {
+    setSelectedIndex(selectedIndex - 9);
+  };
+
   const copyListToClipboard = (list) => {
     navigator.clipboard.writeText(list);
     setListCopied(true);
@@ -120,14 +143,10 @@ export default function Format() {
     }, 3000);
   };
 
-  const buttonActive = (points) => {
+  const handlePointsButtonClick = (points) => {
     setPoints(points);
     setDisplayList(true);
-  };
-
-  const handleSortButtonClick = (sortType) => {
-    setSortList(sortType);
-    setActiveSortButton(sortType);
+    setSelectedIndex(0);
   };
 
   const handleSaveToFavs = async (id) => {
@@ -167,34 +186,43 @@ export default function Format() {
         <div className={styles.pointsButtonsContainer}>
           <button
             className={styles.pointsButtons}
-            onClick={() => buttonActive(2000)}
+            onClick={() => handlePointsButtonClick(2000)}
           >
             2000{" "}
           </button>
 
           <button
             className={styles.pointsButtons}
-            onClick={() => buttonActive(1500)}
+            onClick={() => handlePointsButtonClick(1500)}
           >
             1500
           </button>
 
           <button
             className={styles.pointsButtons}
-            onClick={() => buttonActive(1250)}
+            onClick={() => handlePointsButtonClick(1250)}
           >
             1250
           </button>
 
           <button
             className={styles.pointsButtons}
-            onClick={() => buttonActive(0)}
+            onClick={() => handlePointsButtonClick(0)}
           >
             Other
           </button>
         </div>
 
         <div className={styles.sortButtonsContainer}>
+          <span
+            className={`${styles.sortButtons} ${
+              activeSortButton === "descDate" ? styles.activeSortButtons : ""
+            }`}
+            onClick={() => handleSortButtonClick("descDate")}
+          >
+            Date{" "}
+            <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
+          </span>
           <span
             className={`${styles.sortButtons} ${
               activeSortButton === "ascDate" ? styles.activeSortButtons : ""
@@ -206,28 +234,18 @@ export default function Format() {
           </span>
           <span
             className={`${styles.sortButtons} ${
-              activeSortButton === "descDate" ? styles.activeSortButtons : ""
+              activeSortButton === "descRank" ? styles.activeSortButtons : ""
             }`}
-            onClick={() => handleSortButtonClick("descDate")}
-          >
-            Date{" "}
-            <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
-          </span>
-
-          <span
-            className={`${styles.sortButtons} ${
-              activeSortButton === "ascRank" ? styles.activeSortButtons : ""
-            }`}
-            onClick={() => handleSortButtonClick("ascRank")}
+            onClick={() => handleSortButtonClick("descRank")}
           >
             Rank{" "}
             <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
           </span>
           <span
             className={`${styles.sortButtons} ${
-              activeSortButton === "descRank" ? styles.activeSortButtons : ""
+              activeSortButton === "ascRank" ? styles.activeSortButtons : ""
             }`}
-            onClick={() => handleSortButtonClick("descRank")}
+            onClick={() => handleSortButtonClick("ascRank")}
           >
             Rank{" "}
             <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
@@ -278,8 +296,19 @@ export default function Format() {
         </div>
       ) : displayList ? (
         <div className={styles.tournamentContainerBg}>
+          <div className={styles.pageButtonsTop}>
+            <button onClick={() => backButton()} disabled={selectedIndex == 0}>
+              Previous Page
+            </button>
+            <button
+              onClick={() => nextButton()}
+              disabled={selectedIndex + 10 > filteredData.length}
+            >
+              Next Page
+            </button>
+          </div>
           <div className={styles.tournamentContainer}>
-            {filteredData.map((entry, index) => (
+            {slicedData.map((entry, index) => (
               <li key={index} className={styles.tournamentCards}>
                 <div className={styles.tournamentInfo}>
                   <div className={styles.tournamentName}>
@@ -395,6 +424,20 @@ export default function Format() {
                 </div>
               </li>
             ))}
+            <div className={styles.pageButtonsBottom}>
+              <button
+                onClick={() => backButton()}
+                disabled={selectedIndex == 0}
+              >
+                Previous Page
+              </button>
+              <button
+                onClick={() => nextButton()}
+                disabled={selectedIndex + 10 > filteredData.length}
+              >
+                Next Page
+              </button>
+            </div>
           </div>
           <div className={styles.divider1}></div>
         </div>

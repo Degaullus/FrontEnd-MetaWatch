@@ -1,24 +1,24 @@
 import { useContext, useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { APIContext } from "../../context/APIContext";
-import LoadingSpinner from "../Loading/LoadingSpinner";
 import { AuthContext } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 import styles from "./FactionSelected.module.css";
 
 export default function FactionSelected() {
-  const [openModalId, setOpenModalId] = useState(null);
-  const { data, isLoading } = useContext(APIContext);
   const { id } = useParams();
+  const { token } = useContext(AuthContext);
+  const { data, isLoading } = useContext(APIContext);
   const navigate = useNavigate();
   const location = useLocation();
-
   const [points, setPoints] = useState(0);
   const [sortList, setSortList] = useState("descDate");
-  const [listCopied, setListCopied] = useState(false); // State variable to track if list is copied
-  const { token } = useContext(AuthContext);
   const [activeSortButton, setActiveSortButton] = useState(null);
+  const [openModalId, setOpenModalId] = useState(null);
+  const [listCopied, setListCopied] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
     const modalBackdrop = document.querySelector(".modal-backdrop");
@@ -26,52 +26,35 @@ export default function FactionSelected() {
       modalBackdrop.remove();
       window.location.reload();
     }
-  }, []); // Empty dependency array ensures this effect runs once on mount and cleanup on unmount
-
-  useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 100);
   }, []);
 
-  // const localAPI = "http://localhost:8080";
   const deployedAPI = "https://backend-metawatch.onrender.com";
 
-  const handleSortButtonClick = (sortType) => {
-    setSortList(sortType);
-    setActiveSortButton(sortType);
-  };
-
-  //format Ranks
   const formatRank = (rank) => {
     const suffixes = ["st", "nd", "rd", "th"];
     const mod10 = rank % 10;
     const mod100 = rank % 100;
-    // Handle special cases
+
     if (mod100 === 11 || mod100 === 12 || mod100 === 13) {
       return `${rank}${suffixes[3]}`;
     }
-    // Remove leading zero (if any)
-    const rankWithoutZero = parseInt(rank.toString().slice(1), 10) || rank; // Handle single-digit ranks
+
+    const rankWithoutZero = parseInt(rank.toString().slice(1), 10) || rank;
 
     return `${rankWithoutZero}${suffixes[mod10 - 1]}`;
   };
 
-  // Original filtering when all formats had their own button
-  // const filteredData =
-  //   points == 0
-  //     ? data?.filter(
-  //         (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
-  //       )
-  //     : data?.filter(
-  //         (entry) =>
-  //           entry.army.indexOf(id.replaceAll("-", " ")) !== -1 &&
-  //           entry.format == points
-  //       );
-
   let filteredData = data?.filter(
     (entry) => entry.army.indexOf(id.replaceAll("-", " ")) !== -1
   );
+
+  const handlePointsButtonClick = (points) => {
+    setPoints(points);
+    setSelectedIndex(0);
+  };
 
   if (points == 0) {
     filteredData = data?.filter(
@@ -91,6 +74,12 @@ export default function FactionSelected() {
         entry.format == points
     );
   }
+
+  const handleSortButtonClick = (sortType) => {
+    setSortList(sortType);
+    setActiveSortButton(sortType);
+    setSelectedIndex(0);
+  };
 
   if (sortList == "descDate") {
     filteredData?.sort((entry1, entry2) => {
@@ -122,13 +111,28 @@ export default function FactionSelected() {
     });
   }
 
-  // Function to copy list to clipboard
+  let slicedData;
+
+  if (filteredData?.length < 10) {
+    slicedData = filteredData;
+  } else {
+    slicedData = filteredData?.slice(selectedIndex, selectedIndex + 10);
+  }
+
+  const nextButton = () => {
+    setSelectedIndex(selectedIndex + 9);
+  };
+
+  const backButton = () => {
+    setSelectedIndex(selectedIndex - 9);
+  };
+
   const copyListToClipboard = (list) => {
     navigator.clipboard.writeText(list);
     setListCopied(true);
     setTimeout(() => {
       setListCopied(false);
-    }, 3000); // Reset copied state after 3 seconds
+    }, 3000);
   };
 
   const handleSaveToFavs = async (id) => {
@@ -143,7 +147,6 @@ export default function FactionSelected() {
       const data = await res.json();
       console.log(data);
 
-      // Check if the operation was successful based on response status or data
       if (res.ok) {
         alert("List has been saved to your favorites.");
       } else {
@@ -175,31 +178,31 @@ export default function FactionSelected() {
           <div className={styles.pointsButtonsContainer}>
             <button
               className={styles.pointsButtons}
-              onClick={() => setPoints(2000)}
+              onClick={() => handlePointsButtonClick(2000)}
             >
               2000 Points
             </button>
             <button
               className={styles.pointsButtons}
-              onClick={() => setPoints(1500)}
+              onClick={() => handlePointsButtonClick(1500)}
             >
               1500 Points
             </button>
             <button
               className={styles.pointsButtons}
-              onClick={() => setPoints(1250)}
+              onClick={() => handlePointsButtonClick(1250)}
             >
               1250 Points
             </button>
             <button
               className={styles.pointsButtons}
-              onClick={() => setPoints(50)}
+              onClick={() => handlePointsButtonClick(50)}
             >
               Other
             </button>
             <button
               className={styles.pointsButtons}
-              onClick={() => setPoints(0)}
+              onClick={() => handlePointsButtonClick(0)}
             >
               All results
             </button>
@@ -207,18 +210,6 @@ export default function FactionSelected() {
 
           <div>
             <div className={styles.sortButtonsContainer}>
-              <span
-                className={`${styles.sortButtons} ${
-                  activeSortButton === "ascDate" ? styles.activeSortButtons : ""
-                }`}
-                onClick={() => handleSortButtonClick("ascDate")}
-              >
-                Date{" "}
-                <FontAwesomeIcon
-                  icon={faArrowUp}
-                  style={{ color: "#ffffff" }}
-                />
-              </span>
               <span
                 className={`${styles.sortButtons} ${
                   activeSortButton === "descDate"
@@ -234,6 +225,18 @@ export default function FactionSelected() {
                 />
               </span>
               <span
+                className={`${styles.sortButtons} ${
+                  activeSortButton === "ascDate" ? styles.activeSortButtons : ""
+                }`}
+                onClick={() => handleSortButtonClick("ascDate")}
+              >
+                Date{" "}
+                <FontAwesomeIcon
+                  icon={faArrowUp}
+                  style={{ color: "#ffffff" }}
+                />
+              </span>
+              <span
                 className={styles.resetButton}
                 onClick={() => handleSortButtonClick("descDate")}
               >
@@ -241,9 +244,11 @@ export default function FactionSelected() {
               </span>
               <span
                 className={`${styles.sortButtons} ${
-                  activeSortButton === "ascRank" ? styles.activeSortButtons : ""
+                  activeSortButton === "descRank"
+                    ? styles.activeSortButtons
+                    : ""
                 }`}
-                onClick={() => handleSortButtonClick("ascRank")}
+                onClick={() => handleSortButtonClick("descRank")}
               >
                 Rank{" "}
                 <FontAwesomeIcon
@@ -253,11 +258,9 @@ export default function FactionSelected() {
               </span>
               <span
                 className={`${styles.sortButtons} ${
-                  activeSortButton === "descRank"
-                    ? styles.activeSortButtons
-                    : ""
+                  activeSortButton === "ascRank" ? styles.activeSortButtons : ""
                 }`}
-                onClick={() => handleSortButtonClick("descRank")}
+                onClick={() => handleSortButtonClick("ascRank")}
               >
                 Rank{" "}
                 <FontAwesomeIcon
@@ -273,13 +276,23 @@ export default function FactionSelected() {
 
       {isLoading ? (
         <div className={styles.loadingContainer}>
-          <p>Loading... (may take up to 50 seconds)</p>
           <LoadingSpinner />
         </div>
-      ) : filteredData?.length > 0 ? (
+      ) : slicedData?.length > 0 ? (
         <div className={styles.tournamentContainerBg}>
+          <div className={styles.pageButtonsTop}>
+            <button onClick={() => backButton()} disabled={selectedIndex == 0}>
+              Previous Page
+            </button>
+            <button
+              onClick={() => nextButton()}
+              disabled={selectedIndex + 10 > filteredData.length}
+            >
+              Next Page
+            </button>
+          </div>
           <div className={styles.tournamentContainer}>
-            {filteredData.map((entry, index) => (
+            {slicedData.map((entry, index) => (
               <li key={index} className={styles.factionCards}>
                 <div className={styles.tournamentInfo}>
                   <div className={styles.tournamentName}>
@@ -309,7 +322,6 @@ export default function FactionSelected() {
                   </div>
 
                   <p className={styles.tournamentTitle}>{entry.tournament}</p>
-                  {/* spliting intro in array of words using space to delimite. Slice -2 select the 2 laste words, joins give them back into a string :) */}
                   <div className={styles.tournamentLocation}>
                     <p style={{ fontStyle: "italic" }}>
                       {" "}
@@ -350,7 +362,6 @@ export default function FactionSelected() {
                   role="dialog"
                   aria-labelledby="listModalLabel"
                   aria-hidden="true"
-                  /*                 show={(openModalId === index).toString()} */
                 >
                   <div
                     className="modal-dialog"
@@ -400,6 +411,20 @@ export default function FactionSelected() {
                 </div>
               </li>
             ))}
+            <div className={styles.pageButtonsBottom}>
+              <button
+                onClick={() => backButton()}
+                disabled={selectedIndex == 0}
+              >
+                Previous Page
+              </button>
+              <button
+                onClick={() => nextButton()}
+                disabled={selectedIndex + 10 > filteredData.length}
+              >
+                Next Page
+              </button>
+            </div>
           </div>
           <div className={styles.divider1}></div>
         </div>
