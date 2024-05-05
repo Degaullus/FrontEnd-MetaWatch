@@ -410,7 +410,7 @@ export default function FactionSelected() {
           <div className={styles.divider1}></div>
         </div>
       ) : (
-        <p>{`No data found containing ${id} in the army name.`}</p>
+        <p className={styles.noResult}>{`No data found!`}</p>
       )}
     </>
   );
