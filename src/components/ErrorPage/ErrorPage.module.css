@@ -6,15 +6,9 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  background-image: url("./warp.jpg");
+  background-image: url("/warp.jpg");
   background-position: center;
   background-size: cover;
-  /* background: rgb(97, 24, 115); */
-  /* background: radial-gradient(
-    circle,
-    rgba(97, 24, 80, 1) 0%,
-    rgba(0, 0, 0, 1) 100%
-  ); */
 }
 
 .warp h1 {

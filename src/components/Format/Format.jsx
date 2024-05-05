@@ -15,6 +15,7 @@ export default function Format() {
   const [sortList, setSortList] = useState("descDate");
   const [activeSortButton, setActiveSortButton] = useState(null);
   const { token } = useContext(AuthContext);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   // console.log(isLoading);
   useEffect(() => {
@@ -53,64 +54,37 @@ export default function Format() {
     const date1 = new Date(entry1.date);
     const date2 = new Date(entry2.date);
 
-    if (date1 > date2) return -1;
-    if (date1 < date2) return 1;
-
-    const rankOrder = {
-      "1st": 1,
-      "2nd": 2,
-      "3rd": 3,
-      "4th": 4,
-    };
-    const rank1 = rankOrder[entry1.rank];
-    const rank2 = rankOrder[entry2.rank];
-
-    return rank1 - rank2;
+    if (sortList === "descDate") return date2 - date1;
+    if (sortList === "ascDate") return date1 - date2;
+    if (sortList === "descRank") return entry1.rank - entry2.rank;
+    if (sortList === "ascRank") return entry2.rank - entry1.rank;
+    if (sortList === "ascFaction")
+      return entry1.army.localeCompare(entry2.army);
+    if (sortList === "descFaction")
+      return entry2.army.localeCompare(entry1.army);
   });
 
-  if (sortList == "descDate") {
-    filteredData?.sort((entry1, entry2) => {
-      const date1 = new Date(entry1.date);
-      const date2 = new Date(entry2.date);
-      if (date1 > date2) return -1;
-      if (date1 < date2) return 1;
-    });
-  } else if (sortList == "ascDate") {
-    filteredData?.sort((entry1, entry2) => {
-      const date1 = new Date(entry1.date);
-      const date2 = new Date(entry2.date);
-      if (date1 < date2) return -1;
-      if (date1 > date2) return 1;
-    });
-  } else if (sortList == "descRank") {
-    filteredData?.sort((entry1, entry2) => {
-      const rank1 = entry1.rank;
-      const rank2 = entry2.rank;
-      rank1 - rank2;
-      return rank1 - rank2;
-    });
-  } else if (sortList == "ascRank") {
-    filteredData?.sort((entry1, entry2) => {
-      const rank1 = entry1.rank;
-      const rank2 = entry2.rank;
-      rank2 - rank1;
-      return rank2 - rank1;
-    });
-  } else if (sortList == "ascFaction") {
-    filteredData?.sort((entry1, entry2) => {
-      const faction1 = entry1.army;
-      const faction2 = entry2.army;
-      if (faction1 < faction2) return -1;
-      if (faction1 > faction2) return 1;
-    });
-  } else if (sortList == "descFaction") {
-    filteredData?.sort((entry1, entry2) => {
-      const faction1 = entry1.army;
-      const faction2 = entry2.army;
-      if (faction1 > faction2) return -1;
-      if (faction1 < faction2) return 1;
-    });
+  const handleSortButtonClick = (sortType) => {
+    setSortList(sortType);
+    setActiveSortButton(sortType);
+    setSelectedIndex(0);
+  };
+
+  let slicedData;
+
+  if (filteredData?.length < 10) {
+    slicedData = filteredData;
+  } else {
+    slicedData = filteredData?.slice(selectedIndex, selectedIndex + 15);
   }
+
+  const nextButton = () => {
+    setSelectedIndex(selectedIndex + 15);
+  };
+
+  const backButton = () => {
+    setSelectedIndex(selectedIndex - 15);
+  };
 
   const copyListToClipboard = (list) => {
     navigator.clipboard.writeText(list);
@@ -120,14 +94,10 @@ export default function Format() {
     }, 3000);
   };
 
-  const buttonActive = (points) => {
+  const handlePointsButtonClick = (points) => {
     setPoints(points);
     setDisplayList(true);
-  };
-
-  const handleSortButtonClick = (sortType) => {
-    setSortList(sortType);
-    setActiveSortButton(sortType);
+    setSelectedIndex(0);
   };
 
   const handleSaveToFavs = async (id) => {
@@ -140,9 +110,6 @@ export default function Format() {
         },
       });
       const data = await res.json();
-      console.log(data);
-
-      // Check if the operation was successful based on response status or data
       if (res.ok) {
         alert("Item has been added to your favorites.");
       } else {
@@ -167,34 +134,43 @@ export default function Format() {
         <div className={styles.pointsButtonsContainer}>
           <button
             className={styles.pointsButtons}
-            onClick={() => buttonActive(2000)}
+            onClick={() => handlePointsButtonClick(2000)}
           >
             2000{" "}
           </button>
 
           <button
             className={styles.pointsButtons}
-            onClick={() => buttonActive(1500)}
+            onClick={() => handlePointsButtonClick(1500)}
           >
             1500
           </button>
 
           <button
             className={styles.pointsButtons}
-            onClick={() => buttonActive(1250)}
+            onClick={() => handlePointsButtonClick(1250)}
           >
             1250
           </button>
 
           <button
             className={styles.pointsButtons}
-            onClick={() => buttonActive(0)}
+            onClick={() => handlePointsButtonClick(0)}
           >
             Other
           </button>
         </div>
 
         <div className={styles.sortButtonsContainer}>
+          <span
+            className={`${styles.sortButtons} ${
+              activeSortButton === "descDate" ? styles.activeSortButtons : ""
+            }`}
+            onClick={() => handleSortButtonClick("descDate")}
+          >
+            Date{" "}
+            <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
+          </span>
           <span
             className={`${styles.sortButtons} ${
               activeSortButton === "ascDate" ? styles.activeSortButtons : ""
@@ -206,28 +182,18 @@ export default function Format() {
           </span>
           <span
             className={`${styles.sortButtons} ${
-              activeSortButton === "descDate" ? styles.activeSortButtons : ""
+              activeSortButton === "descRank" ? styles.activeSortButtons : ""
             }`}
-            onClick={() => handleSortButtonClick("descDate")}
-          >
-            Date{" "}
-            <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
-          </span>
-
-          <span
-            className={`${styles.sortButtons} ${
-              activeSortButton === "ascRank" ? styles.activeSortButtons : ""
-            }`}
-            onClick={() => handleSortButtonClick("ascRank")}
+            onClick={() => handleSortButtonClick("descRank")}
           >
             Rank{" "}
             <FontAwesomeIcon icon={faArrowDown} style={{ color: "#ffffff" }} />
           </span>
           <span
             className={`${styles.sortButtons} ${
-              activeSortButton === "descRank" ? styles.activeSortButtons : ""
+              activeSortButton === "ascRank" ? styles.activeSortButtons : ""
             }`}
-            onClick={() => handleSortButtonClick("descRank")}
+            onClick={() => handleSortButtonClick("ascRank")}
           >
             Rank{" "}
             <FontAwesomeIcon icon={faArrowUp} style={{ color: "#ffffff" }} />
@@ -278,8 +244,26 @@ export default function Format() {
         </div>
       ) : displayList ? (
         <div className={styles.tournamentContainerBg}>
+          <div className={styles.pageButtonsTop} id={styles.pageButtonsTop}>
+            <button
+              type="button"
+              className="btn btn-dark"
+              onClick={() => backButton()}
+              disabled={selectedIndex == 0}
+            >
+              Previous Page
+            </button>
+            <button
+              type="button"
+              className="btn btn-dark"
+              onClick={() => nextButton()}
+              disabled={selectedIndex + 15 > filteredData.length}
+            >
+              Next Page
+            </button>
+          </div>
           <div className={styles.tournamentContainer}>
-            {filteredData.map((entry, index) => (
+            {slicedData.map((entry, index) => (
               <li key={index} className={styles.tournamentCards}>
                 <div className={styles.tournamentInfo}>
                   <div className={styles.tournamentName}>
@@ -333,7 +317,7 @@ export default function Format() {
                     data-bs-toggle="modal"
                     data-bs-target={"#listModal" + index}
                     onClick={() => setOpenModalId(index)}
-                    className="btn btn-dark"
+                    className="btn btn-dark btn-right"
                     disabled={entry.list == "No list submitted"}
                   >
                     Show army list
@@ -371,7 +355,7 @@ export default function Format() {
                       <button
                         type="button"
                         onClick={() => copyListToClipboard(entry.list)}
-                        className="btn btn-dark btn-lg"
+                        className="btn btn-dark"
                       >
                         {listCopied && openModalId === index
                           ? "Copied!"
@@ -379,7 +363,7 @@ export default function Format() {
                       </button>
                       <button
                         type="button"
-                        className="btn btn-dark btn-lg"
+                        className="btn btn-dark"
                         onClick={(e) => {
                           handleSaveToFavs(entry._id);
                           e.stopPropagation();
@@ -395,6 +379,24 @@ export default function Format() {
                 </div>
               </li>
             ))}
+            <div className={styles.pageButtonsBottom}>
+              <button
+                type="button"
+                className="btn btn-dark"
+                onClick={() => backButton()}
+                disabled={selectedIndex == 0}
+              >
+                Previous Page
+              </button>
+              <button
+                type="button"
+                className="btn btn-dark"
+                onClick={() => nextButton()}
+                disabled={selectedIndex + 15 > filteredData.length}
+              >
+                Next Page
+              </button>
+            </div>
           </div>
           <div className={styles.divider1}></div>
         </div>

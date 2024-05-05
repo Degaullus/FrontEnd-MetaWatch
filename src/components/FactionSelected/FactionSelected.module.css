@@ -29,7 +29,7 @@
 
 .headerBackground {
   background-image: url("/bgblue.png");
-  background-position: contain;
+  background-position: center;
   background-size: cover;
 }
 
@@ -69,14 +69,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5.5rem;
-  width: 5.5rem;
+  height: 5.25rem;
+  width: 5.25rem;
   font-size: 1rem;
   border-radius: 10px;
   background-color: #cfa723;
   border: 1px solid black;
   padding: 1rem;
-  margin: 0.1rem;
   font-weight: bold;
 }
 
@@ -113,7 +112,7 @@
   width: 3.3rem;
   padding: 0rem;
   border-radius: 10px;
-  background-color: #e3ded2;
+  background-color: white;
   font-size: smaller;
   color: rgb(7, 98, 123);
   font-weight: bold;
@@ -130,28 +129,27 @@
 
 .tournamentContainerBg {
   background-image: url("/bgbluebig.png");
-  background-size: contain;
+  background-size: cover;
 }
 
 .tournamentContainer {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  margin: 1rem 1.5rem;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .factionCards {
   display: flex;
   flex-direction: column;
-  color: black;
-  padding: 1rem;
-  gap: 5px;
   background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
+  color: black;
+  padding: 1rem;
+  gap: 5px;
   border-radius: 10px;
-  margin-left: 15rem;
-  margin-right: 15rem;
+  width: 70%;
 }
 
 .tournamentName {
@@ -173,6 +171,30 @@
 .tournamentButton {
   display: flex;
   justify-content: flex-end;
+}
+
+.pageButtonsTop {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 1.5rem 0;
+  gap: 2rem;
+}
+
+.pageButtonsTop button {
+  margin: 0;
+  width: 11%;
+}
+
+.pageButtonsBottom {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 1.5rem 0;
+  gap: 2rem;
+}
+
+.pageButtonsBottom button {
+  margin: 0;
+  width: 11%;
 }
 
 /* ICONS */
@@ -212,6 +234,21 @@ pre {
   font-weight: 600;
 }
 
+/* No results */
+
+.noResult {
+  background-image: url("/bgbluebig.png");
+  background-size: cover;
+  margin: auto;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+}
+
 /* Mobile */
 
 @media only screen and (max-width: 600px) {
@@ -241,16 +278,8 @@ pre {
   /* Section 2
 -> Faction Cards */
 
-  .tournamentContainerBg {
-    padding-left: 0.1rem;
-    padding-right: 0.1rem;
-  }
-
   .tournamentContainer {
-    margin-left: 0.2rem;
-    margin-right: 0.2rem;
-    margin-top: 0.1rem;
-    margin-bottom: 0.1rem;
+    margin: 0.5rem;
   }
 
   .tournamentTitle {
@@ -260,6 +289,12 @@ pre {
   .factionCards {
     margin: 0.1rem;
     padding: 0.5rem;
+    width: 100%;
+  }
+
+  .pageButtonsBottom button,
+  .pageButtonsTop button {
+    width: auto;
   }
 }
 

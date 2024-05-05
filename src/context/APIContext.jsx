@@ -22,6 +22,7 @@ export default function APIContextProvider({ children }) {
       }, 3000);
 
       setData(responseData);
+      // console.log(responseData);
     } catch (error) {
       console.error("Error fetching Data:", error.message);
       setIsLoading(false); // In case of error, set loading to false
