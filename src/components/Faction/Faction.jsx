@@ -59,14 +59,12 @@ export default function Faction() {
             onClick={() => navigate(`/faction/${faction.name}`)}
             key={faction.name} /* here looks like a problem */
           >
-            <div>
-              <div className={styles.factionName}> {faction.name}</div>
-              <img
-                className={styles.factionImage}
-                src={faction.image}
-                alt={faction.name + "faction logo"}
-              />
-            </div>
+            <div className={styles.factionName}> {faction.name}</div>
+            <img
+              className={styles.factionImage}
+              src={faction.image}
+              alt={faction.name + "faction logo"}
+            />
           </button>
         ))}
       </div>

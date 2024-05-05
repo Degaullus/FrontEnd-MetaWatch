@@ -263,7 +263,7 @@ export default function FactionSelected() {
               type="button"
               className="btn btn-dark"
               onClick={() => nextButton()}
-              disabled={selectedIndex + 10 > filteredData.length}
+              disabled={selectedIndex + 15 > filteredData.length}
             >
               Next Page
             </button>
@@ -402,7 +402,7 @@ export default function FactionSelected() {
               type="button"
               className="btn btn-dark"
               onClick={() => nextButton()}
-              disabled={selectedIndex + 10 > filteredData.length}
+              disabled={selectedIndex + 15 > filteredData.length}
             >
               Next Page
             </button>

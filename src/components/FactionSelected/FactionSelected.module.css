@@ -278,6 +278,10 @@ pre {
   /* Section 2
 -> Faction Cards */
 
+  .tournamentContainer {
+    margin: 0.5rem;
+  }
+
   .tournamentTitle {
     font-size: 1.4rem;
   }

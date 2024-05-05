@@ -84,8 +84,8 @@
 }
 
 .factionName {
-  border: 2px red;
   font-size: 1.5rem;
+  overflow-x: visible;
 }
 
 .factionImage {
