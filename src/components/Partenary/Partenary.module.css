@@ -24,3 +24,23 @@
 .title {
   color: white;
 }
+
+/* Mobile */
+
+@media only screen and (max-width: 600px) {
+  .partenary {
+  }
+
+  .logoBlock {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .logos {
+    width: 4rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+}
