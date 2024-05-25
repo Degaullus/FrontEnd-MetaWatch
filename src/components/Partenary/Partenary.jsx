@@ -3,7 +3,7 @@ import style from "./Partenary.module.css";
 export default function Partenary() {
   return (
     <div className={style.partenary}>
-      <h1 className={style.title}>Partenary</h1>
+      <h1 className={style.title}>Support</h1>
       <a
         className={style.logoBlock}
         href="https://championshub.app/user/help"
@@ -11,7 +11,7 @@ export default function Partenary() {
       >
         <img
           className={style.logos}
-          src="/public/partenaryLogos/championshubLogo.png"
+          src="/partenaryLogos/championshubLogo.png"
           alt="logoChamphub"
         />
       </a>
@@ -22,7 +22,7 @@ export default function Partenary() {
       >
         <img
           className={style.logos}
-          src="/public/partenaryLogos/flat3damageLogo.png"
+          src="/partenaryLogos/flat3damageLogo.png"
           alt="F3D"
         />
       </a>
@@ -33,7 +33,7 @@ export default function Partenary() {
       >
         <img
           className={style.logos}
-          src="/public/partenaryLogos/nimpgameLogo.png"
+          src="/partenaryLogos/nimpgameLogo.png"
           alt="NimpGame"
         />
       </a>
@@ -44,7 +44,7 @@ export default function Partenary() {
       >
         <img
           className={style.logos}
-          src="/public/partenaryLogos/warhammerbyamateurLogo.png"
+          src="/partenaryLogos/warhammerbyamateurLogo.png"
           alt="warhammerbyAmateur"
         />
       </a>
