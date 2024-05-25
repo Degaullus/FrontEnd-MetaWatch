@@ -27,13 +27,21 @@
 /* Desktop */
 
 /* Section 1
-    -> Welcome to MetaHammer */
+    -> what is MetaHammer */
 
 .headerBackground {
   background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
   display: flex;
+}
+
+.link {
+  color: black;
+}
+
+.link:hover {
+  color: #1f4d52;
 }
 
 .header {

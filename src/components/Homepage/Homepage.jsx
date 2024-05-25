@@ -5,6 +5,7 @@ import LoadingSpinner from "../Loading/LoadingSpinner";
 import Partenary from "../Partenary/Partenary";
 import HomePageVideo from "../HomepageVideo/HomePageVideo";
 import JoinUs from "../JoinUs/JoinUs";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   const { data, isLoading } = useContext(APIContext);
@@ -50,24 +51,23 @@ export default function Homepage() {
           </p>
           <div className={styles.headerList}>
             <p>
-              <u>
-                {" "}
-                <b>Faction :</b>
-              </u>{" "}
+              <Link className={styles.link} to="/faction">
+                Faction
+              </Link>{" "}
               <br />
               Quickly access winning lists tailored to each faction's meta.
             </p>
             <p>
-              <u>
-                <b>Format :</b>
-              </u>{" "}
+              <Link className={styles.link} to="/format">
+                Format
+              </Link>
               <br />
               Delve deeply into global meta results.
             </p>
             <p>
-              <u>
-                <b>Search :</b>
-              </u>{" "}
+              <Link className={styles.link} to="/search/:searchTerm">
+                Search
+              </Link>{" "}
               <br />
               Easily find specific events or units within winning lists
             </p>
