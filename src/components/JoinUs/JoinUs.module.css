@@ -20,3 +20,7 @@
   transform: scale(1.1); /* Slight scale on hover for interaction */
   cursor: pointer;
 }
+
+.mailTo {
+  color: white;
+}

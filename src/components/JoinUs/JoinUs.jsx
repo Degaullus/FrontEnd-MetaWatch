@@ -14,7 +14,9 @@ export default function JoinUs() {
       <a href="https://www.instagram.com/metahammerofficial/">
         <img className={style.icon} src="/instagram.svg" alt="Instagram" />
       </a>
-      <p> metahammer.contact@gmail.com </p>
+      <a className={style.mailTo} href="mailto:MetaHammer.contact@gmail.com">
+        MetaHammer.contact@gmail.com
+      </a>
     </div>
   );
 }

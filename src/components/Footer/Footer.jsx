@@ -29,10 +29,12 @@ function Footer() {
               />
             </a>
           </div>
-          <p className={styles.contactP}>
-            metahammer.contact@gmail.com <br /> &copy; 2024 MetaHammer. All
-            rights reserved.
-          </p>
+          <a
+            className={styles.contactP}
+            href="mailto:MetaHammer.contact@gmail.com"
+          >
+            MetaHammer.contact@gmail.com
+          </a>
         </div>
         <div className={styles.footerSectionLinks}>
           <h5>Legal</h5>
