@@ -2,6 +2,7 @@ import styles from "./Homepage.module.css";
 import { useContext, useEffect } from "react";
 import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
+import Partenary from "../Partenary/Partenary";
 
 export default function Homepage() {
   const { data, isLoading } = useContext(APIContext);
@@ -71,7 +72,9 @@ export default function Homepage() {
           </div>
           <div className={styles.headerRight}></div>
         </div>
+        <Partenary />
         <div className={styles.divider1}></div>
+
         <div className={styles.divider2}></div>
         <div className={styles.divider1}></div>
       </div>
