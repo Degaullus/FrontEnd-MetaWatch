@@ -11,7 +11,7 @@ export default function Partenary() {
       >
         <img
           className={style.logos}
-          src="/partenaryLogos/championshubLogo.png"
+          src="/partenaryLogos/Championhub.png"
           alt="logoChamphub"
         />
       </a>
