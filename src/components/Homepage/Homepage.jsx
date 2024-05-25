@@ -3,6 +3,8 @@ import { useContext, useEffect } from "react";
 import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import Partenary from "../Partenary/Partenary";
+import HomePageVideo from "../HomepageVideo/HomePageVideo";
+import JoinUs from "../JoinUs/JoinUs";
 
 export default function Homepage() {
   const { data, isLoading } = useContext(APIContext);
@@ -38,9 +40,9 @@ export default function Homepage() {
       <div className={styles.headerBackground}>
         <div className={styles.header}>
           <h1>
-            Welcome to
+            What is
             <br />
-            MetaHammer
+            MetaHammer?
           </h1>
           <p>
             We empower you to become a better Warhammer player by providing easy
@@ -70,14 +72,17 @@ export default function Homepage() {
               Easily find specific events or units within winning lists
             </p>
           </div>
+          <JoinUs />
           <div className={styles.headerRight}></div>
         </div>
-        <Partenary />
+        <HomePageVideo />
+
         <div className={styles.divider1}></div>
 
         <div className={styles.divider2}></div>
         <div className={styles.divider1}></div>
       </div>
+      <Partenary />
 
       {isLoading ? (
         <div className={styles.loadingContainer}>

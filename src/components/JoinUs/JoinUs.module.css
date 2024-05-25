@@ -1,0 +1,22 @@
+.JoinusContainer {
+  background-image: url("/bgblue.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  border: solid black 0.1rem;
+}
+
+.icon {
+  width: auto; /* Adapt width automatically */
+  height: 40px;
+  transition: transform 0.3s ease-in-out;
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  border-radius: 50%; /* Circular icons for a modern look */
+  margin-bottom: 1rem; /* Spacing between icons */
+}
+
+.icon:hover {
+  transform: scale(1.1); /* Slight scale on hover for interaction */
+  cursor: pointer;
+}

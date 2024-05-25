@@ -33,12 +33,14 @@
   background-image: url("/bgyellow.png");
   background-position: center;
   background-size: cover;
+  display: flex;
 }
 
 .header {
+  margin-left: 20rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
 }
 
