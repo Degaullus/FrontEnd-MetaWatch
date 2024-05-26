@@ -3,6 +3,9 @@ import { useContext, useEffect } from "react";
 import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import Partenary from "../Partenary/Partenary";
+import HomePageVideo from "../HomepageVideo/HomePageVideo";
+import JoinUs from "../JoinUs/JoinUs";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   const { data, isLoading } = useContext(APIContext);
@@ -37,47 +40,87 @@ export default function Homepage() {
       <div className={styles.divider1}></div>
       <div className={styles.headerBackground}>
         <div className={styles.header}>
-          <h1>
-            Welcome to
-            <br />
-            MetaHammer
-          </h1>
-          <p>
+          <div className={styles.titleBox}>
+            {" "}
+            <h1 className={styles.bigtitle}>MetaHammer</h1>
+            <h1 className={styles.explore}>Explore the Old World Meta</h1>
+          </div>
+          <p className={styles.empower}>
             We empower you to become a better Warhammer player by providing easy
             access to tournament lists.
           </p>
           <div className={styles.headerList}>
-            <p>
-              <u>
-                {" "}
-                <b>Faction :</b>
-              </u>{" "}
-              <br />
-              Quickly access winning lists tailored to each faction's meta.
-            </p>
-            <p>
-              <u>
-                <b>Format :</b>
-              </u>{" "}
-              <br />
-              Delve deeply into global meta results.
-            </p>
-            <p>
-              <u>
-                <b>Search :</b>
-              </u>{" "}
-              <br />
-              Easily find specific events or units within winning lists
-            </p>
+            <div className={styles.subMenu}>
+              <Link to="/faction">
+                <img
+                  className={styles.iconsSub}
+                  src="/iconshomepage/axe.svg"
+                  alt="logosword"
+                />
+              </Link>
+
+              <div className={styles.subMenuRight}>
+                <p className={styles.parag}>
+                  <Link className={styles.link} to="/faction">
+                    Faction
+                  </Link>
+                  <br />
+                  Quickly access winning lists tailored to each faction's meta.
+                </p>
+              </div>
+            </div>
+            <div className={styles.subMenu}>
+              <Link to="/format">
+                <img
+                  className={styles.iconsSub}
+                  src="/iconshomepage/sword.svg"
+                  alt="logosword"
+                />
+              </Link>
+
+              <div className={styles.subMenuRight}>
+                <p className={styles.parag}>
+                  <Link className={styles.link} to="/faction">
+                    Faction
+                  </Link>
+                  <br />
+                  Quickly access winning lists tailored to each faction's meta.
+                </p>
+              </div>
+            </div>
+            <div className={styles.subMenu}>
+              <Link to="/search/:searchTerm">
+                <img
+                  className={styles.iconsSub}
+                  src="/iconshomepage/search.svg"
+                  alt="logosword"
+                />
+              </Link>
+
+              <div className={styles.subMenuRight}>
+                <p className={styles.parag}>
+                  <Link className={styles.link} to="/search/:searchTerm">
+                    Search
+                  </Link>{" "}
+                  <br />
+                  Easily find specific events or units within winning lists.
+                </p>
+              </div>
+            </div>
           </div>
+          <JoinUs />
           <div className={styles.headerRight}></div>
         </div>
-        <Partenary />
+        <HomePageVideo />
+
         <div className={styles.divider1}></div>
 
         <div className={styles.divider2}></div>
         <div className={styles.divider1}></div>
       </div>
+      <div className={styles.divider1}></div>
+      <Partenary />
+      <div className={styles.divider1}></div>
 
       {isLoading ? (
         <div className={styles.loadingContainer}>

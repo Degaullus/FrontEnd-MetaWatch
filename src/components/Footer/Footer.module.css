@@ -11,6 +11,16 @@
   min-height: 35vh;
 }
 
+.contactP {
+  color: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.contactP:hover {
+  transform: scale(1.1); /* Slight scale on hover for interaction */
+  cursor: pointer;
+}
+
 .container a {
   text-decoration: none;
 }

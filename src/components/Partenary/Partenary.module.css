@@ -3,17 +3,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 
 .logos {
-  width: 7rem;
+  width: 5rem;
 }
 
 .logoBlock {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -23,24 +23,24 @@
 
 .title {
   color: white;
+  font-size: 1.8rem;
 }
 
 /* Mobile */
 
 @media only screen and (max-width: 600px) {
-  .partenary {
-  }
-
   .logoBlock {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
   }
 
   .logos {
-    width: 4rem;
+    width: 3rem;
   }
 
   .title {
-    font-size: 1.2rem;
+    font-size: 0rem;
   }
 }

@@ -11,7 +11,7 @@ export default function Partenary() {
       >
         <img
           className={style.logos}
-          src="/partenaryLogos/championshubLogo.png"
+          src="/partenaryLogos/Championhub.png"
           alt="logoChamphub"
         />
       </a>
@@ -22,7 +22,7 @@ export default function Partenary() {
       >
         <img
           className={style.logos}
-          src="/partenaryLogos/flat3damageLogo.png"
+          src="/partenaryLogos/flat3Logo.png"
           alt="F3D"
         />
       </a>
@@ -46,6 +46,17 @@ export default function Partenary() {
           className={style.logos}
           src="/partenaryLogos/warhammerbyamateurLogo.png"
           alt="warhammerbyAmateur"
+        />
+      </a>
+      <a
+        className={style.logoBlock}
+        href="https://tourneykeeper.net"
+        target="_blank"
+      >
+        <img
+          className={style.logos}
+          src="/partenaryLogos/TourneyKeeper.png"
+          alt="tourneykeeper"
         />
       </a>
     </div>
