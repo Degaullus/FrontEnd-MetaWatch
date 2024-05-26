@@ -5,6 +5,11 @@
   color: white;
   border: solid black 0.1rem;
   border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .title {
@@ -16,22 +21,36 @@
   padding-left: 0.5rem;
 }
 
+.social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: visible; /* Allow the child element to overflow */
+  position: relative;
+}
+
 .icon {
   width: auto; /* Adapt width automatically */
   height: 40px;
   transition: transform 0.3s ease-in-out;
   background-color: #f0f0f0;
   padding: 0.5rem;
-  margin-left: 0.8rem;
+  margin-left: 0.6rem;
   border-radius: 50%;
   margin-bottom: 1rem; /* Spacing between icons */
 }
 
 .icon:hover {
-  transform: scale(1.1); /* Slight scale on hover for interaction */
+  background-color: #ab936b;
   cursor: pointer;
 }
 
 .mailTo {
   color: white;
+  transition: transform 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+.mailTo:hover {
+  color: #ab936b;
 }
