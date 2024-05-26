@@ -3,17 +3,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 
 .logos {
-  width: 4rem;
+  width: 5rem;
 }
 
 .logoBlock {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -23,6 +23,7 @@
 
 .title {
   color: white;
+  font-size: 1.8rem;
 }
 
 /* Mobile */
