@@ -12,7 +12,7 @@ export default function JoinUs() {
       </div>
 
       <p className={style.parag}>
-        MetaHammer is still in Beta and need your help. Please report bugs or
+        MetaHammer is still in Beta and needs your help. Please report bugs or
         missing tournament results.
       </p>
       <div className={style.social}>
