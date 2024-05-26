@@ -40,37 +40,65 @@ export default function Homepage() {
       <div className={styles.divider1}></div>
       <div className={styles.headerBackground}>
         <div className={styles.header}>
+          <h1 className={styles.bigtitle}>MetaHammer</h1>
           <h1>
-            What is
+            Explore the
             <br />
-            MetaHammer?
+            Meta
           </h1>
           <p>
             We empower you to become a better Warhammer player by providing easy
             access to tournament lists.
           </p>
           <div className={styles.headerList}>
-            <p>
-              <Link className={styles.link} to="/faction">
-                Faction
-              </Link>{" "}
-              <br />
-              Quickly access winning lists tailored to each faction's meta.
-            </p>
-            <p>
-              <Link className={styles.link} to="/format">
-                Format
-              </Link>
-              <br />
-              Delve deeply into global meta results.
-            </p>
-            <p>
-              <Link className={styles.link} to="/search/:searchTerm">
-                Search
-              </Link>{" "}
-              <br />
-              Easily find specific events or units within winning lists
-            </p>
+            <div className={styles.subMenu}>
+              <img
+                className={styles.iconsSub}
+                src="/iconshomepage/axe.svg"
+                alt="logosword"
+              />
+              <div className={styles.subMenuRight}>
+                <p className={styles.parag}>
+                  <Link className={styles.link} to="/faction">
+                    Faction
+                  </Link>{" "}
+                  <br />
+                  Quickly access winning lists tailored to each faction's meta.
+                </p>
+              </div>
+            </div>
+            <div className={styles.subMenu}>
+              <img
+                className={styles.iconsSub}
+                src="/iconshomepage/sword.svg"
+                alt="logosword"
+              />
+              <div className={styles.subMenuRight}>
+                <p className={styles.parag}>
+                  <Link className={styles.link} to="/format">
+                    Format
+                  </Link>{" "}
+                  <br />
+                  Delve deeply into global meta results.
+                </p>
+              </div>
+            </div>
+            <div className={styles.subMenu}>
+              <img
+                className={styles.iconsSub}
+                src="/iconshomepage/search.svg"
+                alt="logosword"
+              />
+              <div className={styles.subMenuRight}>
+                <p className={styles.parag}>
+                  <Link className={styles.link} to="/search/:searchTerm">
+                    Search
+                  </Link>{" "}
+                  <br />
+                  Easily find specific events or units within winning lists.
+                </p>
+              </div>
+            </div>
           </div>
           <JoinUs />
           <div className={styles.headerRight}></div>
@@ -82,7 +110,9 @@ export default function Homepage() {
         <div className={styles.divider2}></div>
         <div className={styles.divider1}></div>
       </div>
+      <div className={styles.divider1}></div>
       <Partenary />
+      <div className={styles.divider1}></div>
 
       {isLoading ? (
         <div className={styles.loadingContainer}>
