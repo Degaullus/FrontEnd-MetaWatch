@@ -4,6 +4,16 @@
   background-position: center;
   color: white;
   border: solid black 0.1rem;
+  border-radius: 0.5rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.parag {
+  padding-left: 0.5rem;
 }
 
 .icon {
@@ -12,7 +22,8 @@
   transition: transform 0.3s ease-in-out;
   background-color: #f0f0f0;
   padding: 0.5rem;
-  border-radius: 50%; /* Circular icons for a modern look */
+  margin-left: 0.8rem;
+  border-radius: 50%;
   margin-bottom: 1rem; /* Spacing between icons */
 }
 

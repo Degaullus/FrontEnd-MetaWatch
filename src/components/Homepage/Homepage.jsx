@@ -41,22 +41,21 @@ export default function Homepage() {
       <div className={styles.headerBackground}>
         <div className={styles.header}>
           <h1 className={styles.bigtitle}>MetaHammer</h1>
-          <h1>
-            Explore the
-            <br />
-            Meta
-          </h1>
-          <p>
+          <h1>Explore the Old World Meta</h1>
+          <p className={styles.empower}>
             We empower you to become a better Warhammer player by providing easy
             access to tournament lists.
           </p>
           <div className={styles.headerList}>
             <div className={styles.subMenu}>
-              <img
-                className={styles.iconsSub}
-                src="/iconshomepage/axe.svg"
-                alt="logosword"
-              />
+              <Link to="/faction">
+                <img
+                  className={styles.iconsSub}
+                  src="/iconshomepage/axe.svg"
+                  alt="logosword"
+                />
+              </Link>
+
               <div className={styles.subMenuRight}>
                 <p className={styles.parag}>
                   <Link className={styles.link} to="/faction">
@@ -68,11 +67,15 @@ export default function Homepage() {
               </div>
             </div>
             <div className={styles.subMenu}>
-              <img
-                className={styles.iconsSub}
-                src="/iconshomepage/sword.svg"
-                alt="logosword"
-              />
+              <Link to="/format">
+                {" "}
+                <img
+                  className={styles.iconsSub}
+                  src="/iconshomepage/sword.svg"
+                  alt="logosword"
+                />
+              </Link>
+
               <div className={styles.subMenuRight}>
                 <p className={styles.parag}>
                   <Link className={styles.link} to="/format">
@@ -84,11 +87,14 @@ export default function Homepage() {
               </div>
             </div>
             <div className={styles.subMenu}>
-              <img
-                className={styles.iconsSub}
-                src="/iconshomepage/search.svg"
-                alt="logosword"
-              />
+              <Link to="/search/:searchTerm">
+                <img
+                  className={styles.iconsSub}
+                  src="/iconshomepage/search.svg"
+                  alt="logosword"
+                />
+              </Link>
+
               <div className={styles.subMenuRight}>
                 <p className={styles.parag}>
                   <Link className={styles.link} to="/search/:searchTerm">
