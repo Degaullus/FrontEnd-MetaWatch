@@ -80,8 +80,8 @@ export default function Homepage() {
 
               <div className={styles.subMenuRight}>
                 <p className={styles.parag}>
-                  <Link className={styles.link} to="/faction">
-                    Faction
+                  <Link className={styles.link} to="/format">
+                    Format
                   </Link>
                   <br />
                   Quickly access winning lists tailored to each faction's meta.
