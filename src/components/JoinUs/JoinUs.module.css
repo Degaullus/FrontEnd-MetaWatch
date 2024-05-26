@@ -26,8 +26,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  overflow: visible; /* Allow the child element to overflow */
-  position: relative;
 }
 
 .icon {
@@ -53,4 +51,17 @@
 
 .mailTo:hover {
   color: #ab936b;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 0.8rem;
+    justify-content: space-between;
+  }
+
+  .mailTo {
+    margin-bottom: 0.4rem;
+  }
 }

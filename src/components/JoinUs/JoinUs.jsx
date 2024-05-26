@@ -7,7 +7,7 @@ export default function JoinUs() {
         <h2 className={style.join}>Join us</h2>
 
         <a className={style.mailTo} href="mailto:MetaHammer.contact@gmail.com">
-          MetaHammer.contact@gmail.com
+          metahammer.contact@gmail.com
         </a>
       </div>
 

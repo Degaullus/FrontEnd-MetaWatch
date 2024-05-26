@@ -40,8 +40,11 @@ export default function Homepage() {
       <div className={styles.divider1}></div>
       <div className={styles.headerBackground}>
         <div className={styles.header}>
-          <h1 className={styles.bigtitle}>MetaHammer</h1>
-          <h1>Explore the Old World Meta</h1>
+          <div className={styles.titleBox}>
+            {" "}
+            <h1 className={styles.bigtitle}>MetaHammer</h1>
+            <h1 className={styles.explore}>Explore the Old World Meta</h1>
+          </div>
           <p className={styles.empower}>
             We empower you to become a better Warhammer player by providing easy
             access to tournament lists.
@@ -60,15 +63,20 @@ export default function Homepage() {
                 <p className={styles.parag}>
                   <Link className={styles.link} to="/faction">
                     Faction
-                  </Link>{" "}
+                  </Link>
                   <br />
                   Quickly access winning lists tailored to each faction's meta.
                 </p>
               </div>
             </div>
             <div className={styles.subMenu}>
-              <Link to="/format">
-                {" "}
+              <Link
+                style={{
+                  maxWidth: "45px",
+                  maxHeight: "45px",
+                }}
+                to="/format"
+              >
                 <img
                   className={styles.iconsSub}
                   src="/iconshomepage/sword.svg"
@@ -80,7 +88,7 @@ export default function Homepage() {
                 <p className={styles.parag}>
                   <Link className={styles.link} to="/format">
                     Format
-                  </Link>{" "}
+                  </Link>
                   <br />
                   Delve deeply into global meta results.
                 </p>

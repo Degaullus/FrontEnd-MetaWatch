@@ -6,3 +6,11 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
+
+/* Mobile */
+
+@media only screen and (max-width: 600px) {
+  .videoContainer {
+    display: none;
+  }
+}

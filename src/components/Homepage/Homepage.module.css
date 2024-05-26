@@ -66,7 +66,6 @@
   margin: 0rem;
   padding: 0rem;
   -webkit-text-stroke: 1.5px black;
-  text-stroke: 1px black;
 }
 
 .empower {
@@ -185,21 +184,49 @@
   /* Section 1
     -> Welcome to MetaHammer */
 
+  .titleBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .bigtitle {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: black;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
   .header {
-    min-height: 45vh;
+    min-height: 20vh;
     margin: 1rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .header h1 {
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
+    -webkit-text-stroke: 0.6px black;
+  }
+
+  .explore {
+    font-size: 2rem;
+    margin: 0.5rem 0rem;
+    padding-right: 0.2rem;
   }
 
   .header > p {
     padding: 0.5rem 1.5rem;
     text-align: center;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+  .iconsSub {
+    width: 2.5rem;
+    margin-right: 2.2rem;
+    margin-bottom: 0.3rem;
+    padding: 0rem;
   }
 
   .headerList {
