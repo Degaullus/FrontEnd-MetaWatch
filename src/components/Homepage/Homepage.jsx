@@ -70,13 +70,7 @@ export default function Homepage() {
               </div>
             </div>
             <div className={styles.subMenu}>
-              <Link
-                style={{
-                  maxWidth: "45px",
-                  maxHeight: "45px",
-                }}
-                to="/format"
-              >
+              <Link to="/format">
                 <img
                   className={styles.iconsSub}
                   src="/iconshomepage/sword.svg"
@@ -86,11 +80,11 @@ export default function Homepage() {
 
               <div className={styles.subMenuRight}>
                 <p className={styles.parag}>
-                  <Link className={styles.link} to="/format">
-                    Format
+                  <Link className={styles.link} to="/faction">
+                    Faction
                   </Link>
                   <br />
-                  Delve deeply into global meta results.
+                  Quickly access winning lists tailored to each faction's meta.
                 </p>
               </div>
             </div>
