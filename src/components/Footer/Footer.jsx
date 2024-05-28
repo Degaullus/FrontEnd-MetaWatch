@@ -7,15 +7,15 @@ function Footer() {
   return (
     <footer className={styles.container}>
       <div className={styles.containerTop}>
-        <div className={styles.footerSectionLinks}>
+        {/*       <div className={styles.footerSectionLinks}>
           <h5>Quick Links</h5>
 
           <a href="/about">About Us</a>
 
           <a href="/support">Support</a>
-        </div>
+        </div> */}
         <div className={styles.footerSectionCont}>
-          <h5>Contact</h5>
+          {/*   <h5>Contact</h5> */}
 
           <div className={styles.footerIcons}>
             <a href="https://discord.gg/Vmwh48JDzZ">
@@ -35,12 +35,13 @@ function Footer() {
           >
             MetaHammer.contact@gmail.com
           </a>
+          <p>© MetaHammer 2024</p>
         </div>
-        <div className={styles.footerSectionLinks}>
+        {/* <div className={styles.footerSectionLinks}>
           <h5>Legal</h5>
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms-of-use">Terms of Use</a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

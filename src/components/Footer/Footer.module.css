@@ -64,6 +64,11 @@
 }
 
 @media (max-width: 600px) {
+  .container {
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    min-height: auto;
+  }
   .containerTop,
   .containerLow {
     flex-direction: row;
@@ -96,6 +101,7 @@
 a {
   text-decoration: none;
   color: white; /* Maintains color consistency */
+  font-size: 12px;
 }
 
 h6 {
