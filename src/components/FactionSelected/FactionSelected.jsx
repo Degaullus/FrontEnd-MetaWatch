@@ -98,11 +98,18 @@ export default function FactionSelected() {
   };
 
   const copyListToClipboard = (list) => {
-    navigator.clipboard.writeText(list);
-    setListCopied(true);
-    setTimeout(() => {
-      setListCopied(false);
-    }, 3000);
+    const textToCopy = `${list}\n ******** All The Old World Winning Lists on https://metahammer.netlify.app ********`;
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        setListCopied(true);
+        setTimeout(() => {
+          setListCopied(false);
+        }, 3000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy!", err);
+      });
   };
 
   const handleSaveToFavs = async (id) => {
