@@ -98,7 +98,7 @@ export default function FactionSelected() {
   };
 
   const copyListToClipboard = (list) => {
-    const textToCopy = `${list}\n ******** All The Old World Winning Lists on https://metahammer.netlify.app ********`;
+    const textToCopy = `${list}\n ******** All The Old World Winning Lists on https://themetahammer.com ********`;
     navigator.clipboard
       .writeText(textToCopy)
       .then(() => {
