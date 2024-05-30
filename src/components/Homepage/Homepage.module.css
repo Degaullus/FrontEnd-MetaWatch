@@ -61,6 +61,11 @@
   padding: 0rem;
 }
 
+.span {
+  font-size: 2rem;
+  -webkit-text-stroke: 1px black;
+}
+
 .header h1 {
   color: white;
   margin: 0rem;
@@ -196,6 +201,11 @@
     color: black;
     margin: 0rem;
     padding: 0rem;
+  }
+
+  .span {
+    font-size: 1.2rem;
+    -webkit-text-stroke: 0.6px black;
   }
 
   .header {

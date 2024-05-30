@@ -42,7 +42,9 @@ export default function Homepage() {
         <div className={styles.header}>
           <div className={styles.titleBox}>
             {" "}
-            <h1 className={styles.bigtitle}>MetaHammer</h1>
+            <h1 className={styles.bigtitle}>
+              <span className={styles.span}>The</span>MetaHammer
+            </h1>
             <h1 className={styles.explore}>Explore the Old World Meta</h1>
           </div>
           <p className={styles.empower}>
