@@ -84,7 +84,8 @@ export default function Homepage() {
                     Format
                   </Link>
                   <br />
-                  Quickly access winning lists tailored to each faction's meta.
+                  All the winning lists sorted by format (2000 points, 1500
+                  points, etc.).
                 </p>
               </div>
             </div>
