@@ -11,6 +11,10 @@
   width: 5rem;
 }
 
+.logosSmall {
+  width: 8rem;
+}
+
 .logoBlock {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -38,6 +42,10 @@
 
   .logos {
     width: 3rem;
+  }
+
+  .logosSmall {
+    width: 4rem;
   }
 
   .title {
