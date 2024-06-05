@@ -59,6 +59,17 @@ export default function Partenary() {
           alt="tourneykeeper"
         />
       </a>
+      <a
+        className={style.logoBlock}
+        href="https://www.youtube.com/channel/UChMaCpbnnBP-Vc8tfCl9opw"
+        target="_blank"
+      >
+        <img
+          className={style.logosSmall}
+          src="/partenaryLogos/logo-black40k-WargamersTv.jpg"
+          alt="wargamerTV"
+        />
+      </a>
     </div>
   );
 }
