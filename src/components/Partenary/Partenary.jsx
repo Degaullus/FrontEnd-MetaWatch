@@ -37,7 +37,7 @@ export default function Partenary() {
           alt="NimpGame"
         />
       </a>
-      <a
+      {/* <a
         className={style.logoBlock}
         href="https://www.youtube.com/@Warhamateur"
         target="_blank"
@@ -47,7 +47,7 @@ export default function Partenary() {
           src="/partenaryLogos/warhammerbyamateurLogo.png"
           alt="warhammerbyAmateur"
         />
-      </a>
+      </a> */}
       <a
         className={style.logoBlock}
         href="https://tourneykeeper.net"
