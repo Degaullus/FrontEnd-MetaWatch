@@ -4,6 +4,7 @@ import { APIContext } from "../../context/APIContext";
 import LoadingSpinner from "../Loading/LoadingSpinner";
 import Partenary from "../Partenary/Partenary";
 import HomePageVideo from "../HomepageVideo/HomePageVideo";
+import Banner from "../Banner/Banner";
 import JoinUs from "../JoinUs/JoinUs";
 import { Link } from "react-router-dom";
 
@@ -123,6 +124,8 @@ export default function Homepage() {
       </div>
       <div className={styles.divider1}></div>
       <Partenary />
+      <div className={styles.divider1}></div>
+      <Banner />
       <div className={styles.divider1}></div>
 
       {isLoading ? (

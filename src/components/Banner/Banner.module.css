@@ -1,0 +1,22 @@
+.banner {
+  background-image: url("/bgyellow.png");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerImg {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 30rem;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 600px) {
+  .bannerImg {
+    width: 20rem;
+  }
+}
