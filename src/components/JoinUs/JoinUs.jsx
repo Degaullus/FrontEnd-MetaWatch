@@ -22,6 +22,9 @@ export default function JoinUs() {
         <a href="https://www.instagram.com/metahammerofficial/">
           <img className={style.icon} src="/instagram.svg" alt="Instagram" />
         </a>
+        <a href="https://www.facebook.com/profile.php?id=61559736658664">
+          <img className={style.icon} src="/facebook.svg" alt="facebook" />
+        </a>
       </div>
     </div>
   );
